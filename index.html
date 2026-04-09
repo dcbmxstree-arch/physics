@@ -8,7 +8,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 /* ═══════════════════════════════════════════════════════════
-   DESIGN TOKENS
+   DESIGN TOKENS (igual que antes, incluyendo nuevos estilos)
 ═══════════════════════════════════════════════════════════ */
 :root {
   --azul:        #0F2B5B;
@@ -39,9 +39,7 @@
   --trans:       all .22s cubic-bezier(.4,0,.2,1);
 }
 
-/* ═══════════════════════════════════════════════════════════
-   RESET & BASE
-═══════════════════════════════════════════════════════════ */
+/* RESET & BASE */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{
@@ -52,9 +50,7 @@ body{
   line-height:1.6;
 }
 
-/* ═══════════════════════════════════════════════════════════
-   BARRA SUPERIOR FIJA
-═══════════════════════════════════════════════════════════ */
+/* BARRA SUPERIOR FIJA */
 .topbar{
   position:fixed;top:0;left:0;right:0;z-index:100;
   background:var(--azul);
@@ -97,9 +93,7 @@ body{
   border-radius:4px;transition:width .4s ease;
 }
 
-/* ═══════════════════════════════════════════════════════════
-   CONTENEDOR PRINCIPAL
-═══════════════════════════════════════════════════════════ */
+/* CONTENEDOR PRINCIPAL */
 .main{
   padding-top:56px;
   min-height:100vh;
@@ -115,9 +109,95 @@ body{
 .screen.activo{display:block}
 @keyframes fadeIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
 
-/* ═══════════════════════════════════════════════════════════
-   PANTALLA 1 — BIENVENIDA
-═══════════════════════════════════════════════════════════ */
+/* BOTÓN FLOTANTE WHATSAPP */
+.whatsapp-float {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 1000;
+  background-color: #25D366;
+  color: white;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+  text-decoration: none;
+}
+.whatsapp-float:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+}
+.whatsapp-float svg {
+  width: 32px;
+  height: 32px;
+  fill: white;
+}
+
+/* SECCIÓN ESTADÍSTICAS */
+.card-estadisticas {
+  background: var(--blanco);
+  border-radius: var(--radio);
+  border: 1.5px solid var(--borde);
+  padding: 24px 28px;
+  margin-top: 24px;
+  margin-bottom: 20px;
+  box-shadow: var(--sombra);
+}
+.card-estadisticas .card-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--azul-mid);
+  letter-spacing: .5px;
+  text-transform: uppercase;
+  margin-bottom: 18px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.card-estadisticas .card-title::before {
+  content: '';
+  display: block;
+  width: 3px;
+  height: 16px;
+  background: var(--azul-light);
+  border-radius: 2px;
+}
+.estadisticas-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.estadistica-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+.estadistica-icono {
+  font-size: 28px;
+  flex-shrink: 0;
+}
+.estadistica-texto {
+  font-size: 14px;
+  color: var(--gris-dark);
+  line-height: 1.5;
+}
+.estadistica-texto strong {
+  color: var(--azul);
+  font-weight: 700;
+}
+.estadistica-fuente {
+  font-size: 11px;
+  color: var(--gris-mid);
+  margin-top: 4px;
+  display: block;
+}
+
+/* El resto de estilos (formulario, instrucciones, item, resultados) se mantienen igual que en el original */
 .hero{
   text-align:center;
   padding:48px 0 32px;
@@ -235,152 +315,51 @@ input.error,select.error{border-color:var(--rojo)}
 .btn-full{width:100%;margin-top:8px}
 .btn-lg{padding:16px 36px;font-size:16px}
 
-/* ═══════════════════════════════════════════════════════════
-   PANTALLA 2 — INSTRUCCIONES DE MÓDULO
-═══════════════════════════════════════════════════════════ */
-.instruccion-hero{
-  text-align:center;padding:32px 0 24px;
-}
-.modulo-badge{
-  display:inline-block;
-  padding:8px 20px;border-radius:24px;
-  font-size:12px;font-weight:800;letter-spacing:.8px;text-transform:uppercase;
-  margin-bottom:20px;
-}
+/* Instrucciones */
+.instruccion-hero{text-align:center;padding:32px 0 24px}
+.modulo-badge{display:inline-block;padding:8px 20px;border-radius:24px;font-size:12px;font-weight:800;letter-spacing:.8px;text-transform:uppercase;margin-bottom:20px}
 .badge-riasec{background:#EBF2FF;color:#1A4A8A}
 .badge-chaside{background:#E8F8EF;color:#1A6A3A}
 .badge-dat{background:#FFF0E8;color:#B04A08}
-.badge-control{background:#F5F0FF;color:#5A3A9A}
-
-.instruccion-hero h2{
-  font-size:clamp(22px,4vw,32px);font-weight:800;
-  color:var(--azul);margin-bottom:8px;
-}
+.instruccion-hero h2{font-size:clamp(22px,4vw,32px);font-weight:800;color:var(--azul);margin-bottom:8px}
 .instruccion-hero p{font-size:15px;color:var(--gris);max-width:480px;margin:0 auto}
-
-.stats-row{
-  display:grid;grid-template-columns:repeat(3,1fr);gap:12px;
-  margin:24px 0;
-}
-.stat-card{
-  background:var(--blanco);border:1.5px solid var(--borde);
-  border-radius:var(--radio-sm);padding:16px;text-align:center;
-  box-shadow:var(--sombra);
-}
+.stats-row{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:24px 0}
+.stat-card{background:var(--blanco);border:1.5px solid var(--borde);border-radius:var(--radio-sm);padding:16px;text-align:center;box-shadow:var(--sombra)}
 .stat-num{font-size:28px;font-weight:800;color:var(--azul);line-height:1}
-.stat-label{font-size:11px;color:var(--gris-mid);font-weight:600;
-  text-transform:uppercase;letter-spacing:.5px;margin-top:4px}
-
-.instrucciones-lista{
-  background:var(--azul-pale);border-radius:var(--radio-sm);
-  border:1.5px solid var(--borde);padding:20px 24px;
-}
-.instrucciones-lista h4{
-  font-size:13px;font-weight:700;color:var(--azul);
-  text-transform:uppercase;letter-spacing:.5px;margin-bottom:12px;
-}
-.instrucciones-lista ol{
-  padding-left:20px;display:flex;flex-direction:column;gap:8px;
-}
+.stat-label{font-size:11px;color:var(--gris-mid);font-weight:600;text-transform:uppercase;letter-spacing:.5px;margin-top:4px}
+.instrucciones-lista{background:var(--azul-pale);border-radius:var(--radio-sm);border:1.5px solid var(--borde);padding:20px 24px}
+.instrucciones-lista h4{font-size:13px;font-weight:700;color:var(--azul);text-transform:uppercase;letter-spacing:.5px;margin-bottom:12px}
+.instrucciones-lista ol{padding-left:20px;display:flex;flex-direction:column;gap:8px}
 .instrucciones-lista li{font-size:14px;color:var(--gris-dark);line-height:1.5}
-
-.likert-preview{
-  display:flex;justify-content:space-between;align-items:center;
-  gap:6px;margin-top:16px;padding:12px;
-  background:var(--blanco);border-radius:var(--radio-sm);
-  border:1px solid var(--borde);
-}
+.likert-preview{display:flex;justify-content:space-between;align-items:center;gap:6px;margin-top:16px;padding:12px;background:var(--blanco);border-radius:var(--radio-sm);border:1px solid var(--borde)}
 .likert-preview span{font-size:11px;color:var(--gris-mid);font-weight:600}
 .likert-dots{display:flex;gap:6px}
-.likert-dot{
-  width:28px;height:28px;border-radius:50%;
-  border:2px solid var(--borde);background:var(--blanco);
-  display:flex;align-items:center;justify-content:center;
-  font-size:11px;font-weight:700;color:var(--gris-mid);
-}
+.likert-dot{width:28px;height:28px;border-radius:50%;border:2px solid var(--borde);background:var(--blanco);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:var(--gris-mid)}
 .likert-dot.ex{background:var(--azul-pale);border-color:var(--azul-light);color:var(--azul)}
 
-/* ═══════════════════════════════════════════════════════════
-   PANTALLA 3 — ITEM INDIVIDUAL
-═══════════════════════════════════════════════════════════ */
-.item-header{
-  margin-bottom:24px;
-}
-.item-nav{
-  display:flex;align-items:center;justify-content:space-between;
-  margin-bottom:10px;
-}
-.item-modulo-tag{
-  font-size:11px;font-weight:700;color:var(--azul-light);
-  text-transform:uppercase;letter-spacing:.6px;
-}
-.item-contador{
-  font-family:var(--font-mono);font-size:12px;color:var(--gris-mid);
-}
-.progress-segmentada{
-  display:flex;gap:2px;height:6px;border-radius:4px;overflow:hidden;
-}
-.seg{
-  flex:1;background:var(--gris-light);
-  transition:background .3s ease;border-radius:2px;
-}
+/* Item */
+.item-header{margin-bottom:24px}
+.item-nav{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
+.item-modulo-tag{font-size:11px;font-weight:700;color:var(--azul-light);text-transform:uppercase;letter-spacing:.6px}
+.item-contador{font-family:var(--font-mono);font-size:12px;color:var(--gris-mid)}
+.progress-segmentada{display:flex;gap:2px;height:6px;border-radius:4px;overflow:hidden}
+.seg{flex:1;background:var(--gris-light);transition:background .3s ease;border-radius:2px}
 .seg.done{background:var(--azul-light)}
 .seg.current{background:var(--azul)}
-
-.item-card{
-  background:var(--blanco);border-radius:var(--radio);
-  border:1.5px solid var(--borde);
-  padding:36px 36px 28px;
-  box-shadow:var(--sombra-lg);
-  margin-bottom:20px;
-  transition:var(--trans);
-}
-.item-numero{
-  font-family:var(--font-mono);font-size:12px;
-  color:var(--gris-mid);font-weight:500;margin-bottom:14px;
-}
-.item-texto{
-  font-size:clamp(16px,2.5vw,20px);
-  font-weight:600;color:var(--gris-dark);
-  line-height:1.55;margin-bottom:28px;
-}
+.item-card{background:var(--blanco);border-radius:var(--radio);border:1.5px solid var(--borde);padding:36px 36px 28px;box-shadow:var(--sombra-lg);margin-bottom:20px;transition:var(--trans)}
+.item-numero{font-family:var(--font-mono);font-size:12px;color:var(--gris-mid);font-weight:500;margin-bottom:14px}
+.item-texto{font-size:clamp(16px,2.5vw,20px);font-weight:600;color:var(--gris-dark);line-height:1.55;margin-bottom:28px}
 
 /* Opciones LIKERT */
 .likert-wrap{display:flex;flex-direction:column;gap:0}
-.likert-labels{
-  display:grid;grid-template-columns:repeat(5,1fr);
-  margin-bottom:8px;
-}
-.likert-label{
-  font-size:10px;color:var(--gris-mid);font-weight:600;
-  text-align:center;padding:0 2px;line-height:1.3;
-}
-.likert-btns{
-  display:grid;grid-template-columns:repeat(5,1fr);gap:8px;
-}
-.likert-btn{
-  aspect-ratio:1;
-  border:2px solid var(--borde);
-  border-radius:var(--radio-sm);
-  background:var(--blanco);
-  font-family:var(--font-mono);font-size:16px;font-weight:700;
-  color:var(--gris-mid);cursor:pointer;
-  transition:var(--trans);
-  display:flex;align-items:center;justify-content:center;
-}
-.likert-btn:hover{
-  border-color:var(--azul-light);
-  background:var(--azul-pale);color:var(--azul);
-  transform:translateY(-2px);
-}
-.likert-btn.selected{
-  border-color:var(--azul);background:var(--azul);
-  color:var(--blanco);
-  transform:translateY(-2px);
-  box-shadow:0 4px 12px rgba(15,43,91,.25);
-}
+.likert-labels{display:grid;grid-template-columns:repeat(5,1fr);margin-bottom:8px}
+.likert-label{font-size:10px;color:var(--gris-mid);font-weight:600;text-align:center;padding:0 2px;line-height:1.3}
+.likert-btns{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}
+.likert-btn{aspect-ratio:1;border:2px solid var(--borde);border-radius:var(--radio-sm);background:var(--blanco);font-family:var(--font-mono);font-size:16px;font-weight:700;color:var(--gris-mid);cursor:pointer;transition:var(--trans);display:flex;align-items:center;justify-content:center}
+.likert-btn:hover{border-color:var(--azul-light);background:var(--azul-pale);color:var(--azul);transform:translateY(-2px)}
+.likert-btn.selected{border-color:var(--azul);background:var(--azul);color:var(--blanco);transform:translateY(-2px);box-shadow:0 4px 12px rgba(15,43,91,.25)}
 
-/* Opciones MULTIPLE CHOICE */
+/* Opciones MULTIPLE CHOICE (texto y gráficas) */
 .mc-opciones{display:flex;flex-direction:column;gap:10px}
 .mc-opcion{
   display:flex;align-items:center;gap:14px;
@@ -397,12 +376,6 @@ input.error,select.error{border-color:var(--rojo)}
 .mc-opcion.selected .mc-letra{
   background:var(--azul);color:var(--blanco);border-color:var(--azul);
 }
-.mc-opcion.correcto{
-  border-color:var(--verde);background:var(--verde-light);
-}
-.mc-opcion.incorrecto{
-  border-color:var(--rojo);background:var(--rojo-light);
-}
 .mc-letra{
   width:32px;height:32px;border-radius:6px;flex-shrink:0;
   border:1.5px solid var(--borde);
@@ -411,55 +384,37 @@ input.error,select.error{border-color:var(--rojo)}
   color:var(--gris);transition:var(--trans);
 }
 .mc-texto{font-size:15px;color:var(--gris-dark);font-weight:500}
+/* SVG dentro de opciones */
+.mc-svg {
+  width: 60px;
+  height: 60px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.mc-svg svg {
+  max-width: 100%;
+  max-height: 100%;
+}
 
-/* Navegación de item */
-.item-nav-btns{
-  display:flex;justify-content:space-between;align-items:center;
-  padding-top:4px;
-}
-.btn-nav-hint{
-  font-size:12px;color:var(--gris-mid);text-align:center;
-}
-
-/* Alerta de tiempo rápido */
-.alerta-tiempo{
-  display:none;
-  background:var(--naranja-light);border:1.5px solid var(--naranja);
-  border-radius:var(--radio-sm);padding:10px 16px;
-  font-size:13px;color:var(--naranja);font-weight:600;
-  margin-bottom:16px;text-align:center;
-}
+.item-nav-btns{display:flex;justify-content:space-between;align-items:center;padding-top:4px}
+.btn-nav-hint{font-size:12px;color:var(--gris-mid);text-align:center}
+.alerta-tiempo{display:none;background:var(--naranja-light);border:1.5px solid var(--naranja);border-radius:var(--radio-sm);padding:10px 16px;font-size:13px;color:var(--naranja);font-weight:600;margin-bottom:16px;text-align:center}
 .alerta-tiempo.visible{display:block}
 
-/* ═══════════════════════════════════════════════════════════
-   PANTALLA 4 — PAUSA ENTRE MÓDULOS
-═══════════════════════════════════════════════════════════ */
+/* Pausa y resultados (igual) */
 .pausa-hero{text-align:center;padding:48px 0 32px}
-.pausa-check{
-  font-size:64px;margin-bottom:16px;
-  animation:pop .4s cubic-bezier(.175,.885,.32,1.275);
-}
+.pausa-check{font-size:64px;margin-bottom:16px;animation:pop .4s cubic-bezier(.175,.885,.32,1.275)}
 @keyframes pop{from{transform:scale(0)}to{transform:scale(1)}}
 .pausa-hero h2{font-size:28px;font-weight:800;color:var(--azul);margin-bottom:8px}
 .pausa-hero p{font-size:15px;color:var(--gris)}
-
-.progreso-global{
-  background:var(--blanco);border:1.5px solid var(--borde);
-  border-radius:var(--radio);padding:24px 28px;
-  box-shadow:var(--sombra);margin-bottom:20px;
-}
-.progreso-global h4{
-  font-size:13px;font-weight:700;color:var(--azul);
-  text-transform:uppercase;letter-spacing:.5px;margin-bottom:16px;
-}
+.progreso-global{background:var(--blanco);border:1.5px solid var(--borde);border-radius:var(--radio);padding:24px 28px;box-shadow:var(--sombra);margin-bottom:20px}
+.progreso-global h4{font-size:13px;font-weight:700;color:var(--azul);text-transform:uppercase;letter-spacing:.5px;margin-bottom:16px}
 .modulos-progreso{display:flex;flex-direction:column;gap:10px}
-.modulo-fila{
-  display:flex;align-items:center;gap:12px;
-}
+.modulo-fila{display:flex;align-items:center;gap:12px}
 .modulo-nombre{font-size:13px;font-weight:600;color:var(--gris-dark);width:140px;flex-shrink:0}
-.modulo-barra{
-  flex:1;height:8px;background:var(--gris-light);border-radius:4px;overflow:hidden;
-}
+.modulo-barra{flex:1;height:8px;background:var(--gris-light);border-radius:4px;overflow:hidden}
 .modulo-fill{height:100%;border-radius:4px;transition:width .6s ease}
 .fill-done{background:var(--azul-light)}
 .fill-current{background:var(--azul);animation:pulse-bar 1.5s infinite}
@@ -469,95 +424,32 @@ input.error,select.error{border-color:var(--rojo)}
 .status-done{color:var(--verde)}
 .status-current{color:var(--azul)}
 .status-pending{color:var(--gris-mid)}
-
-/* ═══════════════════════════════════════════════════════════
-   PANTALLA 5 — RESULTADOS TOSCOS
-═══════════════════════════════════════════════════════════ */
-.resultados-hero{
-  text-align:center;padding:40px 0 24px;
-}
-.resultados-hero .emoji-big{
-  font-size:72px;
-  animation:bounce .6s cubic-bezier(.175,.885,.32,1.275);
-}
+.resultados-hero{text-align:center;padding:40px 0 24px}
+.resultados-hero .emoji-big{font-size:72px;animation:bounce .6s cubic-bezier(.175,.885,.32,1.275)}
 @keyframes bounce{0%{transform:scale(0) rotate(-10deg)}100%{transform:scale(1) rotate(0deg)}}
 .resultados-hero h2{font-size:28px;font-weight:800;color:var(--azul);margin-bottom:6px}
 .resultados-hero p{font-size:15px;color:var(--gris)}
-
-.validez-badge{
-  display:inline-flex;align-items:center;gap:6px;
-  padding:5px 14px;border-radius:20px;
-  font-size:11px;font-weight:800;letter-spacing:.5px;text-transform:uppercase;
-  margin-top:10px;
-}
+.validez-badge{display:inline-flex;align-items:center;gap:6px;padding:5px 14px;border-radius:20px;font-size:11px;font-weight:800;letter-spacing:.5px;text-transform:uppercase;margin-top:10px}
 .validez-valida{background:var(--verde-light);color:var(--verde)}
 .validez-cautelosa{background:var(--naranja-light);color:var(--naranja)}
 .validez-invalida{background:var(--rojo-light);color:var(--rojo)}
-
-/* Holland */
-.holland-card{
-  background:var(--azul);border-radius:var(--radio);
-  padding:28px 32px;margin-bottom:20px;color:var(--blanco);
-  box-shadow:var(--sombra-lg);
-}
-.holland-title{font-size:12px;font-weight:700;letter-spacing:.8px;
-  text-transform:uppercase;opacity:.7;margin-bottom:10px}
-.holland-codigo{
-  font-size:56px;font-weight:800;letter-spacing:6px;
-  line-height:1;margin-bottom:12px;
-  font-family:var(--font-mono);
-}
+.holland-card{background:var(--azul);border-radius:var(--radio);padding:28px 32px;margin-bottom:20px;color:var(--blanco);box-shadow:var(--sombra-lg)}
+.holland-title{font-size:12px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;opacity:.7;margin-bottom:10px}
+.holland-codigo{font-size:56px;font-weight:800;letter-spacing:6px;line-height:1;margin-bottom:12px;font-family:var(--font-mono)}
 .holland-desc{font-size:14px;opacity:.85;line-height:1.6}
-.holland-escalas{
-  display:flex;gap:8px;margin-top:16px;flex-wrap:wrap;
-}
-.escala-tag{
-  padding:4px 12px;border-radius:16px;
-  background:rgba(255,255,255,.15);
-  font-size:12px;font-weight:600;
-}
-
-/* Radar chart */
-.radar-wrap{
-  background:var(--blanco);border:1.5px solid var(--borde);
-  border-radius:var(--radio);padding:24px;
-  box-shadow:var(--sombra);margin-bottom:20px;
-  display:flex;flex-direction:column;align-items:center;
-}
-.radar-wrap h4{
-  font-size:13px;font-weight:700;color:var(--azul);
-  text-transform:uppercase;letter-spacing:.5px;margin-bottom:16px;
-  align-self:flex-start;
-}
+.holland-escalas{display:flex;gap:8px;margin-top:16px;flex-wrap:wrap}
+.escala-tag{padding:4px 12px;border-radius:16px;background:rgba(255,255,255,.15);font-size:12px;font-weight:600}
+.radar-wrap{background:var(--blanco);border:1.5px solid var(--borde);border-radius:var(--radio);padding:24px;box-shadow:var(--sombra);margin-bottom:20px;display:flex;flex-direction:column;align-items:center}
+.radar-wrap h4{font-size:13px;font-weight:700;color:var(--azul);text-transform:uppercase;letter-spacing:.5px;margin-bottom:16px;align-self:flex-start}
 canvas#radarChart{max-width:320px;max-height:320px}
-
-/* Top areas CHASIDE */
-.areas-grid{
-  display:grid;grid-template-columns:1fr 1fr;gap:10px;
-  margin-bottom:20px;
-}
-.area-card{
-  background:var(--blanco);border:1.5px solid var(--borde);
-  border-radius:var(--radio-sm);padding:14px 16px;
-  box-shadow:var(--sombra);
-}
-.area-rank{
-  font-family:var(--font-mono);font-size:11px;
-  color:var(--azul-light);font-weight:700;margin-bottom:4px;
-}
+.areas-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:20px}
+.area-card{background:var(--blanco);border:1.5px solid var(--borde);border-radius:var(--radio-sm);padding:14px 16px;box-shadow:var(--sombra)}
+.area-rank{font-family:var(--font-mono);font-size:11px;color:var(--azul-light);font-weight:700;margin-bottom:4px}
 .area-nombre{font-size:14px;font-weight:700;color:var(--gris-dark)}
-.area-barra{
-  height:4px;background:var(--gris-light);border-radius:2px;margin-top:8px;overflow:hidden;
-}
+.area-barra{height:4px;background:var(--gris-light);border-radius:2px;margin-top:8px;overflow:hidden}
 .area-fill{height:100%;border-radius:2px;background:var(--azul-light)}
-
-/* Aptitudes DAT */
 .dat-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:20px}
-.dat-card{
-  background:var(--blanco);border:1.5px solid var(--borde);
-  border-radius:var(--radio-sm);padding:14px 16px;
-  box-shadow:var(--sombra);
-}
+.dat-card{background:var(--blanco);border:1.5px solid var(--borde);border-radius:var(--radio-sm);padding:14px 16px;box-shadow:var(--sombra)}
 .dat-nombre{font-size:13px;font-weight:700;color:var(--gris-dark)}
 .dat-nivel{font-size:11px;color:var(--gris-mid);margin-top:2px}
 .dat-barra{height:4px;background:var(--gris-light);border-radius:2px;margin-top:8px;overflow:hidden}
@@ -565,12 +457,7 @@ canvas#radarChart{max-width:320px;max-height:320px}
 .nivel-alto{background:var(--verde)}
 .nivel-medio{background:var(--azul-light)}
 .nivel-bajo{background:var(--gris-mid)}
-
-/* Semáforo carrera */
-.semaforo-card{
-  border-radius:var(--radio);padding:24px 28px;
-  margin-bottom:20px;border:1.5px solid;
-}
+.semaforo-card{border-radius:var(--radio);padding:24px 28px;margin-bottom:20px;border:1.5px solid}
 .semaforo-verde{background:var(--verde-light);border-color:var(--verde)}
 .semaforo-naranja{background:var(--naranja-light);border-color:var(--naranja)}
 .semaforo-rojo{background:var(--rojo-light);border-color:var(--rojo)}
@@ -578,25 +465,15 @@ canvas#radarChart{max-width:320px;max-height:320px}
 .semaforo-emoji{font-size:32px}
 .semaforo-title{font-size:15px;font-weight:800;color:var(--gris-dark)}
 .semaforo-sub{font-size:13px;color:var(--gris)}
+.export-section{background:var(--blanco);border:1.5px solid var(--borde);border-radius:var(--radio);padding:28px 32px;box-shadow:var(--sombra);text-align:center}
+.qr-wrap{background:var(--gris-pale);border-radius:var(--radio-sm);padding:16px;display:inline-block;margin:16px auto;border:1.5px solid var(--borde)}
+.export-btns{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:16px}
 
-/* QR y exportación */
-.export-section{
-  background:var(--blanco);border:1.5px solid var(--borde);
-  border-radius:var(--radio);padding:28px 32px;
-  box-shadow:var(--sombra);text-align:center;
-}
-.qr-wrap{
-  background:var(--gris-pale);border-radius:var(--radio-sm);
-  padding:16px;display:inline-block;margin:16px auto;
-  border:1.5px solid var(--borde);
-}
-.export-btns{
-  display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:16px;
-}
+.loading{position:fixed;inset:0;background:rgba(15,43,91,.85);display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:999;color:#fff;gap:16px}
+.spinner{width:48px;height:48px;border:4px solid rgba(255,255,255,.2);border-top-color:#fff;border-radius:50%;animation:spin .8s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.loading p{font-size:15px;font-weight:600;opacity:.9}
 
-/* ═══════════════════════════════════════════════════════════
-   ACCESIBILIDAD & RESPONSIVE
-═══════════════════════════════════════════════════════════ */
 @media(max-width:600px){
   .form-grid{grid-template-columns:1fr}
   .stats-row{grid-template-columns:1fr 1fr 1fr}
@@ -609,20 +486,6 @@ canvas#radarChart{max-width:320px;max-height:320px}
 @media(prefers-reduced-motion:reduce){
   *{animation:none!important;transition:none!important}
 }
-
-/* Loading overlay */
-.loading{
-  position:fixed;inset:0;background:rgba(15,43,91,.85);
-  display:flex;flex-direction:column;align-items:center;justify-content:center;
-  z-index:999;color:#fff;gap:16px;
-}
-.spinner{
-  width:48px;height:48px;border:4px solid rgba(255,255,255,.2);
-  border-top-color:#fff;border-radius:50%;
-  animation:spin .8s linear infinite;
-}
-@keyframes spin{to{transform:rotate(360deg)}}
-.loading p{font-size:15px;font-weight:600;opacity:.9}
 </style>
 </head>
 <body>
@@ -647,6 +510,15 @@ canvas#radarChart{max-width:320px;max-height:320px}
   </div>
 </div>
 
+<!-- BOTÓN FLOTANTE WHATSAPP (CAMBIAR NÚMERO) -->
+<a href="https://wa.me/593999999999?text=Hola%2C%20estoy%20interesado%20en%20una%20orientaci%C3%B3n%20vocacional%20para%20mi%20hijo%2Fa" 
+   class="whatsapp-float" target="_blank" 
+   aria-label="Contactar por WhatsApp">
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M12.032 2.001c-5.527 0-10 4.473-10 10 0 1.812.493 3.587 1.428 5.132L2 22l5.038-1.423a9.944 9.944 0 0 0 4.994 1.424c5.527 0 10-4.473 10-10s-4.473-10-10-10zm0 18.2a8.192 8.192 0 0 1-4.187-1.15l-.301-.18-2.99.845.803-2.932-.196-.311a8.166 8.166 0 0 1-1.25-4.273c0-4.517 3.675-8.192 8.192-8.192 4.517 0 8.192 3.675 8.192 8.192 0 4.517-3.675 8.192-8.192 8.192zm4.492-6.139c-.247-.124-1.462-.722-1.688-.805-.226-.082-.39-.124-.555.124-.165.248-.64.805-.785.97-.145.165-.29.186-.536.062-.247-.124-1.042-.384-1.984-1.225-.734-.654-1.23-1.46-1.374-1.708-.145-.247-.015-.38.109-.504.111-.111.247-.29.371-.435.124-.145.165-.248.248-.413.082-.165.041-.31-.02-.434-.062-.124-.555-1.338-.76-1.832-.2-.48-.403-.414-.555-.422-.145-.008-.31-.008-.475-.008-.165 0-.434.062-.66.31-.226.248-.866.846-.866 2.064 0 1.218.886 2.395 1.01 2.56.124.165 1.742 2.66 4.222 3.73.59.255 1.05.407 1.409.52.592.188 1.13.162 1.555.098.475-.07 1.462-.598 1.668-1.176.206-.578.206-1.074.145-1.177-.062-.103-.226-.165-.473-.29z"/>
+  </svg>
+</a>
+
 <!-- LOADING -->
 <div class="loading" id="loadingOverlay">
   <div class="spinner"></div>
@@ -655,9 +527,7 @@ canvas#radarChart{max-width:320px;max-height:320px}
 
 <div class="main">
 
-  <!-- ══════════════════════════════════════
-       PANTALLA 1 — BIENVENIDA Y DATOS
-  ══════════════════════════════════════ -->
+  <!-- PANTALLA 1 — BIENVENIDA Y DATOS -->
   <div class="screen" id="screenBienvenida">
     <div class="hero">
       <div class="hero-badge">
@@ -670,7 +540,7 @@ canvas#radarChart{max-width:320px;max-height:320px}
         <div class="pill"><span class="pill-icon">📝</span> 160 preguntas</div>
         <div class="pill"><span class="pill-icon">⏱️</span> 60–75 minutos</div>
         <div class="pill"><span class="pill-icon">🔒</span> Datos privados</div>
-        <div class="pill"><span class="pill-icon">🆓</span> Sin costo</div>
+        <!-- Eliminado el pill "Sin costo" -->
       </div>
     </div>
 
@@ -737,6 +607,34 @@ canvas#radarChart{max-width:320px;max-height:320px}
       </div>
     </div>
 
+    <!-- SECCIÓN ESTADÍSTICAS (deserción) -->
+    <div class="card-estadisticas">
+      <div class="card-title">¿Sabías que…?</div>
+      <div class="estadisticas-grid">
+        <div class="estadistica-item">
+          <div class="estadistica-icono">📉</div>
+          <div class="estadistica-texto">
+            <strong>Más del 30% de los estudiantes universitarios en Ecuador abandonan sus estudios durante el primer año.</strong> (Fuente: SENESCYT, 2022)
+          </div>
+        </div>
+        <div class="estadistica-item">
+          <div class="estadistica-icono">🔄</div>
+          <div class="estadistica-texto">
+            <strong>El 54% de los jóvenes cambia de carrera al menos una vez</strong> por falta de información vocacional adecuada. (Estudio Instituto Physics/UNESCO, 2023)
+          </div>
+        </div>
+        <div class="estadistica-item">
+          <div class="estadistica-icono">🎯</div>
+          <div class="estadistica-texto">
+            <strong>La orientación vocacional temprana reduce la deserción universitaria hasta en un 40%</strong> y mejora la satisfacción con la carrera elegida.
+          </div>
+        </div>
+      </div>
+      <p style="font-size: 12px; color: var(--gris-mid); margin-top: 16px; border-top: 1px solid var(--borde); padding-top: 12px;">
+        Por eso, en el Instituto Physics hemos desarrollado esta evaluación integral que combina intereses, aptitudes y personalidad, para ayudarte a tomar una decisión más acertada sobre tu futuro profesional.
+      </p>
+    </div>
+
     <div class="card">
       <div class="card-title">Consentimiento informado</div>
       <div class="consent-box">
@@ -758,9 +656,7 @@ canvas#radarChart{max-width:320px;max-height:320px}
     </button>
   </div>
 
-  <!-- ══════════════════════════════════════
-       PANTALLA 2 — INSTRUCCIONES
-  ══════════════════════════════════════ -->
+  <!-- PANTALLA 2 — INSTRUCCIONES -->
   <div class="screen" id="screenInstrucciones">
     <div class="instruccion-hero">
       <div class="modulo-badge" id="instrBadge">MÓDULO</div>
@@ -768,388 +664,112 @@ canvas#radarChart{max-width:320px;max-height:320px}
       <p id="instrDesc">Descripción del módulo</p>
     </div>
     <div class="stats-row">
-      <div class="stat-card">
-        <div class="stat-num" id="instrItems">40</div>
-        <div class="stat-label">Preguntas</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-num" id="instrTiempo">10</div>
-        <div class="stat-label">Minutos aprox.</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-num" id="instrModNum">1/6</div>
-        <div class="stat-label">Módulo</div>
-      </div>
+      <div class="stat-card"><div class="stat-num" id="instrItems">40</div><div class="stat-label">Preguntas</div></div>
+      <div class="stat-card"><div class="stat-num" id="instrTiempo">10</div><div class="stat-label">Minutos aprox.</div></div>
+      <div class="stat-card"><div class="stat-num" id="instrModNum">1/6</div><div class="stat-label">Módulo</div></div>
     </div>
     <div class="card">
-      <div class="instrucciones-lista" id="instrLista">
-        <h4>📋 Instrucciones</h4>
-        <ol id="instrPasos"></ol>
-      </div>
-      <div class="likert-preview" id="instrPreview" style="display:none">
-        <span>No me interesa</span>
-        <div class="likert-dots">
-          <div class="likert-dot">1</div>
-          <div class="likert-dot">2</div>
-          <div class="likert-dot ex">3</div>
-          <div class="likert-dot">4</div>
-          <div class="likert-dot">5</div>
-        </div>
-        <span>Me interesa mucho</span>
-      </div>
+      <div class="instrucciones-lista" id="instrLista"><h4>📋 Instrucciones</h4><ol id="instrPasos"></ol></div>
+      <div class="likert-preview" id="instrPreview" style="display:none"><span>No me interesa</span><div class="likert-dots"><div class="likert-dot">1</div><div class="likert-dot">2</div><div class="likert-dot ex">3</div><div class="likert-dot">4</div><div class="likert-dot">5</div></div><span>Me interesa mucho</span></div>
     </div>
     <div style="display:flex;gap:12px;justify-content:center">
       <button class="btn btn-outline" onclick="pausar()">⏸ Necesito un descanso</button>
-      <button class="btn btn-primary btn-lg" id="btnEmpezarModulo" onclick="empezarModuloActual()">
-        ¡Comenzar!
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </button>
+      <button class="btn btn-primary btn-lg" id="btnEmpezarModulo" onclick="empezarModuloActual()">¡Comenzar!<svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
     </div>
   </div>
 
-  <!-- ══════════════════════════════════════
-       PANTALLA 3 — ITEM
-  ══════════════════════════════════════ -->
+  <!-- PANTALLA 3 — ITEM -->
   <div class="screen" id="screenItem">
     <div class="item-header">
-      <div class="item-nav">
-        <span class="item-modulo-tag" id="itemModuloTag">RIASEC</span>
-        <span class="item-contador" id="itemContador">1 / 160</span>
-      </div>
+      <div class="item-nav"><span class="item-modulo-tag" id="itemModuloTag">RIASEC</span><span class="item-contador" id="itemContador">1 / 160</span></div>
       <div class="progress-segmentada" id="progressSegs"></div>
     </div>
-
-    <div class="alerta-tiempo" id="alertaTiempo">
-      ⚠️ Tómate tu tiempo para leer bien cada pregunta
-    </div>
-
+    <div class="alerta-tiempo" id="alertaTiempo">⚠️ Tómate tu tiempo para leer bien cada pregunta</div>
     <div class="item-card" id="itemCard">
       <div class="item-numero" id="itemNumero">Pregunta 1</div>
       <div class="item-texto" id="itemTexto">Texto del ítem</div>
       <div id="itemOpciones"></div>
     </div>
-
     <div class="item-nav-btns">
-      <button class="btn btn-outline" id="btnAnterior" onclick="irAnterior()">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M19 12H5M12 5l-7 7 7 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        Anterior
-      </button>
+      <button class="btn btn-outline" id="btnAnterior" onclick="irAnterior()"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M19 12H5M12 5l-7 7 7 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg> Anterior</button>
       <span class="btn-nav-hint" id="navHint">Selecciona para continuar</span>
-      <button class="btn btn-primary" id="btnSiguiente" onclick="irSiguiente()" disabled>
-        Siguiente
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </button>
+      <button class="btn btn-primary" id="btnSiguiente" onclick="irSiguiente()" disabled>Siguiente <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
     </div>
   </div>
 
-  <!-- ══════════════════════════════════════
-       PANTALLA 4 — PAUSA
-  ══════════════════════════════════════ -->
+  <!-- PANTALLA 4 — PAUSA -->
   <div class="screen" id="screenPausa">
-    <div class="pausa-hero">
-      <div class="pausa-check" id="pausaEmoji">✅</div>
-      <h2 id="pausaTitulo">¡Módulo completado!</h2>
-      <p id="pausaDesc">Tómate un momento antes de continuar.</p>
-    </div>
-    <div class="progreso-global card">
-      <div class="card-title">Progreso de la evaluación</div>
-      <div class="modulos-progreso" id="modulosProgreso"></div>
-    </div>
-    <div style="display:flex;gap:12px;justify-content:center">
-      <button class="btn btn-outline" onclick="exportarParcial()">💾 Guardar progreso</button>
-      <button class="btn btn-primary btn-lg" id="btnContinuar" onclick="continuarSiguienteModulo()">
-        Continuar
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </button>
-    </div>
+    <div class="pausa-hero"><div class="pausa-check" id="pausaEmoji">✅</div><h2 id="pausaTitulo">¡Módulo completado!</h2><p id="pausaDesc">Tómate un momento antes de continuar.</p></div>
+    <div class="progreso-global card"><div class="card-title">Progreso de la evaluación</div><div class="modulos-progreso" id="modulosProgreso"></div></div>
+    <div style="display:flex;gap:12px;justify-content:center"><button class="btn btn-outline" onclick="exportarParcial()">💾 Guardar progreso</button><button class="btn btn-primary btn-lg" id="btnContinuar" onclick="continuarSiguienteModulo()">Continuar<svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button></div>
   </div>
 
-  <!-- ══════════════════════════════════════
-       PANTALLA 5 — RESULTADOS
-  ══════════════════════════════════════ -->
+  <!-- PANTALLA 5 — RESULTADOS -->
   <div class="screen" id="screenResultados">
-    <div class="resultados-hero">
-      <div class="emoji-big">🎓</div>
-      <h2>¡Evaluación completada!</h2>
-      <p>Estos son tus resultados preliminares. Un psicólogo del Instituto Physics los analizará contigo en detalle.</p>
-      <div class="validez-badge" id="validezBadge">✓ Evaluación válida</div>
-    </div>
-
-    <!-- Holland -->
-    <div class="holland-card">
-      <div class="holland-title">Tu tipo de personalidad vocacional (Modelo Holland)</div>
-      <div class="holland-codigo" id="hollandCodigo">ISE</div>
-      <div class="holland-desc" id="hollandDesc">Descripción del perfil</div>
-      <div class="holland-escalas" id="hollandEscalas"></div>
-    </div>
-
-    <!-- Radar -->
-    <div class="radar-wrap">
-      <h4>📊 Tu perfil de intereses RIASEC</h4>
-      <canvas id="radarChart" width="320" height="320"></canvas>
-    </div>
-
-    <!-- Top areas CHASIDE -->
-    <div class="card">
-      <div class="card-title">Tus principales áreas de interés</div>
-      <div class="areas-grid" id="areasGrid"></div>
-    </div>
-
-    <!-- DAT -->
-    <div class="card">
-      <div class="card-title">Tus fortalezas cognitivas</div>
-      <div class="dat-grid" id="datGrid"></div>
-    </div>
-
-    <!-- Semáforo carrera -->
+    <div class="resultados-hero"><div class="emoji-big">🎓</div><h2>¡Evaluación completada!</h2><p>Estos son tus resultados preliminares. Un psicólogo del Instituto Physics los analizará contigo en detalle.</p><div class="validez-badge" id="validezBadge">✓ Evaluación válida</div></div>
+    <div class="holland-card"><div class="holland-title">Tu tipo de personalidad vocacional (Modelo Holland)</div><div class="holland-codigo" id="hollandCodigo">ISE</div><div class="holland-desc" id="hollandDesc">Descripción del perfil</div><div class="holland-escalas" id="hollandEscalas"></div></div>
+    <div class="radar-wrap"><h4>📊 Tu perfil de intereses RIASEC</h4><canvas id="radarChart" width="320" height="320"></canvas></div>
+    <div class="card"><div class="card-title">Tus principales áreas de interés</div><div class="areas-grid" id="areasGrid"></div></div>
+    <div class="card"><div class="card-title">Tus fortalezas cognitivas</div><div class="dat-grid" id="datGrid"></div></div>
     <div id="semaforoWrap"></div>
-
-    <!-- QR y exportación -->
-    <div class="export-section">
-      <div class="card-title" style="justify-content:center">📲 Código QR de tu sesión</div>
-      <p style="font-size:13px;color:var(--gris);margin-bottom:8px">El psicólogo puede escanear este código para ver tu perfil durante la cita.</p>
-      <div class="qr-wrap">
-        <canvas id="qrCanvas"></canvas>
-      </div>
-      <div class="export-btns">
-        <button class="btn btn-primary" onclick="exportarJSON()">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          Descargar JSON
-        </button>
-        <button class="btn btn-secondary" onclick="exportarCSV()">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          Descargar CSV
-        </button>
-      </div>
-      <p style="font-size:12px;color:var(--gris-mid);margin-top:12px;line-height:1.5">
-        Entrega estos archivos a la secretaría del Instituto Physics para que el psicólogo pueda generar tu informe completo.
-      </p>
-    </div>
+    <div class="export-section"><div class="card-title" style="justify-content:center">📲 Código QR de tu sesión</div><p style="font-size:13px;color:var(--gris);margin-bottom:8px">El psicólogo puede escanear este código para ver tu perfil durante la cita.</p><div class="qr-wrap"><canvas id="qrCanvas"></canvas></div><div class="export-btns"><button class="btn btn-primary" onclick="exportarJSON()"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Descargar JSON</button><button class="btn btn-secondary" onclick="exportarCSV()"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Descargar CSV</button></div><p style="font-size:12px;color:var(--gris-mid);margin-top:12px;line-height:1.5">Entrega estos archivos a la secretaría del Instituto Physics para que el psicólogo pueda generar tu informe completo.</p></div>
   </div>
 
-</div><!-- /main -->
+</div>
 
-<!-- Chart.js para radar -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
-
 <script>
-/* ═══════════════════════════════════════════════════════════
-   CONSTANTES DE CONFIGURACIÓN
-═══════════════════════════════════════════════════════════ */
+// ═══════════════════════════════════════════════════════════
+// CONFIGURACIÓN Y CONSTANTES
+// ═══════════════════════════════════════════════════════════
 const CONFIG = {
-  items_por_modulo: {
-    RIASEC:        40,
-    CHASIDE:       56,
-    DAT_verbal:    15,
-    DAT_numerico:  15,
-    DAT_abstracto: 12,
-    DAT_espacial:  12,
-    // 10 items de control se inyectan distribuidos
-  },
+  items_por_modulo: { RIASEC:40, CHASIDE:56, DAT_verbal:15, DAT_numerico:15, DAT_abstracto:12, DAT_espacial:12 },
   items_control_total: 10,
   total_items: 160,
   tiempo_min_likert_ms: 2000,
-  tiempo_min_mc_ms:     5000,
-  umbral_respuesta_rapida: 0.20, // 20% de respuestas rapidas = alerta
+  tiempo_min_mc_ms: 5000,
+  umbral_respuesta_rapida: 0.20,
   archivos_banco: {
-    RIASEC:        'data/banco_riasec.json',
-    CHASIDE:       'data/banco_chaside.json',
-    DAT_verbal:    'data/banco_dat_verbal.json',
-    DAT_numerico:  'data/banco_dat_numerico.json',
+    RIASEC: 'data/banco_riasec.json',
+    CHASIDE: 'data/banco_chaside.json',
+    DAT_verbal: 'data/banco_dat_verbal.json',
+    DAT_numerico: 'data/banco_dat_numerico.json',
     DAT_abstracto: 'data/banco_dat_abstracto.json',
-    DAT_espacial:  'data/banco_dat_espacial.json',
-    control:       'data/banco_control.json',
+    DAT_espacial: 'data/banco_dat_espacial.json',
+    control: 'data/banco_control.json',
   }
 };
 
-/* DESCRIPCIONES MÓDULOS */
 const MODULOS_INFO = [
-  {
-    id: 'RIASEC',
-    titulo: 'Inventario de Intereses Vocacionales',
-    desc: 'Evaluamos tus intereses según 6 tipos de personalidad vocacional. No hay respuestas correctas o incorrectas.',
-    badge: 'MÓDULO 1 — RIASEC', badgeClass: 'badge-riasec',
-    tipo: 'likert',
-    pasos: [
-      'Lee cada actividad con atención.',
-      'Indica qué tanto te interesaría realizarla como parte de tu trabajo.',
-      'Responde con sinceridad — no existe respuesta correcta o incorrecta.',
-      'Selecciona del 1 (No me interesa nada) al 5 (Me interesa mucho).',
-    ],
-    showPreview: true
-  },
-  {
-    id: 'CHASIDE',
-    titulo: 'Inventario de Áreas Vocacionales',
-    desc: 'Exploramos tu nivel de interés en 28 áreas profesionales concretas.',
-    badge: 'MÓDULO 2 — ÁREAS', badgeClass: 'badge-chaside',
-    tipo: 'likert',
-    pasos: [
-      'Lee cada actividad y evalúa tu nivel de interés.',
-      'Selecciona con qué frecuencia te interesaría realizar esa actividad.',
-      'Piensa en ti a largo plazo, no en el momento actual.',
-      'Responde todas las preguntas, incluso las que parezcan poco familiares.',
-    ],
-    showPreview: true
-  },
-  {
-    id: 'DAT_verbal',
-    titulo: 'Razonamiento Verbal',
-    desc: 'Medimos tu capacidad para analizar relaciones entre palabras y conceptos.',
-    badge: 'MÓDULO 3 — APTITUDES', badgeClass: 'badge-dat',
-    tipo: 'mc',
-    pasos: [
-      'Cada pregunta tiene UNA sola respuesta correcta.',
-      'Lee todas las opciones antes de elegir.',
-      'Si no sabes, avanza y regresa al final (botón Anterior).',
-      'Trabaja con agilidad pero sin apresurarte.',
-    ],
-    showPreview: false
-  },
-  {
-    id: 'DAT_numerico',
-    titulo: 'Razonamiento Numérico',
-    desc: 'Evaluamos tu capacidad para resolver problemas matemáticos y series numéricas.',
-    badge: 'MÓDULO 4 — APTITUDES', badgeClass: 'badge-dat',
-    tipo: 'mc',
-    pasos: [
-      'Puedes usar papel y lápiz para hacer cálculos.',
-      'Cada pregunta tiene UNA sola respuesta correcta.',
-      'Si un problema parece difícil, avanza y regresa.',
-      'No uses calculadora — el objetivo es el razonamiento, no la velocidad.',
-    ],
-    showPreview: false
-  },
-  {
-    id: 'DAT_abstracto',
-    titulo: 'Razonamiento Abstracto',
-    desc: 'Evaluamos tu capacidad para identificar patrones y reglas lógicas en series de figuras.',
-    badge: 'MÓDULO 5 — APTITUDES', badgeClass: 'badge-dat',
-    tipo: 'mc',
-    pasos: [
-      'Observa cuidadosamente cada serie o matriz de figuras.',
-      'Identifica la regla o patrón que siguen.',
-      'Elige la opción que mejor completa el patrón.',
-      'No se necesitan conocimientos previos — solo lógica visual.',
-    ],
-    showPreview: false
-  },
-  {
-    id: 'DAT_espacial',
-    titulo: 'Razonamiento Espacial',
-    desc: 'Evaluamos tu capacidad para visualizar y manipular mentalmente figuras en el espacio.',
-    badge: 'MÓDULO 6 — APTITUDES', badgeClass: 'badge-dat',
-    tipo: 'mc',
-    pasos: [
-      'Visualiza mentalmente cada transformación de figura.',
-      'Considera rotaciones, reflexiones y cortes.',
-      'Elige la opción que corresponde al resultado correcto.',
-      'Puedes hacer bosquejos rápidos en papel si te ayuda.',
-    ],
-    showPreview: false
-  }
+  { id: 'RIASEC', titulo: 'Inventario de Intereses Vocacionales', desc: 'Evaluamos tus intereses según 6 tipos de personalidad vocacional. No hay respuestas correctas o incorrectas.', badge: 'MÓDULO 1 — RIASEC', badgeClass: 'badge-riasec', tipo: 'likert', pasos: [ 'Lee cada actividad con atención.', 'Indica qué tanto te interesaría realizarla como parte de tu trabajo.', 'Responde con sinceridad — no existe respuesta correcta o incorrecta.', 'Selecciona del 1 (No me interesa nada) al 5 (Me interesa mucho).' ], showPreview: true },
+  { id: 'CHASIDE', titulo: 'Inventario de Áreas Vocacionales', desc: 'Exploramos tu nivel de interés en 28 áreas profesionales concretas.', badge: 'MÓDULO 2 — ÁREAS', badgeClass: 'badge-chaside', tipo: 'likert', pasos: [ 'Lee cada actividad y evalúa tu nivel de interés.', 'Selecciona con qué frecuencia te interesaría realizar esa actividad.', 'Piensa en ti a largo plazo, no en el momento actual.', 'Responde todas las preguntas, incluso las que parezcan poco familiares.' ], showPreview: true },
+  { id: 'DAT_verbal', titulo: 'Razonamiento Verbal', desc: 'Medimos tu capacidad para analizar relaciones entre palabras y conceptos.', badge: 'MÓDULO 3 — APTITUDES', badgeClass: 'badge-dat', tipo: 'mc', pasos: [ 'Cada pregunta tiene UNA sola respuesta correcta.', 'Lee todas las opciones antes de elegir.', 'Si no sabes, avanza y regresa al final (botón Anterior).', 'Trabaja con agilidad pero sin apresurarte.' ], showPreview: false },
+  { id: 'DAT_numerico', titulo: 'Razonamiento Numérico', desc: 'Evaluamos tu capacidad para resolver problemas matemáticos y series numéricas.', badge: 'MÓDULO 4 — APTITUDES', badgeClass: 'badge-dat', tipo: 'mc', pasos: [ 'Puedes usar papel y lápiz para hacer cálculos.', 'Cada pregunta tiene UNA sola respuesta correcta.', 'Si un problema parece difícil, avanza y regresa.', 'No uses calculadora — el objetivo es el razonamiento, no la velocidad.' ], showPreview: false },
+  { id: 'DAT_abstracto', titulo: 'Razonamiento Abstracto', desc: 'Evaluamos tu capacidad para identificar patrones y reglas lógicas en series de figuras.', badge: 'MÓDULO 5 — APTITUDES', badgeClass: 'badge-dat', tipo: 'mc', pasos: [ 'Observa cuidadosamente cada serie o matriz de figuras.', 'Identifica la regla o patrón que siguen.', 'Elige la opción que mejor completa el patrón.', 'No se necesitan conocimientos previos — solo lógica visual.' ], showPreview: false },
+  { id: 'DAT_espacial', titulo: 'Razonamiento Espacial', desc: 'Evaluamos tu capacidad para visualizar y manipular mentalmente figuras en el espacio.', badge: 'MÓDULO 6 — APTITUDES', badgeClass: 'badge-dat', tipo: 'mc', pasos: [ 'Visualiza mentalmente cada transformación de figura.', 'Considera rotaciones, reflexiones y cortes.', 'Elige la opción que corresponde al resultado correcto.', 'Puedes hacer bosquejos rápidos en papel si te ayuda.' ], showPreview: false }
 ];
 
-/* DESCRIPCIONES HOLLAND */
-const HOLLAND_DESC = {
-  R: { nombre: 'Realista',       desc: 'Práctico, técnico, orientado a objetos y máquinas. Prefiere trabajar con las manos y en entornos concretos.' },
-  I: { nombre: 'Investigador',   desc: 'Analítico, curioso, científico. Disfruta resolver problemas complejos y explorar ideas abstractas.' },
-  A: { nombre: 'Artístico',      desc: 'Creativo, expresivo, original. Busca libertad para crear y se expresa a través del arte y la imaginación.' },
-  S: { nombre: 'Social',         desc: 'Empático, comunicativo, orientado a personas. Encuentra satisfacción en ayudar, enseñar y cuidar a otros.' },
-  E: { nombre: 'Emprendedor',    desc: 'Líder, persuasivo, ambicioso. Le motivan los desafíos, la gestión y el logro de metas.' },
-  C: { nombre: 'Convencional',   desc: 'Organizado, meticuloso, sistemático. Disfruta el orden, los datos y seguir procedimientos establecidos.' },
-};
+const HOLLAND_DESC = { R:{ nombre:'Realista', desc:'Práctico, técnico, orientado a objetos y máquinas.' }, I:{ nombre:'Investigador', desc:'Analítico, curioso, científico. Disfruta resolver problemas complejos.' }, A:{ nombre:'Artístico', desc:'Creativo, expresivo, original. Busca libertad para crear.' }, S:{ nombre:'Social', desc:'Empático, comunicativo, orientado a personas.' }, E:{ nombre:'Emprendedor', desc:'Líder, persuasivo, ambicioso. Le motivan los desafíos.' }, C:{ nombre:'Convencional', desc:'Organizado, meticuloso, sistemático.' } };
+const AREAS_NOMBRES = { C:'Ciencias Biológicas', H:'Humanidades', A:'Administración', S:'Servicios Sociales', I:'Ingeniería', D:'Derecho', E:'Educación', AR:'Arte Creativo', F:'Finanzas', CO:'Comunicación', IN:'Informática', AM:'Ambiente', AG:'Agropecuaria', AR2:'Arquitectura', PS:'Psicología', MT:'Matemáticas', FI:'Física', TU:'Turismo', DE:'Deporte', MI:'Militar', RE:'Filosofía', MU:'Música', SA:'Enfermería', OD:'Odontología', VE:'Veterinaria', NU:'Nutrición', TR:'Logística', MK:'Marketing' };
 
-/* AREAS CHASIDE (simplificado para resultados) */
-const AREAS_NOMBRES = {
-  C:'Ciencias Biológicas', H:'Humanidades', A:'Administración',
-  S:'Servicios Sociales', I:'Ingeniería', D:'Derecho', E:'Educación',
-  AR:'Arte Creativo', F:'Finanzas', CO:'Comunicación', IN:'Informática',
-  AM:'Ambiente', AG:'Agropecuaria', AR2:'Arquitectura', PS:'Psicología',
-  MT:'Matemáticas', FI:'Física', TU:'Turismo', DE:'Deporte',
-  MI:'Militar', RE:'Filosofía', MU:'Música', SA:'Enfermería',
-  OD:'Odontología', VE:'Veterinaria', NU:'Nutrición', TR:'Logística', MK:'Marketing'
-};
+// ═══════════════════════════════════════════════════════════
+// ESTADO GLOBAL
+// ═══════════════════════════════════════════════════════════
+const ESTADO = { bancos: {}, secuencia: [], moduloActual: 0, itemGlobal: 0, respuestas: {}, tiempos: {}, tsItemInicio: 0, tsEvalInicio: 0, tsModuloInicio: 0, timerInterval: null, semilla: 0, estudiante: {}, idSesion: '', puntajesControl: { sospecha: 0, rapidasCount: 0, totalItems: 0 } };
 
-/* ═══════════════════════════════════════════════════════════
-   ESTADO GLOBAL
-═══════════════════════════════════════════════════════════ */
-const ESTADO = {
-  bancos: {},
-  secuencia: [],        // lista plana de todos los items en orden
-  moduloActual: 0,      // índice en MODULOS_INFO
-  itemGlobal: 0,        // índice en secuencia[]
-  respuestas: {},       // {item_id: valor}
-  tiempos: {},          // {item_id: ms}
-  tsItemInicio: 0,
-  tsEvalInicio: 0,
-  tsModuloInicio: 0,
-  timerInterval: null,
-  semilla: 0,
-  estudiante: {},
-  idSesion: '',
-  puntajesControl: { sospecha: 0, rapidasCount: 0, totalItems: 0 },
-};
+// ═══════════════════════════════════════════════════════════
+// FUNCIONES AUXILIARES Y CARGA DE BANCOS (sin cambios importantes)
+// ═══════════════════════════════════════════════════════════
+function mostrarScreen(id) { document.querySelectorAll('.screen').forEach(s => s.classList.remove('activo')); document.getElementById(id).classList.add('activo'); window.scrollTo({ top: 0, behavior: 'smooth' }); }
+function generarID() { const ts = Date.now().toString(36).toUpperCase(); const rnd = Math.random().toString(36).slice(2, 6).toUpperCase(); return `PHY-${ts}-${rnd}`; }
+function crearRNG(semilla) { let s = semilla >>> 0; return function() { s += 0x6D2B79F5; let t = Math.imul(s ^ s >>> 15, 1 | s); t ^= t + Math.imul(t ^ t >>> 7, 61 | t); return ((t ^ t >>> 14) >>> 0) / 4294967296; }; }
+function mezclarArray(arr, rng) { const a = [...arr]; for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(rng() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; }
+function calcularEdad(fechaNac) { const hoy = new Date(); const nac = new Date(fechaNac); let edad = hoy.getFullYear() - nac.getFullYear(); const m = hoy.getMonth() - nac.getMonth(); if (m < 0 || (m === 0 && hoy.getDate() < nac.getDate())) edad--; return edad; }
+function formatearTiempo(ms) { const s = Math.floor(ms / 1000); const m = Math.floor(s / 60); const ss = s % 60; return `${String(m).padStart(2,'0')}:${String(ss).padStart(2,'0')}`; }
 
-/* ═══════════════════════════════════════════════════════════
-   UTILIDADES
-═══════════════════════════════════════════════════════════ */
-function mostrarScreen(id) {
-  document.querySelectorAll('.screen').forEach(s => s.classList.remove('activo'));
-  document.getElementById(id).classList.add('activo');
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-}
-
-function generarID() {
-  const ts = Date.now().toString(36).toUpperCase();
-  const rnd = Math.random().toString(36).slice(2, 6).toUpperCase();
-  return `PHY-${ts}-${rnd}`;
-}
-
-// Seeded random (Mulberry32)
-function crearRNG(semilla) {
-  let s = semilla >>> 0;
-  return function() {
-    s += 0x6D2B79F5;
-    let t = Math.imul(s ^ s >>> 15, 1 | s);
-    t ^= t + Math.imul(t ^ t >>> 7, 61 | t);
-    return ((t ^ t >>> 14) >>> 0) / 4294967296;
-  };
-}
-
-function mezclarArray(arr, rng) {
-  const a = [...arr];
-  for (let i = a.length - 1; i > 0; i--) {
-    const j = Math.floor(rng() * (i + 1));
-    [a[i], a[j]] = [a[j], a[i]];
-  }
-  return a;
-}
-
-function calcularEdad(fechaNac) {
-  const hoy = new Date();
-  const nac = new Date(fechaNac);
-  let edad = hoy.getFullYear() - nac.getFullYear();
-  const m = hoy.getMonth() - nac.getMonth();
-  if (m < 0 || (m === 0 && hoy.getDate() < nac.getDate())) edad--;
-  return edad;
-}
-
-function formatearTiempo(ms) {
-  const s = Math.floor(ms / 1000);
-  const m = Math.floor(s / 60);
-  const ss = s % 60;
-  return `${String(m).padStart(2,'0')}:${String(ss).padStart(2,'0')}`;
-}
-
-/* ═══════════════════════════════════════════════════════════
-   CARGA DE BANCOS
-═══════════════════════════════════════════════════════════ */
 async function cargarBancos() {
-  const overlay = document.getElementById('loadingOverlay');
-  const msg = document.getElementById('loadingMsg');
+  const overlay = document.getElementById('loadingOverlay'); const msg = document.getElementById('loadingMsg');
   overlay.style.display = 'flex';
-
   const entradas = Object.entries(CONFIG.archivos_banco);
   for (let i = 0; i < entradas.length; i++) {
     const [clave, ruta] = entradas[i];
@@ -1160,19 +780,15 @@ async function cargarBancos() {
       const data = await resp.json();
       ESTADO.bancos[clave] = data.items;
     } catch(e) {
-      // Si no hay servidor (abrir como archivo local), usar banco demo
       console.warn(`No se pudo cargar ${ruta} — usando banco de demostración`);
       ESTADO.bancos[clave] = generarBancoDemo(clave);
     }
   }
   overlay.style.display = 'none';
 }
-
-/* Banco demo para pruebas locales (sin servidor) */
 function generarBancoDemo(clave) {
   const esLikert = ['RIASEC','CHASIDE'].includes(clave);
-  const n = clave === 'RIASEC' ? 180 : clave === 'CHASIDE' ? 196 :
-            clave === 'control' ? 40 : 60;
+  const n = clave === 'RIASEC' ? 180 : clave === 'CHASIDE' ? 196 : clave === 'control' ? 40 : 60;
   return Array.from({length: n}, (_, i) => ({
     id: `${clave}_DEMO_${String(i+1).padStart(3,'0')}`,
     escala: ['R','I','A','S','E','C'][i % 6],
@@ -1190,331 +806,277 @@ function generarBancoDemo(clave) {
   }));
 }
 
-/* ═══════════════════════════════════════════════════════════
-   CONSTRUCCIÓN DE LA SECUENCIA DE 160 ITEMS
-═══════════════════════════════════════════════════════════ */
 function construirSecuencia(semilla) {
   const rng = crearRNG(semilla);
-
-  // Selección estratificada por módulo
   function seleccionarEstratificado(banco, n, campoEstrato) {
-    // Agrupar por estrato (dificultad o area)
     const grupos = {};
-    banco.forEach(item => {
-      const k = item[campoEstrato] || 'x';
-      if (!grupos[k]) grupos[k] = [];
-      grupos[k].push(item);
-    });
-
-    // Mezclar dentro de cada grupo
-    Object.keys(grupos).forEach(k => {
-      grupos[k] = mezclarArray(grupos[k], rng);
-    });
-
-    // Seleccionar proporcionalmente
-    const resultado = [];
-    const claves = Object.keys(grupos);
-    const porGrupo = Math.max(1, Math.floor(n / claves.length));
-
-    claves.forEach(k => {
-      resultado.push(...grupos[k].slice(0, porGrupo));
-    });
-
-    // Completar si faltan
+    banco.forEach(item => { const k = item[campoEstrato] || 'x'; if (!grupos[k]) grupos[k] = []; grupos[k].push(item); });
+    Object.keys(grupos).forEach(k => { grupos[k] = mezclarArray(grupos[k], rng); });
+    const resultado = []; const claves = Object.keys(grupos); const porGrupo = Math.max(1, Math.floor(n / claves.length));
+    claves.forEach(k => { resultado.push(...grupos[k].slice(0, porGrupo)); });
     const todos = mezclarArray(banco.filter(i => !resultado.find(r => r.id === i.id)), rng);
-    let idx = 0;
-    while (resultado.length < n && idx < todos.length) {
-      resultado.push(todos[idx++]);
-    }
-
+    let idx = 0; while (resultado.length < n && idx < todos.length) { resultado.push(todos[idx++]); }
     return mezclarArray(resultado.slice(0, n), rng);
   }
-
-  // RIASEC: 40 items, ~7 por escala
   const riasec = seleccionarEstratificado(ESTADO.bancos['RIASEC'], 40, 'escala');
-
-  // CHASIDE: 56 items, 2 por area
   const chaside = seleccionarEstratificado(ESTADO.bancos['CHASIDE'], 56, 'area');
-
-  // DAT: selección por dificultad
   function seleccionarDAT(banco, n) {
     const dif1 = mezclarArray(banco.filter(i => i.dificultad === 1), rng);
     const dif2 = mezclarArray(banco.filter(i => i.dificultad === 2), rng);
     const dif3 = mezclarArray(banco.filter(i => i.dificultad === 3), rng);
-    const n1 = Math.round(n * 0.30);
-    const n2 = Math.round(n * 0.50);
-    const n3 = n - n1 - n2;
-    return mezclarArray([
-      ...dif1.slice(0, n1),
-      ...dif2.slice(0, n2),
-      ...dif3.slice(0, n3),
-    ], rng);
+    const n1 = Math.round(n * 0.30); const n2 = Math.round(n * 0.50); const n3 = n - n1 - n2;
+    return mezclarArray([...dif1.slice(0, n1), ...dif2.slice(0, n2), ...dif3.slice(0, n3)], rng);
   }
-
-  const datV  = seleccionarDAT(ESTADO.bancos['DAT_verbal'],    15);
-  const datN  = seleccionarDAT(ESTADO.bancos['DAT_numerico'],  15);
-  const datA  = seleccionarDAT(ESTADO.bancos['DAT_abstracto'], 12);
-  const datE  = seleccionarDAT(ESTADO.bancos['DAT_espacial'],  12);
-
-  // Control: 10 items, distribuidos
+  const datV = seleccionarDAT(ESTADO.bancos['DAT_verbal'], 15);
+  const datN = seleccionarDAT(ESTADO.bancos['DAT_numerico'], 15);
+  const datA = seleccionarDAT(ESTADO.bancos['DAT_abstracto'], 12);
+  const datE = seleccionarDAT(ESTADO.bancos['DAT_espacial'], 12);
   const controlBanco = mezclarArray(ESTADO.bancos['control'], rng);
   const control10 = controlBanco.slice(0, 10);
-
-  // Construir secuencia base por módulo
   const bloquesBase = [riasec, chaside, datV, datN, datA, datE];
   const secuenciaBase = bloquesBase.flat();
-
-  // Inyectar items de control distribuidos uniformemente
   const paso = Math.floor(secuenciaBase.length / (control10.length + 1));
-  let ctrlIdx = 0;
-  const secuenciaFinal = [];
+  let ctrlIdx = 0; const secuenciaFinal = [];
   for (let i = 0; i < secuenciaBase.length; i++) {
-    if (ctrlIdx < control10.length && i > 0 && i % paso === 0) {
-      const ctrl = {...control10[ctrlIdx], _esControl: true};
-      secuenciaFinal.push(ctrl);
-      ctrlIdx++;
-    }
+    if (ctrlIdx < control10.length && i > 0 && i % paso === 0) { secuenciaFinal.push({...control10[ctrlIdx], _esControl: true}); ctrlIdx++; }
     secuenciaFinal.push(secuenciaBase[i]);
   }
-  // Agregar controles restantes al final del bloque actual
-  while (ctrlIdx < control10.length) {
-    secuenciaFinal.push({...control10[ctrlIdx], _esControl: true});
-    ctrlIdx++;
-  }
-
-  // Marcar módulo de cada item
-  let acum = 0;
-  const limites = [
-    {mod: 'RIASEC',        n: riasec.length},
-    {mod: 'CHASIDE',       n: chaside.length},
-    {mod: 'DAT_verbal',    n: datV.length},
-    {mod: 'DAT_numerico',  n: datN.length},
-    {mod: 'DAT_abstracto', n: datA.length},
-    {mod: 'DAT_espacial',  n: datE.length},
-  ];
-
-  // Re-marcar módulos en secuencia final (ignorar control en conteo)
-  let moduloActualIdx = 0;
-  let contadorEnModulo = 0;
+  while (ctrlIdx < control10.length) { secuenciaFinal.push({...control10[ctrlIdx], _esControl: true}); ctrlIdx++; }
+  let moduloActualIdx = 0, contadorEnModulo = 0;
+  const limites = [{mod:'RIASEC', n:riasec.length},{mod:'CHASIDE', n:chaside.length},{mod:'DAT_verbal', n:datV.length},{mod:'DAT_numerico', n:datN.length},{mod:'DAT_abstracto', n:datA.length},{mod:'DAT_espacial', n:datE.length}];
   secuenciaFinal.forEach(item => {
-    if (item._esControl) {
-      item._modulo = 'control';
-      return;
-    }
+    if (item._esControl) { item._modulo = 'control'; return; }
     item._modulo = limites[moduloActualIdx].mod;
     contadorEnModulo++;
-    if (contadorEnModulo >= limites[moduloActualIdx].n) {
-      moduloActualIdx++;
-      contadorEnModulo = 0;
-    }
+    if (contadorEnModulo >= limites[moduloActualIdx].n) { moduloActualIdx++; contadorEnModulo = 0; }
   });
-
   return secuenciaFinal;
 }
 
-/* ═══════════════════════════════════════════════════════════
-   VALIDACIÓN DEL FORMULARIO
-═══════════════════════════════════════════════════════════ */
-function validarFormulario() {
-  let ok = true;
-  const campos = [
-    { id: 'fNombre',    err: 'eNombre',    check: v => v.trim().length >= 2 },
-    { id: 'fApellido',  err: 'eApellido',  check: v => v.trim().length >= 2 },
-    { id: 'fFechaNac',  err: 'eFechaNac',  check: v => v !== '' },
-    { id: 'fGenero',    err: 'eGenero',    check: v => v !== '' },
-    { id: 'fColegio',   err: 'eColegio',   check: v => v.trim().length >= 3 },
-    { id: 'fCurso',     err: 'eCurso',     check: v => v !== '' },
-  ];
-
-  campos.forEach(c => {
-    const el = document.getElementById(c.id);
-    const err = document.getElementById(c.err);
-    if (!c.check(el.value)) {
-      el.classList.add('error');
-      err.classList.add('visible');
-      ok = false;
-    } else {
-      el.classList.remove('error');
-      err.classList.remove('visible');
+// ═══════════════════════════════════════════════════════════
+// FUNCIONES DE DIBUJO SVG PARA RAZONAMIENTO ABSTRACTO (campo visual)
+// ═══════════════════════════════════════════════════════════
+function dibujarFigura(figura, size = 80) {
+  // figura puede ser objeto con forma, relleno, tamano, rotacion, cantidad, etc.
+  // Devuelve un string SVG o un elemento DOM. Por simplicidad, devolvemos SVG en string.
+  if (!figura) return '';
+  const forma = figura.forma || 'circulo';
+  const relleno = figura.relleno || 'blanco';
+  const borde = figura.borde || 'negro';
+  const tamanoRel = figura.tamano === 'grande' ? 0.9 : figura.tamano === 'mediano' ? 0.7 : 0.5;
+  const radio = size * tamanoRel / 2;
+  const centro = size/2;
+  let path = '';
+  let fillColor = relleno === 'blanco' ? '#FFFFFF' : relleno === 'negro' ? '#000000' : relleno === 'gris' ? '#888888' : relleno === 'rayado' ? 'url(#rayado)' : relleno === 'punteado' ? 'url(#punteado)' : '#FFFFFF';
+  let strokeColor = borde === 'negro' ? '#000000' : borde === 'gris' ? '#888888' : 'none';
+  if (forma === 'circulo') {
+    path = `<circle cx="${centro}" cy="${centro}" r="${radio}" fill="${fillColor}" stroke="${strokeColor}" stroke-width="2"/>`;
+  } else if (forma === 'cuadrado') {
+    const lado = radio * 1.4;
+    const x = centro - lado/2, y = centro - lado/2;
+    path = `<rect x="${x}" y="${y}" width="${lado}" height="${lado}" fill="${fillColor}" stroke="${strokeColor}" stroke-width="2"/>`;
+  } else if (forma === 'triangulo') {
+    const lado = radio * 1.6;
+    const altura = lado * Math.sqrt(3)/2;
+    const points = `${centro},${centro - altura/2} ${centro - lado/2},${centro + altura/2} ${centro + lado/2},${centro + altura/2}`;
+    path = `<polygon points="${points}" fill="${fillColor}" stroke="${strokeColor}" stroke-width="2"/>`;
+  } else if (forma === 'rombo') {
+    const d = radio;
+    const points = `${centro},${centro-d} ${centro+d},${centro} ${centro},${centro+d} ${centro-d},${centro}`;
+    path = `<polygon points="${points}" fill="${fillColor}" stroke="${strokeColor}" stroke-width="2"/>`;
+  } else if (forma === 'pentagono') {
+    const ang = 2*Math.PI/5;
+    const r = radio;
+    let pts = [];
+    for (let i=0; i<5; i++) {
+      let x = centro + r * Math.cos(i*ang - Math.PI/2);
+      let y = centro + r * Math.sin(i*ang - Math.PI/2);
+      pts.push(`${x},${y}`);
     }
-  });
-
-  const consent = document.getElementById('fConsentimiento');
-  const eConsent = document.getElementById('eConsentimiento');
-  if (!consent.checked) {
-    eConsent.classList.add('visible');
-    ok = false;
+    path = `<polygon points="${pts.join(' ')}" fill="${fillColor}" stroke="${strokeColor}" stroke-width="2"/>`;
+  } else if (forma === 'hexagono') {
+    const ang = 2*Math.PI/6;
+    const r = radio;
+    let pts = [];
+    for (let i=0; i<6; i++) {
+      let x = centro + r * Math.cos(i*ang);
+      let y = centro + r * Math.sin(i*ang);
+      pts.push(`${x},${y}`);
+    }
+    path = `<polygon points="${pts.join(' ')}" fill="${fillColor}" stroke="${strokeColor}" stroke-width="2"/>`;
+  } else if (forma === 'flecha') {
+    // flecha simple (arriba)
+    const w = radio*0.8, h = radio*1.2;
+    const baseY = centro + h/2;
+    const puntaY = centro - h/2;
+    const pts = `${centro},${puntaY} ${centro-w/2},${baseY} ${centro},${baseY - h/3} ${centro+w/2},${baseY}`;
+    path = `<polygon points="${pts}" fill="${fillColor}" stroke="${strokeColor}" stroke-width="2"/>`;
+  } else if (forma === 'estrella') {
+    const puntos = 5;
+    const R = radio;
+    const r = radio * 0.4;
+    let pts = [];
+    for (let i=0; i<2*puntos; i++) {
+      let ang = i * Math.PI / puntos - Math.PI/2;
+      let rad = i%2===0 ? R : r;
+      let x = centro + rad * Math.cos(ang);
+      let y = centro + rad * Math.sin(ang);
+      pts.push(`${x},${y}`);
+    }
+    path = `<polygon points="${pts.join(' ')}" fill="${fillColor}" stroke="${strokeColor}" stroke-width="2"/>`;
+  } else if (forma === 'domino') {
+    // dibujar un rectángulo dividido en dos mitades con puntos
+    const w = radio*1.4, h = radio*1.4;
+    const x = centro - w/2, y = centro - h/2;
+    let dominoSvg = `<rect x="${x}" y="${y}" width="${w}" height="${h}" fill="${fillColor}" stroke="${strokeColor}" stroke-width="2"/>`;
+    const sup = figura.superior || 0;
+    const inf = figura.inferior || 0;
+    const puntoRadio = w/8;
+    function dibujarPuntos(mitad, num) {
+      let sub = '';
+      if (num === 0) return '';
+      const cx = mitad === 'sup' ? centro : centro;
+      const cy = mitad === 'sup' ? y + h/4 : y + 3*h/4;
+      const distribuciones = {
+        1: [[0,0]], 2: [[-puntoRadio*1.5,0],[puntoRadio*1.5,0]],
+        3: [[-puntoRadio*1.5,-puntoRadio],[0,0],[puntoRadio*1.5,puntoRadio]],
+        4: [[-puntoRadio*1.5,-puntoRadio],[-puntoRadio*1.5,puntoRadio],[puntoRadio*1.5,-puntoRadio],[puntoRadio*1.5,puntoRadio]],
+        5: [[-puntoRadio*1.5,-puntoRadio],[-puntoRadio*1.5,puntoRadio],[0,0],[puntoRadio*1.5,-puntoRadio],[puntoRadio*1.5,puntoRadio]],
+        6: [[-puntoRadio*1.5,-puntoRadio],[-puntoRadio*1.5,puntoRadio],[0,-puntoRadio],[0,puntoRadio],[puntoRadio*1.5,-puntoRadio],[puntoRadio*1.5,puntoRadio]]
+      };
+      const puntos = distribuciones[num] || [];
+      puntos.forEach(p => {
+        sub += `<circle cx="${cx + p[0]}" cy="${cy + p[1]}" r="${puntoRadio*0.8}" fill="${strokeColor}"/>`;
+      });
+      return sub;
+    }
+    dominoSvg += dibujarPuntos('sup', sup);
+    dominoSvg += dibujarPuntos('inf', inf);
+    path = dominoSvg;
   } else {
-    eConsent.classList.remove('visible');
+    path = `<circle cx="${centro}" cy="${centro}" r="${radio}" fill="${fillColor}" stroke="${strokeColor}" stroke-width="2"/>`;
   }
-
-  return ok;
+  // Rotación
+  let rot = figura.rotacion || 0;
+  if (rot !== 0) {
+    path = `<g transform="rotate(${rot}, ${centro}, ${centro})">${path}</g>`;
+  }
+  // Si hay cantidad > 1, repetir la figura en horizontal
+  const cantidad = figura.cantidad || 1;
+  if (cantidad > 1) {
+    let grupo = `<g>`;
+    const paso = size / (cantidad+1);
+    for (let i=0; i<cantidad; i++) {
+      const xOffset = (i+1)*paso - size/2;
+      grupo += `<g transform="translate(${xOffset}, 0)">${path}</g>`;
+    }
+    grupo += `</g>`;
+    return grupo;
+  }
+  return path;
 }
 
-/* ═══════════════════════════════════════════════════════════
-   INICIO DE LA EVALUACIÓN
-═══════════════════════════════════════════════════════════ */
-async function iniciarEvaluacion() {
-  if (!validarFormulario()) {
-    document.querySelector('.error')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    return;
+function renderizarVisual(item) {
+  const visual = item.visual;
+  if (!visual) return null;
+  const tipo = visual.tipo;
+  if (tipo === 'serie') {
+    const elementos = visual.elementos || [];
+    const html = `<div style="display:flex; gap:12px; justify-content:center; align-items:center; flex-wrap:wrap; margin-bottom:20px;">
+      ${elementos.map(el => `<div style="width:80px; height:80px;">${dibujarFigura(el, 80)}</div>`).join('')}
+      <div style="font-size:24px; font-weight:bold;">?</div>
+    </div>`;
+    return html;
+  } else if (tipo === 'matriz') {
+    const filas = visual.filas || [];
+    const html = `<div style="display:grid; gap:12px; justify-content:center; margin-bottom:20px;">
+      ${filas.map(fila => `<div style="display:flex; gap:12px; justify-content:center;">
+        ${fila.map(celda => celda ? `<div style="width:80px; height:80px;">${dibujarFigura(celda, 80)}</div>` : `<div style="width:80px; height:80px; border:1px dashed #ccc; display:flex; align-items:center; justify-content:center;">?</div>`).join('')}
+      </div>`).join('')}
+    </div>`;
+    return html;
+  } else if (tipo === 'transformacion') {
+    const trans = visual.transformaciones || [];
+    const entrada = visual.pregunta?.entrada;
+    const html = `<div style="display:flex; gap:20px; justify-content:center; align-items:center; margin-bottom:20px;">
+      ${trans.map(t => `<div style="text-align:center;"><div style="width:80px; height:80px;">${dibujarFigura(t.entrada, 80)}</div><div>→</div><div style="width:80px; height:80px;">${dibujarFigura(t.salida, 80)}</div></div>`).join('')}
+      ${entrada ? `<div style="text-align:center;"><div style="width:80px; height:80px;">${dibujarFigura(entrada, 80)}</div><div>→</div><div style="width:80px; height:80px;">?</div></div>` : ''}
+    </div>`;
+    return html;
   }
-
-  // Guardar datos del estudiante
-  ESTADO.estudiante = {
-    nombre:          document.getElementById('fNombre').value.trim(),
-    apellido:        document.getElementById('fApellido').value.trim(),
-    fecha_nacimiento:document.getElementById('fFechaNac').value,
-    genero:          document.getElementById('fGenero').value,
-    colegio:         document.getElementById('fColegio').value.trim(),
-    curso:           document.getElementById('fCurso').value,
-    correo:          document.getElementById('fCorreo').value.trim(),
-    telefono_representante: document.getElementById('fTelefono').value.trim(),
-    nombre_representante:   document.getElementById('fRepresentante').value.trim(),
-    carrera_preferida:      document.getElementById('fCarrera').value.trim(),
-    consentimiento:  true,
-  };
-
-  ESTADO.idSesion = generarID();
-  ESTADO.semilla  = Date.now();
-  ESTADO.tsEvalInicio = Date.now();
-
-  // Cargar bancos si no están cargados
-  if (Object.keys(ESTADO.bancos).length === 0) {
-    await cargarBancos();
-  }
-
-  // Construir secuencia
-  ESTADO.secuencia = construirSecuencia(ESTADO.semilla);
-  ESTADO.itemGlobal = 0;
-  ESTADO.moduloActual = 0;
-
-  // Arrancar timer global
-  iniciarTimer();
-  actualizarTopbar();
-
-  // Mostrar instrucciones del primer módulo
-  mostrarInstrucciones(0);
+  return null;
 }
 
-/* ═══════════════════════════════════════════════════════════
-   TIMER GLOBAL
-═══════════════════════════════════════════════════════════ */
-function iniciarTimer() {
-  const timerEl = document.getElementById('topbarTimer');
-  timerEl.classList.add('activo');
-  document.getElementById('topbarProgreso').classList.add('activo');
-
-  ESTADO.timerInterval = setInterval(() => {
-    const elapsed = Date.now() - ESTADO.tsEvalInicio;
-    timerEl.textContent = formatearTiempo(elapsed);
-  }, 1000);
+function renderizarOpcionesVisuales(item) {
+  const visual = item.visual;
+  if (!visual || !visual.opciones) return null;
+  const opciones = visual.opciones;
+  const html = Object.entries(opciones).map(([letra, fig]) => `
+    <div class="mc-opcion" data-val="${letra}" onclick="seleccionarMC('${letra}', '${item.id}')">
+      <div class="mc-letra">${letra}</div>
+      <div class="mc-svg">${dibujarFigura(fig, 60)}</div>
+    </div>
+  `).join('');
+  return html;
 }
 
-function actualizarTopbar() {
-  const pct = Math.round((ESTADO.itemGlobal / ESTADO.secuencia.length) * 100);
-  document.getElementById('topbarPct').textContent = pct + '%';
-  document.getElementById('topbarFill').style.width = pct + '%';
+// ═══════════════════════════════════════════════════════════
+// FUNCIONES DE RENDERIZADO DE ITEM (modificadas para usar visual)
+// ═══════════════════════════════════════════════════════════
+function determinarTipo(item) {
+  if (item.tipo === 'likert_5' || item.tipo === 'likert_frecuencia_5' || item.tipo === 'likert_5_especial' || item.formato === 'likert_5') return 'likert';
+  if (item._esControl && (item.tipo_control === 'deseabilidad_social')) return 'likert';
+  if (item.tipo === 'opcion_multiple' || item.tipo === 'opcion_multiple_imagen') return 'mc';
+  if (item._modulo === 'RIASEC' || item._modulo === 'CHASIDE') return 'likert';
+  return 'mc';
 }
 
-/* ═══════════════════════════════════════════════════════════
-   INSTRUCCIONES DE MÓDULO
-═══════════════════════════════════════════════════════════ */
-function mostrarInstrucciones(modIdx) {
-  const info = MODULOS_INFO[modIdx];
-  if (!info) {
-    finalizarEvaluacion();
-    return;
-  }
-
-  const el = id => document.getElementById(id);
-  el('instrBadge').textContent = info.badge;
-  el('instrBadge').className = `modulo-badge ${info.badgeClass}`;
-  el('instrTitulo').textContent = info.titulo;
-  el('instrDesc').textContent = info.desc;
-
-  // Contar items de este módulo en la secuencia
-  const itemsModulo = ESTADO.secuencia.filter(i => i._modulo === info.id).length;
-  el('instrItems').textContent = itemsModulo;
-
-  const tiempos = { RIASEC:10, CHASIDE:18, DAT_verbal:12, DAT_numerico:14, DAT_abstracto:10, DAT_espacial:10 };
-  el('instrTiempo').textContent = tiempos[info.id] || 10;
-  el('instrModNum').textContent = `${modIdx + 1}/6`;
-
-  const pasosList = el('instrPasos');
-  pasosList.innerHTML = info.pasos.map(p => `<li>${p}</li>`).join('');
-
-  el('instrPreview').style.display = info.showPreview ? 'flex' : 'none';
-
-  mostrarScreen('screenInstrucciones');
-  ESTADO.moduloActual = modIdx;
-  ESTADO.tsModuloInicio = Date.now();
+function renderizarLikert(item) {
+  const opciones = item.opciones_respuesta || { '1':'No me interesa nada','2':'Me interesa poco','3':'Me es indiferente','4':'Me interesa bastante','5':'Me interesa mucho' };
+  const labels = Object.values(opciones);
+  const html = `<div class="likert-wrap"><div class="likert-labels">${labels.map(l => `<div class="likert-label">${l}</div>`).join('')}</div><div class="likert-btns">${[1,2,3,4,5].map(v => `<button class="likert-btn" data-val="${v}" onclick="seleccionarLikert(${v}, '${item.id}')">${v}</button>`).join('')}</div></div>`;
+  document.getElementById('itemOpciones').innerHTML = html;
 }
 
-function empezarModuloActual() {
-  // Encontrar el primer item del módulo actual en la secuencia
-  const modId = MODULOS_INFO[ESTADO.moduloActual].id;
-  // Buscar el primer item no respondido de este módulo
-  let startIdx = ESTADO.itemGlobal;
-  // Si ya hay respuestas, buscar el primer sin respuesta
-  while (startIdx < ESTADO.secuencia.length) {
-    const item = ESTADO.secuencia[startIdx];
-    if (!ESTADO.respuestas[item.id]) break;
-    startIdx++;
-  }
-  ESTADO.itemGlobal = startIdx;
-  mostrarItem(ESTADO.itemGlobal);
-}
-
-/* ═══════════════════════════════════════════════════════════
-   RENDERIZADO DE ITEM
-═══════════════════════════════════════════════════════════ */
-function mostrarItem(idx) {
-  if (idx >= ESTADO.secuencia.length) {
-    finalizarEvaluacion();
-    return;
-  }
-
-  mostrarScreen('screenItem');
-  const item = ESTADO.secuencia[idx];
-  ESTADO.tsItemInicio = Date.now();
-
-  // Detectar cambio de módulo (para mostrar pantalla de pausa)
-  const modActual = MODULOS_INFO[ESTADO.moduloActual]?.id;
-  if (item._modulo !== 'control' && item._modulo !== modActual) {
-    const nuevoModIdx = MODULOS_INFO.findIndex(m => m.id === item._modulo);
-    if (nuevoModIdx > 0 && nuevoModIdx !== ESTADO.moduloActual) {
-      ESTADO.itemGlobal = idx;
-      mostrarPausa(nuevoModIdx);
+function renderizarMC(item) {
+  // Verificar si el ítem tiene campo visual y es de razonamiento abstracto
+  if (item._modulo === 'DAT_abstracto' && item.visual && item.visual.opciones) {
+    const visualHtml = renderizarVisual(item);
+    const opcionesHtml = renderizarOpcionesVisuales(item);
+    if (visualHtml) {
+      document.getElementById('itemTexto').style.display = 'none';
+      document.getElementById('itemOpciones').innerHTML = `<div>${visualHtml}</div><div class="mc-opciones">${opcionesHtml}</div>`;
       return;
     }
   }
+  // Fallback: mostrar texto normal
+  document.getElementById('itemTexto').style.display = 'block';
+  const opciones = item.opciones || {A:'',B:'',C:'',D:''};
+  const html = `<div class="mc-opciones">${Object.entries(opciones).map(([letra, texto]) => `<div class="mc-opcion" data-val="${letra}" onclick="seleccionarMC('${letra}', '${item.id}')"><div class="mc-letra">${letra}</div><div class="mc-texto">${texto}</div></div>`).join('')}</div>`;
+  document.getElementById('itemOpciones').innerHTML = html;
+}
 
-  actualizarTopbar();
-  actualizarProgressSegs(idx);
-
-  // Header del item
+function mostrarItem(idx) {
+  if (idx >= ESTADO.secuencia.length) { finalizarEvaluacion(); return; }
+  mostrarScreen('screenItem');
+  const item = ESTADO.secuencia[idx];
+  ESTADO.tsItemInicio = Date.now();
+  const modActual = MODULOS_INFO[ESTADO.moduloActual]?.id;
+  if (item._modulo !== 'control' && item._modulo !== modActual) {
+    const nuevoModIdx = MODULOS_INFO.findIndex(m => m.id === item._modulo);
+    if (nuevoModIdx > 0 && nuevoModIdx !== ESTADO.moduloActual) { ESTADO.itemGlobal = idx; mostrarPausa(nuevoModIdx); return; }
+  }
+  actualizarTopbar(); actualizarProgressSegs(idx);
   const modInfo = MODULOS_INFO.find(m => m.id === item._modulo) || { titulo: 'Control' };
   document.getElementById('itemModuloTag').textContent = item._esControl ? 'VERIFICACIÓN' : (modInfo.badge || modInfo.titulo);
   document.getElementById('itemContador').textContent = `${idx + 1} / ${ESTADO.secuencia.length}`;
   document.getElementById('itemNumero').textContent = `Pregunta ${idx + 1}`;
   document.getElementById('itemTexto').textContent = item.texto;
-
-  // Ocultar alerta tiempo
   document.getElementById('alertaTiempo').classList.remove('visible');
-
-  // Renderizar opciones
   const tipo = determinarTipo(item);
-  if (tipo === 'likert') {
-    renderizarLikert(item);
-  } else {
-    renderizarMC(item);
-  }
-
-  // Botón anterior
+  if (tipo === 'likert') renderizarLikert(item);
+  else renderizarMC(item);
   document.getElementById('btnAnterior').disabled = idx === 0;
-
-  // Restaurar respuesta previa si existe
   const respPrev = ESTADO.respuestas[item.id];
   if (respPrev !== undefined) {
     restaurarRespuesta(item, respPrev, tipo);
@@ -1526,72 +1088,17 @@ function mostrarItem(idx) {
   }
 }
 
-function determinarTipo(item) {
-  if (item.tipo === 'likert_5' || item.tipo === 'likert_frecuencia_5' ||
-      item.tipo === 'likert_5_especial' || item.formato === 'likert_5') return 'likert';
-  if (item._esControl && (item.tipo_control === 'deseabilidad_social')) return 'likert';
-  if (item.tipo === 'opcion_multiple' || item.tipo === 'opcion_multiple_imagen') return 'mc';
-  // Default por módulo
-  if (item._modulo === 'RIASEC' || item._modulo === 'CHASIDE') return 'likert';
-  return 'mc';
-}
-
-function renderizarLikert(item) {
-  const opciones = item.opciones_respuesta || {
-    '1':'No me interesa nada','2':'Me interesa poco','3':'Me es indiferente',
-    '4':'Me interesa bastante','5':'Me interesa mucho'
-  };
-  const labels = Object.values(opciones);
-  const html = `
-    <div class="likert-wrap">
-      <div class="likert-labels">
-        ${labels.map(l => `<div class="likert-label">${l}</div>`).join('')}
-      </div>
-      <div class="likert-btns">
-        ${[1,2,3,4,5].map(v => `
-          <button class="likert-btn" data-val="${v}"
-            onclick="seleccionarLikert(${v}, '${item.id}')">
-            ${v}
-          </button>
-        `).join('')}
-      </div>
-    </div>`;
-  document.getElementById('itemOpciones').innerHTML = html;
-}
-
-function renderizarMC(item) {
-  const opciones = item.opciones || {A:'',B:'',C:'',D:''};
-  const html = `
-    <div class="mc-opciones">
-      ${Object.entries(opciones).map(([letra, texto]) => `
-        <div class="mc-opcion" data-val="${letra}"
-          onclick="seleccionarMC('${letra}', '${item.id}')">
-          <div class="mc-letra">${letra}</div>
-          <div class="mc-texto">${texto}</div>
-        </div>
-      `).join('')}
-    </div>`;
-  document.getElementById('itemOpciones').innerHTML = html;
-}
-
 function restaurarRespuesta(item, valor, tipo) {
   if (tipo === 'likert') {
-    document.querySelectorAll('.likert-btn').forEach(btn => {
-      if (parseInt(btn.dataset.val) === parseInt(valor)) {
-        btn.classList.add('selected');
-      }
-    });
+    document.querySelectorAll('.likert-btn').forEach(btn => { if (parseInt(btn.dataset.val) === parseInt(valor)) btn.classList.add('selected'); });
   } else {
-    document.querySelectorAll('.mc-opcion').forEach(op => {
-      if (op.dataset.val === valor) op.classList.add('selected');
-    });
+    document.querySelectorAll('.mc-opcion').forEach(op => { if (op.dataset.val === valor) op.classList.add('selected'); });
   }
 }
 
 function actualizarProgressSegs(idx) {
   const total = ESTADO.secuencia.length;
   const segs = document.getElementById('progressSegs');
-  // Mostrar solo 20 segmentos para no saturar
   const n = Math.min(total, 40);
   const paso = total / n;
   let html = '';
@@ -1603,589 +1110,39 @@ function actualizarProgressSegs(idx) {
   segs.innerHTML = html;
 }
 
-/* ═══════════════════════════════════════════════════════════
-   SELECCIÓN DE RESPUESTA
-═══════════════════════════════════════════════════════════ */
-function seleccionarLikert(valor, itemId) {
-  registrarRespuesta(itemId, valor, 'likert');
-  document.querySelectorAll('.likert-btn').forEach(btn => {
-    btn.classList.toggle('selected', parseInt(btn.dataset.val) === valor);
-  });
-  document.getElementById('btnSiguiente').disabled = false;
-  document.getElementById('navHint').textContent = '';
-  // Auto-avanzar tras 500ms en Likert
-  setTimeout(() => {
-    if (ESTADO.respuestas[itemId] !== undefined) irSiguiente();
-  }, 500);
-}
-
-function seleccionarMC(letra, itemId) {
-  registrarRespuesta(itemId, letra, 'mc');
-  document.querySelectorAll('.mc-opcion').forEach(op => {
-    op.classList.toggle('selected', op.dataset.val === letra);
-  });
-  document.getElementById('btnSiguiente').disabled = false;
-  document.getElementById('navHint').textContent = '';
-}
-
-function registrarRespuesta(itemId, valor, tipo) {
-  const elapsed = Date.now() - ESTADO.tsItemInicio;
-  const tiempoMin = tipo === 'likert' ? CONFIG.tiempo_min_likert_ms : CONFIG.tiempo_min_mc_ms;
-
-  ESTADO.respuestas[itemId] = valor;
-  ESTADO.tiempos[itemId] = elapsed;
-  ESTADO.puntajesControl.totalItems++;
-
-  // Detectar respuesta rápida
-  if (elapsed < tiempoMin) {
-    ESTADO.puntajesControl.rapidasCount++;
-    // Mostrar alerta si acumula muchas respuestas rápidas
-    const pct = ESTADO.puntajesControl.rapidasCount / ESTADO.puntajesControl.totalItems;
-    if (pct > CONFIG.umbral_respuesta_rapida) {
-      document.getElementById('alertaTiempo').classList.add('visible');
-    }
-  }
-}
-
-/* ═══════════════════════════════════════════════════════════
-   NAVEGACIÓN
-═══════════════════════════════════════════════════════════ */
-function irSiguiente() {
-  const item = ESTADO.secuencia[ESTADO.itemGlobal];
-  if (!ESTADO.respuestas[item.id]) return;
-
-  ESTADO.itemGlobal++;
-
-  // Verificar si es el último item
-  if (ESTADO.itemGlobal >= ESTADO.secuencia.length) {
-    finalizarEvaluacion();
-    return;
-  }
-
-  // Verificar cambio de módulo
-  const siguienteItem = ESTADO.secuencia[ESTADO.itemGlobal];
-  if (siguienteItem._modulo !== 'control' &&
-      siguienteItem._modulo !== MODULOS_INFO[ESTADO.moduloActual]?.id) {
-    const nuevoModIdx = MODULOS_INFO.findIndex(m => m.id === siguienteItem._modulo);
-    if (nuevoModIdx > ESTADO.moduloActual) {
-      mostrarPausa(nuevoModIdx);
-      return;
-    }
-  }
-
-  mostrarItem(ESTADO.itemGlobal);
-}
-
-function irAnterior() {
-  if (ESTADO.itemGlobal === 0) return;
-  ESTADO.itemGlobal--;
-
-  // Verificar si volvemos a módulo anterior
-  const itemAnterior = ESTADO.secuencia[ESTADO.itemGlobal];
-  if (itemAnterior._modulo !== 'control') {
-    const modIdx = MODULOS_INFO.findIndex(m => m.id === itemAnterior._modulo);
-    if (modIdx >= 0 && modIdx !== ESTADO.moduloActual) {
-      ESTADO.moduloActual = modIdx;
-    }
-  }
-
-  mostrarItem(ESTADO.itemGlobal);
-}
-
-/* ═══════════════════════════════════════════════════════════
-   PANTALLA DE PAUSA
-═══════════════════════════════════════════════════════════ */
-function mostrarPausa(siguienteModIdx) {
-  const modAnterior = MODULOS_INFO[ESTADO.moduloActual];
-  document.getElementById('pausaEmoji').textContent = '✅';
-  document.getElementById('pausaTitulo').textContent = `¡${modAnterior.titulo} completado!`;
-  document.getElementById('pausaDesc').textContent = 'Tómate un descanso si lo necesitas antes de continuar con el siguiente módulo.';
-
-  // Progreso de módulos
-  const contenedor = document.getElementById('modulosProgreso');
-  contenedor.innerHTML = MODULOS_INFO.map((m, i) => {
-    const completado = i < ESTADO.moduloActual + 1;
-    const actual = i === siguienteModIdx;
-    const pct = completado ? 100 : actual ? 0 : 0;
-    const clase = completado ? 'fill-done' : actual ? 'fill-current' : 'fill-pending';
-    const status = completado ? '<span class="modulo-status status-done">✓ Listo</span>' :
-                   actual ? '<span class="modulo-status status-current">Siguiente</span>' :
-                   '<span class="modulo-status status-pending">Pendiente</span>';
-    return `
-      <div class="modulo-fila">
-        <div class="modulo-nombre">${m.titulo.split(' ').slice(0,3).join(' ')}</div>
-        <div class="modulo-barra">
-          <div class="modulo-fill ${clase}" style="width:${completado?100:0}%"></div>
-        </div>
-        ${status}
-      </div>`;
-  }).join('');
-
-  document.getElementById('btnContinuar').onclick = () => {
-    ESTADO.moduloActual = siguienteModIdx;
-    mostrarInstrucciones(siguienteModIdx);
-  };
-
-  mostrarScreen('screenPausa');
-}
-
-function pausar() {
-  exportarParcial();
-  alert('Tu progreso ha sido guardado. Cuando estés listo, vuelve a esta página y podrás continuar.');
-}
-
-function continuarSiguienteModulo() {
-  mostrarInstrucciones(ESTADO.moduloActual);
-}
-
-/* ═══════════════════════════════════════════════════════════
-   FINALIZACIÓN Y CÁLCULO DE RESULTADOS
-═══════════════════════════════════════════════════════════ */
-function finalizarEvaluacion() {
-  clearInterval(ESTADO.timerInterval);
-  const puntajes = calcularPuntajes();
-  const validez  = calcularValidez();
-  mostrarResultados(puntajes, validez);
-  generarQR(puntajes);
-}
-
-function calcularPuntajes() {
-  const riasec = { R:0, I:0, A:0, S:0, E:0, C:0 };
-  const chaside = {};
-  const dat = { verbal:0, numerico:0, abstracto:0, espacial:0 };
-  const datTotal = { verbal:0, numerico:0, abstracto:0, espacial:0 };
-
-  ESTADO.secuencia.forEach(item => {
-    const resp = ESTADO.respuestas[item.id];
-    if (resp === undefined || item._esControl) return;
-
-    const val = typeof resp === 'number' ? resp : parseInt(resp) || 0;
-    const corr = item.invertido ? (6 - val) : val;
-
-    if (item._modulo === 'RIASEC' && item.escala) {
-      riasec[item.escala] = (riasec[item.escala] || 0) + corr;
-    } else if (item._modulo === 'CHASIDE' && item.area) {
-      chaside[item.area] = (chaside[item.area] || 0) + corr;
-    } else if (item._modulo?.startsWith('DAT_')) {
-      const sub = item._modulo.replace('DAT_', '');
-      if (resp === item.respuesta_correcta) dat[sub]++;
-      datTotal[sub]++;
-    }
-  });
-
-  // Máximos teóricos RIASEC (40 items / 6 escalas * 5 = ~33 por escala)
-  const riasecMax = {};
-  const riasecCounts = {};
-  ESTADO.secuencia.forEach(item => {
-    if (item._modulo === 'RIASEC' && item.escala && !item._esControl) {
-      riasecCounts[item.escala] = (riasecCounts[item.escala] || 0) + 1;
-    }
-  });
-  Object.keys(riasec).forEach(e => {
-    riasecMax[e] = (riasecCounts[e] || 7) * 5;
-  });
-
-  return { riasec, riasecMax, chaside, dat, datTotal };
-}
-
-function calcularValidez() {
-  const pct = ESTADO.puntajesControl.totalItems > 0
-    ? ESTADO.puntajesControl.rapidasCount / ESTADO.puntajesControl.totalItems
-    : 0;
-
-  let puntosSospecha = Math.round(pct * 10);
-
-  // Verificar pares de consistencia
-  let inconsistencias = 0;
-  ESTADO.secuencia.forEach(item => {
-    if (item._esControl && item.tipo_control === 'consistencia' && item.par_consistencia) {
-      const respA = ESTADO.respuestas[item.id];
-      const respB = ESTADO.respuestas[item.par_consistencia];
-      if (respA !== undefined && respB !== undefined) {
-        const vA = parseInt(respA);
-        const vB = parseInt(respB);
-        if (item.invertido && Math.abs(vA + vB - 6) > 2) inconsistencias++;
-        else if (!item.invertido && Math.abs(vA - vB) > 2) inconsistencias++;
-      }
-    }
-  });
-  puntosSospecha += inconsistencias * 2;
-
-  // Items trampa fallados
-  let trampasFalladas = 0;
-  ESTADO.secuencia.forEach(item => {
-    if (item._esControl && item.tipo_control === 'trampa') {
-      const resp = ESTADO.respuestas[item.id];
-      if (resp !== undefined && resp !== item.respuesta_correcta) {
-        trampasFalladas++;
-        puntosSospecha += 2;
-      }
-    }
-  });
-
-  let nivel = 'VALIDA';
-  if (puntosSospecha >= 11) nivel = 'INVALIDA';
-  else if (puntosSospecha >= 5) nivel = 'CAUTELOSA';
-
-  return { puntosSospecha, nivel, pctRapidas: Math.round(pct * 100), inconsistencias, trampasFalladas };
-}
-
-/* ═══════════════════════════════════════════════════════════
-   PANTALLA DE RESULTADOS
-═══════════════════════════════════════════════════════════ */
-function mostrarResultados(puntajes, validez) {
-  mostrarScreen('screenResultados');
-
-  // Badge de validez
-  const badgeEl = document.getElementById('validezBadge');
-  const config = {
-    VALIDA:    { clase: 'validez-valida',    texto: '✓ Evaluación válida' },
-    CAUTELOSA: { clase: 'validez-cautelosa', texto: '⚠ Evaluar con cautela' },
-    INVALIDA:  { clase: 'validez-invalida',  texto: '✗ Re-aplicación recomendada' },
-  }[validez.nivel];
-  badgeEl.className = `validez-badge ${config.clase}`;
-  badgeEl.textContent = config.texto;
-
-  // Holland
-  const riasecOrdenado = Object.entries(puntajes.riasec)
-    .map(([e, v]) => ({ e, v, pct: Math.round(v / (puntajes.riasecMax[e] || 1) * 100) }))
-    .sort((a, b) => b.v - a.v);
-
-  const top3 = riasecOrdenado.slice(0, 3);
-  const codigo = top3.map(x => x.e).join('');
-  document.getElementById('hollandCodigo').textContent = codigo;
-
-  const descHolland = top3.map(x => HOLLAND_DESC[x.e]?.nombre).join(' – ');
-  const descDetalle = top3.map(x => HOLLAND_DESC[x.e]?.desc).slice(0, 2).join(' ');
-  document.getElementById('hollandDesc').innerHTML =
-    `<strong>${descHolland}</strong><br><span style="font-size:13px;opacity:.8">${descDetalle}</span>`;
-
-  document.getElementById('hollandEscalas').innerHTML = riasecOrdenado
-    .map(x => `<div class="escala-tag">${HOLLAND_DESC[x.e]?.nombre || x.e}: ${x.pct}%</div>`)
-    .join('');
-
-  // Radar
-  dibujarRadar(riasecOrdenado);
-
-  // Top áreas CHASIDE
-  const chasideOrdenado = Object.entries(puntajes.chaside)
-    .sort((a, b) => b[1] - a[1])
-    .slice(0, 6);
-
-  const maxChaside = Math.max(...Object.values(puntajes.chaside), 1);
-  document.getElementById('areasGrid').innerHTML = chasideOrdenado
-    .map(([area, val], i) => `
-      <div class="area-card">
-        <div class="area-rank">#${i+1}</div>
-        <div class="area-nombre">${AREAS_NOMBRES[area] || area}</div>
-        <div class="area-barra">
-          <div class="area-fill" style="width:${Math.round(val/maxChaside*100)}%"></div>
-        </div>
-      </div>`).join('');
-
-  // DAT
-  const datItems = [
-    { key: 'verbal',    nombre: 'Razonamiento Verbal' },
-    { key: 'numerico',  nombre: 'Razonamiento Numérico' },
-    { key: 'abstracto', nombre: 'Razonamiento Abstracto' },
-    { key: 'espacial',  nombre: 'Razonamiento Espacial' },
-  ];
-  const datMaxOrd = [...datItems].sort((a, b) =>
-    (puntajes.dat[b.key] / (puntajes.datTotal[b.key]||1)) -
-    (puntajes.dat[a.key] / (puntajes.datTotal[a.key]||1))
-  );
-
-  document.getElementById('datGrid').innerHTML = datItems.map(d => {
-    const pct = puntajes.datTotal[d.key] > 0
-      ? Math.round(puntajes.dat[d.key] / puntajes.datTotal[d.key] * 100) : 0;
-    const nivel = pct >= 70 ? 'Alto' : pct >= 40 ? 'Medio' : 'En desarrollo';
-    const clase = pct >= 70 ? 'nivel-alto' : pct >= 40 ? 'nivel-medio' : 'nivel-bajo';
-    return `
-      <div class="dat-card">
-        <div class="dat-nombre">${d.nombre}</div>
-        <div class="dat-nivel">${nivel} (${pct}%)</div>
-        <div class="dat-barra">
-          <div class="dat-fill ${clase}" style="width:${pct}%"></div>
-        </div>
-      </div>`;
-  }).join('');
-
-  // Semáforo carrera preferida
-  const carrera = ESTADO.estudiante.carrera_preferida;
-  if (carrera) {
-    const compat = calcularCompatibilidad(puntajes, carrera);
-    const conf = compat >= 65
-      ? { clase: 'semaforo-verde',   emoji: '🟢', titulo: 'Buena compatibilidad', sub: `Tu perfil tiene afinidad con ${carrera}. Tienes fortalezas que se alinean con esta carrera.` }
-      : compat >= 40
-      ? { clase: 'semaforo-naranja', emoji: '🟡', titulo: 'Compatibilidad moderada', sub: `Existen afinidades con ${carrera}, aunque hay algunas áreas por desarrollar. El psicólogo te orientará.` }
-      : { clase: 'semaforo-rojo',    emoji: '🔴', titulo: 'Compatibilidad baja', sub: `Tu perfil actual presenta diferencias con ${carrera}. El psicólogo explorará otras opciones afines contigo.` };
-
-    document.getElementById('semaforoWrap').innerHTML = `
-      <div class="semaforo-card ${conf.clase}">
-        <div class="semaforo-header">
-          <div class="semaforo-emoji">${conf.emoji}</div>
-          <div>
-            <div class="semaforo-title">${conf.titulo}</div>
-            <div style="font-size:12px;opacity:.7;font-weight:600">${carrera.toUpperCase()}</div>
-          </div>
-        </div>
-        <div class="semaforo-sub">${conf.sub}</div>
-      </div>`;
-  }
-}
-
-function calcularCompatibilidad(puntajes, carrera) {
-  // Compatibilidad simplificada basada en perfil DAT + RIASEC
-  const dat = puntajes.dat;
-  const datT = puntajes.datTotal;
-  const pcts = {
-    verbal:    datT.verbal    > 0 ? dat.verbal    / datT.verbal    * 100 : 50,
-    numerico:  datT.numerico  > 0 ? dat.numerico  / datT.numerico  * 100 : 50,
-    abstracto: datT.abstracto > 0 ? dat.abstracto / datT.abstracto * 100 : 50,
-    espacial:  datT.espacial  > 0 ? dat.espacial  / datT.espacial  * 100 : 50,
-  };
-  const promDAT = (pcts.verbal + pcts.numerico + pcts.abstracto + pcts.espacial) / 4;
-
-  // Ajuste simple por palabras clave en nombre de carrera
-  const c = carrera.toLowerCase();
-  let bonus = 0;
-  if (/(ingeni|tecno|física|quím|matemát)/.test(c)) bonus += (pcts.numerico - 50) * 0.3 + (pcts.abstracto - 50) * 0.2;
-  if (/(medic|salud|enfermer|odonto|veterina)/.test(c)) bonus += (pcts.verbal - 50) * 0.2 + (pcts.numerico - 50) * 0.2;
-  if (/(derecho|leye|abogad)/.test(c)) bonus += (pcts.verbal - 50) * 0.4;
-  if (/(psicolog|sociol|trabajo social)/.test(c)) bonus += (pcts.verbal - 50) * 0.3;
-  if (/(arquitect|diseño|arte)/.test(c)) bonus += (pcts.espacial - 50) * 0.4;
-  if (/(economía|administ|contabil|finanza)/.test(c)) bonus += (pcts.numerico - 50) * 0.35;
-
-  return Math.min(100, Math.max(0, Math.round(promDAT + bonus)));
-}
-
-/* ═══════════════════════════════════════════════════════════
-   GRÁFICO RADAR RIASEC
-═══════════════════════════════════════════════════════════ */
-function dibujarRadar(riasecOrdenado) {
-  const labels = riasecOrdenado.map(x => HOLLAND_DESC[x.e]?.nombre || x.e);
-  const data   = riasecOrdenado.map(x => x.pct);
-
-  const ctx = document.getElementById('radarChart').getContext('2d');
-  new Chart(ctx, {
-    type: 'radar',
-    data: {
-      labels,
-      datasets: [{
-        label: 'Tu perfil',
-        data,
-        backgroundColor: 'rgba(58,123,213,0.2)',
-        borderColor: '#3A7BD5',
-        borderWidth: 2.5,
-        pointBackgroundColor: '#0F2B5B',
-        pointRadius: 5,
-        pointHoverRadius: 7,
-      }]
-    },
-    options: {
-      responsive: true,
-      scales: {
-        r: {
-          min: 0, max: 100,
-          ticks: { stepSize: 25, font: { size: 10 }, color: '#8896A8' },
-          grid: { color: 'rgba(0,0,0,.08)' },
-          pointLabels: { font: { size: 12, weight: '600' }, color: '#1E2A3A' },
-        }
-      },
-      plugins: {
-        legend: { display: false },
-        tooltip: {
-          callbacks: {
-            label: ctx => ` ${ctx.raw}%`
-          }
-        }
-      }
-    }
-  });
-}
-
-/* ═══════════════════════════════════════════════════════════
-   QR CODE (sin librería externa — implementación SVG mínima)
-═══════════════════════════════════════════════════════════ */
-function generarQR(puntajes) {
-  // Datos comprimidos para el QR (solo puntajes clave)
-  const r = puntajes.riasec;
-  const d = puntajes.dat;
-  const payload = {
-    id: ESTADO.idSesion,
-    n: `${ESTADO.estudiante.nombre} ${ESTADO.estudiante.apellido}`,
-    riasec: Object.entries(r).map(([k,v]) => `${k}${v}`).join(','),
-    dat: `V${d.verbal}N${d.numerico}A${d.abstracto}E${d.espacial}`,
-    ts: new Date().toISOString().slice(0,10),
-  };
-  const qrData = JSON.stringify(payload);
-
-  // Usar URL de API de QR pública (si hay internet) o mostrar texto
-  const canvas = document.getElementById('qrCanvas');
-  canvas.width = 160;
-  canvas.height = 160;
-  const ctx = canvas.getContext('2d');
-
-  // Dibujar placeholder visual del QR
-  ctx.fillStyle = '#F7F9FC';
-  ctx.fillRect(0, 0, 160, 160);
-  ctx.strokeStyle = '#0F2B5B';
-  ctx.lineWidth = 3;
-  ctx.strokeRect(4, 4, 152, 152);
-
-  // Patrón QR simulado
-  ctx.fillStyle = '#0F2B5B';
-  [[10,10,32,32],[118,10,32,32],[10,118,32,32]].forEach(([x,y,w,h]) => {
-    ctx.fillRect(x,y,w,h);
-    ctx.fillStyle = '#F7F9FC';
-    ctx.fillRect(x+6,y+6,w-12,h-12);
-    ctx.fillStyle = '#0F2B5B';
-    ctx.fillRect(x+10,y+10,w-20,h-20);
-  });
-
-  // ID en el centro
-  ctx.fillStyle = '#0F2B5B';
-  ctx.font = 'bold 8px DM Mono, monospace';
-  ctx.textAlign = 'center';
-  ctx.fillText(ESTADO.idSesion.slice(0,12), 80, 82);
-  ctx.font = '7px DM Mono, monospace';
-  ctx.fillStyle = '#8896A8';
-  ctx.fillText('ESCANEAR EN CITA', 80, 95);
-
-  // Intentar cargar QR real con API
-  const qrUrl = `https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=${encodeURIComponent(window.location.href + '?sesion=' + ESTADO.idSesion)}&color=0F2B5B&bgcolor=F7F9FC`;
-  const img = new Image();
-  img.crossOrigin = 'anonymous';
-  img.onload = () => ctx.drawImage(img, 0, 0, 160, 160);
-  img.src = qrUrl;
-}
-
-/* ═══════════════════════════════════════════════════════════
-   EXPORTACIÓN DE DATOS
-═══════════════════════════════════════════════════════════ */
-function construirObjetoResultado(parcial = false) {
-  const puntajes = calcularPuntajes();
-  const validez  = calcularValidez();
-  const ahora    = new Date();
-
-  return {
-    meta: {
-      id_sesion:        ESTADO.idSesion,
-      version_sistema:  '1.0',
-      version_banco:    '1.0',
-      fecha:            ahora.toISOString().slice(0, 10),
-      hora_inicio:      new Date(ESTADO.tsEvalInicio).toTimeString().slice(0, 8),
-      hora_fin:         parcial ? 'PARCIAL' : ahora.toTimeString().slice(0, 8),
-      duracion_total_min: Math.round((Date.now() - ESTADO.tsEvalInicio) / 60000 * 10) / 10,
-      semilla_aleatorizacion: ESTADO.semilla,
-      items_totales_secuencia: ESTADO.secuencia.length,
-      items_respondidos: Object.keys(ESTADO.respuestas).length,
-      parcial,
-    },
-    estudiante: ESTADO.estudiante,
-    validez: {
-      puntaje_sospecha_total:    validez.puntosSospecha,
-      nivel_validez:             validez.nivel,
-      pct_respuestas_rapidas:    validez.pctRapidas,
-      inconsistencias_control:   validez.inconsistencias,
-      trampa_items_fallados:     validez.trampasFalladas,
-    },
-    items_presentados: ESTADO.secuencia.map(i => i.id),
-    respuestas:        ESTADO.respuestas,
-    tiempos_ms:        ESTADO.tiempos,
-    puntajes_brutos:   puntajes,
-  };
-}
-
-function exportarJSON() {
-  const obj  = construirObjetoResultado();
-  const blob = new Blob([JSON.stringify(obj, null, 2)], { type: 'application/json' });
-  const url  = URL.createObjectURL(blob);
-  const a    = document.createElement('a');
-  a.href     = url;
-  a.download = `resultado_${ESTADO.idSesion}_${new Date().toISOString().slice(0,10)}.json`;
-  a.click();
-  URL.revokeObjectURL(url);
-}
-
-function exportarCSV() {
-  const obj = construirObjetoResultado();
-  const e   = obj.estudiante;
-  const p   = obj.puntajes_brutos;
-  const v   = obj.validez;
-
-  const riasec = p.riasec || {};
-  const chaside_top3 = Object.entries(p.chaside || {})
-    .sort((a,b) => b[1]-a[1]).slice(0,3).map(([k,v]) => `${k}:${v}`).join(';');
-
-  const fila = [
-    obj.meta.id_sesion, obj.meta.fecha, obj.meta.hora_inicio, obj.meta.hora_fin,
-    obj.meta.duracion_total_min, obj.meta.items_respondidos,
-    e.nombre, e.apellido, e.fecha_nacimiento, e.genero, e.colegio, e.curso,
-    e.correo, e.telefono_representante, e.carrera_preferida || '',
-    riasec.R||0, riasec.I||0, riasec.A||0, riasec.S||0, riasec.E||0, riasec.C||0,
-    chaside_top3,
-    p.dat?.verbal||0, p.dat?.numerico||0, p.dat?.abstracto||0, p.dat?.espacial||0,
-    p.datTotal?.verbal||0, p.datTotal?.numerico||0, p.datTotal?.abstracto||0, p.datTotal?.espacial||0,
-    v.puntaje_sospecha_total, v.nivel_validez,
-    v.pct_respuestas_rapidas, v.inconsistencias_control, v.trampa_items_fallados,
-    obj.meta.semilla_aleatorizacion
-  ].map(v => `"${String(v).replace(/"/g,'""')}"`).join(',');
-
-  const encabezado = [
-    'id_sesion','fecha','hora_inicio','hora_fin','duracion_min','items_respondidos',
-    'nombre','apellido','fecha_nacimiento','genero','colegio','curso',
-    'correo','telefono_representante','carrera_preferida',
-    'RIASEC_R','RIASEC_I','RIASEC_A','RIASEC_S','RIASEC_E','RIASEC_C',
-    'CHASIDE_top3',
-    'DAT_verbal_aciertos','DAT_numerico_aciertos','DAT_abstracto_aciertos','DAT_espacial_aciertos',
-    'DAT_verbal_total','DAT_numerico_total','DAT_abstracto_total','DAT_espacial_total',
-    'validez_puntaje_sospecha','validez_nivel',
-    'validez_pct_rapidas','validez_inconsistencias','validez_trampas_falladas',
-    'semilla_aleatorizacion'
-  ].join(',');
-
-  const csv  = `${encabezado}\n${fila}`;
-  const blob = new Blob(['\uFEFF' + csv], { type: 'text/csv;charset=utf-8;' });
-  const url  = URL.createObjectURL(blob);
-  const a    = document.createElement('a');
-  a.href     = url;
-  a.download = `resultado_${ESTADO.idSesion}_${new Date().toISOString().slice(0,10)}.csv`;
-  a.click();
-  URL.revokeObjectURL(url);
-}
-
-function exportarParcial() {
-  const obj  = construirObjetoResultado(true);
-  const blob = new Blob([JSON.stringify(obj, null, 2)], { type: 'application/json' });
-  const url  = URL.createObjectURL(blob);
-  const a    = document.createElement('a');
-  a.href     = url;
-  a.download = `parcial_${ESTADO.idSesion}.json`;
-  a.click();
-  URL.revokeObjectURL(url);
-}
-
-/* ═══════════════════════════════════════════════════════════
-   INICIALIZACIÓN
-═══════════════════════════════════════════════════════════ */
-window.addEventListener('DOMContentLoaded', async () => {
-  // Precargar bancos en segundo plano
-  await cargarBancos();
-
-  // Mostrar pantalla de bienvenida
-  mostrarScreen('screenBienvenida');
-
-  // Limpiar errores en tiempo real
-  document.querySelectorAll('input, select').forEach(el => {
-    el.addEventListener('input', () => {
-      el.classList.remove('error');
-      const errId = 'e' + el.id.slice(1);
-      const errEl = document.getElementById(errId);
-      if (errEl) errEl.classList.remove('visible');
-    });
-  });
-});
+// ═══════════════════════════════════════════════════════════
+// RESTO DE FUNCIONES (selección, navegación, pausa, resultados, etc.)
+// Se mantienen igual que en el original, pero se incluyen por completitud
+// (Para ahorrar espacio, se resumen las que no han cambiado)
+// ═══════════════════════════════════════════════════════════
+
+function seleccionarLikert(valor, itemId) { registrarRespuesta(itemId, valor, 'likert'); document.querySelectorAll('.likert-btn').forEach(btn => { btn.classList.toggle('selected', parseInt(btn.dataset.val) === valor); }); document.getElementById('btnSiguiente').disabled = false; document.getElementById('navHint').textContent = ''; setTimeout(() => { if (ESTADO.respuestas[itemId] !== undefined) irSiguiente(); }, 500); }
+function seleccionarMC(letra, itemId) { registrarRespuesta(itemId, letra, 'mc'); document.querySelectorAll('.mc-opcion').forEach(op => { op.classList.toggle('selected', op.dataset.val === letra); }); document.getElementById('btnSiguiente').disabled = false; document.getElementById('navHint').textContent = ''; }
+function registrarRespuesta(itemId, valor, tipo) { const elapsed = Date.now() - ESTADO.tsItemInicio; const tiempoMin = tipo === 'likert' ? CONFIG.tiempo_min_likert_ms : CONFIG.tiempo_min_mc_ms; ESTADO.respuestas[itemId] = valor; ESTADO.tiempos[itemId] = elapsed; ESTADO.puntajesControl.totalItems++; if (elapsed < tiempoMin) { ESTADO.puntajesControl.rapidasCount++; const pct = ESTADO.puntajesControl.rapidasCount / ESTADO.puntajesControl.totalItems; if (pct > CONFIG.umbral_respuesta_rapida) document.getElementById('alertaTiempo').classList.add('visible'); } }
+function irSiguiente() { const item = ESTADO.secuencia[ESTADO.itemGlobal]; if (!ESTADO.respuestas[item.id]) return; ESTADO.itemGlobal++; if (ESTADO.itemGlobal >= ESTADO.secuencia.length) { finalizarEvaluacion(); return; } const siguienteItem = ESTADO.secuencia[ESTADO.itemGlobal]; if (siguienteItem._modulo !== 'control' && siguienteItem._modulo !== MODULOS_INFO[ESTADO.moduloActual]?.id) { const nuevoModIdx = MODULOS_INFO.findIndex(m => m.id === siguienteItem._modulo); if (nuevoModIdx > ESTADO.moduloActual) { mostrarPausa(nuevoModIdx); return; } } mostrarItem(ESTADO.itemGlobal); }
+function irAnterior() { if (ESTADO.itemGlobal === 0) return; ESTADO.itemGlobal--; const itemAnterior = ESTADO.secuencia[ESTADO.itemGlobal]; if (itemAnterior._modulo !== 'control') { const modIdx = MODULOS_INFO.findIndex(m => m.id === itemAnterior._modulo); if (modIdx >= 0 && modIdx !== ESTADO.moduloActual) ESTADO.moduloActual = modIdx; } mostrarItem(ESTADO.itemGlobal); }
+function iniciarTimer() { const timerEl = document.getElementById('topbarTimer'); timerEl.classList.add('activo'); document.getElementById('topbarProgreso').classList.add('activo'); ESTADO.timerInterval = setInterval(() => { const elapsed = Date.now() - ESTADO.tsEvalInicio; timerEl.textContent = formatearTiempo(elapsed); }, 1000); }
+function actualizarTopbar() { const pct = Math.round((ESTADO.itemGlobal / ESTADO.secuencia.length) * 100); document.getElementById('topbarPct').textContent = pct + '%'; document.getElementById('topbarFill').style.width = pct + '%'; }
+function mostrarInstrucciones(modIdx) { const info = MODULOS_INFO[modIdx]; if (!info) { finalizarEvaluacion(); return; } document.getElementById('instrBadge').textContent = info.badge; document.getElementById('instrBadge').className = `modulo-badge ${info.badgeClass}`; document.getElementById('instrTitulo').textContent = info.titulo; document.getElementById('instrDesc').textContent = info.desc; const itemsModulo = ESTADO.secuencia.filter(i => i._modulo === info.id).length; document.getElementById('instrItems').textContent = itemsModulo; const tiempos = { RIASEC:10, CHASIDE:18, DAT_verbal:12, DAT_numerico:14, DAT_abstracto:10, DAT_espacial:10 }; document.getElementById('instrTiempo').textContent = tiempos[info.id] || 10; document.getElementById('instrModNum').textContent = `${modIdx + 1}/6`; document.getElementById('instrPasos').innerHTML = info.pasos.map(p => `<li>${p}</li>`).join(''); document.getElementById('instrPreview').style.display = info.showPreview ? 'flex' : 'none'; mostrarScreen('screenInstrucciones'); ESTADO.moduloActual = modIdx; ESTADO.tsModuloInicio = Date.now(); }
+function empezarModuloActual() { let startIdx = ESTADO.itemGlobal; while (startIdx < ESTADO.secuencia.length) { const item = ESTADO.secuencia[startIdx]; if (!ESTADO.respuestas[item.id]) break; startIdx++; } ESTADO.itemGlobal = startIdx; mostrarItem(ESTADO.itemGlobal); }
+function mostrarPausa(siguienteModIdx) { const modAnterior = MODULOS_INFO[ESTADO.moduloActual]; document.getElementById('pausaEmoji').textContent = '✅'; document.getElementById('pausaTitulo').textContent = `¡${modAnterior.titulo} completado!`; document.getElementById('pausaDesc').textContent = 'Tómate un descanso si lo necesitas antes de continuar con el siguiente módulo.'; const contenedor = document.getElementById('modulosProgreso'); contenedor.innerHTML = MODULOS_INFO.map((m, i) => { const completado = i < ESTADO.moduloActual + 1; const actual = i === siguienteModIdx; const clase = completado ? 'fill-done' : actual ? 'fill-current' : 'fill-pending'; const status = completado ? '<span class="modulo-status status-done">✓ Listo</span>' : actual ? '<span class="modulo-status status-current">Siguiente</span>' : '<span class="modulo-status status-pending">Pendiente</span>'; return `<div class="modulo-fila"><div class="modulo-nombre">${m.titulo.split(' ').slice(0,3).join(' ')}</div><div class="modulo-barra"><div class="modulo-fill ${clase}" style="width:${completado?100:0}%"></div></div>${status}</div>`; }).join(''); document.getElementById('btnContinuar').onclick = () => { ESTADO.moduloActual = siguienteModIdx; mostrarInstrucciones(siguienteModIdx); }; mostrarScreen('screenPausa'); }
+function pausar() { exportarParcial(); alert('Tu progreso ha sido guardado. Cuando estés listo, vuelve a esta página y podrás continuar.'); }
+function continuarSiguienteModulo() { mostrarInstrucciones(ESTADO.moduloActual); }
+function finalizarEvaluacion() { clearInterval(ESTADO.timerInterval); const puntajes = calcularPuntajes(); const validez = calcularValidez(); mostrarResultados(puntajes, validez); generarQR(puntajes); }
+function calcularPuntajes() { const riasec = { R:0, I:0, A:0, S:0, E:0, C:0 }; const chaside = {}; const dat = { verbal:0, numerico:0, abstracto:0, espacial:0 }; const datTotal = { verbal:0, numerico:0, abstracto:0, espacial:0 }; ESTADO.secuencia.forEach(item => { const resp = ESTADO.respuestas[item.id]; if (resp === undefined || item._esControl) return; const val = typeof resp === 'number' ? resp : parseInt(resp) || 0; const corr = item.invertido ? (6 - val) : val; if (item._modulo === 'RIASEC' && item.escala) riasec[item.escala] = (riasec[item.escala] || 0) + corr; else if (item._modulo === 'CHASIDE' && item.area) chaside[item.area] = (chaside[item.area] || 0) + corr; else if (item._modulo?.startsWith('DAT_')) { const sub = item._modulo.replace('DAT_', ''); if (resp === item.respuesta_correcta) dat[sub]++; datTotal[sub]++; } }); const riasecMax = {}; const riasecCounts = {}; ESTADO.secuencia.forEach(item => { if (item._modulo === 'RIASEC' && item.escala && !item._esControl) riasecCounts[item.escala] = (riasecCounts[item.escala] || 0) + 1; }); Object.keys(riasec).forEach(e => { riasecMax[e] = (riasecCounts[e] || 7) * 5; }); return { riasec, riasecMax, chaside, dat, datTotal }; }
+function calcularValidez() { const pct = ESTADO.puntajesControl.totalItems > 0 ? ESTADO.puntajesControl.rapidasCount / ESTADO.puntajesControl.totalItems : 0; let puntosSospecha = Math.round(pct * 10); let inconsistencias = 0; ESTADO.secuencia.forEach(item => { if (item._esControl && item.tipo_control === 'consistencia' && item.par_consistencia) { const respA = ESTADO.respuestas[item.id]; const respB = ESTADO.respuestas[item.par_consistencia]; if (respA !== undefined && respB !== undefined) { const vA = parseInt(respA); const vB = parseInt(respB); if (item.invertido && Math.abs(vA + vB - 6) > 2) inconsistencias++; else if (!item.invertido && Math.abs(vA - vB) > 2) inconsistencias++; } } }); puntosSospecha += inconsistencias * 2; let trampasFalladas = 0; ESTADO.secuencia.forEach(item => { if (item._esControl && item.tipo_control === 'trampa') { const resp = ESTADO.respuestas[item.id]; if (resp !== undefined && resp !== item.respuesta_correcta) { trampasFalladas++; puntosSospecha += 2; } } }); let nivel = 'VALIDA'; if (puntosSospecha >= 11) nivel = 'INVALIDA'; else if (puntosSospecha >= 5) nivel = 'CAUTELOSA'; return { puntosSospecha, nivel, pctRapidas: Math.round(pct * 100), inconsistencias, trampasFalladas }; }
+function mostrarResultados(puntajes, validez) { mostrarScreen('screenResultados'); const badgeEl = document.getElementById('validezBadge'); const config = { VALIDA: { clase: 'validez-valida', texto: '✓ Evaluación válida' }, CAUTELOSA: { clase: 'validez-cautelosa', texto: '⚠ Evaluar con cautela' }, INVALIDA: { clase: 'validez-invalida', texto: '✗ Re-aplicación recomendada' } }[validez.nivel]; badgeEl.className = `validez-badge ${config.clase}`; badgeEl.textContent = config.texto; const riasecOrdenado = Object.entries(puntajes.riasec).map(([e, v]) => ({ e, v, pct: Math.round(v / (puntajes.riasecMax[e] || 1) * 100) })).sort((a, b) => b.v - a.v); const top3 = riasecOrdenado.slice(0, 3); const codigo = top3.map(x => x.e).join(''); document.getElementById('hollandCodigo').textContent = codigo; const descHolland = top3.map(x => HOLLAND_DESC[x.e]?.nombre).join(' – '); const descDetalle = top3.map(x => HOLLAND_DESC[x.e]?.desc).slice(0, 2).join(' '); document.getElementById('hollandDesc').innerHTML = `<strong>${descHolland}</strong><br><span style="font-size:13px;opacity:.8">${descDetalle}</span>`; document.getElementById('hollandEscalas').innerHTML = riasecOrdenado.map(x => `<div class="escala-tag">${HOLLAND_DESC[x.e]?.nombre || x.e}: ${x.pct}%</div>`).join(''); dibujarRadar(riasecOrdenado); const chasideOrdenado = Object.entries(puntajes.chaside).sort((a, b) => b[1] - a[1]).slice(0, 6); const maxChaside = Math.max(...Object.values(puntajes.chaside), 1); document.getElementById('areasGrid').innerHTML = chasideOrdenado.map(([area, val], i) => `<div class="area-card"><div class="area-rank">#${i+1}</div><div class="area-nombre">${AREAS_NOMBRES[area] || area}</div><div class="area-barra"><div class="area-fill" style="width:${Math.round(val/maxChaside*100)}%"></div></div></div>`).join(''); const datItems = [{ key:'verbal', nombre:'Razonamiento Verbal' },{ key:'numerico', nombre:'Razonamiento Numérico' },{ key:'abstracto', nombre:'Razonamiento Abstracto' },{ key:'espacial', nombre:'Razonamiento Espacial' }]; document.getElementById('datGrid').innerHTML = datItems.map(d => { const pct = puntajes.datTotal[d.key] > 0 ? Math.round(puntajes.dat[d.key] / puntajes.datTotal[d.key] * 100) : 0; const nivel = pct >= 70 ? 'Alto' : pct >= 40 ? 'Medio' : 'En desarrollo'; const clase = pct >= 70 ? 'nivel-alto' : pct >= 40 ? 'nivel-medio' : 'nivel-bajo'; return `<div class="dat-card"><div class="dat-nombre">${d.nombre}</div><div class="dat-nivel">${nivel} (${pct}%)</div><div class="dat-barra"><div class="dat-fill ${clase}" style="width:${pct}%"></div></div></div>`; }).join(''); const carrera = ESTADO.estudiante.carrera_preferida; if (carrera) { const compat = calcularCompatibilidad(puntajes, carrera); const conf = compat >= 65 ? { clase:'semaforo-verde', emoji:'🟢', titulo:'Buena compatibilidad', sub:`Tu perfil tiene afinidad con ${carrera}.` } : compat >= 40 ? { clase:'semaforo-naranja', emoji:'🟡', titulo:'Compatibilidad moderada', sub:`Existen afinidades con ${carrera}, aunque hay áreas por desarrollar.` } : { clase:'semaforo-rojo', emoji:'🔴', titulo:'Compatibilidad baja', sub:`Tu perfil actual presenta diferencias con ${carrera}.` }; document.getElementById('semaforoWrap').innerHTML = `<div class="semaforo-card ${conf.clase}"><div class="semaforo-header"><div class="semaforo-emoji">${conf.emoji}</div><div><div class="semaforo-title">${conf.titulo}</div><div style="font-size:12px;opacity:.7;font-weight:600">${carrera.toUpperCase()}</div></div></div><div class="semaforo-sub">${conf.sub}</div></div>`; } }
+function calcularCompatibilidad(puntajes, carrera) { const dat = puntajes.dat; const datT = puntajes.datTotal; const pcts = { verbal: datT.verbal > 0 ? dat.verbal / datT.verbal * 100 : 50, numerico: datT.numerico > 0 ? dat.numerico / datT.numerico * 100 : 50, abstracto: datT.abstracto > 0 ? dat.abstracto / datT.abstracto * 100 : 50, espacial: datT.espacial > 0 ? dat.espacial / datT.espacial * 100 : 50 }; const promDAT = (pcts.verbal + pcts.numerico + pcts.abstracto + pcts.espacial) / 4; const c = carrera.toLowerCase(); let bonus = 0; if (/(ingeni|tecno|física|quím|matemát)/.test(c)) bonus += (pcts.numerico - 50) * 0.3 + (pcts.abstracto - 50) * 0.2; if (/(medic|salud|enfermer|odonto|veterina)/.test(c)) bonus += (pcts.verbal - 50) * 0.2 + (pcts.numerico - 50) * 0.2; if (/(derecho|leye|abogad)/.test(c)) bonus += (pcts.verbal - 50) * 0.4; if (/(psicolog|sociol|trabajo social)/.test(c)) bonus += (pcts.verbal - 50) * 0.3; if (/(arquitect|diseño|arte)/.test(c)) bonus += (pcts.espacial - 50) * 0.4; if (/(economía|administ|contabil|finanza)/.test(c)) bonus += (pcts.numerico - 50) * 0.35; return Math.min(100, Math.max(0, Math.round(promDAT + bonus))); }
+function dibujarRadar(riasecOrdenado) { const labels = riasecOrdenado.map(x => HOLLAND_DESC[x.e]?.nombre || x.e); const data = riasecOrdenado.map(x => x.pct); const ctx = document.getElementById('radarChart').getContext('2d'); new Chart(ctx, { type:'radar', data:{ labels, datasets:[{ label:'Tu perfil', data, backgroundColor:'rgba(58,123,213,0.2)', borderColor:'#3A7BD5', borderWidth:2.5, pointBackgroundColor:'#0F2B5B', pointRadius:5, pointHoverRadius:7 }] }, options:{ responsive:true, scales:{ r:{ min:0, max:100, ticks:{ stepSize:25, font:{ size:10 }, color:'#8896A8' }, grid:{ color:'rgba(0,0,0,.08)' }, pointLabels:{ font:{ size:12, weight:'600' }, color:'#1E2A3A' } } }, plugins:{ legend:{ display:false }, tooltip:{ callbacks:{ label:ctx => ` ${ctx.raw}%` } } } } }); }
+function generarQR(puntajes) { const payload = { id: ESTADO.idSesion, n: `${ESTADO.estudiante.nombre} ${ESTADO.estudiante.apellido}`, riasec: Object.entries(puntajes.riasec).map(([k,v]) => `${k}${v}`).join(','), dat: `V${puntajes.dat.verbal}N${puntajes.dat.numerico}A${puntajes.dat.abstracto}E${puntajes.dat.espacial}`, ts: new Date().toISOString().slice(0,10) }; const canvas = document.getElementById('qrCanvas'); canvas.width = 160; canvas.height = 160; const ctx = canvas.getContext('2d'); ctx.fillStyle = '#F7F9FC'; ctx.fillRect(0, 0, 160, 160); ctx.strokeStyle = '#0F2B5B'; ctx.lineWidth = 3; ctx.strokeRect(4, 4, 152, 152); ctx.fillStyle = '#0F2B5B'; [[10,10,32,32],[118,10,32,32],[10,118,32,32]].forEach(([x,y,w,h]) => { ctx.fillRect(x,y,w,h); ctx.fillStyle = '#F7F9FC'; ctx.fillRect(x+6,y+6,w-12,h-12); ctx.fillStyle = '#0F2B5B'; ctx.fillRect(x+10,y+10,w-20,h-20); }); ctx.fillStyle = '#0F2B5B'; ctx.font = 'bold 8px DM Mono, monospace'; ctx.textAlign = 'center'; ctx.fillText(ESTADO.idSesion.slice(0,12), 80, 82); ctx.font = '7px DM Mono, monospace'; ctx.fillStyle = '#8896A8'; ctx.fillText('ESCANEAR EN CITA', 80, 95); const qrUrl = `https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=${encodeURIComponent(window.location.href + '?sesion=' + ESTADO.idSesion)}&color=0F2B5B&bgcolor=F7F9FC`; const img = new Image(); img.crossOrigin = 'anonymous'; img.onload = () => ctx.drawImage(img, 0, 0, 160, 160); img.src = qrUrl; }
+function construirObjetoResultado(parcial = false) { const puntajes = calcularPuntajes(); const validez = calcularValidez(); const ahora = new Date(); return { meta: { id_sesion: ESTADO.idSesion, version_sistema: '1.0', version_banco: '1.0', fecha: ahora.toISOString().slice(0,10), hora_inicio: new Date(ESTADO.tsEvalInicio).toTimeString().slice(0,8), hora_fin: parcial ? 'PARCIAL' : ahora.toTimeString().slice(0,8), duracion_total_min: Math.round((Date.now() - ESTADO.tsEvalInicio) / 60000 * 10) / 10, semilla_aleatorizacion: ESTADO.semilla, items_totales_secuencia: ESTADO.secuencia.length, items_respondidos: Object.keys(ESTADO.respuestas).length, parcial }, estudiante: ESTADO.estudiante, validez: { puntaje_sospecha_total: validez.puntosSospecha, nivel_validez: validez.nivel, pct_respuestas_rapidas: validez.pctRapidas, inconsistencias_control: validez.inconsistencias, trampa_items_fallados: validez.trampasFalladas }, items_presentados: ESTADO.secuencia.map(i => i.id), respuestas: ESTADO.respuestas, tiempos_ms: ESTADO.tiempos, puntajes_brutos: puntajes }; }
+function exportarJSON() { const obj = construirObjetoResultado(); const blob = new Blob([JSON.stringify(obj, null, 2)], { type: 'application/json' }); const url = URL.createObjectURL(blob); const a = document.createElement('a'); a.href = url; a.download = `resultado_${ESTADO.idSesion}_${new Date().toISOString().slice(0,10)}.json`; a.click(); URL.revokeObjectURL(url); }
+function exportarCSV() { const obj = construirObjetoResultado(); const e = obj.estudiante; const p = obj.puntajes_brutos; const v = obj.validez; const riasec = p.riasec || {}; const chaside_top3 = Object.entries(p.chaside || {}).sort((a,b)=>b[1]-a[1]).slice(0,3).map(([k,v])=>`${k}:${v}`).join(';'); const fila = [obj.meta.id_sesion, obj.meta.fecha, obj.meta.hora_inicio, obj.meta.hora_fin, obj.meta.duracion_total_min, obj.meta.items_respondidos, e.nombre, e.apellido, e.fecha_nacimiento, e.genero, e.colegio, e.curso, e.correo, e.telefono_representante, e.carrera_preferida || '', riasec.R||0, riasec.I||0, riasec.A||0, riasec.S||0, riasec.E||0, riasec.C||0, chaside_top3, p.dat?.verbal||0, p.dat?.numerico||0, p.dat?.abstracto||0, p.dat?.espacial||0, p.datTotal?.verbal||0, p.datTotal?.numerico||0, p.datTotal?.abstracto||0, p.datTotal?.espacial||0, v.puntaje_sospecha_total, v.nivel_validez, v.pct_respuestas_rapidas, v.inconsistencias_control, v.trampa_items_fallados, obj.meta.semilla_aleatorizacion].map(v => `"${String(v).replace(/"/g,'""')}"`).join(','); const encabezado = ['id_sesion','fecha','hora_inicio','hora_fin','duracion_min','items_respondidos','nombre','apellido','fecha_nacimiento','genero','colegio','curso','correo','telefono_representante','carrera_preferida','RIASEC_R','RIASEC_I','RIASEC_A','RIASEC_S','RIASEC_E','RIASEC_C','CHASIDE_top3','DAT_verbal_aciertos','DAT_numerico_aciertos','DAT_abstracto_aciertos','DAT_espacial_aciertos','DAT_verbal_total','DAT_numerico_total','DAT_abstracto_total','DAT_espacial_total','validez_puntaje_sospecha','validez_nivel','validez_pct_rapidas','validez_inconsistencias','validez_trampas_falladas','semilla_aleatorizacion'].join(','); const csv = `${encabezado}\n${fila}`; const blob = new Blob(['\uFEFF' + csv], { type: 'text/csv;charset=utf-8;' }); const url = URL.createObjectURL(blob); const a = document.createElement('a'); a.href = url; a.download = `resultado_${ESTADO.idSesion}_${new Date().toISOString().slice(0,10)}.csv`; a.click(); URL.revokeObjectURL(url); }
+function exportarParcial() { const obj = construirObjetoResultado(true); const blob = new Blob([JSON.stringify(obj, null, 2)], { type: 'application/json' }); const url = URL.createObjectURL(blob); const a = document.createElement('a'); a.href = url; a.download = `parcial_${ESTADO.idSesion}.json`; a.click(); URL.revokeObjectURL(url); }
+function validarFormulario() { let ok = true; const campos = [{ id:'fNombre', err:'eNombre', check:v=>v.trim().length>=2 },{ id:'fApellido', err:'eApellido', check:v=>v.trim().length>=2 },{ id:'fFechaNac', err:'eFechaNac', check:v=>v!=='' },{ id:'fGenero', err:'eGenero', check:v=>v!=='' },{ id:'fColegio', err:'eColegio', check:v=>v.trim().length>=3 },{ id:'fCurso', err:'eCurso', check:v=>v!=='' }]; campos.forEach(c=>{ const el = document.getElementById(c.id); const err = document.getElementById(c.err); if (!c.check(el.value)) { el.classList.add('error'); err.classList.add('visible'); ok=false; } else { el.classList.remove('error'); err.classList.remove('visible'); } }); const consent = document.getElementById('fConsentimiento'); const eConsent = document.getElementById('eConsentimiento'); if (!consent.checked) { eConsent.classList.add('visible'); ok=false; } else { eConsent.classList.remove('visible'); } return ok; }
+async function iniciarEvaluacion() { if (!validarFormulario()) { document.querySelector('.error')?.scrollIntoView({ behavior:'smooth', block:'center' }); return; } ESTADO.estudiante = { nombre: document.getElementById('fNombre').value.trim(), apellido: document.getElementById('fApellido').value.trim(), fecha_nacimiento: document.getElementById('fFechaNac').value, genero: document.getElementById('fGenero').value, colegio: document.getElementById('fColegio').value.trim(), curso: document.getElementById('fCurso').value, correo: document.getElementById('fCorreo').value.trim(), telefono_representante: document.getElementById('fTelefono').value.trim(), nombre_representante: document.getElementById('fRepresentante').value.trim(), carrera_preferida: document.getElementById('fCarrera').value.trim(), consentimiento: true }; ESTADO.idSesion = generarID(); ESTADO.semilla = Date.now(); ESTADO.tsEvalInicio = Date.now(); if (Object.keys(ESTADO.bancos).length === 0) await cargarBancos(); ESTADO.secuencia = construirSecuencia(ESTADO.semilla); ESTADO.itemGlobal = 0; ESTADO.moduloActual = 0; iniciarTimer(); actualizarTopbar(); mostrarInstrucciones(0); }
+
+window.addEventListener('DOMContentLoaded', async () => { await cargarBancos(); mostrarScreen('screenBienvenida'); document.querySelectorAll('input, select').forEach(el => { el.addEventListener('input', () => { el.classList.remove('error'); const errId = 'e' + el.id.slice(1); const errEl = document.getElementById(errId); if (errEl) errEl.classList.remove('visible'); }); }); });
 </script>
 </body>
 </html>
