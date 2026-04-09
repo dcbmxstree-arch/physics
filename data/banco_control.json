@@ -1,0 +1,1118 @@
+{
+  "meta": {
+    "modulo": "CONTROL",
+    "descripcion": "Banco de items de control psicometrico para deteccion de respuesta aleatoria, inatención y sesgo de deseabilidad social. Tres tipos: Tipo A Consistencia interna, Tipo B Trampa de atencion, Tipo C Deseabilidad social. Construccion original Instituto Physics.",
+    "autoria": "Construccion original Instituto Physics, 2026",
+    "derechos": "Uso interno institucional. Items originales.",
+    "version_banco": "1.0",
+    "fecha_creacion": "2026-04-07",
+    "total_items": 40,
+    "distribucion_tipos": {
+      "tipo_A_consistencia": 12,
+      "tipo_B_trampa": 12,
+      "tipo_C_deseabilidad_social": 12
+    },
+    "items_por_aplicacion": 18,
+    "ratio_banco_aplicacion": "2:1",
+    "logica_alertas": {
+      "descripcion": "Sistema de puntuacion de validez de la prueba",
+      "puntuacion_maxima_sospecha": 36,
+      "umbrales": {
+        "VALIDA": {
+          "rango": "0-4 puntos sospecha",
+          "descripcion": "Prueba valida. Interpretacion normal.",
+          "accion": "Proceder con interpretacion estandar"
+        },
+        "CAUTELOSA": {
+          "rango": "5-10 puntos sospecha",
+          "descripcion": "Posible inatención parcial o sesgo de imagen moderado.",
+          "accion": "Interpretar con precaucion. Anotar en informe del psicologo."
+        },
+        "INVALIDA": {
+          "rango": "11+ puntos sospecha",
+          "descripcion": "Validez comprometida. Alta probabilidad de respuesta aleatoria o sesgo severo.",
+          "accion": "Recomendar re-aplicacion. No interpretar puntajes de contenido."
+        }
+      },
+      "pesos_por_tipo": {
+        "consistencia": {
+          "inconsistencia_en_par": 2,
+          "descripcion": "Cada par inconsistente suma 2 puntos sospecha"
+        },
+        "trampa": {
+          "fallo_item_trivial": 2,
+          "descripcion": "Cada item trampa fallado suma 2 puntos sospecha"
+        },
+        "deseabilidad_social": {
+          "respuesta_sospechosa": 1,
+          "descripcion": "Cada respuesta socialmente deseable suma 1 punto. No invalida por si sola pero se reporta.",
+          "umbral_propio": "8+ respuestas sospechosas = nota de sesgo en informe"
+        }
+      },
+      "alertas_tiempo": {
+        "respuesta_muy_rapida_likert": {
+          "umbral_ms": 2000,
+          "peso": 0.5,
+          "descripcion": "Respuesta en menos de 2 seg en item Likert. Suma 0.5 puntos sospecha"
+        },
+        "respuesta_muy_rapida_opcion_multiple": {
+          "umbral_ms": 5000,
+          "peso": 0.5,
+          "descripcion": "Respuesta en menos de 5 seg en item de opcion multiple. Suma 0.5 puntos sospecha"
+        },
+        "patron_lineal": {
+          "descripcion": "Si 15+ respuestas consecutivas tienen el mismo valor. Suma 3 puntos sospecha.",
+          "peso": 3
+        }
+      }
+    },
+    "plan_insercion": {
+      "descripcion": "Distribucion de items de control a lo largo de la prueba",
+      "principios": [
+        "Los items de control no se agrupan, se distribuyen uniformemente",
+        "Los pares de consistencia (Tipo A) tienen distancia minima de 30 items entre si",
+        "Los items trampa (Tipo B) aparecen en momentos de posible fatiga (inicio, medio, final)",
+        "Los items de deseabilidad social (Tipo C) se intercalan en modulos de interes"
+      ],
+      "distribucion_por_modulo": {
+        "RIASEC_60_items": {
+          "tipo_A_consistencia": 4,
+          "tipo_B_trampa": 1,
+          "tipo_C_deseabilidad": 4,
+          "total_control": 9,
+          "posiciones_sugeridas": [
+            8,
+            20,
+            35,
+            45,
+            55
+          ]
+        },
+        "CHASIDE_112_items": {
+          "tipo_A_consistencia": 4,
+          "tipo_B_trampa": 1,
+          "tipo_C_deseabilidad": 4,
+          "total_control": 9,
+          "posiciones_sugeridas": [
+            15,
+            35,
+            60,
+            85,
+            100
+          ]
+        },
+        "DAT_verbal_20_items": {
+          "tipo_A_consistencia": 2,
+          "tipo_B_trampa": 2,
+          "tipo_C_deseabilidad": 0,
+          "total_control": 4,
+          "posiciones_sugeridas": [
+            5,
+            12,
+            18
+          ]
+        },
+        "DAT_numerico_20_items": {
+          "tipo_A_consistencia": 2,
+          "tipo_B_trampa": 3,
+          "tipo_C_deseabilidad": 0,
+          "total_control": 5,
+          "posiciones_sugeridas": [
+            4,
+            10,
+            16,
+            19
+          ]
+        },
+        "DAT_abstracto_15_items": {
+          "tipo_A_consistencia": 2,
+          "tipo_B_trampa": 2,
+          "tipo_C_deseabilidad": 0,
+          "total_control": 4,
+          "posiciones_sugeridas": [
+            4,
+            9,
+            13
+          ]
+        },
+        "DAT_espacial_15_items": {
+          "tipo_A_consistencia": 2,
+          "tipo_B_trampa": 3,
+          "tipo_C_deseabilidad": 0,
+          "total_control": 5,
+          "posiciones_sugeridas": [
+            4,
+            9,
+            13
+          ]
+        }
+      },
+      "total_items_control_en_prueba": 36,
+      "nota": "El sistema selecciona aleatoriamente que items de control insertar en cada aplicacion, garantizando al menos 1 de cada tipo por modulo"
+    },
+    "instrucciones_para_desarrollador": "Los items de control se mezclan con los items regulares del modulo correspondiente. El estudiante NO debe saber que existen items de control. Solo el psicologo ve los resultados de validez."
+  },
+  "items": [
+    {
+      "id": "CTRL_CONS_R_001A",
+      "tipo_control": "consistencia",
+      "subtipo": "original",
+      "par_id": "PAR_R_01",
+      "modulo_insercion": "RIASEC",
+      "escala_insercion": "R",
+      "posicion_recomendada": "inicio_modulo",
+      "formato": "likert_5",
+      "texto": "Me interesa trabajar con maquinas, herramientas o equipos tecnicos en mi labor diaria.",
+      "opciones_respuesta": {
+        "1": "No me interesa nada",
+        "2": "Me interesa poco",
+        "3": "Me es indiferente",
+        "4": "Me interesa bastante",
+        "5": "Me interesa mucho"
+      },
+      "item_espejo_id": "CTRL_CONS_R_001B",
+      "logica_validacion": "diferencia_mayor_2_con_espejo_indica_inconsistencia",
+      "invertido": false,
+      "tiempo_minimo_ms": 2000,
+      "visible_como": "item_normal_RIASEC",
+      "validado": false,
+      "fuente": "construccion_original_Physics_2026",
+      "nota": "Par con CTRL_CONS_R_001B. Distancia minima entre pares: 30 items."
+    },
+    {
+      "id": "CTRL_CONS_R_001B",
+      "tipo_control": "consistencia",
+      "subtipo": "espejo",
+      "par_id": "PAR_R_01",
+      "modulo_insercion": "RIASEC",
+      "escala_insercion": "R",
+      "posicion_recomendada": "final_modulo",
+      "formato": "likert_5",
+      "texto": "Prefiero evitar cualquier tipo de trabajo que implique uso de maquinas, herramientas o esfuerzo tecnico.",
+      "opciones_respuesta": {
+        "1": "No me interesa nada",
+        "2": "Me interesa poco",
+        "3": "Me es indiferente",
+        "4": "Me interesa bastante",
+        "5": "Me interesa mucho"
+      },
+      "item_espejo_id": "CTRL_CONS_R_001A",
+      "logica_validacion": "suma_par_debe_ser_aproximadamente_6_(1+5_o_2+4)",
+      "invertido": true,
+      "tiempo_minimo_ms": 2000,
+      "visible_como": "item_normal_RIASEC",
+      "validado": false,
+      "fuente": "construccion_original_Physics_2026",
+      "nota": "Espejo invertido de CTRL_CONS_R_001A. Si A=5, B deberia ser 1 o 2."
+    },
+    {
+      "id": "CTRL_CONS_S_002A",
+      "tipo_control": "consistencia",
+      "subtipo": "original",
+      "par_id": "PAR_S_02",
+      "modulo_insercion": "RIASEC",
+      "escala_insercion": "S",
+      "posicion_recomendada": "inicio_modulo",
+      "formato": "likert_5",
+      "texto": "Me interesa ayudar y trabajar directamente con personas que necesitan apoyo o orientacion.",
+      "opciones_respuesta": {
+        "1": "No me interesa nada",
+        "2": "Me interesa poco",
+        "3": "Me es indiferente",
+        "4": "Me interesa bastante",
+        "5": "Me interesa mucho"
+      },
+      "item_espejo_id": "CTRL_CONS_S_002B",
+      "logica_validacion": "diferencia_mayor_2_con_espejo_indica_inconsistencia",
+      "invertido": false,
+      "tiempo_minimo_ms": 2000,
+      "visible_como": "item_normal_RIASEC",
+      "validado": false,
+      "fuente": "construccion_original_Physics_2026",
+      "nota": "Par con CTRL_CONS_S_002B."
+    },
+    {
+      "id": "CTRL_CONS_S_002B",
+      "tipo_control": "consistencia",
+      "subtipo": "espejo",
+      "par_id": "PAR_S_02",
+      "modulo_insercion": "RIASEC",
+      "escala_insercion": "S",
+      "posicion_recomendada": "final_modulo",
+      "formato": "likert_5",
+      "texto": "Prefiero trabajar de manera completamente independiente, sin tener que interactuar ni ayudar a otras personas.",
+      "opciones_respuesta": {
+        "1": "No me interesa nada",
+        "2": "Me interesa poco",
+        "3": "Me es indiferente",
+        "4": "Me interesa bastante",
+        "5": "Me interesa mucho"
+      },
+      "item_espejo_id": "CTRL_CONS_S_002A",
+      "logica_validacion": "suma_par_debe_ser_aproximadamente_6",
+      "invertido": true,
+      "tiempo_minimo_ms": 2000,
+      "visible_como": "item_normal_RIASEC",
+      "validado": false,
+      "fuente": "construccion_original_Physics_2026",
+      "nota": "Espejo invertido de CTRL_CONS_S_002A."
+    },
+    {
+      "id": "CTRL_CONS_CHS_003A",
+      "tipo_control": "consistencia",
+      "subtipo": "original",
+      "par_id": "PAR_CHS_03",
+      "modulo_insercion": "CHASIDE",
+      "escala_insercion": "IN",
+      "posicion_recomendada": "inicio_modulo",
+      "formato": "likert_5",
+      "texto": "Me interesa aprender a programar y desarrollar soluciones digitales para problemas reales.",
+      "opciones_respuesta": {
+        "1": "Nunca me interesaria",
+        "2": "Pocas veces me interesaria",
+        "3": "A veces me interesaria",
+        "4": "Frecuentemente me interesaria",
+        "5": "Siempre me interesaria"
+      },
+      "item_espejo_id": "CTRL_CONS_CHS_003B",
+      "logica_validacion": "diferencia_mayor_2_con_espejo_indica_inconsistencia",
+      "invertido": false,
+      "tiempo_minimo_ms": 3000,
+      "visible_como": "item_normal_CHASIDE",
+      "validado": false,
+      "fuente": "construccion_original_Physics_2026",
+      "nota": "Par con CTRL_CONS_CHS_003B."
+    },
+    {
+      "id": "CTRL_CONS_CHS_003B",
+      "tipo_control": "consistencia",
+      "subtipo": "espejo",
+      "par_id": "PAR_CHS_03",
+      "modulo_insercion": "CHASIDE",
+      "escala_insercion": "IN",
+      "posicion_recomendada": "final_modulo",
+      "formato": "likert_5",
+      "texto": "La programacion y el desarrollo de software me parecen actividades aburridas que nunca me gustaria hacer.",
+      "opciones_respuesta": {
+        "1": "Nunca me interesaria",
+        "2": "Pocas veces me interesaria",
+        "3": "A veces me interesaria",
+        "4": "Frecuentemente me interesaria",
+        "5": "Siempre me interesaria"
+      },
+      "item_espejo_id": "CTRL_CONS_CHS_003A",
+      "logica_validacion": "suma_par_debe_ser_aproximadamente_6",
+      "invertido": true,
+      "tiempo_minimo_ms": 3000,
+      "visible_como": "item_normal_CHASIDE",
+      "validado": false,
+      "fuente": "construccion_original_Physics_2026",
+      "nota": "Espejo invertido de CTRL_CONS_CHS_003A."
+    },
+    {
+      "id": "CTRL_CONS_CHS_004A",
+      "tipo_control": "consistencia",
+      "subtipo": "original",
+      "par_id": "PAR_CHS_04",
+      "modulo_insercion": "CHASIDE",
+      "escala_insercion": "AR",
+      "posicion_recomendada": "inicio_modulo",
+      "formato": "likert_5",
+      "texto": "Me interesa crear obras artisticas o disenar productos con valor estetico propio.",
+      "opciones_respuesta": {
+        "1": "Nunca me interesaria",
+        "2": "Pocas veces me interesaria",
+        "3": "A veces me interesaria",
+        "4": "Frecuentemente me interesaria",
+        "5": "Siempre me interesaria"
+      },
+      "item_espejo_id": "CTRL_CONS_CHS_004B",
+      "logica_validacion": "diferencia_mayor_2_con_espejo_indica_inconsistencia",
+      "invertido": false,
+      "tiempo_minimo_ms": 3000,
+      "visible_como": "item_normal_CHASIDE",
+      "validado": false,
+      "fuente": "construccion_original_Physics_2026",
+      "nota": "Par con CTRL_CONS_CHS_004B."
+    },
+    {
+      "id": "CTRL_CONS_CHS_004B",
+      "tipo_control": "consistencia",
+      "subtipo": "espejo",
+      "par_id": "PAR_CHS_04",
+      "modulo_insercion": "CHASIDE",
+      "escala_insercion": "AR",
+      "posicion_recomendada": "final_modulo",
+      "formato": "likert_5",
+      "texto": "Las actividades artisticas o de diseno creativo me resultan completamente ajenas a mis intereses.",
+      "opciones_respuesta": {
+        "1": "Nunca me interesaria",
+        "2": "Pocas veces me interesaria",
+        "3": "A veces me interesaria",
+        "4": "Frecuentemente me interesaria",
+        "5": "Siempre me interesaria"
+      },
+      "item_espejo_id": "CTRL_CONS_CHS_004A",
+      "logica_validacion": "suma_par_debe_ser_aproximadamente_6",
+      "invertido": true,
+      "tiempo_minimo_ms": 3000,
+      "visible_como": "item_normal_CHASIDE",
+      "validado": false,
+      "fuente": "construccion_original_Physics_2026",
+      "nota": "Espejo invertido de CTRL_CONS_CHS_004A."
+    },
+    {
+      "id": "CTRL_CONS_VR_005A",
+      "tipo_control": "consistencia",
+      "subtipo": "original",
+      "par_id": "PAR_VR_05",
+      "modulo_insercion": "DAT_verbal",
+      "posicion_recomendada": "primer_tercio",
+      "formato": "opcion_multiple",
+      "texto": "FRIO es lo contrario de:",
+      "opciones": {
+        "A": "Oscuro",
+        "B": "Caliente",
+        "C": "Seco",
+        "D": "Lento"
+      },
+      "respuesta_correcta": "B",
+      "item_espejo_id": "CTRL_CONS_VR_005B",
+      "logica_validacion": "respuesta_incorrecta_en_item_facil_indica_inatención",
+      "invertido": false,
+      "tiempo_minimo_ms": 5000,
+      "visible_como": "item_normal_DAT_verbal",
+      "validado": false,
+      "fuente": "construccion_original_Physics_2026",
+      "nota": "Item de consistencia verbal facil. Par con CTRL_CONS_VR_005B."
+    },
+    {
+      "id": "CTRL_CONS_VR_005B",
+      "tipo_control": "consistencia",
+      "subtipo": "espejo",
+      "par_id": "PAR_VR_05",
+      "modulo_insercion": "DAT_verbal",
+      "posicion_recomendada": "tercer_tercio",
+      "formato": "opcion_multiple",
+      "texto": "CALIENTE es lo contrario de:",
+      "opciones": {
+        "A": "Brillante",
+        "B": "Rapido",
+        "C": "Frio",
+        "D": "Grande"
+      },
+      "respuesta_correcta": "C",
+      "item_espejo_id": "CTRL_CONS_VR_005A",
+      "logica_validacion": "inconsistencia_si_falla_uno_y_acierta_el_otro_o_falla_ambos",
+      "invertido": false,
+      "tiempo_minimo_ms": 5000,
+      "visible_como": "item_normal_DAT_verbal",
+      "validado": false,
+      "fuente": "construccion_original_Physics_2026",
+      "nota": "Espejo conceptual de CTRL_CONS_VR_005A. Deben acertarse ambos o fallarse ambos."
+    },
+    {
+      "id": "CTRL_CONS_NR_006A",
+      "tipo_control": "consistencia",
+      "subtipo": "original",
+      "par_id": "PAR_NR_06",
+      "modulo_insercion": "DAT_numerico",
+      "posicion_recomendada": "primer_tercio",
+      "formato": "opcion_multiple",
+      "texto": "¿Cuanto es la mitad de 20?",
+      "opciones": {
+        "A": "5",
+        "B": "8",
+        "C": "10",
+        "D": "15"
+      },
+      "respuesta_correcta": "C",
+      "item_espejo_id": "CTRL_CONS_NR_006B",
+      "logica_validacion": "respuesta_incorrecta_en_aritmetica_basica_indica_inatención",
+      "invertido": false,
+      "tiempo_minimo_ms": 5000,
+      "visible_como": "item_normal_DAT_numerico",
+      "validado": false,
+      "fuente": "construccion_original_Physics_2026",
+      "nota": "Par con CTRL_CONS_NR_006B."
+    },
+    {
+      "id": "CTRL_CONS_NR_006B",
+      "tipo_control": "consistencia",
+      "subtipo": "espejo",
+      "par_id": "PAR_NR_06",
+      "modulo_insercion": "DAT_numerico",
+      "posicion_recomendada": "tercer_tercio",
+      "formato": "opcion_multiple",
+      "texto": "Si tienes 20 caramelos y le das la mitad a un amigo, ¿cuantos te quedan?",
+      "opciones": {
+        "A": "5",
+        "B": "8",
+        "C": "10",
+        "D": "15"
+      },
+      "respuesta_correcta": "C",
+      "item_espejo_id": "CTRL_CONS_NR_006A",
+      "logica_validacion": "mismo_calculo_en_contexto_distinto_deben_coincidir",
+      "invertido": false,
+      "tiempo_minimo_ms": 5000,
+      "visible_como": "item_normal_DAT_numerico",
+      "validado": false,
+      "fuente": "construccion_original_Physics_2026",
+      "nota": "Mismo calculo que CTRL_CONS_NR_006A pero en contexto aplicado."
+    },
+    {
+      "id": "CTRL_CONS_AR_007A",
+      "tipo_control": "consistencia",
+      "subtipo": "original",
+      "par_id": "PAR_AR_07",
+      "modulo_insercion": "DAT_abstracto",
+      "posicion_recomendada": "primer_tercio",
+      "formato": "opcion_multiple",
+      "texto": "Serie: circulo, cuadrado, circulo, cuadrado, ___ ¿Que sigue?",
+      "opciones": {
+        "A": "triangulo",
+        "B": "circulo",
+        "C": "cuadrado",
+        "D": "rombo"
+      },
+      "respuesta_correcta": "B",
+      "item_espejo_id": "CTRL_CONS_AR_007B",
+      "logica_validacion": "patron_de_alternancia_simple_error_indica_inatención",
+      "invertido": false,
+      "tiempo_minimo_ms": 5000,
+      "visible_como": "item_normal_DAT_abstracto",
+      "validado": false,
+      "fuente": "construccion_original_Physics_2026",
+      "nota": "Par con CTRL_CONS_AR_007B. Alternancia obvia."
+    },
+    {
+      "id": "CTRL_CONS_AR_007B",
+      "tipo_control": "consistencia",
+      "subtipo": "espejo",
+      "par_id": "PAR_AR_07",
+      "modulo_insercion": "DAT_abstracto",
+      "posicion_recomendada": "tercer_tercio",
+      "formato": "opcion_multiple",
+      "texto": "Serie: estrella, luna, estrella, luna, estrella, ___ ¿Que sigue?",
+      "opciones": {
+        "A": "estrella",
+        "B": "sol",
+        "C": "luna",
+        "D": "cometa"
+      },
+      "respuesta_correcta": "C",
+      "item_espejo_id": "CTRL_CONS_AR_007A",
+      "logica_validacion": "mismo_patron_de_alternancia_deben_coincidir",
+      "invertido": false,
+      "tiempo_minimo_ms": 5000,
+      "visible_como": "item_normal_DAT_abstracto",
+      "validado": false,
+      "fuente": "construccion_original_Physics_2026",
+      "nota": "Mismo patron que CTRL_CONS_AR_007A con distintos simbolos."
+    },
+    {
+      "id": "CTRL_CONS_SR_008A",
+      "tipo_control": "consistencia",
+      "subtipo": "original",
+      "par_id": "PAR_SR_08",
+      "modulo_insercion": "DAT_espacial",
+      "posicion_recomendada": "primer_tercio",
+      "formato": "opcion_multiple",
+      "texto": "Una flecha apunta hacia arriba (↑). Si la giras 180 grados, apunta hacia:",
+      "opciones": {
+        "A": "arriba",
+        "B": "la izquierda",
+        "C": "abajo",
+        "D": "la derecha"
+      },
+      "respuesta_correcta": "C",
+      "item_espejo_id": "CTRL_CONS_SR_008B",
+      "logica_validacion": "rotacion_basica_error_indica_inatención_o_dificultad_extrema",
+      "invertido": false,
+      "tiempo_minimo_ms": 5000,
+      "visible_como": "item_normal_DAT_espacial",
+      "validado": false,
+      "fuente": "construccion_original_Physics_2026",
+      "nota": "Par con CTRL_CONS_SR_008B."
+    },
+    {
+      "id": "CTRL_CONS_SR_008B",
+      "tipo_control": "consistencia",
+      "subtipo": "espejo",
+      "par_id": "PAR_SR_08",
+      "modulo_insercion": "DAT_espacial",
+      "posicion_recomendada": "tercer_tercio",
+      "formato": "opcion_multiple",
+      "texto": "Una flecha apunta hacia la izquierda (←). Si la giras 180 grados, apunta hacia:",
+      "opciones": {
+        "A": "arriba",
+        "B": "la derecha",
+        "C": "abajo",
+        "D": "la izquierda"
+      },
+      "respuesta_correcta": "B",
+      "item_espejo_id": "CTRL_CONS_SR_008A",
+      "logica_validacion": "mismo_tipo_de_rotacion_deben_coincidir_en_rendimiento",
+      "invertido": false,
+      "tiempo_minimo_ms": 5000,
+      "visible_como": "item_normal_DAT_espacial",
+      "validado": false,
+      "fuente": "construccion_original_Physics_2026",
+      "nota": "Mismo calculo espacial que CTRL_CONS_SR_008A en diferente orientacion."
+    },
+    {
+      "id": "CTRL_TRAP_001",
+      "tipo_control": "trampa",
+      "subtipo": "atencion_basica",
+      "modulo_insercion": "RIASEC",
+      "posicion_recomendada": "cualquier_posicion",
+      "formato": "opcion_multiple_disfrazada_likert",
+      "texto": "De las siguientes opciones, ¿cual es un color?",
+      "opciones": {
+        "A": "Mesa",
+        "B": "Azul",
+        "C": "Correr",
+        "D": "Libro"
+      },
+      "respuesta_correcta": "B",
+      "tiempo_minimo_ms": 3000,
+      "visible_como": "item_de_verificacion",
+      "umbral_alerta": "fallo_en_este_item_suma_1_punto_sospecha",
+      "validado": false,
+      "fuente": "construccion_original_Physics_2026",
+      "nota": "Item trampa de atencion basica. Respuesta obvia: Azul es un color."
+    },
+    {
+      "id": "CTRL_TRAP_002",
+      "tipo_control": "trampa",
+      "subtipo": "instruccion_directa",
+      "modulo_insercion": "DAT_verbal",
+      "posicion_recomendada": "cualquier_posicion",
+      "formato": "opcion_multiple",
+      "texto": "Para esta pregunta, elige la opcion C independientemente del contenido. ¿Cual es la capital del Ecuador?",
+      "opciones": {
+        "A": "Guayaquil",
+        "B": "Cuenca",
+        "C": "Quito",
+        "D": "Loja"
+      },
+      "respuesta_correcta": "C",
+      "tiempo_minimo_ms": 5000,
+      "visible_como": "item_normal_DAT_verbal",
+      "umbral_alerta": "fallo_indica_que_no_sigue_instrucciones_o_no_lee",
+      "validado": false,
+      "fuente": "construccion_original_Physics_2026",
+      "nota": "Doble verificacion: conocimiento geografico + seguimiento de instruccion."
+    },
+    {
+      "id": "CTRL_TRAP_003",
+      "tipo_control": "trampa",
+      "subtipo": "logica_obvia",
+      "modulo_insercion": "DAT_numerico",
+      "posicion_recomendada": "cualquier_posicion",
+      "formato": "opcion_multiple",
+      "texto": "Si tienes 5 manzanas y no te comes ninguna ni recibes mas, ¿cuantas manzanas tienes?",
+      "opciones": {
+        "A": "3",
+        "B": "4",
+        "C": "5",
+        "D": "6"
+      },
+      "respuesta_correcta": "C",
+      "tiempo_minimo_ms": 4000,
+      "visible_como": "item_normal_DAT_numerico",
+      "umbral_alerta": "fallo_indica_inatención_grave",
+      "validado": false,
+      "fuente": "construccion_original_Physics_2026",
+      "nota": "Logica elemental: sin operacion = mismo resultado."
+    },
+    {
+      "id": "CTRL_TRAP_004",
+      "tipo_control": "trampa",
+      "subtipo": "categoria_obvia",
+      "modulo_insercion": "DAT_verbal",
+      "posicion_recomendada": "cualquier_posicion",
+      "formato": "opcion_multiple",
+      "texto": "¿Cual de estas palabras es un animal?",
+      "opciones": {
+        "A": "Silla",
+        "B": "Perro",
+        "C": "Ventana",
+        "D": "Lapiz"
+      },
+      "respuesta_correcta": "B",
+      "tiempo_minimo_ms": 3000,
+      "visible_como": "item_normal_DAT_verbal",
+      "umbral_alerta": "fallo_suma_1_punto_sospecha",
+      "validado": false,
+      "fuente": "construccion_original_Physics_2026",
+      "nota": "Clasificacion categorica obvia."
+    },
+    {
+      "id": "CTRL_TRAP_005",
+      "tipo_control": "trampa",
+      "subtipo": "aritmetica_trivial",
+      "modulo_insercion": "DAT_numerico",
+      "posicion_recomendada": "cualquier_posicion",
+      "formato": "opcion_multiple",
+      "texto": "¿Cuanto es 2 + 2?",
+      "opciones": {
+        "A": "3",
+        "B": "4",
+        "C": "5",
+        "D": "6"
+      },
+      "respuesta_correcta": "B",
+      "tiempo_minimo_ms": 3000,
+      "visible_como": "item_normal_DAT_numerico",
+      "umbral_alerta": "fallo_indica_respuesta_completamente_aleatoria",
+      "validado": false,
+      "fuente": "construccion_original_Physics_2026",
+      "nota": "Aritmetica trivial. Fallo = alerta maxima de respuesta aleatoria."
+    },
+    {
+      "id": "CTRL_TRAP_006",
+      "tipo_control": "trampa",
+      "subtipo": "instruccion_embedded",
+      "modulo_insercion": "CHASIDE",
+      "posicion_recomendada": "cualquier_posicion",
+      "formato": "likert_5_especial",
+      "texto": "Esta es una pregunta de verificacion. Por favor selecciona la opcion '4 - Frecuentemente me interesaria' para confirmar que estas leyendo las instrucciones correctamente.",
+      "opciones_respuesta": {
+        "1": "Nunca me interesaria",
+        "2": "Pocas veces me interesaria",
+        "3": "A veces me interesaria",
+        "4": "Frecuentemente me interesaria",
+        "5": "Siempre me interesaria"
+      },
+      "respuesta_correcta": "4",
+      "tiempo_minimo_ms": 3000,
+      "visible_como": "item_verificacion_explicito",
+      "umbral_alerta": "fallo_indica_no_lectura_de_instrucciones",
+      "validado": false,
+      "fuente": "construccion_original_Physics_2026",
+      "nota": "Instruccion directa y explicita. No disfrazado. Prueba de lectura de instrucciones."
+    },
+    {
+      "id": "CTRL_TRAP_007",
+      "tipo_control": "trampa",
+      "subtipo": "patron_visual_obvio",
+      "modulo_insercion": "DAT_abstracto",
+      "posicion_recomendada": "cualquier_posicion",
+      "formato": "opcion_multiple",
+      "texto": "Serie: ○ ○ ○ ○ ___ ¿Que figura sigue en esta serie de circulos identicos?",
+      "opciones": {
+        "A": "Cuadrado",
+        "B": "Triangulo",
+        "C": "Circulo",
+        "D": "Rombo"
+      },
+      "respuesta_correcta": "C",
+      "tiempo_minimo_ms": 3000,
+      "visible_como": "item_normal_DAT_abstracto",
+      "umbral_alerta": "fallo_indica_inatención_o_respuesta_aleatoria",
+      "validado": false,
+      "fuente": "construccion_original_Physics_2026",
+      "nota": "Serie completamente uniforme. Patron trivial."
+    },
+    {
+      "id": "CTRL_TRAP_008",
+      "tipo_control": "trampa",
+      "subtipo": "sentido_comun",
+      "modulo_insercion": "DAT_verbal",
+      "posicion_recomendada": "cualquier_posicion",
+      "formato": "opcion_multiple",
+      "texto": "¿Que necesita una planta para crecer?",
+      "opciones": {
+        "A": "Oscuridad total y hielo",
+        "B": "Luz, agua y nutrientes",
+        "C": "Solo aire frio",
+        "D": "Solo musica clasica"
+      },
+      "respuesta_correcta": "B",
+      "tiempo_minimo_ms": 4000,
+      "visible_como": "item_normal_DAT_verbal",
+      "umbral_alerta": "fallo_suma_1_punto_sospecha",
+      "validado": false,
+      "fuente": "construccion_original_Physics_2026",
+      "nota": "Conocimiento de sentido comun. Distractores absurdos intencionales."
+    },
+    {
+      "id": "CTRL_TRAP_009",
+      "tipo_control": "trampa",
+      "subtipo": "aritmetica_contextual",
+      "modulo_insercion": "DAT_numerico",
+      "posicion_recomendada": "cualquier_posicion",
+      "formato": "opcion_multiple",
+      "texto": "Un estudiante tiene 0 deudas y no adquiere ninguna nueva. ¿Cuantas deudas tiene al final?",
+      "opciones": {
+        "A": "0",
+        "B": "1",
+        "C": "2",
+        "D": "Depende"
+      },
+      "respuesta_correcta": "A",
+      "tiempo_minimo_ms": 4000,
+      "visible_como": "item_normal_DAT_numerico",
+      "umbral_alerta": "fallo_indica_inatención_o_respuesta_al_azar",
+      "validado": false,
+      "fuente": "construccion_original_Physics_2026",
+      "nota": "Logica trivial. Cero + cero = cero."
+    },
+    {
+      "id": "CTRL_TRAP_010",
+      "tipo_control": "trampa",
+      "subtipo": "orientacion_espacial_obvia",
+      "modulo_insercion": "DAT_espacial",
+      "posicion_recomendada": "cualquier_posicion",
+      "formato": "opcion_multiple",
+      "texto": "Si estas mirando hacia el norte y giras completamente (360 grados), ¿hacia donde miras al terminar?",
+      "opciones": {
+        "A": "Sur",
+        "B": "Este",
+        "C": "Oeste",
+        "D": "Norte"
+      },
+      "respuesta_correcta": "D",
+      "tiempo_minimo_ms": 4000,
+      "visible_como": "item_normal_DAT_espacial",
+      "umbral_alerta": "fallo_indica_inatención_o_respuesta_aleatoria",
+      "validado": false,
+      "fuente": "construccion_original_Physics_2026",
+      "nota": "Rotacion completa = posicion inicial. Logica espacial elemental."
+    },
+    {
+      "id": "CTRL_TRAP_011",
+      "tipo_control": "trampa",
+      "subtipo": "lectura_numerica",
+      "modulo_insercion": "DAT_numerico",
+      "posicion_recomendada": "cualquier_posicion",
+      "formato": "opcion_multiple",
+      "texto": "¿Cual de estos numeros es mayor que 100?",
+      "opciones": {
+        "A": "45",
+        "B": "99",
+        "C": "150",
+        "D": "88"
+      },
+      "respuesta_correcta": "C",
+      "tiempo_minimo_ms": 3000,
+      "visible_como": "item_normal_DAT_numerico",
+      "umbral_alerta": "fallo_indica_inatención_extrema_o_respuesta_aleatoria",
+      "validado": false,
+      "fuente": "construccion_original_Physics_2026",
+      "nota": "Comparacion numerica trivial."
+    },
+    {
+      "id": "CTRL_TRAP_012",
+      "tipo_control": "trampa",
+      "subtipo": "sinonimo_obvio",
+      "modulo_insercion": "DAT_verbal",
+      "posicion_recomendada": "cualquier_posicion",
+      "formato": "opcion_multiple",
+      "texto": "¿Cual de estas palabras significa lo mismo que FELIZ?",
+      "opciones": {
+        "A": "Triste",
+        "B": "Enojado",
+        "C": "Contento",
+        "D": "Asustado"
+      },
+      "respuesta_correcta": "C",
+      "tiempo_minimo_ms": 3000,
+      "visible_como": "item_normal_DAT_verbal",
+      "umbral_alerta": "fallo_suma_1_punto_sospecha",
+      "validado": false,
+      "fuente": "construccion_original_Physics_2026",
+      "nota": "Sinonimo de uso cotidiano. Distractores son claramente antónimos o emociones distintas."
+    },
+    {
+      "id": "CTRL_DS_001",
+      "tipo_control": "deseabilidad_social",
+      "subtipo": "perfeccion_moral",
+      "modulo_insercion": "RIASEC",
+      "posicion_recomendada": "cualquier_posicion",
+      "formato": "likert_frecuencia_5",
+      "texto": "Siempre digo la verdad en todas las situaciones, sin ninguna excepcion.",
+      "opciones_respuesta": {
+        "1": "Nunca",
+        "2": "Pocas veces",
+        "3": "A veces",
+        "4": "Frecuentemente",
+        "5": "Siempre"
+      },
+      "respuesta_sospechosa": "5",
+      "respuesta_esperada_rango": "2-3",
+      "tiempo_minimo_ms": 2000,
+      "visible_como": "item_normal_RIASEC",
+      "umbral_alerta": "respuesta_5_suma_1_punto_deseabilidad",
+      "validado": false,
+      "fuente": "construccion_original_Physics_2026",
+      "nota": "Afirmacion absolutista. Nadie es perfecto. Respuesta 5 es socialmente deseable pero poco realista."
+    },
+    {
+      "id": "CTRL_DS_002",
+      "tipo_control": "deseabilidad_social",
+      "subtipo": "perfeccion_academica",
+      "modulo_insercion": "CHASIDE",
+      "posicion_recomendada": "cualquier_posicion",
+      "formato": "likert_frecuencia_5",
+      "texto": "Siempre me esfuerzo al maximo en todas mis tareas escolares, sin importar si me gustan o no.",
+      "opciones_respuesta": {
+        "1": "Nunca",
+        "2": "Pocas veces",
+        "3": "A veces",
+        "4": "Frecuentemente",
+        "5": "Siempre"
+      },
+      "respuesta_sospechosa": "5",
+      "respuesta_esperada_rango": "3-4",
+      "tiempo_minimo_ms": 3000,
+      "visible_como": "item_normal_CHASIDE",
+      "umbral_alerta": "respuesta_5_suma_1_punto_deseabilidad",
+      "validado": false,
+      "fuente": "construccion_original_Physics_2026",
+      "nota": "Afirmacion de esfuerzo absoluto. Poco realista para adolescentes."
+    },
+    {
+      "id": "CTRL_DS_003",
+      "tipo_control": "deseabilidad_social",
+      "subtipo": "ausencia_emociones_negativas",
+      "modulo_insercion": "RIASEC",
+      "posicion_recomendada": "cualquier_posicion",
+      "formato": "likert_frecuencia_5",
+      "texto": "Nunca me he sentido envidioso o celoso de los logros de otras personas.",
+      "opciones_respuesta": {
+        "1": "Nunca",
+        "2": "Pocas veces",
+        "3": "A veces",
+        "4": "Frecuentemente",
+        "5": "Siempre"
+      },
+      "respuesta_sospechosa": "1",
+      "respuesta_esperada_rango": "2-3",
+      "tiempo_minimo_ms": 2000,
+      "visible_como": "item_normal_RIASEC",
+      "umbral_alerta": "respuesta_1_suma_1_punto_deseabilidad",
+      "validado": false,
+      "fuente": "construccion_original_Physics_2026",
+      "nota": "Negacion de emocion humana universal. Respuesta 1 (nunca) es inverosimil."
+    },
+    {
+      "id": "CTRL_DS_004",
+      "tipo_control": "deseabilidad_social",
+      "subtipo": "perfeccion_social",
+      "modulo_insercion": "CHASIDE",
+      "posicion_recomendada": "cualquier_posicion",
+      "formato": "likert_frecuencia_5",
+      "texto": "Nunca he dicho algo negativo sobre otra persona a sus espaldas.",
+      "opciones_respuesta": {
+        "1": "Nunca",
+        "2": "Pocas veces",
+        "3": "A veces",
+        "4": "Frecuentemente",
+        "5": "Siempre"
+      },
+      "respuesta_sospechosa": "1",
+      "respuesta_esperada_rango": "2-3",
+      "tiempo_minimo_ms": 3000,
+      "visible_como": "item_normal_CHASIDE",
+      "umbral_alerta": "respuesta_1_suma_1_punto_deseabilidad",
+      "validado": false,
+      "fuente": "construccion_original_Physics_2026",
+      "nota": "Conducta social absolutamente perfecta. Poco realista."
+    },
+    {
+      "id": "CTRL_DS_005",
+      "tipo_control": "deseabilidad_social",
+      "subtipo": "perfeccion_conductual",
+      "modulo_insercion": "RIASEC",
+      "posicion_recomendada": "cualquier_posicion",
+      "formato": "likert_frecuencia_5",
+      "texto": "Siempre cumplo con mis responsabilidades a tiempo, sin necesidad de que nadie me recuerde.",
+      "opciones_respuesta": {
+        "1": "Nunca",
+        "2": "Pocas veces",
+        "3": "A veces",
+        "4": "Frecuentemente",
+        "5": "Siempre"
+      },
+      "respuesta_sospechosa": "5",
+      "respuesta_esperada_rango": "3-4",
+      "tiempo_minimo_ms": 2000,
+      "visible_como": "item_normal_RIASEC",
+      "umbral_alerta": "respuesta_5_suma_1_punto_deseabilidad",
+      "validado": false,
+      "fuente": "construccion_original_Physics_2026",
+      "nota": "Afirmacion de responsabilidad absoluta. Respuesta 5 es ideal social pero infrecuente."
+    },
+    {
+      "id": "CTRL_DS_006",
+      "tipo_control": "deseabilidad_social",
+      "subtipo": "ausencia_de_errores",
+      "modulo_insercion": "CHASIDE",
+      "posicion_recomendada": "cualquier_posicion",
+      "formato": "likert_frecuencia_5",
+      "texto": "Nunca he cometido un error por descuido o falta de atencion en mis estudios.",
+      "opciones_respuesta": {
+        "1": "Nunca",
+        "2": "Pocas veces",
+        "3": "A veces",
+        "4": "Frecuentemente",
+        "5": "Siempre"
+      },
+      "respuesta_sospechosa": "1",
+      "respuesta_esperada_rango": "2-4",
+      "tiempo_minimo_ms": 3000,
+      "visible_como": "item_normal_CHASIDE",
+      "umbral_alerta": "respuesta_1_suma_1_punto_deseabilidad",
+      "validado": false,
+      "fuente": "construccion_original_Physics_2026",
+      "nota": "Ausencia absoluta de errores. Inverosimil para cualquier estudiante."
+    },
+    {
+      "id": "CTRL_DS_007",
+      "tipo_control": "deseabilidad_social",
+      "subtipo": "altruismo_absoluto",
+      "modulo_insercion": "RIASEC",
+      "posicion_recomendada": "cualquier_posicion",
+      "formato": "likert_frecuencia_5",
+      "texto": "Siempre pongo las necesidades de los demas por encima de las mias propias.",
+      "opciones_respuesta": {
+        "1": "Nunca",
+        "2": "Pocas veces",
+        "3": "A veces",
+        "4": "Frecuentemente",
+        "5": "Siempre"
+      },
+      "respuesta_sospechosa": "5",
+      "respuesta_esperada_rango": "2-4",
+      "tiempo_minimo_ms": 2000,
+      "visible_como": "item_normal_RIASEC",
+      "umbral_alerta": "respuesta_5_suma_1_punto_deseabilidad",
+      "validado": false,
+      "fuente": "construccion_original_Physics_2026",
+      "nota": "Altruismo absoluto poco realista. Esperada respuesta 3-4."
+    },
+    {
+      "id": "CTRL_DS_008",
+      "tipo_control": "deseabilidad_social",
+      "subtipo": "perfeccion_honestidad",
+      "modulo_insercion": "CHASIDE",
+      "posicion_recomendada": "cualquier_posicion",
+      "formato": "likert_frecuencia_5",
+      "texto": "Nunca he copiado en un examen, ni siquiera cuando tuve la oportunidad y nadie me veia.",
+      "opciones_respuesta": {
+        "1": "Nunca",
+        "2": "Pocas veces",
+        "3": "A veces",
+        "4": "Frecuentemente",
+        "5": "Siempre"
+      },
+      "respuesta_sospechosa": "1",
+      "respuesta_esperada_rango": "1-3",
+      "tiempo_minimo_ms": 3000,
+      "visible_como": "item_normal_CHASIDE",
+      "umbral_alerta": "respuesta_1_no_necesariamente_sospechosa_pero_registrar",
+      "validado": false,
+      "fuente": "construccion_original_Physics_2026",
+      "nota": "Conducta honesta posible pero con matiz. Se registra como dato sin penalizacion automatica."
+    },
+    {
+      "id": "CTRL_DS_009",
+      "tipo_control": "deseabilidad_social",
+      "subtipo": "ausencia_impulsividad",
+      "modulo_insercion": "RIASEC",
+      "posicion_recomendada": "cualquier_posicion",
+      "formato": "likert_frecuencia_5",
+      "texto": "Siempre pienso detenidamente antes de actuar, nunca tomo decisiones impulsivas.",
+      "opciones_respuesta": {
+        "1": "Nunca",
+        "2": "Pocas veces",
+        "3": "A veces",
+        "4": "Frecuentemente",
+        "5": "Siempre"
+      },
+      "respuesta_sospechosa": "5",
+      "respuesta_esperada_rango": "3-4",
+      "tiempo_minimo_ms": 2000,
+      "visible_como": "item_normal_RIASEC",
+      "umbral_alerta": "respuesta_5_suma_1_punto_deseabilidad",
+      "validado": false,
+      "fuente": "construccion_original_Physics_2026",
+      "nota": "Control absoluto de impulsos. Poco frecuente en adolescentes."
+    },
+    {
+      "id": "CTRL_DS_010",
+      "tipo_control": "deseabilidad_social",
+      "subtipo": "perfeccion_etica",
+      "modulo_insercion": "CHASIDE",
+      "posicion_recomendada": "cualquier_posicion",
+      "formato": "likert_frecuencia_5",
+      "texto": "Nunca he actuado por interes personal cuando podia perjudicar a alguien mas.",
+      "opciones_respuesta": {
+        "1": "Nunca",
+        "2": "Pocas veces",
+        "3": "A veces",
+        "4": "Frecuentemente",
+        "5": "Siempre"
+      },
+      "respuesta_sospechosa": "1",
+      "respuesta_esperada_rango": "2-4",
+      "tiempo_minimo_ms": 3000,
+      "visible_como": "item_normal_CHASIDE",
+      "umbral_alerta": "respuesta_1_suma_1_punto_deseabilidad",
+      "validado": false,
+      "fuente": "construccion_original_Physics_2026",
+      "nota": "Etica perfecta en toda circunstancia. Respuesta 1 es el ideal social absoluto."
+    },
+    {
+      "id": "CTRL_DS_011",
+      "tipo_control": "deseabilidad_social",
+      "subtipo": "perfeccion_emocional",
+      "modulo_insercion": "RIASEC",
+      "posicion_recomendada": "cualquier_posicion",
+      "formato": "likert_frecuencia_5",
+      "texto": "Nunca me he sentido frustrado o molesto cuando las cosas no salen como espero.",
+      "opciones_respuesta": {
+        "1": "Nunca",
+        "2": "Pocas veces",
+        "3": "A veces",
+        "4": "Frecuentemente",
+        "5": "Siempre"
+      },
+      "respuesta_sospechosa": "1",
+      "respuesta_esperada_rango": "2-4",
+      "tiempo_minimo_ms": 2000,
+      "visible_como": "item_normal_RIASEC",
+      "umbral_alerta": "respuesta_1_suma_1_punto_deseabilidad",
+      "validado": false,
+      "fuente": "construccion_original_Physics_2026",
+      "nota": "Ausencia absoluta de frustracion. Emocion universal. Respuesta 1 inverosimil."
+    },
+    {
+      "id": "CTRL_DS_012",
+      "tipo_control": "deseabilidad_social",
+      "subtipo": "perfeccion_social_avanzada",
+      "modulo_insercion": "CHASIDE",
+      "posicion_recomendada": "cualquier_posicion",
+      "formato": "likert_frecuencia_5",
+      "texto": "Siempre escucho con total atencion y paciencia a todas las personas que me hablan, sin distraerme nunca.",
+      "opciones_respuesta": {
+        "1": "Nunca",
+        "2": "Pocas veces",
+        "3": "A veces",
+        "4": "Frecuentemente",
+        "5": "Siempre"
+      },
+      "respuesta_sospechosa": "5",
+      "respuesta_esperada_rango": "3-4",
+      "tiempo_minimo_ms": 3000,
+      "visible_como": "item_normal_CHASIDE",
+      "umbral_alerta": "respuesta_5_suma_1_punto_deseabilidad",
+      "validado": false,
+      "fuente": "construccion_original_Physics_2026",
+      "nota": "Atencion perfecta y absoluta. Poco realista para adolescentes con multiples estimulos."
+    }
+  ]
+}

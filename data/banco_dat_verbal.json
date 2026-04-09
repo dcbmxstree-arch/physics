@@ -1,0 +1,1222 @@
+{
+  "meta": {
+    "modulo": "DAT",
+    "subprueba": "verbal",
+    "descripcion": "Evaluacion de razonamiento verbal: analogias, antonimos, sinonimos e identificacion de elementos discordantes. Items de construccion original para uso institucional del Instituto Physics.",
+    "autoria": "Construccion original Instituto Physics, 2026",
+    "derechos": "Uso interno institucional. Items originales.",
+    "version_banco": "1.0",
+    "fecha_creacion": "2026-04-07",
+    "total_items": 60,
+    "items_por_aplicacion": 20,
+    "distribucion_dificultad": {
+      "1_baja": 0.3,
+      "2_media": 0.5,
+      "3_alta": 0.2
+    },
+    "tiempo_maximo_subprueba_min": 15,
+    "instrucciones": "En cada pregunta, elige la opcion que mejor complete la relacion, el sinonimo, el antonimo o el elemento que no pertenece al grupo. Trabaja con rapidez pero con cuidado."
+  },
+  "items": [
+    {
+      "id": "DAT_VR_001",
+      "subprueba": "verbal",
+      "dificultad": 1,
+      "texto": "CALOR es a FRIO como LUZ es a:",
+      "opciones": {
+        "A": "Sol",
+        "B": "Oscuridad",
+        "C": "Lampara",
+        "D": "Dia"
+      },
+      "respuesta_correcta": "B",
+      "tiempo_minimo_ms": 8000,
+      "puntaje": 1,
+      "validado": false,
+      "n_aplicaciones": 0,
+      "p_dificultad": null,
+      "r_discriminacion": null,
+      "fuente": "construccion_original_Physics_2026"
+    },
+    {
+      "id": "DAT_VR_002",
+      "subprueba": "verbal",
+      "dificultad": 1,
+      "texto": "LIBRO es a LEER como PINCEL es a:",
+      "opciones": {
+        "A": "Pintar",
+        "B": "Artista",
+        "C": "Color",
+        "D": "Lienzo"
+      },
+      "respuesta_correcta": "A",
+      "tiempo_minimo_ms": 8000,
+      "puntaje": 1,
+      "validado": false,
+      "n_aplicaciones": 0,
+      "p_dificultad": null,
+      "r_discriminacion": null,
+      "fuente": "construccion_original_Physics_2026"
+    },
+    {
+      "id": "DAT_VR_003",
+      "subprueba": "verbal",
+      "dificultad": 1,
+      "texto": "MEDICO es a HOSPITAL como MAESTRO es a:",
+      "opciones": {
+        "A": "Libro",
+        "B": "Escuela",
+        "C": "Estudiante",
+        "D": "Ciencia"
+      },
+      "respuesta_correcta": "B",
+      "tiempo_minimo_ms": 8000,
+      "puntaje": 1,
+      "validado": false,
+      "n_aplicaciones": 0,
+      "p_dificultad": null,
+      "r_discriminacion": null,
+      "fuente": "construccion_original_Physics_2026"
+    },
+    {
+      "id": "DAT_VR_004",
+      "subprueba": "verbal",
+      "dificultad": 1,
+      "texto": "ZAPATO es a PIE como GUANTE es a:",
+      "opciones": {
+        "A": "Dedo",
+        "B": "Mano",
+        "C": "Brazo",
+        "D": "Unia"
+      },
+      "respuesta_correcta": "B",
+      "tiempo_minimo_ms": 8000,
+      "puntaje": 1,
+      "validado": false,
+      "n_aplicaciones": 0,
+      "p_dificultad": null,
+      "r_discriminacion": null,
+      "fuente": "construccion_original_Physics_2026"
+    },
+    {
+      "id": "DAT_VR_005",
+      "subprueba": "verbal",
+      "dificultad": 1,
+      "texto": "CUCHILLO es a CORTAR como AGUJA es a:",
+      "opciones": {
+        "A": "Tela",
+        "B": "Hilo",
+        "C": "Coser",
+        "D": "Punta"
+      },
+      "respuesta_correcta": "C",
+      "tiempo_minimo_ms": 8000,
+      "puntaje": 1,
+      "validado": false,
+      "n_aplicaciones": 0,
+      "p_dificultad": null,
+      "r_discriminacion": null,
+      "fuente": "construccion_original_Physics_2026"
+    },
+    {
+      "id": "DAT_VR_006",
+      "subprueba": "verbal",
+      "dificultad": 1,
+      "texto": "PAJARO es a NIDO como ABEJA es a:",
+      "opciones": {
+        "A": "Flor",
+        "B": "Panal",
+        "C": "Miel",
+        "D": "Polen"
+      },
+      "respuesta_correcta": "B",
+      "tiempo_minimo_ms": 8000,
+      "puntaje": 1,
+      "validado": false,
+      "n_aplicaciones": 0,
+      "p_dificultad": null,
+      "r_discriminacion": null,
+      "fuente": "construccion_original_Physics_2026"
+    },
+    {
+      "id": "DAT_VR_007",
+      "subprueba": "verbal",
+      "dificultad": 1,
+      "texto": "PEREZOSO significa lo contrario de:",
+      "opciones": {
+        "A": "Timido",
+        "B": "Laborioso",
+        "C": "Generoso",
+        "D": "Astuto"
+      },
+      "respuesta_correcta": "B",
+      "tiempo_minimo_ms": 8000,
+      "puntaje": 1,
+      "validado": false,
+      "n_aplicaciones": 0,
+      "p_dificultad": null,
+      "r_discriminacion": null,
+      "fuente": "construccion_original_Physics_2026"
+    },
+    {
+      "id": "DAT_VR_008",
+      "subprueba": "verbal",
+      "dificultad": 1,
+      "texto": "MANZANA es a FRUTA como ROSA es a:",
+      "opciones": {
+        "A": "Rojo",
+        "B": "Planta",
+        "C": "Flor",
+        "D": "Jardin"
+      },
+      "respuesta_correcta": "C",
+      "tiempo_minimo_ms": 8000,
+      "puntaje": 1,
+      "validado": false,
+      "n_aplicaciones": 0,
+      "p_dificultad": null,
+      "r_discriminacion": null,
+      "fuente": "construccion_original_Physics_2026"
+    },
+    {
+      "id": "DAT_VR_009",
+      "subprueba": "verbal",
+      "dificultad": 1,
+      "texto": "SOL es a DIA como LUNA es a:",
+      "opciones": {
+        "A": "Estrella",
+        "B": "Cielo",
+        "C": "Noche",
+        "D": "Luz"
+      },
+      "respuesta_correcta": "C",
+      "tiempo_minimo_ms": 8000,
+      "puntaje": 1,
+      "validado": false,
+      "n_aplicaciones": 0,
+      "p_dificultad": null,
+      "r_discriminacion": null,
+      "fuente": "construccion_original_Physics_2026"
+    },
+    {
+      "id": "DAT_VR_010",
+      "subprueba": "verbal",
+      "dificultad": 1,
+      "texto": "VELOZ significa lo mismo que:",
+      "opciones": {
+        "A": "Fuerte",
+        "B": "Rapido",
+        "C": "Agil",
+        "D": "Ligero"
+      },
+      "respuesta_correcta": "B",
+      "tiempo_minimo_ms": 8000,
+      "puntaje": 1,
+      "validado": false,
+      "n_aplicaciones": 0,
+      "p_dificultad": null,
+      "r_discriminacion": null,
+      "fuente": "construccion_original_Physics_2026"
+    },
+    {
+      "id": "DAT_VR_011",
+      "subprueba": "verbal",
+      "dificultad": 1,
+      "texto": "CHEF es a COCINA como PILOTO es a:",
+      "opciones": {
+        "A": "Avion",
+        "B": "Aeropuerto",
+        "C": "Cabina",
+        "D": "Cielo"
+      },
+      "respuesta_correcta": "C",
+      "tiempo_minimo_ms": 8000,
+      "puntaje": 1,
+      "validado": false,
+      "n_aplicaciones": 0,
+      "p_dificultad": null,
+      "r_discriminacion": null,
+      "fuente": "construccion_original_Physics_2026"
+    },
+    {
+      "id": "DAT_VR_012",
+      "subprueba": "verbal",
+      "dificultad": 1,
+      "texto": "AGUA es a SED como COMIDA es a:",
+      "opciones": {
+        "A": "Sabor",
+        "B": "Hambre",
+        "C": "Nutricion",
+        "D": "Cocina"
+      },
+      "respuesta_correcta": "B",
+      "tiempo_minimo_ms": 8000,
+      "puntaje": 1,
+      "validado": false,
+      "n_aplicaciones": 0,
+      "p_dificultad": null,
+      "r_discriminacion": null,
+      "fuente": "construccion_original_Physics_2026"
+    },
+    {
+      "id": "DAT_VR_013",
+      "subprueba": "verbal",
+      "dificultad": 1,
+      "texto": "Cual de estas palabras NO pertenece al grupo: ROJO, AZUL, CUADRADO, VERDE",
+      "opciones": {
+        "A": "Rojo",
+        "B": "Azul",
+        "C": "Cuadrado",
+        "D": "Verde"
+      },
+      "respuesta_correcta": "C",
+      "tiempo_minimo_ms": 8000,
+      "puntaje": 1,
+      "validado": false,
+      "n_aplicaciones": 0,
+      "p_dificultad": null,
+      "r_discriminacion": null,
+      "fuente": "construccion_original_Physics_2026"
+    },
+    {
+      "id": "DAT_VR_014",
+      "subprueba": "verbal",
+      "dificultad": 1,
+      "texto": "ABUNDANTE significa lo contrario de:",
+      "opciones": {
+        "A": "Rico",
+        "B": "Escaso",
+        "C": "Vacio",
+        "D": "Pequeño"
+      },
+      "respuesta_correcta": "B",
+      "tiempo_minimo_ms": 8000,
+      "puntaje": 1,
+      "validado": false,
+      "n_aplicaciones": 0,
+      "p_dificultad": null,
+      "r_discriminacion": null,
+      "fuente": "construccion_original_Physics_2026"
+    },
+    {
+      "id": "DAT_VR_015",
+      "subprueba": "verbal",
+      "dificultad": 1,
+      "texto": "Cual de estas palabras NO pertenece al grupo: PERRO, GATO, LEON, SILLA",
+      "opciones": {
+        "A": "Perro",
+        "B": "Gato",
+        "C": "Leon",
+        "D": "Silla"
+      },
+      "respuesta_correcta": "D",
+      "tiempo_minimo_ms": 8000,
+      "puntaje": 1,
+      "validado": false,
+      "n_aplicaciones": 0,
+      "p_dificultad": null,
+      "r_discriminacion": null,
+      "fuente": "construccion_original_Physics_2026"
+    },
+    {
+      "id": "DAT_VR_016",
+      "subprueba": "verbal",
+      "dificultad": 1,
+      "texto": "CIUDAD es a PAIS como HABITACION es a:",
+      "opciones": {
+        "A": "Puerta",
+        "B": "Ventana",
+        "C": "Casa",
+        "D": "Mueble"
+      },
+      "respuesta_correcta": "C",
+      "tiempo_minimo_ms": 8000,
+      "puntaje": 1,
+      "validado": false,
+      "n_aplicaciones": 0,
+      "p_dificultad": null,
+      "r_discriminacion": null,
+      "fuente": "construccion_original_Physics_2026"
+    },
+    {
+      "id": "DAT_VR_017",
+      "subprueba": "verbal",
+      "dificultad": 1,
+      "texto": "SILENCIOSO significa lo mismo que:",
+      "opciones": {
+        "A": "Quieto",
+        "B": "Callado",
+        "C": "Lento",
+        "D": "Parado"
+      },
+      "respuesta_correcta": "B",
+      "tiempo_minimo_ms": 8000,
+      "puntaje": 1,
+      "validado": false,
+      "n_aplicaciones": 0,
+      "p_dificultad": null,
+      "r_discriminacion": null,
+      "fuente": "construccion_original_Physics_2026"
+    },
+    {
+      "id": "DAT_VR_018",
+      "subprueba": "verbal",
+      "dificultad": 1,
+      "texto": "RELOJ es a TIEMPO como TERMOMETRO es a:",
+      "opciones": {
+        "A": "Fiebre",
+        "B": "Temperatura",
+        "C": "Calor",
+        "D": "Salud"
+      },
+      "respuesta_correcta": "B",
+      "tiempo_minimo_ms": 8000,
+      "puntaje": 1,
+      "validado": false,
+      "n_aplicaciones": 0,
+      "p_dificultad": null,
+      "r_discriminacion": null,
+      "fuente": "construccion_original_Physics_2026"
+    },
+    {
+      "id": "DAT_VR_019",
+      "subprueba": "verbal",
+      "dificultad": 2,
+      "texto": "EFIMERO significa lo contrario de:",
+      "opciones": {
+        "A": "Breve",
+        "B": "Fugaz",
+        "C": "Duradero",
+        "D": "Pasajero"
+      },
+      "respuesta_correcta": "C",
+      "tiempo_minimo_ms": 8000,
+      "puntaje": 1,
+      "validado": false,
+      "n_aplicaciones": 0,
+      "p_dificultad": null,
+      "r_discriminacion": null,
+      "fuente": "construccion_original_Physics_2026"
+    },
+    {
+      "id": "DAT_VR_020",
+      "subprueba": "verbal",
+      "dificultad": 2,
+      "texto": "ARQUITECTO es a EDIFICIO como COMPOSITOR es a:",
+      "opciones": {
+        "A": "Piano",
+        "B": "Musica",
+        "C": "Melodia",
+        "D": "Concierto"
+      },
+      "respuesta_correcta": "C",
+      "tiempo_minimo_ms": 8000,
+      "puntaje": 1,
+      "validado": false,
+      "n_aplicaciones": 0,
+      "p_dificultad": null,
+      "r_discriminacion": null,
+      "fuente": "construccion_original_Physics_2026"
+    },
+    {
+      "id": "DAT_VR_021",
+      "subprueba": "verbal",
+      "dificultad": 2,
+      "texto": "EMPIRICO significa lo mismo que:",
+      "opciones": {
+        "A": "Teorico",
+        "B": "Basado en la experiencia",
+        "C": "Hipotetico",
+        "D": "Abstracto"
+      },
+      "respuesta_correcta": "B",
+      "tiempo_minimo_ms": 8000,
+      "puntaje": 1,
+      "validado": false,
+      "n_aplicaciones": 0,
+      "p_dificultad": null,
+      "r_discriminacion": null,
+      "fuente": "construccion_original_Physics_2026"
+    },
+    {
+      "id": "DAT_VR_022",
+      "subprueba": "verbal",
+      "dificultad": 2,
+      "texto": "Cual de estas palabras NO pertenece al grupo: ANALOGIA, METAFORA, HIPERBOLE, ECUACION",
+      "opciones": {
+        "A": "Analogia",
+        "B": "Metafora",
+        "C": "Hiperbole",
+        "D": "Ecuacion"
+      },
+      "respuesta_correcta": "D",
+      "tiempo_minimo_ms": 8000,
+      "puntaje": 1,
+      "validado": false,
+      "n_aplicaciones": 0,
+      "p_dificultad": null,
+      "r_discriminacion": null,
+      "fuente": "construccion_original_Physics_2026"
+    },
+    {
+      "id": "DAT_VR_023",
+      "subprueba": "verbal",
+      "dificultad": 2,
+      "texto": "LISONJA es a HALAGO como VITUPERIO es a:",
+      "opciones": {
+        "A": "Premio",
+        "B": "Insulto",
+        "C": "Silencio",
+        "D": "Exageracion"
+      },
+      "respuesta_correcta": "B",
+      "tiempo_minimo_ms": 8000,
+      "puntaje": 1,
+      "validado": false,
+      "n_aplicaciones": 0,
+      "p_dificultad": null,
+      "r_discriminacion": null,
+      "fuente": "construccion_original_Physics_2026"
+    },
+    {
+      "id": "DAT_VR_024",
+      "subprueba": "verbal",
+      "dificultad": 2,
+      "texto": "PROXIMO significa lo contrario de:",
+      "opciones": {
+        "A": "Cercano",
+        "B": "Siguiente",
+        "C": "Lejano",
+        "D": "Anterior"
+      },
+      "respuesta_correcta": "C",
+      "tiempo_minimo_ms": 8000,
+      "puntaje": 1,
+      "validado": false,
+      "n_aplicaciones": 0,
+      "p_dificultad": null,
+      "r_discriminacion": null,
+      "fuente": "construccion_original_Physics_2026"
+    },
+    {
+      "id": "DAT_VR_025",
+      "subprueba": "verbal",
+      "dificultad": 2,
+      "texto": "FILOSOFO es a SABIDURIA como JUEZ es a:",
+      "opciones": {
+        "A": "Ley",
+        "B": "Justicia",
+        "C": "Tribunal",
+        "D": "Sentencia"
+      },
+      "respuesta_correcta": "B",
+      "tiempo_minimo_ms": 8000,
+      "puntaje": 1,
+      "validado": false,
+      "n_aplicaciones": 0,
+      "p_dificultad": null,
+      "r_discriminacion": null,
+      "fuente": "construccion_original_Physics_2026"
+    },
+    {
+      "id": "DAT_VR_026",
+      "subprueba": "verbal",
+      "dificultad": 2,
+      "texto": "LACONICA significa lo mismo que:",
+      "opciones": {
+        "A": "Extensa",
+        "B": "Breve y concisa",
+        "C": "Detallada",
+        "D": "Ambigua"
+      },
+      "respuesta_correcta": "B",
+      "tiempo_minimo_ms": 8000,
+      "puntaje": 1,
+      "validado": false,
+      "n_aplicaciones": 0,
+      "p_dificultad": null,
+      "r_discriminacion": null,
+      "fuente": "construccion_original_Physics_2026"
+    },
+    {
+      "id": "DAT_VR_027",
+      "subprueba": "verbal",
+      "dificultad": 2,
+      "texto": "HIPOCRITA significa lo contrario de:",
+      "opciones": {
+        "A": "Honesto",
+        "B": "Sincero",
+        "C": "Transparente",
+        "D": "Autentico"
+      },
+      "respuesta_correcta": "B",
+      "tiempo_minimo_ms": 8000,
+      "puntaje": 1,
+      "validado": false,
+      "n_aplicaciones": 0,
+      "p_dificultad": null,
+      "r_discriminacion": null,
+      "fuente": "construccion_original_Physics_2026"
+    },
+    {
+      "id": "DAT_VR_028",
+      "subprueba": "verbal",
+      "dificultad": 2,
+      "texto": "BOTANICO es a PLANTA como ZOOLOGO es a:",
+      "opciones": {
+        "A": "Jaula",
+        "B": "Animal",
+        "C": "Naturaleza",
+        "D": "Ecosistema"
+      },
+      "respuesta_correcta": "B",
+      "tiempo_minimo_ms": 8000,
+      "puntaje": 1,
+      "validado": false,
+      "n_aplicaciones": 0,
+      "p_dificultad": null,
+      "r_discriminacion": null,
+      "fuente": "construccion_original_Physics_2026"
+    },
+    {
+      "id": "DAT_VR_029",
+      "subprueba": "verbal",
+      "dificultad": 2,
+      "texto": "Cual NO pertenece al grupo: DEMOCRACIA, MONARQUIA, ANARQUIA, FILOSOFIA",
+      "opciones": {
+        "A": "Democracia",
+        "B": "Monarquia",
+        "C": "Anarquia",
+        "D": "Filosofia"
+      },
+      "respuesta_correcta": "D",
+      "tiempo_minimo_ms": 8000,
+      "puntaje": 1,
+      "validado": false,
+      "n_aplicaciones": 0,
+      "p_dificultad": null,
+      "r_discriminacion": null,
+      "fuente": "construccion_original_Physics_2026"
+    },
+    {
+      "id": "DAT_VR_030",
+      "subprueba": "verbal",
+      "dificultad": 2,
+      "texto": "ESTOICO significa lo mismo que:",
+      "opciones": {
+        "A": "Sensible",
+        "B": "Impasible ante el dolor",
+        "C": "Explosivo",
+        "D": "Melancolico"
+      },
+      "respuesta_correcta": "B",
+      "tiempo_minimo_ms": 8000,
+      "puntaje": 1,
+      "validado": false,
+      "n_aplicaciones": 0,
+      "p_dificultad": null,
+      "r_discriminacion": null,
+      "fuente": "construccion_original_Physics_2026"
+    },
+    {
+      "id": "DAT_VR_031",
+      "subprueba": "verbal",
+      "dificultad": 2,
+      "texto": "CINICO significa lo contrario de:",
+      "opciones": {
+        "A": "Pesimista",
+        "B": "Cruel",
+        "C": "Sincero e integro",
+        "D": "Solitario"
+      },
+      "respuesta_correcta": "C",
+      "tiempo_minimo_ms": 8000,
+      "puntaje": 1,
+      "validado": false,
+      "n_aplicaciones": 0,
+      "p_dificultad": null,
+      "r_discriminacion": null,
+      "fuente": "construccion_original_Physics_2026"
+    },
+    {
+      "id": "DAT_VR_032",
+      "subprueba": "verbal",
+      "dificultad": 2,
+      "texto": "ECONOMISTA es a MERCADO como PSICOLOGO es a:",
+      "opciones": {
+        "A": "Cerebro",
+        "B": "Emocion",
+        "C": "Conducta",
+        "D": "Terapia"
+      },
+      "respuesta_correcta": "C",
+      "tiempo_minimo_ms": 8000,
+      "puntaje": 1,
+      "validado": false,
+      "n_aplicaciones": 0,
+      "p_dificultad": null,
+      "r_discriminacion": null,
+      "fuente": "construccion_original_Physics_2026"
+    },
+    {
+      "id": "DAT_VR_033",
+      "subprueba": "verbal",
+      "dificultad": 2,
+      "texto": "VERIDICO significa lo mismo que:",
+      "opciones": {
+        "A": "Probable",
+        "B": "Verdadero",
+        "C": "Posible",
+        "D": "Parcial"
+      },
+      "respuesta_correcta": "B",
+      "tiempo_minimo_ms": 8000,
+      "puntaje": 1,
+      "validado": false,
+      "n_aplicaciones": 0,
+      "p_dificultad": null,
+      "r_discriminacion": null,
+      "fuente": "construccion_original_Physics_2026"
+    },
+    {
+      "id": "DAT_VR_034",
+      "subprueba": "verbal",
+      "dificultad": 2,
+      "texto": "Cual NO pertenece: HIPOTESIS, TEORIA, LEY, NOVELA",
+      "opciones": {
+        "A": "Hipotesis",
+        "B": "Teoria",
+        "C": "Ley",
+        "D": "Novela"
+      },
+      "respuesta_correcta": "D",
+      "tiempo_minimo_ms": 8000,
+      "puntaje": 1,
+      "validado": false,
+      "n_aplicaciones": 0,
+      "p_dificultad": null,
+      "r_discriminacion": null,
+      "fuente": "construccion_original_Physics_2026"
+    },
+    {
+      "id": "DAT_VR_035",
+      "subprueba": "verbal",
+      "dificultad": 2,
+      "texto": "LEGISLAR es a CONGRESO como JUZGAR es a:",
+      "opciones": {
+        "A": "Fiscal",
+        "B": "Abogado",
+        "C": "Tribunal",
+        "D": "Carcel"
+      },
+      "respuesta_correcta": "C",
+      "tiempo_minimo_ms": 8000,
+      "puntaje": 1,
+      "validado": false,
+      "n_aplicaciones": 0,
+      "p_dificultad": null,
+      "r_discriminacion": null,
+      "fuente": "construccion_original_Physics_2026"
+    },
+    {
+      "id": "DAT_VR_036",
+      "subprueba": "verbal",
+      "dificultad": 2,
+      "texto": "PROLIJO significa lo contrario de:",
+      "opciones": {
+        "A": "Extenso",
+        "B": "Detallado",
+        "C": "Breve",
+        "D": "Minucioso"
+      },
+      "respuesta_correcta": "C",
+      "tiempo_minimo_ms": 8000,
+      "puntaje": 1,
+      "validado": false,
+      "n_aplicaciones": 0,
+      "p_dificultad": null,
+      "r_discriminacion": null,
+      "fuente": "construccion_original_Physics_2026"
+    },
+    {
+      "id": "DAT_VR_037",
+      "subprueba": "verbal",
+      "dificultad": 2,
+      "texto": "ANTROPOLOGO es a CULTURA como GEOLOGO es a:",
+      "opciones": {
+        "A": "Tierra",
+        "B": "Roca",
+        "C": "Fosil",
+        "D": "Estrato"
+      },
+      "respuesta_correcta": "A",
+      "tiempo_minimo_ms": 8000,
+      "puntaje": 1,
+      "validado": false,
+      "n_aplicaciones": 0,
+      "p_dificultad": null,
+      "r_discriminacion": null,
+      "fuente": "construccion_original_Physics_2026"
+    },
+    {
+      "id": "DAT_VR_038",
+      "subprueba": "verbal",
+      "dificultad": 2,
+      "texto": "TENACIDAD significa lo mismo que:",
+      "opciones": {
+        "A": "Valentía",
+        "B": "Perseverancia",
+        "C": "Fortaleza",
+        "D": "Impulsividad"
+      },
+      "respuesta_correcta": "B",
+      "tiempo_minimo_ms": 8000,
+      "puntaje": 1,
+      "validado": false,
+      "n_aplicaciones": 0,
+      "p_dificultad": null,
+      "r_discriminacion": null,
+      "fuente": "construccion_original_Physics_2026"
+    },
+    {
+      "id": "DAT_VR_039",
+      "subprueba": "verbal",
+      "dificultad": 2,
+      "texto": "MAGNANIMIDAD significa lo contrario de:",
+      "opciones": {
+        "A": "Bondad",
+        "B": "Grandeza",
+        "C": "Mezquindad",
+        "D": "Nobleza"
+      },
+      "respuesta_correcta": "C",
+      "tiempo_minimo_ms": 8000,
+      "puntaje": 1,
+      "validado": false,
+      "n_aplicaciones": 0,
+      "p_dificultad": null,
+      "r_discriminacion": null,
+      "fuente": "construccion_original_Physics_2026"
+    },
+    {
+      "id": "DAT_VR_040",
+      "subprueba": "verbal",
+      "dificultad": 2,
+      "texto": "CRONISTA es a HISTORIA como CARTOGRAFO es a:",
+      "opciones": {
+        "A": "Mapa",
+        "B": "Territorio",
+        "C": "Geografia",
+        "D": "Frontera"
+      },
+      "respuesta_correcta": "A",
+      "tiempo_minimo_ms": 8000,
+      "puntaje": 1,
+      "validado": false,
+      "n_aplicaciones": 0,
+      "p_dificultad": null,
+      "r_discriminacion": null,
+      "fuente": "construccion_original_Physics_2026"
+    },
+    {
+      "id": "DAT_VR_041",
+      "subprueba": "verbal",
+      "dificultad": 2,
+      "texto": "DISONANCIA significa lo contrario de:",
+      "opciones": {
+        "A": "Silencio",
+        "B": "Armonia",
+        "C": "Ritmo",
+        "D": "Tono"
+      },
+      "respuesta_correcta": "B",
+      "tiempo_minimo_ms": 8000,
+      "puntaje": 1,
+      "validado": false,
+      "n_aplicaciones": 0,
+      "p_dificultad": null,
+      "r_discriminacion": null,
+      "fuente": "construccion_original_Physics_2026"
+    },
+    {
+      "id": "DAT_VR_042",
+      "subprueba": "verbal",
+      "dificultad": 2,
+      "texto": "Cual NO pertenece: SINTAXIS, MORFOLOGIA, SEMANTICA, ARITMETICA",
+      "opciones": {
+        "A": "Sintaxis",
+        "B": "Morfologia",
+        "C": "Semantica",
+        "D": "Aritmetica"
+      },
+      "respuesta_correcta": "D",
+      "tiempo_minimo_ms": 8000,
+      "puntaje": 1,
+      "validado": false,
+      "n_aplicaciones": 0,
+      "p_dificultad": null,
+      "r_discriminacion": null,
+      "fuente": "construccion_original_Physics_2026"
+    },
+    {
+      "id": "DAT_VR_043",
+      "subprueba": "verbal",
+      "dificultad": 2,
+      "texto": "ARBITRARIO significa lo mismo que:",
+      "opciones": {
+        "A": "Justo",
+        "B": "Caprichoso",
+        "C": "Logico",
+        "D": "Equitativo"
+      },
+      "respuesta_correcta": "B",
+      "tiempo_minimo_ms": 8000,
+      "puntaje": 1,
+      "validado": false,
+      "n_aplicaciones": 0,
+      "p_dificultad": null,
+      "r_discriminacion": null,
+      "fuente": "construccion_original_Physics_2026"
+    },
+    {
+      "id": "DAT_VR_044",
+      "subprueba": "verbal",
+      "dificultad": 2,
+      "texto": "INFERIR significa lo mismo que:",
+      "opciones": {
+        "A": "Confirmar",
+        "B": "Deducir",
+        "C": "Afirmar",
+        "D": "Suponer"
+      },
+      "respuesta_correcta": "B",
+      "tiempo_minimo_ms": 8000,
+      "puntaje": 1,
+      "validado": false,
+      "n_aplicaciones": 0,
+      "p_dificultad": null,
+      "r_discriminacion": null,
+      "fuente": "construccion_original_Physics_2026"
+    },
+    {
+      "id": "DAT_VR_045",
+      "subprueba": "verbal",
+      "dificultad": 2,
+      "texto": "NEUROFISIOLOGO es a SISTEMA NERVIOSO como ENDOCRINOLOGO es a:",
+      "opciones": {
+        "A": "Hormonas",
+        "B": "Sangre",
+        "C": "Celulas",
+        "D": "Organos"
+      },
+      "respuesta_correcta": "A",
+      "tiempo_minimo_ms": 8000,
+      "puntaje": 1,
+      "validado": false,
+      "n_aplicaciones": 0,
+      "p_dificultad": null,
+      "r_discriminacion": null,
+      "fuente": "construccion_original_Physics_2026"
+    },
+    {
+      "id": "DAT_VR_046",
+      "subprueba": "verbal",
+      "dificultad": 2,
+      "texto": "CONTIGUO significa lo mismo que:",
+      "opciones": {
+        "A": "Alejado",
+        "B": "Adyacente",
+        "C": "Paralelo",
+        "D": "Separado"
+      },
+      "respuesta_correcta": "B",
+      "tiempo_minimo_ms": 8000,
+      "puntaje": 1,
+      "validado": false,
+      "n_aplicaciones": 0,
+      "p_dificultad": null,
+      "r_discriminacion": null,
+      "fuente": "construccion_original_Physics_2026"
+    },
+    {
+      "id": "DAT_VR_047",
+      "subprueba": "verbal",
+      "dificultad": 2,
+      "texto": "OBSOLETO significa lo contrario de:",
+      "opciones": {
+        "A": "Viejo",
+        "B": "Moderno",
+        "C": "Inutilizable",
+        "D": "Anticuado"
+      },
+      "respuesta_correcta": "B",
+      "tiempo_minimo_ms": 8000,
+      "puntaje": 1,
+      "validado": false,
+      "n_aplicaciones": 0,
+      "p_dificultad": null,
+      "r_discriminacion": null,
+      "fuente": "construccion_original_Physics_2026"
+    },
+    {
+      "id": "DAT_VR_048",
+      "subprueba": "verbal",
+      "dificultad": 2,
+      "texto": "AXIOMA es a VERDAD como FALACIA es a:",
+      "opciones": {
+        "A": "Engano",
+        "B": "Error",
+        "C": "Mentira",
+        "D": "Suposicion"
+      },
+      "respuesta_correcta": "A",
+      "tiempo_minimo_ms": 8000,
+      "puntaje": 1,
+      "validado": false,
+      "n_aplicaciones": 0,
+      "p_dificultad": null,
+      "r_discriminacion": null,
+      "fuente": "construccion_original_Physics_2026"
+    },
+    {
+      "id": "DAT_VR_049",
+      "subprueba": "verbal",
+      "dificultad": 3,
+      "texto": "EPIFANIA significa lo mismo que:",
+      "opciones": {
+        "A": "Revelacion subita",
+        "B": "Confusion profunda",
+        "C": "Proceso gradual",
+        "D": "Duda persistente"
+      },
+      "respuesta_correcta": "A",
+      "tiempo_minimo_ms": 8000,
+      "puntaje": 1,
+      "validado": false,
+      "n_aplicaciones": 0,
+      "p_dificultad": null,
+      "r_discriminacion": null,
+      "fuente": "construccion_original_Physics_2026"
+    },
+    {
+      "id": "DAT_VR_050",
+      "subprueba": "verbal",
+      "dificultad": 3,
+      "texto": "HERMENEUTICA es a INTERPRETACION como EPISTEMOLOGIA es a:",
+      "opciones": {
+        "A": "Verdad",
+        "B": "Conocimiento",
+        "C": "Logica",
+        "D": "Ciencia"
+      },
+      "respuesta_correcta": "B",
+      "tiempo_minimo_ms": 8000,
+      "puntaje": 1,
+      "validado": false,
+      "n_aplicaciones": 0,
+      "p_dificultad": null,
+      "r_discriminacion": null,
+      "fuente": "construccion_original_Physics_2026"
+    },
+    {
+      "id": "DAT_VR_051",
+      "subprueba": "verbal",
+      "dificultad": 3,
+      "texto": "POLISEMIA significa lo mismo que:",
+      "opciones": {
+        "A": "Multiples significados de una palabra",
+        "B": "Palabras de igual escritura",
+        "C": "Terminos de origen griego",
+        "D": "Palabras con igual sonido"
+      },
+      "respuesta_correcta": "A",
+      "tiempo_minimo_ms": 8000,
+      "puntaje": 1,
+      "validado": false,
+      "n_aplicaciones": 0,
+      "p_dificultad": null,
+      "r_discriminacion": null,
+      "fuente": "construccion_original_Physics_2026"
+    },
+    {
+      "id": "DAT_VR_052",
+      "subprueba": "verbal",
+      "dificultad": 3,
+      "texto": "ATAVISMO significa lo mismo que:",
+      "opciones": {
+        "A": "Innovacion cultural",
+        "B": "Reaparicion de rasgos ancestrales",
+        "C": "Evolucion acelerada",
+        "D": "Perdida de tradiciones"
+      },
+      "respuesta_correcta": "B",
+      "tiempo_minimo_ms": 8000,
+      "puntaje": 1,
+      "validado": false,
+      "n_aplicaciones": 0,
+      "p_dificultad": null,
+      "r_discriminacion": null,
+      "fuente": "construccion_original_Physics_2026"
+    },
+    {
+      "id": "DAT_VR_053",
+      "subprueba": "verbal",
+      "dificultad": 3,
+      "texto": "TAUTOLOGIA significa lo contrario de:",
+      "opciones": {
+        "A": "Redundancia",
+        "B": "Repeticion innecesaria",
+        "C": "Informacion nueva y relevante",
+        "D": "Afirmacion circular"
+      },
+      "respuesta_correcta": "C",
+      "tiempo_minimo_ms": 8000,
+      "puntaje": 1,
+      "validado": false,
+      "n_aplicaciones": 0,
+      "p_dificultad": null,
+      "r_discriminacion": null,
+      "fuente": "construccion_original_Physics_2026"
+    },
+    {
+      "id": "DAT_VR_054",
+      "subprueba": "verbal",
+      "dificultad": 3,
+      "texto": "IDIOSINCRASIA es a INDIVIDUO como PARADIGMA es a:",
+      "opciones": {
+        "A": "Modelo",
+        "B": "Comunidad cientifica",
+        "C": "Excepcion",
+        "D": "Norma"
+      },
+      "respuesta_correcta": "B",
+      "tiempo_minimo_ms": 8000,
+      "puntaje": 1,
+      "validado": false,
+      "n_aplicaciones": 0,
+      "p_dificultad": null,
+      "r_discriminacion": null,
+      "fuente": "construccion_original_Physics_2026"
+    },
+    {
+      "id": "DAT_VR_055",
+      "subprueba": "verbal",
+      "dificultad": 3,
+      "texto": "ENTROPIA significa lo contrario de:",
+      "opciones": {
+        "A": "Desorden",
+        "B": "Caos",
+        "C": "Organizacion y orden",
+        "D": "Disipacion"
+      },
+      "respuesta_correcta": "C",
+      "tiempo_minimo_ms": 8000,
+      "puntaje": 1,
+      "validado": false,
+      "n_aplicaciones": 0,
+      "p_dificultad": null,
+      "r_discriminacion": null,
+      "fuente": "construccion_original_Physics_2026"
+    },
+    {
+      "id": "DAT_VR_056",
+      "subprueba": "verbal",
+      "dificultad": 3,
+      "texto": "Cual NO pertenece: DEDUCCION, INDUCCION, ABDUCCION, INTERPOLACION",
+      "opciones": {
+        "A": "Deduccion",
+        "B": "Induccion",
+        "C": "Abduccion",
+        "D": "Interpolacion"
+      },
+      "respuesta_correcta": "D",
+      "tiempo_minimo_ms": 8000,
+      "puntaje": 1,
+      "validado": false,
+      "n_aplicaciones": 0,
+      "p_dificultad": null,
+      "r_discriminacion": null,
+      "fuente": "construccion_original_Physics_2026"
+    },
+    {
+      "id": "DAT_VR_057",
+      "subprueba": "verbal",
+      "dificultad": 3,
+      "texto": "FENOMELOLOGIA es a EXPERIENCIA como ONTOLOGIA es a:",
+      "opciones": {
+        "A": "Existencia",
+        "B": "Percepcion",
+        "C": "Conocimiento",
+        "D": "Significado"
+      },
+      "respuesta_correcta": "A",
+      "tiempo_minimo_ms": 8000,
+      "puntaje": 1,
+      "validado": false,
+      "n_aplicaciones": 0,
+      "p_dificultad": null,
+      "r_discriminacion": null,
+      "fuente": "construccion_original_Physics_2026"
+    },
+    {
+      "id": "DAT_VR_058",
+      "subprueba": "verbal",
+      "dificultad": 3,
+      "texto": "CASUISTICA significa lo mismo que:",
+      "opciones": {
+        "A": "Estudio de casos particulares",
+        "B": "Teoria de probabilidades",
+        "C": "Analisis de causas",
+        "D": "Clasificacion de datos"
+      },
+      "respuesta_correcta": "A",
+      "tiempo_minimo_ms": 8000,
+      "puntaje": 1,
+      "validado": false,
+      "n_aplicaciones": 0,
+      "p_dificultad": null,
+      "r_discriminacion": null,
+      "fuente": "construccion_original_Physics_2026"
+    },
+    {
+      "id": "DAT_VR_059",
+      "subprueba": "verbal",
+      "dificultad": 3,
+      "texto": "HEURISTICO significa lo mismo que:",
+      "opciones": {
+        "A": "Definido por reglas exactas",
+        "B": "Metodo de descubrimiento por exploracion",
+        "C": "Basado en axiomas",
+        "D": "Determinado por algoritmos"
+      },
+      "respuesta_correcta": "B",
+      "tiempo_minimo_ms": 8000,
+      "puntaje": 1,
+      "validado": false,
+      "n_aplicaciones": 0,
+      "p_dificultad": null,
+      "r_discriminacion": null,
+      "fuente": "construccion_original_Physics_2026"
+    },
+    {
+      "id": "DAT_VR_060",
+      "subprueba": "verbal",
+      "dificultad": 3,
+      "texto": "SERENDIPIA significa lo mismo que:",
+      "opciones": {
+        "A": "Planificacion meticulosa",
+        "B": "Hallazgo afortunado e inesperado",
+        "C": "Consecuencia logica",
+        "D": "Resultado previsto"
+      },
+      "respuesta_correcta": "B",
+      "tiempo_minimo_ms": 8000,
+      "puntaje": 1,
+      "validado": false,
+      "n_aplicaciones": 0,
+      "p_dificultad": null,
+      "r_discriminacion": null,
+      "fuente": "construccion_original_Physics_2026"
+    }
+  ]
+}

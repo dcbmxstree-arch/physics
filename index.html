@@ -1,0 +1,2191 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Evaluación Vocacional — Instituto Physics</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* ═══════════════════════════════════════════════════════════
+   DESIGN TOKENS
+═══════════════════════════════════════════════════════════ */
+:root {
+  --azul:        #0F2B5B;
+  --azul-mid:    #1A4A8A;
+  --azul-light:  #3A7BD5;
+  --azul-pale:   #EBF2FF;
+  --verde:       #1A8A4A;
+  --verde-light: #E8F8EF;
+  --naranja:     #E8600A;
+  --naranja-light:#FFF0E8;
+  --rojo:        #C0392B;
+  --rojo-light:  #FDECEA;
+  --gris-dark:   #1E2A3A;
+  --gris:        #4A5568;
+  --gris-mid:    #8896A8;
+  --gris-light:  #EDF2F7;
+  --gris-pale:   #F7F9FC;
+  --blanco:      #FFFFFF;
+  --borde:       #D6E0EE;
+
+  --font-body:   'Plus Jakarta Sans', sans-serif;
+  --font-mono:   'DM Mono', monospace;
+
+  --radio:       14px;
+  --radio-sm:    8px;
+  --sombra:      0 4px 24px rgba(15,43,91,.10);
+  --sombra-lg:   0 12px 48px rgba(15,43,91,.16);
+  --trans:       all .22s cubic-bezier(.4,0,.2,1);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   RESET & BASE
+═══════════════════════════════════════════════════════════ */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:var(--font-body);
+  background: var(--gris-pale);
+  color:var(--gris-dark);
+  min-height:100vh;
+  line-height:1.6;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   BARRA SUPERIOR FIJA
+═══════════════════════════════════════════════════════════ */
+.topbar{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  background:var(--azul);
+  padding:0 24px;
+  height:56px;
+  display:flex;align-items:center;justify-content:space-between;
+  box-shadow:0 2px 12px rgba(0,0,0,.25);
+}
+.topbar-logo{
+  display:flex;align-items:center;gap:10px;
+  color:var(--blanco);font-weight:800;font-size:15px;letter-spacing:.3px;
+}
+.topbar-logo span{
+  background:var(--azul-light);
+  color:#fff;padding:3px 9px;border-radius:6px;
+  font-size:11px;font-weight:700;letter-spacing:.8px;
+}
+.topbar-info{
+  display:flex;align-items:center;gap:20px;
+}
+.topbar-timer{
+  font-family:var(--font-mono);
+  font-size:14px;color:#fff;
+  background:rgba(255,255,255,.12);
+  padding:4px 12px;border-radius:20px;
+  display:none;
+}
+.topbar-timer.activo{display:block}
+.topbar-progress-wrap{
+  display:none;align-items:center;gap:8px;
+  color:rgba(255,255,255,.7);font-size:12px;
+}
+.topbar-progress-wrap.activo{display:flex}
+.topbar-progress-bar{
+  width:120px;height:4px;
+  background:rgba(255,255,255,.2);border-radius:4px;overflow:hidden;
+}
+.topbar-progress-fill{
+  height:100%;background:var(--azul-light);
+  border-radius:4px;transition:width .4s ease;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   CONTENEDOR PRINCIPAL
+═══════════════════════════════════════════════════════════ */
+.main{
+  padding-top:56px;
+  min-height:100vh;
+  display:flex;align-items:flex-start;justify-content:center;
+}
+.screen{
+  display:none;
+  width:100%;max-width:760px;
+  margin:0 auto;
+  padding:40px 24px 60px;
+  animation:fadeIn .35s ease;
+}
+.screen.activo{display:block}
+@keyframes fadeIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+
+/* ═══════════════════════════════════════════════════════════
+   PANTALLA 1 — BIENVENIDA
+═══════════════════════════════════════════════════════════ */
+.hero{
+  text-align:center;
+  padding:48px 0 32px;
+}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:8px;
+  background:var(--azul-pale);color:var(--azul-mid);
+  padding:6px 16px;border-radius:24px;
+  font-size:12px;font-weight:700;letter-spacing:.6px;text-transform:uppercase;
+  margin-bottom:20px;
+}
+.hero h1{
+  font-size:clamp(28px,5vw,42px);
+  font-weight:800;color:var(--azul);
+  line-height:1.15;margin-bottom:12px;
+}
+.hero p{
+  font-size:16px;color:var(--gris);
+  max-width:520px;margin:0 auto 28px;
+}
+.info-pills{
+  display:flex;flex-wrap:wrap;justify-content:center;gap:10px;
+  margin-bottom:40px;
+}
+.pill{
+  display:flex;align-items:center;gap:6px;
+  background:var(--blanco);border:1.5px solid var(--borde);
+  padding:7px 16px;border-radius:24px;
+  font-size:13px;color:var(--gris);font-weight:500;
+}
+.pill-icon{font-size:15px}
+
+.card{
+  background:var(--blanco);border-radius:var(--radio);
+  border:1.5px solid var(--borde);
+  padding:28px 32px;margin-bottom:20px;
+  box-shadow:var(--sombra);
+}
+.card-title{
+  font-size:13px;font-weight:700;
+  color:var(--azul-mid);letter-spacing:.5px;text-transform:uppercase;
+  margin-bottom:18px;display:flex;align-items:center;gap:8px;
+}
+.card-title::before{
+  content:'';display:block;
+  width:3px;height:16px;
+  background:var(--azul-light);border-radius:2px;
+}
+
+/* Formulario */
+.form-grid{
+  display:grid;grid-template-columns:1fr 1fr;gap:16px;
+}
+.form-group{display:flex;flex-direction:column;gap:6px}
+.form-group.full{grid-column:1/-1}
+label{font-size:13px;font-weight:600;color:var(--gris-dark)}
+label span.req{color:var(--naranja);margin-left:2px}
+input,select,textarea{
+  padding:11px 14px;
+  border:1.5px solid var(--borde);
+  border-radius:var(--radio-sm);
+  font-family:var(--font-body);font-size:14px;
+  color:var(--gris-dark);background:var(--blanco);
+  transition:var(--trans);outline:none;
+}
+input:focus,select:focus,textarea:focus{
+  border-color:var(--azul-light);
+  box-shadow:0 0 0 3px rgba(58,123,213,.15);
+}
+input.error,select.error{border-color:var(--rojo)}
+.field-error{font-size:11px;color:var(--rojo);display:none}
+.field-error.visible{display:block}
+
+/* Consentimiento */
+.consent-box{
+  background:var(--gris-pale);border-radius:var(--radio-sm);
+  border:1.5px solid var(--borde);padding:16px;
+  font-size:12px;color:var(--gris);line-height:1.7;
+  max-height:120px;overflow-y:auto;margin-bottom:14px;
+}
+.checkbox-row{
+  display:flex;align-items:flex-start;gap:10px;cursor:pointer;
+}
+.checkbox-row input[type=checkbox]{
+  width:18px;height:18px;flex-shrink:0;margin-top:2px;
+  accent-color:var(--azul-light);cursor:pointer;
+}
+.checkbox-row span{font-size:13px;color:var(--gris-dark)}
+
+/* Botones */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  padding:13px 28px;border-radius:var(--radio-sm);
+  font-family:var(--font-body);font-size:15px;font-weight:700;
+  border:none;cursor:pointer;transition:var(--trans);
+  text-decoration:none;
+}
+.btn-primary{
+  background:var(--azul);color:var(--blanco);
+  box-shadow:0 4px 16px rgba(15,43,91,.3);
+}
+.btn-primary:hover{background:var(--azul-mid);transform:translateY(-1px);box-shadow:0 6px 20px rgba(15,43,91,.35)}
+.btn-primary:active{transform:translateY(0)}
+.btn-primary:disabled{background:var(--gris-mid);box-shadow:none;cursor:not-allowed;transform:none}
+.btn-secondary{
+  background:var(--blanco);color:var(--azul);
+  border:1.5px solid var(--borde);
+}
+.btn-secondary:hover{background:var(--azul-pale);border-color:var(--azul-light)}
+.btn-outline{
+  background:transparent;color:var(--gris);
+  border:1.5px solid var(--borde);font-size:14px;padding:10px 20px;
+}
+.btn-outline:hover{background:var(--gris-light)}
+.btn-full{width:100%;margin-top:8px}
+.btn-lg{padding:16px 36px;font-size:16px}
+
+/* ═══════════════════════════════════════════════════════════
+   PANTALLA 2 — INSTRUCCIONES DE MÓDULO
+═══════════════════════════════════════════════════════════ */
+.instruccion-hero{
+  text-align:center;padding:32px 0 24px;
+}
+.modulo-badge{
+  display:inline-block;
+  padding:8px 20px;border-radius:24px;
+  font-size:12px;font-weight:800;letter-spacing:.8px;text-transform:uppercase;
+  margin-bottom:20px;
+}
+.badge-riasec{background:#EBF2FF;color:#1A4A8A}
+.badge-chaside{background:#E8F8EF;color:#1A6A3A}
+.badge-dat{background:#FFF0E8;color:#B04A08}
+.badge-control{background:#F5F0FF;color:#5A3A9A}
+
+.instruccion-hero h2{
+  font-size:clamp(22px,4vw,32px);font-weight:800;
+  color:var(--azul);margin-bottom:8px;
+}
+.instruccion-hero p{font-size:15px;color:var(--gris);max-width:480px;margin:0 auto}
+
+.stats-row{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:12px;
+  margin:24px 0;
+}
+.stat-card{
+  background:var(--blanco);border:1.5px solid var(--borde);
+  border-radius:var(--radio-sm);padding:16px;text-align:center;
+  box-shadow:var(--sombra);
+}
+.stat-num{font-size:28px;font-weight:800;color:var(--azul);line-height:1}
+.stat-label{font-size:11px;color:var(--gris-mid);font-weight:600;
+  text-transform:uppercase;letter-spacing:.5px;margin-top:4px}
+
+.instrucciones-lista{
+  background:var(--azul-pale);border-radius:var(--radio-sm);
+  border:1.5px solid var(--borde);padding:20px 24px;
+}
+.instrucciones-lista h4{
+  font-size:13px;font-weight:700;color:var(--azul);
+  text-transform:uppercase;letter-spacing:.5px;margin-bottom:12px;
+}
+.instrucciones-lista ol{
+  padding-left:20px;display:flex;flex-direction:column;gap:8px;
+}
+.instrucciones-lista li{font-size:14px;color:var(--gris-dark);line-height:1.5}
+
+.likert-preview{
+  display:flex;justify-content:space-between;align-items:center;
+  gap:6px;margin-top:16px;padding:12px;
+  background:var(--blanco);border-radius:var(--radio-sm);
+  border:1px solid var(--borde);
+}
+.likert-preview span{font-size:11px;color:var(--gris-mid);font-weight:600}
+.likert-dots{display:flex;gap:6px}
+.likert-dot{
+  width:28px;height:28px;border-radius:50%;
+  border:2px solid var(--borde);background:var(--blanco);
+  display:flex;align-items:center;justify-content:center;
+  font-size:11px;font-weight:700;color:var(--gris-mid);
+}
+.likert-dot.ex{background:var(--azul-pale);border-color:var(--azul-light);color:var(--azul)}
+
+/* ═══════════════════════════════════════════════════════════
+   PANTALLA 3 — ITEM INDIVIDUAL
+═══════════════════════════════════════════════════════════ */
+.item-header{
+  margin-bottom:24px;
+}
+.item-nav{
+  display:flex;align-items:center;justify-content:space-between;
+  margin-bottom:10px;
+}
+.item-modulo-tag{
+  font-size:11px;font-weight:700;color:var(--azul-light);
+  text-transform:uppercase;letter-spacing:.6px;
+}
+.item-contador{
+  font-family:var(--font-mono);font-size:12px;color:var(--gris-mid);
+}
+.progress-segmentada{
+  display:flex;gap:2px;height:6px;border-radius:4px;overflow:hidden;
+}
+.seg{
+  flex:1;background:var(--gris-light);
+  transition:background .3s ease;border-radius:2px;
+}
+.seg.done{background:var(--azul-light)}
+.seg.current{background:var(--azul)}
+
+.item-card{
+  background:var(--blanco);border-radius:var(--radio);
+  border:1.5px solid var(--borde);
+  padding:36px 36px 28px;
+  box-shadow:var(--sombra-lg);
+  margin-bottom:20px;
+  transition:var(--trans);
+}
+.item-numero{
+  font-family:var(--font-mono);font-size:12px;
+  color:var(--gris-mid);font-weight:500;margin-bottom:14px;
+}
+.item-texto{
+  font-size:clamp(16px,2.5vw,20px);
+  font-weight:600;color:var(--gris-dark);
+  line-height:1.55;margin-bottom:28px;
+}
+
+/* Opciones LIKERT */
+.likert-wrap{display:flex;flex-direction:column;gap:0}
+.likert-labels{
+  display:grid;grid-template-columns:repeat(5,1fr);
+  margin-bottom:8px;
+}
+.likert-label{
+  font-size:10px;color:var(--gris-mid);font-weight:600;
+  text-align:center;padding:0 2px;line-height:1.3;
+}
+.likert-btns{
+  display:grid;grid-template-columns:repeat(5,1fr);gap:8px;
+}
+.likert-btn{
+  aspect-ratio:1;
+  border:2px solid var(--borde);
+  border-radius:var(--radio-sm);
+  background:var(--blanco);
+  font-family:var(--font-mono);font-size:16px;font-weight:700;
+  color:var(--gris-mid);cursor:pointer;
+  transition:var(--trans);
+  display:flex;align-items:center;justify-content:center;
+}
+.likert-btn:hover{
+  border-color:var(--azul-light);
+  background:var(--azul-pale);color:var(--azul);
+  transform:translateY(-2px);
+}
+.likert-btn.selected{
+  border-color:var(--azul);background:var(--azul);
+  color:var(--blanco);
+  transform:translateY(-2px);
+  box-shadow:0 4px 12px rgba(15,43,91,.25);
+}
+
+/* Opciones MULTIPLE CHOICE */
+.mc-opciones{display:flex;flex-direction:column;gap:10px}
+.mc-opcion{
+  display:flex;align-items:center;gap:14px;
+  padding:14px 18px;
+  border:1.5px solid var(--borde);border-radius:var(--radio-sm);
+  cursor:pointer;transition:var(--trans);background:var(--blanco);
+}
+.mc-opcion:hover{
+  border-color:var(--azul-light);background:var(--azul-pale);
+}
+.mc-opcion.selected{
+  border-color:var(--azul);background:var(--azul-pale);
+}
+.mc-opcion.selected .mc-letra{
+  background:var(--azul);color:var(--blanco);border-color:var(--azul);
+}
+.mc-opcion.correcto{
+  border-color:var(--verde);background:var(--verde-light);
+}
+.mc-opcion.incorrecto{
+  border-color:var(--rojo);background:var(--rojo-light);
+}
+.mc-letra{
+  width:32px;height:32px;border-radius:6px;flex-shrink:0;
+  border:1.5px solid var(--borde);
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--font-mono);font-size:13px;font-weight:700;
+  color:var(--gris);transition:var(--trans);
+}
+.mc-texto{font-size:15px;color:var(--gris-dark);font-weight:500}
+
+/* Navegación de item */
+.item-nav-btns{
+  display:flex;justify-content:space-between;align-items:center;
+  padding-top:4px;
+}
+.btn-nav-hint{
+  font-size:12px;color:var(--gris-mid);text-align:center;
+}
+
+/* Alerta de tiempo rápido */
+.alerta-tiempo{
+  display:none;
+  background:var(--naranja-light);border:1.5px solid var(--naranja);
+  border-radius:var(--radio-sm);padding:10px 16px;
+  font-size:13px;color:var(--naranja);font-weight:600;
+  margin-bottom:16px;text-align:center;
+}
+.alerta-tiempo.visible{display:block}
+
+/* ═══════════════════════════════════════════════════════════
+   PANTALLA 4 — PAUSA ENTRE MÓDULOS
+═══════════════════════════════════════════════════════════ */
+.pausa-hero{text-align:center;padding:48px 0 32px}
+.pausa-check{
+  font-size:64px;margin-bottom:16px;
+  animation:pop .4s cubic-bezier(.175,.885,.32,1.275);
+}
+@keyframes pop{from{transform:scale(0)}to{transform:scale(1)}}
+.pausa-hero h2{font-size:28px;font-weight:800;color:var(--azul);margin-bottom:8px}
+.pausa-hero p{font-size:15px;color:var(--gris)}
+
+.progreso-global{
+  background:var(--blanco);border:1.5px solid var(--borde);
+  border-radius:var(--radio);padding:24px 28px;
+  box-shadow:var(--sombra);margin-bottom:20px;
+}
+.progreso-global h4{
+  font-size:13px;font-weight:700;color:var(--azul);
+  text-transform:uppercase;letter-spacing:.5px;margin-bottom:16px;
+}
+.modulos-progreso{display:flex;flex-direction:column;gap:10px}
+.modulo-fila{
+  display:flex;align-items:center;gap:12px;
+}
+.modulo-nombre{font-size:13px;font-weight:600;color:var(--gris-dark);width:140px;flex-shrink:0}
+.modulo-barra{
+  flex:1;height:8px;background:var(--gris-light);border-radius:4px;overflow:hidden;
+}
+.modulo-fill{height:100%;border-radius:4px;transition:width .6s ease}
+.fill-done{background:var(--azul-light)}
+.fill-current{background:var(--azul);animation:pulse-bar 1.5s infinite}
+.fill-pending{background:var(--gris-light);width:0%}
+@keyframes pulse-bar{0%,100%{opacity:1}50%{opacity:.6}}
+.modulo-status{font-size:11px;font-weight:700;width:60px;text-align:right}
+.status-done{color:var(--verde)}
+.status-current{color:var(--azul)}
+.status-pending{color:var(--gris-mid)}
+
+/* ═══════════════════════════════════════════════════════════
+   PANTALLA 5 — RESULTADOS TOSCOS
+═══════════════════════════════════════════════════════════ */
+.resultados-hero{
+  text-align:center;padding:40px 0 24px;
+}
+.resultados-hero .emoji-big{
+  font-size:72px;
+  animation:bounce .6s cubic-bezier(.175,.885,.32,1.275);
+}
+@keyframes bounce{0%{transform:scale(0) rotate(-10deg)}100%{transform:scale(1) rotate(0deg)}}
+.resultados-hero h2{font-size:28px;font-weight:800;color:var(--azul);margin-bottom:6px}
+.resultados-hero p{font-size:15px;color:var(--gris)}
+
+.validez-badge{
+  display:inline-flex;align-items:center;gap:6px;
+  padding:5px 14px;border-radius:20px;
+  font-size:11px;font-weight:800;letter-spacing:.5px;text-transform:uppercase;
+  margin-top:10px;
+}
+.validez-valida{background:var(--verde-light);color:var(--verde)}
+.validez-cautelosa{background:var(--naranja-light);color:var(--naranja)}
+.validez-invalida{background:var(--rojo-light);color:var(--rojo)}
+
+/* Holland */
+.holland-card{
+  background:var(--azul);border-radius:var(--radio);
+  padding:28px 32px;margin-bottom:20px;color:var(--blanco);
+  box-shadow:var(--sombra-lg);
+}
+.holland-title{font-size:12px;font-weight:700;letter-spacing:.8px;
+  text-transform:uppercase;opacity:.7;margin-bottom:10px}
+.holland-codigo{
+  font-size:56px;font-weight:800;letter-spacing:6px;
+  line-height:1;margin-bottom:12px;
+  font-family:var(--font-mono);
+}
+.holland-desc{font-size:14px;opacity:.85;line-height:1.6}
+.holland-escalas{
+  display:flex;gap:8px;margin-top:16px;flex-wrap:wrap;
+}
+.escala-tag{
+  padding:4px 12px;border-radius:16px;
+  background:rgba(255,255,255,.15);
+  font-size:12px;font-weight:600;
+}
+
+/* Radar chart */
+.radar-wrap{
+  background:var(--blanco);border:1.5px solid var(--borde);
+  border-radius:var(--radio);padding:24px;
+  box-shadow:var(--sombra);margin-bottom:20px;
+  display:flex;flex-direction:column;align-items:center;
+}
+.radar-wrap h4{
+  font-size:13px;font-weight:700;color:var(--azul);
+  text-transform:uppercase;letter-spacing:.5px;margin-bottom:16px;
+  align-self:flex-start;
+}
+canvas#radarChart{max-width:320px;max-height:320px}
+
+/* Top areas CHASIDE */
+.areas-grid{
+  display:grid;grid-template-columns:1fr 1fr;gap:10px;
+  margin-bottom:20px;
+}
+.area-card{
+  background:var(--blanco);border:1.5px solid var(--borde);
+  border-radius:var(--radio-sm);padding:14px 16px;
+  box-shadow:var(--sombra);
+}
+.area-rank{
+  font-family:var(--font-mono);font-size:11px;
+  color:var(--azul-light);font-weight:700;margin-bottom:4px;
+}
+.area-nombre{font-size:14px;font-weight:700;color:var(--gris-dark)}
+.area-barra{
+  height:4px;background:var(--gris-light);border-radius:2px;margin-top:8px;overflow:hidden;
+}
+.area-fill{height:100%;border-radius:2px;background:var(--azul-light)}
+
+/* Aptitudes DAT */
+.dat-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:20px}
+.dat-card{
+  background:var(--blanco);border:1.5px solid var(--borde);
+  border-radius:var(--radio-sm);padding:14px 16px;
+  box-shadow:var(--sombra);
+}
+.dat-nombre{font-size:13px;font-weight:700;color:var(--gris-dark)}
+.dat-nivel{font-size:11px;color:var(--gris-mid);margin-top:2px}
+.dat-barra{height:4px;background:var(--gris-light);border-radius:2px;margin-top:8px;overflow:hidden}
+.dat-fill{height:100%;border-radius:2px}
+.nivel-alto{background:var(--verde)}
+.nivel-medio{background:var(--azul-light)}
+.nivel-bajo{background:var(--gris-mid)}
+
+/* Semáforo carrera */
+.semaforo-card{
+  border-radius:var(--radio);padding:24px 28px;
+  margin-bottom:20px;border:1.5px solid;
+}
+.semaforo-verde{background:var(--verde-light);border-color:var(--verde)}
+.semaforo-naranja{background:var(--naranja-light);border-color:var(--naranja)}
+.semaforo-rojo{background:var(--rojo-light);border-color:var(--rojo)}
+.semaforo-header{display:flex;align-items:center;gap:12px;margin-bottom:8px}
+.semaforo-emoji{font-size:32px}
+.semaforo-title{font-size:15px;font-weight:800;color:var(--gris-dark)}
+.semaforo-sub{font-size:13px;color:var(--gris)}
+
+/* QR y exportación */
+.export-section{
+  background:var(--blanco);border:1.5px solid var(--borde);
+  border-radius:var(--radio);padding:28px 32px;
+  box-shadow:var(--sombra);text-align:center;
+}
+.qr-wrap{
+  background:var(--gris-pale);border-radius:var(--radio-sm);
+  padding:16px;display:inline-block;margin:16px auto;
+  border:1.5px solid var(--borde);
+}
+.export-btns{
+  display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:16px;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   ACCESIBILIDAD & RESPONSIVE
+═══════════════════════════════════════════════════════════ */
+@media(max-width:600px){
+  .form-grid{grid-template-columns:1fr}
+  .stats-row{grid-template-columns:1fr 1fr 1fr}
+  .likert-btns{gap:5px}
+  .likert-label{font-size:9px}
+  .item-card{padding:24px 20px 20px}
+  .areas-grid,.dat-grid,.export-btns{grid-template-columns:1fr}
+  .card{padding:20px}
+}
+@media(prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+}
+
+/* Loading overlay */
+.loading{
+  position:fixed;inset:0;background:rgba(15,43,91,.85);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  z-index:999;color:#fff;gap:16px;
+}
+.spinner{
+  width:48px;height:48px;border:4px solid rgba(255,255,255,.2);
+  border-top-color:#fff;border-radius:50%;
+  animation:spin .8s linear infinite;
+}
+@keyframes spin{to{transform:rotate(360deg)}}
+.loading p{font-size:15px;font-weight:600;opacity:.9}
+</style>
+</head>
+<body>
+
+<!-- BARRA SUPERIOR -->
+<div class="topbar">
+  <div class="topbar-logo">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+      <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    Instituto Physics
+    <span>VOCACIONAL</span>
+  </div>
+  <div class="topbar-info">
+    <div class="topbar-progress-wrap" id="topbarProgreso">
+      <span id="topbarPct">0%</span>
+      <div class="topbar-progress-bar">
+        <div class="topbar-progress-fill" id="topbarFill" style="width:0%"></div>
+      </div>
+    </div>
+    <div class="topbar-timer" id="topbarTimer">00:00</div>
+  </div>
+</div>
+
+<!-- LOADING -->
+<div class="loading" id="loadingOverlay">
+  <div class="spinner"></div>
+  <p id="loadingMsg">Cargando banco de preguntas…</p>
+</div>
+
+<div class="main">
+
+  <!-- ══════════════════════════════════════
+       PANTALLA 1 — BIENVENIDA Y DATOS
+  ══════════════════════════════════════ -->
+  <div class="screen" id="screenBienvenida">
+    <div class="hero">
+      <div class="hero-badge">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M9 11l3 3L22 4" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Evaluación Psicométrica Oficial
+      </div>
+      <h1>Descubre tu<br>perfil vocacional</h1>
+      <p>Un proceso de orientación profesional basado en instrumentos psicométricos validados, diseñado para guiarte hacia la carrera que mejor se adapta a quien eres.</p>
+      <div class="info-pills">
+        <div class="pill"><span class="pill-icon">📝</span> 160 preguntas</div>
+        <div class="pill"><span class="pill-icon">⏱️</span> 60–75 minutos</div>
+        <div class="pill"><span class="pill-icon">🔒</span> Datos privados</div>
+        <div class="pill"><span class="pill-icon">🆓</span> Sin costo</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Datos personales</div>
+      <div class="form-grid">
+        <div class="form-group">
+          <label>Nombres <span class="req">*</span></label>
+          <input type="text" id="fNombre" placeholder="Ej: Ana María" autocomplete="given-name">
+          <span class="field-error" id="eNombre">Ingresa tu nombre</span>
+        </div>
+        <div class="form-group">
+          <label>Apellidos <span class="req">*</span></label>
+          <input type="text" id="fApellido" placeholder="Ej: García Torres" autocomplete="family-name">
+          <span class="field-error" id="eApellido">Ingresa tu apellido</span>
+        </div>
+        <div class="form-group">
+          <label>Fecha de nacimiento <span class="req">*</span></label>
+          <input type="date" id="fFechaNac" max="2012-12-31" min="2000-01-01">
+          <span class="field-error" id="eFechaNac">Ingresa tu fecha de nacimiento</span>
+        </div>
+        <div class="form-group">
+          <label>Género <span class="req">*</span></label>
+          <select id="fGenero">
+            <option value="">Seleccionar…</option>
+            <option value="M">Masculino</option>
+            <option value="F">Femenino</option>
+            <option value="O">Prefiero no decirlo</option>
+          </select>
+          <span class="field-error" id="eGenero">Selecciona una opción</span>
+        </div>
+        <div class="form-group full">
+          <label>Institución educativa <span class="req">*</span></label>
+          <input type="text" id="fColegio" placeholder="Nombre del colegio o unidad educativa">
+          <span class="field-error" id="eColegio">Ingresa el nombre de tu institución</span>
+        </div>
+        <div class="form-group">
+          <label>Curso / Año <span class="req">*</span></label>
+          <select id="fCurso">
+            <option value="">Seleccionar…</option>
+            <option value="1BGU">1° Bachillerato</option>
+            <option value="2BGU">2° Bachillerato</option>
+            <option value="3BGU">3° Bachillerato</option>
+            <option value="otro">Otro</option>
+          </select>
+          <span class="field-error" id="eCurso">Selecciona tu curso</span>
+        </div>
+        <div class="form-group">
+          <label>Correo electrónico</label>
+          <input type="email" id="fCorreo" placeholder="tu@correo.com" autocomplete="email">
+        </div>
+        <div class="form-group">
+          <label>Teléfono del representante</label>
+          <input type="tel" id="fTelefono" placeholder="09XXXXXXXX">
+        </div>
+        <div class="form-group full">
+          <label>Nombre del representante legal</label>
+          <input type="text" id="fRepresentante" placeholder="Nombre completo del padre/madre/tutor">
+        </div>
+        <div class="form-group full">
+          <label>¿Tienes una carrera en mente? <em style="font-weight:400;color:var(--gris-mid)">(opcional)</em></label>
+          <input type="text" id="fCarrera" placeholder="Ej: Medicina, Ingeniería Civil, Psicología…">
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Consentimiento informado</div>
+      <div class="consent-box">
+        <strong>Instituto Physics — Autorización de uso de datos</strong><br><br>
+        Los datos recopilados en esta evaluación vocacional serán utilizados exclusivamente con fines de orientación educativa dentro del Instituto Physics. Los resultados son confidenciales y solo serán compartidos con el psicólogo/a asignado/a y con los representantes legales del estudiante.<br><br>
+        Esta evaluación utiliza instrumentos psicométricos de construcción original del Instituto Physics, basados en modelos teóricos de dominio público. Los resultados son orientativos y no constituyen un diagnóstico clínico. Los datos no serán vendidos ni compartidos con terceros.<br><br>
+        Al continuar, confirma que ha leído y acepta estos términos, y que los datos proporcionados son verídicos.
+      </div>
+      <label class="checkbox-row" id="consentLabel">
+        <input type="checkbox" id="fConsentimiento">
+        <span>He leído y acepto los términos del consentimiento informado. Confirmo que soy mayor de 14 años o cuento con autorización de mi representante legal. <strong>*</strong></span>
+      </label>
+      <span class="field-error" id="eConsentimiento">Debes aceptar el consentimiento para continuar</span>
+    </div>
+
+    <button class="btn btn-primary btn-full btn-lg" id="btnIniciar" onclick="iniciarEvaluacion()">
+      Comenzar evaluación
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+  </div>
+
+  <!-- ══════════════════════════════════════
+       PANTALLA 2 — INSTRUCCIONES
+  ══════════════════════════════════════ -->
+  <div class="screen" id="screenInstrucciones">
+    <div class="instruccion-hero">
+      <div class="modulo-badge" id="instrBadge">MÓDULO</div>
+      <h2 id="instrTitulo">Inventario de Intereses</h2>
+      <p id="instrDesc">Descripción del módulo</p>
+    </div>
+    <div class="stats-row">
+      <div class="stat-card">
+        <div class="stat-num" id="instrItems">40</div>
+        <div class="stat-label">Preguntas</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num" id="instrTiempo">10</div>
+        <div class="stat-label">Minutos aprox.</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num" id="instrModNum">1/6</div>
+        <div class="stat-label">Módulo</div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="instrucciones-lista" id="instrLista">
+        <h4>📋 Instrucciones</h4>
+        <ol id="instrPasos"></ol>
+      </div>
+      <div class="likert-preview" id="instrPreview" style="display:none">
+        <span>No me interesa</span>
+        <div class="likert-dots">
+          <div class="likert-dot">1</div>
+          <div class="likert-dot">2</div>
+          <div class="likert-dot ex">3</div>
+          <div class="likert-dot">4</div>
+          <div class="likert-dot">5</div>
+        </div>
+        <span>Me interesa mucho</span>
+      </div>
+    </div>
+    <div style="display:flex;gap:12px;justify-content:center">
+      <button class="btn btn-outline" onclick="pausar()">⏸ Necesito un descanso</button>
+      <button class="btn btn-primary btn-lg" id="btnEmpezarModulo" onclick="empezarModuloActual()">
+        ¡Comenzar!
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════
+       PANTALLA 3 — ITEM
+  ══════════════════════════════════════ -->
+  <div class="screen" id="screenItem">
+    <div class="item-header">
+      <div class="item-nav">
+        <span class="item-modulo-tag" id="itemModuloTag">RIASEC</span>
+        <span class="item-contador" id="itemContador">1 / 160</span>
+      </div>
+      <div class="progress-segmentada" id="progressSegs"></div>
+    </div>
+
+    <div class="alerta-tiempo" id="alertaTiempo">
+      ⚠️ Tómate tu tiempo para leer bien cada pregunta
+    </div>
+
+    <div class="item-card" id="itemCard">
+      <div class="item-numero" id="itemNumero">Pregunta 1</div>
+      <div class="item-texto" id="itemTexto">Texto del ítem</div>
+      <div id="itemOpciones"></div>
+    </div>
+
+    <div class="item-nav-btns">
+      <button class="btn btn-outline" id="btnAnterior" onclick="irAnterior()">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M19 12H5M12 5l-7 7 7 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Anterior
+      </button>
+      <span class="btn-nav-hint" id="navHint">Selecciona para continuar</span>
+      <button class="btn btn-primary" id="btnSiguiente" onclick="irSiguiente()" disabled>
+        Siguiente
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════
+       PANTALLA 4 — PAUSA
+  ══════════════════════════════════════ -->
+  <div class="screen" id="screenPausa">
+    <div class="pausa-hero">
+      <div class="pausa-check" id="pausaEmoji">✅</div>
+      <h2 id="pausaTitulo">¡Módulo completado!</h2>
+      <p id="pausaDesc">Tómate un momento antes de continuar.</p>
+    </div>
+    <div class="progreso-global card">
+      <div class="card-title">Progreso de la evaluación</div>
+      <div class="modulos-progreso" id="modulosProgreso"></div>
+    </div>
+    <div style="display:flex;gap:12px;justify-content:center">
+      <button class="btn btn-outline" onclick="exportarParcial()">💾 Guardar progreso</button>
+      <button class="btn btn-primary btn-lg" id="btnContinuar" onclick="continuarSiguienteModulo()">
+        Continuar
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════
+       PANTALLA 5 — RESULTADOS
+  ══════════════════════════════════════ -->
+  <div class="screen" id="screenResultados">
+    <div class="resultados-hero">
+      <div class="emoji-big">🎓</div>
+      <h2>¡Evaluación completada!</h2>
+      <p>Estos son tus resultados preliminares. Un psicólogo del Instituto Physics los analizará contigo en detalle.</p>
+      <div class="validez-badge" id="validezBadge">✓ Evaluación válida</div>
+    </div>
+
+    <!-- Holland -->
+    <div class="holland-card">
+      <div class="holland-title">Tu tipo de personalidad vocacional (Modelo Holland)</div>
+      <div class="holland-codigo" id="hollandCodigo">ISE</div>
+      <div class="holland-desc" id="hollandDesc">Descripción del perfil</div>
+      <div class="holland-escalas" id="hollandEscalas"></div>
+    </div>
+
+    <!-- Radar -->
+    <div class="radar-wrap">
+      <h4>📊 Tu perfil de intereses RIASEC</h4>
+      <canvas id="radarChart" width="320" height="320"></canvas>
+    </div>
+
+    <!-- Top areas CHASIDE -->
+    <div class="card">
+      <div class="card-title">Tus principales áreas de interés</div>
+      <div class="areas-grid" id="areasGrid"></div>
+    </div>
+
+    <!-- DAT -->
+    <div class="card">
+      <div class="card-title">Tus fortalezas cognitivas</div>
+      <div class="dat-grid" id="datGrid"></div>
+    </div>
+
+    <!-- Semáforo carrera -->
+    <div id="semaforoWrap"></div>
+
+    <!-- QR y exportación -->
+    <div class="export-section">
+      <div class="card-title" style="justify-content:center">📲 Código QR de tu sesión</div>
+      <p style="font-size:13px;color:var(--gris);margin-bottom:8px">El psicólogo puede escanear este código para ver tu perfil durante la cita.</p>
+      <div class="qr-wrap">
+        <canvas id="qrCanvas"></canvas>
+      </div>
+      <div class="export-btns">
+        <button class="btn btn-primary" onclick="exportarJSON()">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Descargar JSON
+        </button>
+        <button class="btn btn-secondary" onclick="exportarCSV()">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Descargar CSV
+        </button>
+      </div>
+      <p style="font-size:12px;color:var(--gris-mid);margin-top:12px;line-height:1.5">
+        Entrega estos archivos a la secretaría del Instituto Physics para que el psicólogo pueda generar tu informe completo.
+      </p>
+    </div>
+  </div>
+
+</div><!-- /main -->
+
+<!-- Chart.js para radar -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+
+<script>
+/* ═══════════════════════════════════════════════════════════
+   CONSTANTES DE CONFIGURACIÓN
+═══════════════════════════════════════════════════════════ */
+const CONFIG = {
+  items_por_modulo: {
+    RIASEC:        40,
+    CHASIDE:       56,
+    DAT_verbal:    15,
+    DAT_numerico:  15,
+    DAT_abstracto: 12,
+    DAT_espacial:  12,
+    // 10 items de control se inyectan distribuidos
+  },
+  items_control_total: 10,
+  total_items: 160,
+  tiempo_min_likert_ms: 2000,
+  tiempo_min_mc_ms:     5000,
+  umbral_respuesta_rapida: 0.20, // 20% de respuestas rapidas = alerta
+  archivos_banco: {
+    RIASEC:        'data/banco_riasec.json',
+    CHASIDE:       'data/banco_chaside.json',
+    DAT_verbal:    'data/banco_dat_verbal.json',
+    DAT_numerico:  'data/banco_dat_numerico.json',
+    DAT_abstracto: 'data/banco_dat_abstracto.json',
+    DAT_espacial:  'data/banco_dat_espacial.json',
+    control:       'data/banco_control.json',
+  }
+};
+
+/* DESCRIPCIONES MÓDULOS */
+const MODULOS_INFO = [
+  {
+    id: 'RIASEC',
+    titulo: 'Inventario de Intereses Vocacionales',
+    desc: 'Evaluamos tus intereses según 6 tipos de personalidad vocacional. No hay respuestas correctas o incorrectas.',
+    badge: 'MÓDULO 1 — RIASEC', badgeClass: 'badge-riasec',
+    tipo: 'likert',
+    pasos: [
+      'Lee cada actividad con atención.',
+      'Indica qué tanto te interesaría realizarla como parte de tu trabajo.',
+      'Responde con sinceridad — no existe respuesta correcta o incorrecta.',
+      'Selecciona del 1 (No me interesa nada) al 5 (Me interesa mucho).',
+    ],
+    showPreview: true
+  },
+  {
+    id: 'CHASIDE',
+    titulo: 'Inventario de Áreas Vocacionales',
+    desc: 'Exploramos tu nivel de interés en 28 áreas profesionales concretas.',
+    badge: 'MÓDULO 2 — ÁREAS', badgeClass: 'badge-chaside',
+    tipo: 'likert',
+    pasos: [
+      'Lee cada actividad y evalúa tu nivel de interés.',
+      'Selecciona con qué frecuencia te interesaría realizar esa actividad.',
+      'Piensa en ti a largo plazo, no en el momento actual.',
+      'Responde todas las preguntas, incluso las que parezcan poco familiares.',
+    ],
+    showPreview: true
+  },
+  {
+    id: 'DAT_verbal',
+    titulo: 'Razonamiento Verbal',
+    desc: 'Medimos tu capacidad para analizar relaciones entre palabras y conceptos.',
+    badge: 'MÓDULO 3 — APTITUDES', badgeClass: 'badge-dat',
+    tipo: 'mc',
+    pasos: [
+      'Cada pregunta tiene UNA sola respuesta correcta.',
+      'Lee todas las opciones antes de elegir.',
+      'Si no sabes, avanza y regresa al final (botón Anterior).',
+      'Trabaja con agilidad pero sin apresurarte.',
+    ],
+    showPreview: false
+  },
+  {
+    id: 'DAT_numerico',
+    titulo: 'Razonamiento Numérico',
+    desc: 'Evaluamos tu capacidad para resolver problemas matemáticos y series numéricas.',
+    badge: 'MÓDULO 4 — APTITUDES', badgeClass: 'badge-dat',
+    tipo: 'mc',
+    pasos: [
+      'Puedes usar papel y lápiz para hacer cálculos.',
+      'Cada pregunta tiene UNA sola respuesta correcta.',
+      'Si un problema parece difícil, avanza y regresa.',
+      'No uses calculadora — el objetivo es el razonamiento, no la velocidad.',
+    ],
+    showPreview: false
+  },
+  {
+    id: 'DAT_abstracto',
+    titulo: 'Razonamiento Abstracto',
+    desc: 'Evaluamos tu capacidad para identificar patrones y reglas lógicas en series de figuras.',
+    badge: 'MÓDULO 5 — APTITUDES', badgeClass: 'badge-dat',
+    tipo: 'mc',
+    pasos: [
+      'Observa cuidadosamente cada serie o matriz de figuras.',
+      'Identifica la regla o patrón que siguen.',
+      'Elige la opción que mejor completa el patrón.',
+      'No se necesitan conocimientos previos — solo lógica visual.',
+    ],
+    showPreview: false
+  },
+  {
+    id: 'DAT_espacial',
+    titulo: 'Razonamiento Espacial',
+    desc: 'Evaluamos tu capacidad para visualizar y manipular mentalmente figuras en el espacio.',
+    badge: 'MÓDULO 6 — APTITUDES', badgeClass: 'badge-dat',
+    tipo: 'mc',
+    pasos: [
+      'Visualiza mentalmente cada transformación de figura.',
+      'Considera rotaciones, reflexiones y cortes.',
+      'Elige la opción que corresponde al resultado correcto.',
+      'Puedes hacer bosquejos rápidos en papel si te ayuda.',
+    ],
+    showPreview: false
+  }
+];
+
+/* DESCRIPCIONES HOLLAND */
+const HOLLAND_DESC = {
+  R: { nombre: 'Realista',       desc: 'Práctico, técnico, orientado a objetos y máquinas. Prefiere trabajar con las manos y en entornos concretos.' },
+  I: { nombre: 'Investigador',   desc: 'Analítico, curioso, científico. Disfruta resolver problemas complejos y explorar ideas abstractas.' },
+  A: { nombre: 'Artístico',      desc: 'Creativo, expresivo, original. Busca libertad para crear y se expresa a través del arte y la imaginación.' },
+  S: { nombre: 'Social',         desc: 'Empático, comunicativo, orientado a personas. Encuentra satisfacción en ayudar, enseñar y cuidar a otros.' },
+  E: { nombre: 'Emprendedor',    desc: 'Líder, persuasivo, ambicioso. Le motivan los desafíos, la gestión y el logro de metas.' },
+  C: { nombre: 'Convencional',   desc: 'Organizado, meticuloso, sistemático. Disfruta el orden, los datos y seguir procedimientos establecidos.' },
+};
+
+/* AREAS CHASIDE (simplificado para resultados) */
+const AREAS_NOMBRES = {
+  C:'Ciencias Biológicas', H:'Humanidades', A:'Administración',
+  S:'Servicios Sociales', I:'Ingeniería', D:'Derecho', E:'Educación',
+  AR:'Arte Creativo', F:'Finanzas', CO:'Comunicación', IN:'Informática',
+  AM:'Ambiente', AG:'Agropecuaria', AR2:'Arquitectura', PS:'Psicología',
+  MT:'Matemáticas', FI:'Física', TU:'Turismo', DE:'Deporte',
+  MI:'Militar', RE:'Filosofía', MU:'Música', SA:'Enfermería',
+  OD:'Odontología', VE:'Veterinaria', NU:'Nutrición', TR:'Logística', MK:'Marketing'
+};
+
+/* ═══════════════════════════════════════════════════════════
+   ESTADO GLOBAL
+═══════════════════════════════════════════════════════════ */
+const ESTADO = {
+  bancos: {},
+  secuencia: [],        // lista plana de todos los items en orden
+  moduloActual: 0,      // índice en MODULOS_INFO
+  itemGlobal: 0,        // índice en secuencia[]
+  respuestas: {},       // {item_id: valor}
+  tiempos: {},          // {item_id: ms}
+  tsItemInicio: 0,
+  tsEvalInicio: 0,
+  tsModuloInicio: 0,
+  timerInterval: null,
+  semilla: 0,
+  estudiante: {},
+  idSesion: '',
+  puntajesControl: { sospecha: 0, rapidasCount: 0, totalItems: 0 },
+};
+
+/* ═══════════════════════════════════════════════════════════
+   UTILIDADES
+═══════════════════════════════════════════════════════════ */
+function mostrarScreen(id) {
+  document.querySelectorAll('.screen').forEach(s => s.classList.remove('activo'));
+  document.getElementById(id).classList.add('activo');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function generarID() {
+  const ts = Date.now().toString(36).toUpperCase();
+  const rnd = Math.random().toString(36).slice(2, 6).toUpperCase();
+  return `PHY-${ts}-${rnd}`;
+}
+
+// Seeded random (Mulberry32)
+function crearRNG(semilla) {
+  let s = semilla >>> 0;
+  return function() {
+    s += 0x6D2B79F5;
+    let t = Math.imul(s ^ s >>> 15, 1 | s);
+    t ^= t + Math.imul(t ^ t >>> 7, 61 | t);
+    return ((t ^ t >>> 14) >>> 0) / 4294967296;
+  };
+}
+
+function mezclarArray(arr, rng) {
+  const a = [...arr];
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(rng() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
+function calcularEdad(fechaNac) {
+  const hoy = new Date();
+  const nac = new Date(fechaNac);
+  let edad = hoy.getFullYear() - nac.getFullYear();
+  const m = hoy.getMonth() - nac.getMonth();
+  if (m < 0 || (m === 0 && hoy.getDate() < nac.getDate())) edad--;
+  return edad;
+}
+
+function formatearTiempo(ms) {
+  const s = Math.floor(ms / 1000);
+  const m = Math.floor(s / 60);
+  const ss = s % 60;
+  return `${String(m).padStart(2,'0')}:${String(ss).padStart(2,'0')}`;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   CARGA DE BANCOS
+═══════════════════════════════════════════════════════════ */
+async function cargarBancos() {
+  const overlay = document.getElementById('loadingOverlay');
+  const msg = document.getElementById('loadingMsg');
+  overlay.style.display = 'flex';
+
+  const entradas = Object.entries(CONFIG.archivos_banco);
+  for (let i = 0; i < entradas.length; i++) {
+    const [clave, ruta] = entradas[i];
+    msg.textContent = `Cargando módulo ${i+1}/${entradas.length}…`;
+    try {
+      const resp = await fetch(ruta);
+      if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
+      const data = await resp.json();
+      ESTADO.bancos[clave] = data.items;
+    } catch(e) {
+      // Si no hay servidor (abrir como archivo local), usar banco demo
+      console.warn(`No se pudo cargar ${ruta} — usando banco de demostración`);
+      ESTADO.bancos[clave] = generarBancoDemo(clave);
+    }
+  }
+  overlay.style.display = 'none';
+}
+
+/* Banco demo para pruebas locales (sin servidor) */
+function generarBancoDemo(clave) {
+  const esLikert = ['RIASEC','CHASIDE'].includes(clave);
+  const n = clave === 'RIASEC' ? 180 : clave === 'CHASIDE' ? 196 :
+            clave === 'control' ? 40 : 60;
+  return Array.from({length: n}, (_, i) => ({
+    id: `${clave}_DEMO_${String(i+1).padStart(3,'0')}`,
+    escala: ['R','I','A','S','E','C'][i % 6],
+    area: Object.keys(AREAS_NOMBRES)[i % 28],
+    subprueba: clave.replace('DAT_',''),
+    dificultad: (i % 3) + 1,
+    tipo_control: i % 3 === 0 ? 'trampa' : i % 3 === 1 ? 'consistencia' : 'deseabilidad_social',
+    invertido: i % 5 === 0,
+    tipo: esLikert ? 'likert_5' : 'opcion_multiple',
+    texto: `Pregunta de demostración ${i+1}: ¿Te interesa esta actividad relacionada con ${clave}?`,
+    opciones: esLikert ? null : {A:'Opción A',B:'Opción B',C:'Opción C',D:'Opción D'},
+    respuesta_correcta: 'B',
+    tiempo_minimo_ms: esLikert ? 2000 : 5000,
+    par_consistencia: null,
+  }));
+}
+
+/* ═══════════════════════════════════════════════════════════
+   CONSTRUCCIÓN DE LA SECUENCIA DE 160 ITEMS
+═══════════════════════════════════════════════════════════ */
+function construirSecuencia(semilla) {
+  const rng = crearRNG(semilla);
+
+  // Selección estratificada por módulo
+  function seleccionarEstratificado(banco, n, campoEstrato) {
+    // Agrupar por estrato (dificultad o area)
+    const grupos = {};
+    banco.forEach(item => {
+      const k = item[campoEstrato] || 'x';
+      if (!grupos[k]) grupos[k] = [];
+      grupos[k].push(item);
+    });
+
+    // Mezclar dentro de cada grupo
+    Object.keys(grupos).forEach(k => {
+      grupos[k] = mezclarArray(grupos[k], rng);
+    });
+
+    // Seleccionar proporcionalmente
+    const resultado = [];
+    const claves = Object.keys(grupos);
+    const porGrupo = Math.max(1, Math.floor(n / claves.length));
+
+    claves.forEach(k => {
+      resultado.push(...grupos[k].slice(0, porGrupo));
+    });
+
+    // Completar si faltan
+    const todos = mezclarArray(banco.filter(i => !resultado.find(r => r.id === i.id)), rng);
+    let idx = 0;
+    while (resultado.length < n && idx < todos.length) {
+      resultado.push(todos[idx++]);
+    }
+
+    return mezclarArray(resultado.slice(0, n), rng);
+  }
+
+  // RIASEC: 40 items, ~7 por escala
+  const riasec = seleccionarEstratificado(ESTADO.bancos['RIASEC'], 40, 'escala');
+
+  // CHASIDE: 56 items, 2 por area
+  const chaside = seleccionarEstratificado(ESTADO.bancos['CHASIDE'], 56, 'area');
+
+  // DAT: selección por dificultad
+  function seleccionarDAT(banco, n) {
+    const dif1 = mezclarArray(banco.filter(i => i.dificultad === 1), rng);
+    const dif2 = mezclarArray(banco.filter(i => i.dificultad === 2), rng);
+    const dif3 = mezclarArray(banco.filter(i => i.dificultad === 3), rng);
+    const n1 = Math.round(n * 0.30);
+    const n2 = Math.round(n * 0.50);
+    const n3 = n - n1 - n2;
+    return mezclarArray([
+      ...dif1.slice(0, n1),
+      ...dif2.slice(0, n2),
+      ...dif3.slice(0, n3),
+    ], rng);
+  }
+
+  const datV  = seleccionarDAT(ESTADO.bancos['DAT_verbal'],    15);
+  const datN  = seleccionarDAT(ESTADO.bancos['DAT_numerico'],  15);
+  const datA  = seleccionarDAT(ESTADO.bancos['DAT_abstracto'], 12);
+  const datE  = seleccionarDAT(ESTADO.bancos['DAT_espacial'],  12);
+
+  // Control: 10 items, distribuidos
+  const controlBanco = mezclarArray(ESTADO.bancos['control'], rng);
+  const control10 = controlBanco.slice(0, 10);
+
+  // Construir secuencia base por módulo
+  const bloquesBase = [riasec, chaside, datV, datN, datA, datE];
+  const secuenciaBase = bloquesBase.flat();
+
+  // Inyectar items de control distribuidos uniformemente
+  const paso = Math.floor(secuenciaBase.length / (control10.length + 1));
+  let ctrlIdx = 0;
+  const secuenciaFinal = [];
+  for (let i = 0; i < secuenciaBase.length; i++) {
+    if (ctrlIdx < control10.length && i > 0 && i % paso === 0) {
+      const ctrl = {...control10[ctrlIdx], _esControl: true};
+      secuenciaFinal.push(ctrl);
+      ctrlIdx++;
+    }
+    secuenciaFinal.push(secuenciaBase[i]);
+  }
+  // Agregar controles restantes al final del bloque actual
+  while (ctrlIdx < control10.length) {
+    secuenciaFinal.push({...control10[ctrlIdx], _esControl: true});
+    ctrlIdx++;
+  }
+
+  // Marcar módulo de cada item
+  let acum = 0;
+  const limites = [
+    {mod: 'RIASEC',        n: riasec.length},
+    {mod: 'CHASIDE',       n: chaside.length},
+    {mod: 'DAT_verbal',    n: datV.length},
+    {mod: 'DAT_numerico',  n: datN.length},
+    {mod: 'DAT_abstracto', n: datA.length},
+    {mod: 'DAT_espacial',  n: datE.length},
+  ];
+
+  // Re-marcar módulos en secuencia final (ignorar control en conteo)
+  let moduloActualIdx = 0;
+  let contadorEnModulo = 0;
+  secuenciaFinal.forEach(item => {
+    if (item._esControl) {
+      item._modulo = 'control';
+      return;
+    }
+    item._modulo = limites[moduloActualIdx].mod;
+    contadorEnModulo++;
+    if (contadorEnModulo >= limites[moduloActualIdx].n) {
+      moduloActualIdx++;
+      contadorEnModulo = 0;
+    }
+  });
+
+  return secuenciaFinal;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   VALIDACIÓN DEL FORMULARIO
+═══════════════════════════════════════════════════════════ */
+function validarFormulario() {
+  let ok = true;
+  const campos = [
+    { id: 'fNombre',    err: 'eNombre',    check: v => v.trim().length >= 2 },
+    { id: 'fApellido',  err: 'eApellido',  check: v => v.trim().length >= 2 },
+    { id: 'fFechaNac',  err: 'eFechaNac',  check: v => v !== '' },
+    { id: 'fGenero',    err: 'eGenero',    check: v => v !== '' },
+    { id: 'fColegio',   err: 'eColegio',   check: v => v.trim().length >= 3 },
+    { id: 'fCurso',     err: 'eCurso',     check: v => v !== '' },
+  ];
+
+  campos.forEach(c => {
+    const el = document.getElementById(c.id);
+    const err = document.getElementById(c.err);
+    if (!c.check(el.value)) {
+      el.classList.add('error');
+      err.classList.add('visible');
+      ok = false;
+    } else {
+      el.classList.remove('error');
+      err.classList.remove('visible');
+    }
+  });
+
+  const consent = document.getElementById('fConsentimiento');
+  const eConsent = document.getElementById('eConsentimiento');
+  if (!consent.checked) {
+    eConsent.classList.add('visible');
+    ok = false;
+  } else {
+    eConsent.classList.remove('visible');
+  }
+
+  return ok;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   INICIO DE LA EVALUACIÓN
+═══════════════════════════════════════════════════════════ */
+async function iniciarEvaluacion() {
+  if (!validarFormulario()) {
+    document.querySelector('.error')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    return;
+  }
+
+  // Guardar datos del estudiante
+  ESTADO.estudiante = {
+    nombre:          document.getElementById('fNombre').value.trim(),
+    apellido:        document.getElementById('fApellido').value.trim(),
+    fecha_nacimiento:document.getElementById('fFechaNac').value,
+    genero:          document.getElementById('fGenero').value,
+    colegio:         document.getElementById('fColegio').value.trim(),
+    curso:           document.getElementById('fCurso').value,
+    correo:          document.getElementById('fCorreo').value.trim(),
+    telefono_representante: document.getElementById('fTelefono').value.trim(),
+    nombre_representante:   document.getElementById('fRepresentante').value.trim(),
+    carrera_preferida:      document.getElementById('fCarrera').value.trim(),
+    consentimiento:  true,
+  };
+
+  ESTADO.idSesion = generarID();
+  ESTADO.semilla  = Date.now();
+  ESTADO.tsEvalInicio = Date.now();
+
+  // Cargar bancos si no están cargados
+  if (Object.keys(ESTADO.bancos).length === 0) {
+    await cargarBancos();
+  }
+
+  // Construir secuencia
+  ESTADO.secuencia = construirSecuencia(ESTADO.semilla);
+  ESTADO.itemGlobal = 0;
+  ESTADO.moduloActual = 0;
+
+  // Arrancar timer global
+  iniciarTimer();
+  actualizarTopbar();
+
+  // Mostrar instrucciones del primer módulo
+  mostrarInstrucciones(0);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   TIMER GLOBAL
+═══════════════════════════════════════════════════════════ */
+function iniciarTimer() {
+  const timerEl = document.getElementById('topbarTimer');
+  timerEl.classList.add('activo');
+  document.getElementById('topbarProgreso').classList.add('activo');
+
+  ESTADO.timerInterval = setInterval(() => {
+    const elapsed = Date.now() - ESTADO.tsEvalInicio;
+    timerEl.textContent = formatearTiempo(elapsed);
+  }, 1000);
+}
+
+function actualizarTopbar() {
+  const pct = Math.round((ESTADO.itemGlobal / ESTADO.secuencia.length) * 100);
+  document.getElementById('topbarPct').textContent = pct + '%';
+  document.getElementById('topbarFill').style.width = pct + '%';
+}
+
+/* ═══════════════════════════════════════════════════════════
+   INSTRUCCIONES DE MÓDULO
+═══════════════════════════════════════════════════════════ */
+function mostrarInstrucciones(modIdx) {
+  const info = MODULOS_INFO[modIdx];
+  if (!info) {
+    finalizarEvaluacion();
+    return;
+  }
+
+  const el = id => document.getElementById(id);
+  el('instrBadge').textContent = info.badge;
+  el('instrBadge').className = `modulo-badge ${info.badgeClass}`;
+  el('instrTitulo').textContent = info.titulo;
+  el('instrDesc').textContent = info.desc;
+
+  // Contar items de este módulo en la secuencia
+  const itemsModulo = ESTADO.secuencia.filter(i => i._modulo === info.id).length;
+  el('instrItems').textContent = itemsModulo;
+
+  const tiempos = { RIASEC:10, CHASIDE:18, DAT_verbal:12, DAT_numerico:14, DAT_abstracto:10, DAT_espacial:10 };
+  el('instrTiempo').textContent = tiempos[info.id] || 10;
+  el('instrModNum').textContent = `${modIdx + 1}/6`;
+
+  const pasosList = el('instrPasos');
+  pasosList.innerHTML = info.pasos.map(p => `<li>${p}</li>`).join('');
+
+  el('instrPreview').style.display = info.showPreview ? 'flex' : 'none';
+
+  mostrarScreen('screenInstrucciones');
+  ESTADO.moduloActual = modIdx;
+  ESTADO.tsModuloInicio = Date.now();
+}
+
+function empezarModuloActual() {
+  // Encontrar el primer item del módulo actual en la secuencia
+  const modId = MODULOS_INFO[ESTADO.moduloActual].id;
+  // Buscar el primer item no respondido de este módulo
+  let startIdx = ESTADO.itemGlobal;
+  // Si ya hay respuestas, buscar el primer sin respuesta
+  while (startIdx < ESTADO.secuencia.length) {
+    const item = ESTADO.secuencia[startIdx];
+    if (!ESTADO.respuestas[item.id]) break;
+    startIdx++;
+  }
+  ESTADO.itemGlobal = startIdx;
+  mostrarItem(ESTADO.itemGlobal);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   RENDERIZADO DE ITEM
+═══════════════════════════════════════════════════════════ */
+function mostrarItem(idx) {
+  if (idx >= ESTADO.secuencia.length) {
+    finalizarEvaluacion();
+    return;
+  }
+
+  mostrarScreen('screenItem');
+  const item = ESTADO.secuencia[idx];
+  ESTADO.tsItemInicio = Date.now();
+
+  // Detectar cambio de módulo (para mostrar pantalla de pausa)
+  const modActual = MODULOS_INFO[ESTADO.moduloActual]?.id;
+  if (item._modulo !== 'control' && item._modulo !== modActual) {
+    const nuevoModIdx = MODULOS_INFO.findIndex(m => m.id === item._modulo);
+    if (nuevoModIdx > 0 && nuevoModIdx !== ESTADO.moduloActual) {
+      ESTADO.itemGlobal = idx;
+      mostrarPausa(nuevoModIdx);
+      return;
+    }
+  }
+
+  actualizarTopbar();
+  actualizarProgressSegs(idx);
+
+  // Header del item
+  const modInfo = MODULOS_INFO.find(m => m.id === item._modulo) || { titulo: 'Control' };
+  document.getElementById('itemModuloTag').textContent = item._esControl ? 'VERIFICACIÓN' : (modInfo.badge || modInfo.titulo);
+  document.getElementById('itemContador').textContent = `${idx + 1} / ${ESTADO.secuencia.length}`;
+  document.getElementById('itemNumero').textContent = `Pregunta ${idx + 1}`;
+  document.getElementById('itemTexto').textContent = item.texto;
+
+  // Ocultar alerta tiempo
+  document.getElementById('alertaTiempo').classList.remove('visible');
+
+  // Renderizar opciones
+  const tipo = determinarTipo(item);
+  if (tipo === 'likert') {
+    renderizarLikert(item);
+  } else {
+    renderizarMC(item);
+  }
+
+  // Botón anterior
+  document.getElementById('btnAnterior').disabled = idx === 0;
+
+  // Restaurar respuesta previa si existe
+  const respPrev = ESTADO.respuestas[item.id];
+  if (respPrev !== undefined) {
+    restaurarRespuesta(item, respPrev, tipo);
+    document.getElementById('btnSiguiente').disabled = false;
+    document.getElementById('navHint').textContent = '';
+  } else {
+    document.getElementById('btnSiguiente').disabled = true;
+    document.getElementById('navHint').textContent = 'Selecciona para continuar';
+  }
+}
+
+function determinarTipo(item) {
+  if (item.tipo === 'likert_5' || item.tipo === 'likert_frecuencia_5' ||
+      item.tipo === 'likert_5_especial' || item.formato === 'likert_5') return 'likert';
+  if (item._esControl && (item.tipo_control === 'deseabilidad_social')) return 'likert';
+  if (item.tipo === 'opcion_multiple' || item.tipo === 'opcion_multiple_imagen') return 'mc';
+  // Default por módulo
+  if (item._modulo === 'RIASEC' || item._modulo === 'CHASIDE') return 'likert';
+  return 'mc';
+}
+
+function renderizarLikert(item) {
+  const opciones = item.opciones_respuesta || {
+    '1':'No me interesa nada','2':'Me interesa poco','3':'Me es indiferente',
+    '4':'Me interesa bastante','5':'Me interesa mucho'
+  };
+  const labels = Object.values(opciones);
+  const html = `
+    <div class="likert-wrap">
+      <div class="likert-labels">
+        ${labels.map(l => `<div class="likert-label">${l}</div>`).join('')}
+      </div>
+      <div class="likert-btns">
+        ${[1,2,3,4,5].map(v => `
+          <button class="likert-btn" data-val="${v}"
+            onclick="seleccionarLikert(${v}, '${item.id}')">
+            ${v}
+          </button>
+        `).join('')}
+      </div>
+    </div>`;
+  document.getElementById('itemOpciones').innerHTML = html;
+}
+
+function renderizarMC(item) {
+  const opciones = item.opciones || {A:'',B:'',C:'',D:''};
+  const html = `
+    <div class="mc-opciones">
+      ${Object.entries(opciones).map(([letra, texto]) => `
+        <div class="mc-opcion" data-val="${letra}"
+          onclick="seleccionarMC('${letra}', '${item.id}')">
+          <div class="mc-letra">${letra}</div>
+          <div class="mc-texto">${texto}</div>
+        </div>
+      `).join('')}
+    </div>`;
+  document.getElementById('itemOpciones').innerHTML = html;
+}
+
+function restaurarRespuesta(item, valor, tipo) {
+  if (tipo === 'likert') {
+    document.querySelectorAll('.likert-btn').forEach(btn => {
+      if (parseInt(btn.dataset.val) === parseInt(valor)) {
+        btn.classList.add('selected');
+      }
+    });
+  } else {
+    document.querySelectorAll('.mc-opcion').forEach(op => {
+      if (op.dataset.val === valor) op.classList.add('selected');
+    });
+  }
+}
+
+function actualizarProgressSegs(idx) {
+  const total = ESTADO.secuencia.length;
+  const segs = document.getElementById('progressSegs');
+  // Mostrar solo 20 segmentos para no saturar
+  const n = Math.min(total, 40);
+  const paso = total / n;
+  let html = '';
+  for (let i = 0; i < n; i++) {
+    const pos = Math.floor(i * paso);
+    const clase = pos < idx ? 'done' : pos === idx ? 'current' : '';
+    html += `<div class="seg ${clase}"></div>`;
+  }
+  segs.innerHTML = html;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   SELECCIÓN DE RESPUESTA
+═══════════════════════════════════════════════════════════ */
+function seleccionarLikert(valor, itemId) {
+  registrarRespuesta(itemId, valor, 'likert');
+  document.querySelectorAll('.likert-btn').forEach(btn => {
+    btn.classList.toggle('selected', parseInt(btn.dataset.val) === valor);
+  });
+  document.getElementById('btnSiguiente').disabled = false;
+  document.getElementById('navHint').textContent = '';
+  // Auto-avanzar tras 500ms en Likert
+  setTimeout(() => {
+    if (ESTADO.respuestas[itemId] !== undefined) irSiguiente();
+  }, 500);
+}
+
+function seleccionarMC(letra, itemId) {
+  registrarRespuesta(itemId, letra, 'mc');
+  document.querySelectorAll('.mc-opcion').forEach(op => {
+    op.classList.toggle('selected', op.dataset.val === letra);
+  });
+  document.getElementById('btnSiguiente').disabled = false;
+  document.getElementById('navHint').textContent = '';
+}
+
+function registrarRespuesta(itemId, valor, tipo) {
+  const elapsed = Date.now() - ESTADO.tsItemInicio;
+  const tiempoMin = tipo === 'likert' ? CONFIG.tiempo_min_likert_ms : CONFIG.tiempo_min_mc_ms;
+
+  ESTADO.respuestas[itemId] = valor;
+  ESTADO.tiempos[itemId] = elapsed;
+  ESTADO.puntajesControl.totalItems++;
+
+  // Detectar respuesta rápida
+  if (elapsed < tiempoMin) {
+    ESTADO.puntajesControl.rapidasCount++;
+    // Mostrar alerta si acumula muchas respuestas rápidas
+    const pct = ESTADO.puntajesControl.rapidasCount / ESTADO.puntajesControl.totalItems;
+    if (pct > CONFIG.umbral_respuesta_rapida) {
+      document.getElementById('alertaTiempo').classList.add('visible');
+    }
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════
+   NAVEGACIÓN
+═══════════════════════════════════════════════════════════ */
+function irSiguiente() {
+  const item = ESTADO.secuencia[ESTADO.itemGlobal];
+  if (!ESTADO.respuestas[item.id]) return;
+
+  ESTADO.itemGlobal++;
+
+  // Verificar si es el último item
+  if (ESTADO.itemGlobal >= ESTADO.secuencia.length) {
+    finalizarEvaluacion();
+    return;
+  }
+
+  // Verificar cambio de módulo
+  const siguienteItem = ESTADO.secuencia[ESTADO.itemGlobal];
+  if (siguienteItem._modulo !== 'control' &&
+      siguienteItem._modulo !== MODULOS_INFO[ESTADO.moduloActual]?.id) {
+    const nuevoModIdx = MODULOS_INFO.findIndex(m => m.id === siguienteItem._modulo);
+    if (nuevoModIdx > ESTADO.moduloActual) {
+      mostrarPausa(nuevoModIdx);
+      return;
+    }
+  }
+
+  mostrarItem(ESTADO.itemGlobal);
+}
+
+function irAnterior() {
+  if (ESTADO.itemGlobal === 0) return;
+  ESTADO.itemGlobal--;
+
+  // Verificar si volvemos a módulo anterior
+  const itemAnterior = ESTADO.secuencia[ESTADO.itemGlobal];
+  if (itemAnterior._modulo !== 'control') {
+    const modIdx = MODULOS_INFO.findIndex(m => m.id === itemAnterior._modulo);
+    if (modIdx >= 0 && modIdx !== ESTADO.moduloActual) {
+      ESTADO.moduloActual = modIdx;
+    }
+  }
+
+  mostrarItem(ESTADO.itemGlobal);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   PANTALLA DE PAUSA
+═══════════════════════════════════════════════════════════ */
+function mostrarPausa(siguienteModIdx) {
+  const modAnterior = MODULOS_INFO[ESTADO.moduloActual];
+  document.getElementById('pausaEmoji').textContent = '✅';
+  document.getElementById('pausaTitulo').textContent = `¡${modAnterior.titulo} completado!`;
+  document.getElementById('pausaDesc').textContent = 'Tómate un descanso si lo necesitas antes de continuar con el siguiente módulo.';
+
+  // Progreso de módulos
+  const contenedor = document.getElementById('modulosProgreso');
+  contenedor.innerHTML = MODULOS_INFO.map((m, i) => {
+    const completado = i < ESTADO.moduloActual + 1;
+    const actual = i === siguienteModIdx;
+    const pct = completado ? 100 : actual ? 0 : 0;
+    const clase = completado ? 'fill-done' : actual ? 'fill-current' : 'fill-pending';
+    const status = completado ? '<span class="modulo-status status-done">✓ Listo</span>' :
+                   actual ? '<span class="modulo-status status-current">Siguiente</span>' :
+                   '<span class="modulo-status status-pending">Pendiente</span>';
+    return `
+      <div class="modulo-fila">
+        <div class="modulo-nombre">${m.titulo.split(' ').slice(0,3).join(' ')}</div>
+        <div class="modulo-barra">
+          <div class="modulo-fill ${clase}" style="width:${completado?100:0}%"></div>
+        </div>
+        ${status}
+      </div>`;
+  }).join('');
+
+  document.getElementById('btnContinuar').onclick = () => {
+    ESTADO.moduloActual = siguienteModIdx;
+    mostrarInstrucciones(siguienteModIdx);
+  };
+
+  mostrarScreen('screenPausa');
+}
+
+function pausar() {
+  exportarParcial();
+  alert('Tu progreso ha sido guardado. Cuando estés listo, vuelve a esta página y podrás continuar.');
+}
+
+function continuarSiguienteModulo() {
+  mostrarInstrucciones(ESTADO.moduloActual);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   FINALIZACIÓN Y CÁLCULO DE RESULTADOS
+═══════════════════════════════════════════════════════════ */
+function finalizarEvaluacion() {
+  clearInterval(ESTADO.timerInterval);
+  const puntajes = calcularPuntajes();
+  const validez  = calcularValidez();
+  mostrarResultados(puntajes, validez);
+  generarQR(puntajes);
+}
+
+function calcularPuntajes() {
+  const riasec = { R:0, I:0, A:0, S:0, E:0, C:0 };
+  const chaside = {};
+  const dat = { verbal:0, numerico:0, abstracto:0, espacial:0 };
+  const datTotal = { verbal:0, numerico:0, abstracto:0, espacial:0 };
+
+  ESTADO.secuencia.forEach(item => {
+    const resp = ESTADO.respuestas[item.id];
+    if (resp === undefined || item._esControl) return;
+
+    const val = typeof resp === 'number' ? resp : parseInt(resp) || 0;
+    const corr = item.invertido ? (6 - val) : val;
+
+    if (item._modulo === 'RIASEC' && item.escala) {
+      riasec[item.escala] = (riasec[item.escala] || 0) + corr;
+    } else if (item._modulo === 'CHASIDE' && item.area) {
+      chaside[item.area] = (chaside[item.area] || 0) + corr;
+    } else if (item._modulo?.startsWith('DAT_')) {
+      const sub = item._modulo.replace('DAT_', '');
+      if (resp === item.respuesta_correcta) dat[sub]++;
+      datTotal[sub]++;
+    }
+  });
+
+  // Máximos teóricos RIASEC (40 items / 6 escalas * 5 = ~33 por escala)
+  const riasecMax = {};
+  const riasecCounts = {};
+  ESTADO.secuencia.forEach(item => {
+    if (item._modulo === 'RIASEC' && item.escala && !item._esControl) {
+      riasecCounts[item.escala] = (riasecCounts[item.escala] || 0) + 1;
+    }
+  });
+  Object.keys(riasec).forEach(e => {
+    riasecMax[e] = (riasecCounts[e] || 7) * 5;
+  });
+
+  return { riasec, riasecMax, chaside, dat, datTotal };
+}
+
+function calcularValidez() {
+  const pct = ESTADO.puntajesControl.totalItems > 0
+    ? ESTADO.puntajesControl.rapidasCount / ESTADO.puntajesControl.totalItems
+    : 0;
+
+  let puntosSospecha = Math.round(pct * 10);
+
+  // Verificar pares de consistencia
+  let inconsistencias = 0;
+  ESTADO.secuencia.forEach(item => {
+    if (item._esControl && item.tipo_control === 'consistencia' && item.par_consistencia) {
+      const respA = ESTADO.respuestas[item.id];
+      const respB = ESTADO.respuestas[item.par_consistencia];
+      if (respA !== undefined && respB !== undefined) {
+        const vA = parseInt(respA);
+        const vB = parseInt(respB);
+        if (item.invertido && Math.abs(vA + vB - 6) > 2) inconsistencias++;
+        else if (!item.invertido && Math.abs(vA - vB) > 2) inconsistencias++;
+      }
+    }
+  });
+  puntosSospecha += inconsistencias * 2;
+
+  // Items trampa fallados
+  let trampasFalladas = 0;
+  ESTADO.secuencia.forEach(item => {
+    if (item._esControl && item.tipo_control === 'trampa') {
+      const resp = ESTADO.respuestas[item.id];
+      if (resp !== undefined && resp !== item.respuesta_correcta) {
+        trampasFalladas++;
+        puntosSospecha += 2;
+      }
+    }
+  });
+
+  let nivel = 'VALIDA';
+  if (puntosSospecha >= 11) nivel = 'INVALIDA';
+  else if (puntosSospecha >= 5) nivel = 'CAUTELOSA';
+
+  return { puntosSospecha, nivel, pctRapidas: Math.round(pct * 100), inconsistencias, trampasFalladas };
+}
+
+/* ═══════════════════════════════════════════════════════════
+   PANTALLA DE RESULTADOS
+═══════════════════════════════════════════════════════════ */
+function mostrarResultados(puntajes, validez) {
+  mostrarScreen('screenResultados');
+
+  // Badge de validez
+  const badgeEl = document.getElementById('validezBadge');
+  const config = {
+    VALIDA:    { clase: 'validez-valida',    texto: '✓ Evaluación válida' },
+    CAUTELOSA: { clase: 'validez-cautelosa', texto: '⚠ Evaluar con cautela' },
+    INVALIDA:  { clase: 'validez-invalida',  texto: '✗ Re-aplicación recomendada' },
+  }[validez.nivel];
+  badgeEl.className = `validez-badge ${config.clase}`;
+  badgeEl.textContent = config.texto;
+
+  // Holland
+  const riasecOrdenado = Object.entries(puntajes.riasec)
+    .map(([e, v]) => ({ e, v, pct: Math.round(v / (puntajes.riasecMax[e] || 1) * 100) }))
+    .sort((a, b) => b.v - a.v);
+
+  const top3 = riasecOrdenado.slice(0, 3);
+  const codigo = top3.map(x => x.e).join('');
+  document.getElementById('hollandCodigo').textContent = codigo;
+
+  const descHolland = top3.map(x => HOLLAND_DESC[x.e]?.nombre).join(' – ');
+  const descDetalle = top3.map(x => HOLLAND_DESC[x.e]?.desc).slice(0, 2).join(' ');
+  document.getElementById('hollandDesc').innerHTML =
+    `<strong>${descHolland}</strong><br><span style="font-size:13px;opacity:.8">${descDetalle}</span>`;
+
+  document.getElementById('hollandEscalas').innerHTML = riasecOrdenado
+    .map(x => `<div class="escala-tag">${HOLLAND_DESC[x.e]?.nombre || x.e}: ${x.pct}%</div>`)
+    .join('');
+
+  // Radar
+  dibujarRadar(riasecOrdenado);
+
+  // Top áreas CHASIDE
+  const chasideOrdenado = Object.entries(puntajes.chaside)
+    .sort((a, b) => b[1] - a[1])
+    .slice(0, 6);
+
+  const maxChaside = Math.max(...Object.values(puntajes.chaside), 1);
+  document.getElementById('areasGrid').innerHTML = chasideOrdenado
+    .map(([area, val], i) => `
+      <div class="area-card">
+        <div class="area-rank">#${i+1}</div>
+        <div class="area-nombre">${AREAS_NOMBRES[area] || area}</div>
+        <div class="area-barra">
+          <div class="area-fill" style="width:${Math.round(val/maxChaside*100)}%"></div>
+        </div>
+      </div>`).join('');
+
+  // DAT
+  const datItems = [
+    { key: 'verbal',    nombre: 'Razonamiento Verbal' },
+    { key: 'numerico',  nombre: 'Razonamiento Numérico' },
+    { key: 'abstracto', nombre: 'Razonamiento Abstracto' },
+    { key: 'espacial',  nombre: 'Razonamiento Espacial' },
+  ];
+  const datMaxOrd = [...datItems].sort((a, b) =>
+    (puntajes.dat[b.key] / (puntajes.datTotal[b.key]||1)) -
+    (puntajes.dat[a.key] / (puntajes.datTotal[a.key]||1))
+  );
+
+  document.getElementById('datGrid').innerHTML = datItems.map(d => {
+    const pct = puntajes.datTotal[d.key] > 0
+      ? Math.round(puntajes.dat[d.key] / puntajes.datTotal[d.key] * 100) : 0;
+    const nivel = pct >= 70 ? 'Alto' : pct >= 40 ? 'Medio' : 'En desarrollo';
+    const clase = pct >= 70 ? 'nivel-alto' : pct >= 40 ? 'nivel-medio' : 'nivel-bajo';
+    return `
+      <div class="dat-card">
+        <div class="dat-nombre">${d.nombre}</div>
+        <div class="dat-nivel">${nivel} (${pct}%)</div>
+        <div class="dat-barra">
+          <div class="dat-fill ${clase}" style="width:${pct}%"></div>
+        </div>
+      </div>`;
+  }).join('');
+
+  // Semáforo carrera preferida
+  const carrera = ESTADO.estudiante.carrera_preferida;
+  if (carrera) {
+    const compat = calcularCompatibilidad(puntajes, carrera);
+    const conf = compat >= 65
+      ? { clase: 'semaforo-verde',   emoji: '🟢', titulo: 'Buena compatibilidad', sub: `Tu perfil tiene afinidad con ${carrera}. Tienes fortalezas que se alinean con esta carrera.` }
+      : compat >= 40
+      ? { clase: 'semaforo-naranja', emoji: '🟡', titulo: 'Compatibilidad moderada', sub: `Existen afinidades con ${carrera}, aunque hay algunas áreas por desarrollar. El psicólogo te orientará.` }
+      : { clase: 'semaforo-rojo',    emoji: '🔴', titulo: 'Compatibilidad baja', sub: `Tu perfil actual presenta diferencias con ${carrera}. El psicólogo explorará otras opciones afines contigo.` };
+
+    document.getElementById('semaforoWrap').innerHTML = `
+      <div class="semaforo-card ${conf.clase}">
+        <div class="semaforo-header">
+          <div class="semaforo-emoji">${conf.emoji}</div>
+          <div>
+            <div class="semaforo-title">${conf.titulo}</div>
+            <div style="font-size:12px;opacity:.7;font-weight:600">${carrera.toUpperCase()}</div>
+          </div>
+        </div>
+        <div class="semaforo-sub">${conf.sub}</div>
+      </div>`;
+  }
+}
+
+function calcularCompatibilidad(puntajes, carrera) {
+  // Compatibilidad simplificada basada en perfil DAT + RIASEC
+  const dat = puntajes.dat;
+  const datT = puntajes.datTotal;
+  const pcts = {
+    verbal:    datT.verbal    > 0 ? dat.verbal    / datT.verbal    * 100 : 50,
+    numerico:  datT.numerico  > 0 ? dat.numerico  / datT.numerico  * 100 : 50,
+    abstracto: datT.abstracto > 0 ? dat.abstracto / datT.abstracto * 100 : 50,
+    espacial:  datT.espacial  > 0 ? dat.espacial  / datT.espacial  * 100 : 50,
+  };
+  const promDAT = (pcts.verbal + pcts.numerico + pcts.abstracto + pcts.espacial) / 4;
+
+  // Ajuste simple por palabras clave en nombre de carrera
+  const c = carrera.toLowerCase();
+  let bonus = 0;
+  if (/(ingeni|tecno|física|quím|matemát)/.test(c)) bonus += (pcts.numerico - 50) * 0.3 + (pcts.abstracto - 50) * 0.2;
+  if (/(medic|salud|enfermer|odonto|veterina)/.test(c)) bonus += (pcts.verbal - 50) * 0.2 + (pcts.numerico - 50) * 0.2;
+  if (/(derecho|leye|abogad)/.test(c)) bonus += (pcts.verbal - 50) * 0.4;
+  if (/(psicolog|sociol|trabajo social)/.test(c)) bonus += (pcts.verbal - 50) * 0.3;
+  if (/(arquitect|diseño|arte)/.test(c)) bonus += (pcts.espacial - 50) * 0.4;
+  if (/(economía|administ|contabil|finanza)/.test(c)) bonus += (pcts.numerico - 50) * 0.35;
+
+  return Math.min(100, Math.max(0, Math.round(promDAT + bonus)));
+}
+
+/* ═══════════════════════════════════════════════════════════
+   GRÁFICO RADAR RIASEC
+═══════════════════════════════════════════════════════════ */
+function dibujarRadar(riasecOrdenado) {
+  const labels = riasecOrdenado.map(x => HOLLAND_DESC[x.e]?.nombre || x.e);
+  const data   = riasecOrdenado.map(x => x.pct);
+
+  const ctx = document.getElementById('radarChart').getContext('2d');
+  new Chart(ctx, {
+    type: 'radar',
+    data: {
+      labels,
+      datasets: [{
+        label: 'Tu perfil',
+        data,
+        backgroundColor: 'rgba(58,123,213,0.2)',
+        borderColor: '#3A7BD5',
+        borderWidth: 2.5,
+        pointBackgroundColor: '#0F2B5B',
+        pointRadius: 5,
+        pointHoverRadius: 7,
+      }]
+    },
+    options: {
+      responsive: true,
+      scales: {
+        r: {
+          min: 0, max: 100,
+          ticks: { stepSize: 25, font: { size: 10 }, color: '#8896A8' },
+          grid: { color: 'rgba(0,0,0,.08)' },
+          pointLabels: { font: { size: 12, weight: '600' }, color: '#1E2A3A' },
+        }
+      },
+      plugins: {
+        legend: { display: false },
+        tooltip: {
+          callbacks: {
+            label: ctx => ` ${ctx.raw}%`
+          }
+        }
+      }
+    }
+  });
+}
+
+/* ═══════════════════════════════════════════════════════════
+   QR CODE (sin librería externa — implementación SVG mínima)
+═══════════════════════════════════════════════════════════ */
+function generarQR(puntajes) {
+  // Datos comprimidos para el QR (solo puntajes clave)
+  const r = puntajes.riasec;
+  const d = puntajes.dat;
+  const payload = {
+    id: ESTADO.idSesion,
+    n: `${ESTADO.estudiante.nombre} ${ESTADO.estudiante.apellido}`,
+    riasec: Object.entries(r).map(([k,v]) => `${k}${v}`).join(','),
+    dat: `V${d.verbal}N${d.numerico}A${d.abstracto}E${d.espacial}`,
+    ts: new Date().toISOString().slice(0,10),
+  };
+  const qrData = JSON.stringify(payload);
+
+  // Usar URL de API de QR pública (si hay internet) o mostrar texto
+  const canvas = document.getElementById('qrCanvas');
+  canvas.width = 160;
+  canvas.height = 160;
+  const ctx = canvas.getContext('2d');
+
+  // Dibujar placeholder visual del QR
+  ctx.fillStyle = '#F7F9FC';
+  ctx.fillRect(0, 0, 160, 160);
+  ctx.strokeStyle = '#0F2B5B';
+  ctx.lineWidth = 3;
+  ctx.strokeRect(4, 4, 152, 152);
+
+  // Patrón QR simulado
+  ctx.fillStyle = '#0F2B5B';
+  [[10,10,32,32],[118,10,32,32],[10,118,32,32]].forEach(([x,y,w,h]) => {
+    ctx.fillRect(x,y,w,h);
+    ctx.fillStyle = '#F7F9FC';
+    ctx.fillRect(x+6,y+6,w-12,h-12);
+    ctx.fillStyle = '#0F2B5B';
+    ctx.fillRect(x+10,y+10,w-20,h-20);
+  });
+
+  // ID en el centro
+  ctx.fillStyle = '#0F2B5B';
+  ctx.font = 'bold 8px DM Mono, monospace';
+  ctx.textAlign = 'center';
+  ctx.fillText(ESTADO.idSesion.slice(0,12), 80, 82);
+  ctx.font = '7px DM Mono, monospace';
+  ctx.fillStyle = '#8896A8';
+  ctx.fillText('ESCANEAR EN CITA', 80, 95);
+
+  // Intentar cargar QR real con API
+  const qrUrl = `https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=${encodeURIComponent(window.location.href + '?sesion=' + ESTADO.idSesion)}&color=0F2B5B&bgcolor=F7F9FC`;
+  const img = new Image();
+  img.crossOrigin = 'anonymous';
+  img.onload = () => ctx.drawImage(img, 0, 0, 160, 160);
+  img.src = qrUrl;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   EXPORTACIÓN DE DATOS
+═══════════════════════════════════════════════════════════ */
+function construirObjetoResultado(parcial = false) {
+  const puntajes = calcularPuntajes();
+  const validez  = calcularValidez();
+  const ahora    = new Date();
+
+  return {
+    meta: {
+      id_sesion:        ESTADO.idSesion,
+      version_sistema:  '1.0',
+      version_banco:    '1.0',
+      fecha:            ahora.toISOString().slice(0, 10),
+      hora_inicio:      new Date(ESTADO.tsEvalInicio).toTimeString().slice(0, 8),
+      hora_fin:         parcial ? 'PARCIAL' : ahora.toTimeString().slice(0, 8),
+      duracion_total_min: Math.round((Date.now() - ESTADO.tsEvalInicio) / 60000 * 10) / 10,
+      semilla_aleatorizacion: ESTADO.semilla,
+      items_totales_secuencia: ESTADO.secuencia.length,
+      items_respondidos: Object.keys(ESTADO.respuestas).length,
+      parcial,
+    },
+    estudiante: ESTADO.estudiante,
+    validez: {
+      puntaje_sospecha_total:    validez.puntosSospecha,
+      nivel_validez:             validez.nivel,
+      pct_respuestas_rapidas:    validez.pctRapidas,
+      inconsistencias_control:   validez.inconsistencias,
+      trampa_items_fallados:     validez.trampasFalladas,
+    },
+    items_presentados: ESTADO.secuencia.map(i => i.id),
+    respuestas:        ESTADO.respuestas,
+    tiempos_ms:        ESTADO.tiempos,
+    puntajes_brutos:   puntajes,
+  };
+}
+
+function exportarJSON() {
+  const obj  = construirObjetoResultado();
+  const blob = new Blob([JSON.stringify(obj, null, 2)], { type: 'application/json' });
+  const url  = URL.createObjectURL(blob);
+  const a    = document.createElement('a');
+  a.href     = url;
+  a.download = `resultado_${ESTADO.idSesion}_${new Date().toISOString().slice(0,10)}.json`;
+  a.click();
+  URL.revokeObjectURL(url);
+}
+
+function exportarCSV() {
+  const obj = construirObjetoResultado();
+  const e   = obj.estudiante;
+  const p   = obj.puntajes_brutos;
+  const v   = obj.validez;
+
+  const riasec = p.riasec || {};
+  const chaside_top3 = Object.entries(p.chaside || {})
+    .sort((a,b) => b[1]-a[1]).slice(0,3).map(([k,v]) => `${k}:${v}`).join(';');
+
+  const fila = [
+    obj.meta.id_sesion, obj.meta.fecha, obj.meta.hora_inicio, obj.meta.hora_fin,
+    obj.meta.duracion_total_min, obj.meta.items_respondidos,
+    e.nombre, e.apellido, e.fecha_nacimiento, e.genero, e.colegio, e.curso,
+    e.correo, e.telefono_representante, e.carrera_preferida || '',
+    riasec.R||0, riasec.I||0, riasec.A||0, riasec.S||0, riasec.E||0, riasec.C||0,
+    chaside_top3,
+    p.dat?.verbal||0, p.dat?.numerico||0, p.dat?.abstracto||0, p.dat?.espacial||0,
+    p.datTotal?.verbal||0, p.datTotal?.numerico||0, p.datTotal?.abstracto||0, p.datTotal?.espacial||0,
+    v.puntaje_sospecha_total, v.nivel_validez,
+    v.pct_respuestas_rapidas, v.inconsistencias_control, v.trampa_items_fallados,
+    obj.meta.semilla_aleatorizacion
+  ].map(v => `"${String(v).replace(/"/g,'""')}"`).join(',');
+
+  const encabezado = [
+    'id_sesion','fecha','hora_inicio','hora_fin','duracion_min','items_respondidos',
+    'nombre','apellido','fecha_nacimiento','genero','colegio','curso',
+    'correo','telefono_representante','carrera_preferida',
+    'RIASEC_R','RIASEC_I','RIASEC_A','RIASEC_S','RIASEC_E','RIASEC_C',
+    'CHASIDE_top3',
+    'DAT_verbal_aciertos','DAT_numerico_aciertos','DAT_abstracto_aciertos','DAT_espacial_aciertos',
+    'DAT_verbal_total','DAT_numerico_total','DAT_abstracto_total','DAT_espacial_total',
+    'validez_puntaje_sospecha','validez_nivel',
+    'validez_pct_rapidas','validez_inconsistencias','validez_trampas_falladas',
+    'semilla_aleatorizacion'
+  ].join(',');
+
+  const csv  = `${encabezado}\n${fila}`;
+  const blob = new Blob(['\uFEFF' + csv], { type: 'text/csv;charset=utf-8;' });
+  const url  = URL.createObjectURL(blob);
+  const a    = document.createElement('a');
+  a.href     = url;
+  a.download = `resultado_${ESTADO.idSesion}_${new Date().toISOString().slice(0,10)}.csv`;
+  a.click();
+  URL.revokeObjectURL(url);
+}
+
+function exportarParcial() {
+  const obj  = construirObjetoResultado(true);
+  const blob = new Blob([JSON.stringify(obj, null, 2)], { type: 'application/json' });
+  const url  = URL.createObjectURL(blob);
+  const a    = document.createElement('a');
+  a.href     = url;
+  a.download = `parcial_${ESTADO.idSesion}.json`;
+  a.click();
+  URL.revokeObjectURL(url);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   INICIALIZACIÓN
+═══════════════════════════════════════════════════════════ */
+window.addEventListener('DOMContentLoaded', async () => {
+  // Precargar bancos en segundo plano
+  await cargarBancos();
+
+  // Mostrar pantalla de bienvenida
+  mostrarScreen('screenBienvenida');
+
+  // Limpiar errores en tiempo real
+  document.querySelectorAll('input, select').forEach(el => {
+    el.addEventListener('input', () => {
+      el.classList.remove('error');
+      const errId = 'e' + el.id.slice(1);
+      const errEl = document.getElementById(errId);
+      if (errEl) errEl.classList.remove('visible');
+    });
+  });
+});
+</script>
+</body>
+</html>
