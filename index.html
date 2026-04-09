@@ -8,7 +8,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 /* ═══════════════════════════════════════════════════════════
-   DESIGN TOKENS (igual que antes, incluyendo nuevos estilos)
+   DESIGN TOKENS
 ═══════════════════════════════════════════════════════════ */
 :root {
   --azul:        #0F2B5B;
@@ -197,7 +197,7 @@ body{
   display: block;
 }
 
-/* El resto de estilos (formulario, instrucciones, item, resultados) se mantienen igual que en el original */
+/* El resto de estilos (formulario, instrucciones, item, resultados) */
 .hero{
   text-align:center;
   padding:48px 0 32px;
@@ -384,7 +384,6 @@ input.error,select.error{border-color:var(--rojo)}
   color:var(--gris);transition:var(--trans);
 }
 .mc-texto{font-size:15px;color:var(--gris-dark);font-weight:500}
-/* SVG dentro de opciones */
 .mc-svg {
   width: 60px;
   height: 60px;
@@ -403,7 +402,7 @@ input.error,select.error{border-color:var(--rojo)}
 .alerta-tiempo{display:none;background:var(--naranja-light);border:1.5px solid var(--naranja);border-radius:var(--radio-sm);padding:10px 16px;font-size:13px;color:var(--naranja);font-weight:600;margin-bottom:16px;text-align:center}
 .alerta-tiempo.visible{display:block}
 
-/* Pausa y resultados (igual) */
+/* Pausa y resultados */
 .pausa-hero{text-align:center;padding:48px 0 32px}
 .pausa-check{font-size:64px;margin-bottom:16px;animation:pop .4s cubic-bezier(.175,.885,.32,1.275)}
 @keyframes pop{from{transform:scale(0)}to{transform:scale(1)}}
@@ -758,7 +757,7 @@ const AREAS_NOMBRES = { C:'Ciencias Biológicas', H:'Humanidades', A:'Administra
 const ESTADO = { bancos: {}, secuencia: [], moduloActual: 0, itemGlobal: 0, respuestas: {}, tiempos: {}, tsItemInicio: 0, tsEvalInicio: 0, tsModuloInicio: 0, timerInterval: null, semilla: 0, estudiante: {}, idSesion: '', puntajesControl: { sospecha: 0, rapidasCount: 0, totalItems: 0 } };
 
 // ═══════════════════════════════════════════════════════════
-// FUNCIONES AUXILIARES Y CARGA DE BANCOS (sin cambios importantes)
+// FUNCIONES AUXILIARES Y CARGA DE BANCOS
 // ═══════════════════════════════════════════════════════════
 function mostrarScreen(id) { document.querySelectorAll('.screen').forEach(s => s.classList.remove('activo')); document.getElementById(id).classList.add('activo'); window.scrollTo({ top: 0, behavior: 'smooth' }); }
 function generarID() { const ts = Date.now().toString(36).toUpperCase(); const rnd = Math.random().toString(36).slice(2, 6).toUpperCase(); return `PHY-${ts}-${rnd}`; }
@@ -857,8 +856,6 @@ function construirSecuencia(semilla) {
 // FUNCIONES DE DIBUJO SVG PARA RAZONAMIENTO ABSTRACTO (campo visual)
 // ═══════════════════════════════════════════════════════════
 function dibujarFigura(figura, size = 80) {
-  // figura puede ser objeto con forma, relleno, tamano, rotacion, cantidad, etc.
-  // Devuelve un string SVG o un elemento DOM. Por simplicidad, devolvemos SVG en string.
   if (!figura) return '';
   const forma = figura.forma || 'circulo';
   const relleno = figura.relleno || 'blanco';
@@ -869,6 +866,7 @@ function dibujarFigura(figura, size = 80) {
   let path = '';
   let fillColor = relleno === 'blanco' ? '#FFFFFF' : relleno === 'negro' ? '#000000' : relleno === 'gris' ? '#888888' : relleno === 'rayado' ? 'url(#rayado)' : relleno === 'punteado' ? 'url(#punteado)' : '#FFFFFF';
   let strokeColor = borde === 'negro' ? '#000000' : borde === 'gris' ? '#888888' : 'none';
+  
   if (forma === 'circulo') {
     path = `<circle cx="${centro}" cy="${centro}" r="${radio}" fill="${fillColor}" stroke="${strokeColor}" stroke-width="2"/>`;
   } else if (forma === 'cuadrado') {
@@ -905,7 +903,6 @@ function dibujarFigura(figura, size = 80) {
     }
     path = `<polygon points="${pts.join(' ')}" fill="${fillColor}" stroke="${strokeColor}" stroke-width="2"/>`;
   } else if (forma === 'flecha') {
-    // flecha simple (arriba)
     const w = radio*0.8, h = radio*1.2;
     const baseY = centro + h/2;
     const puntaY = centro - h/2;
@@ -925,7 +922,6 @@ function dibujarFigura(figura, size = 80) {
     }
     path = `<polygon points="${pts.join(' ')}" fill="${fillColor}" stroke="${strokeColor}" stroke-width="2"/>`;
   } else if (forma === 'domino') {
-    // dibujar un rectángulo dividido en dos mitades con puntos
     const w = radio*1.4, h = radio*1.4;
     const x = centro - w/2, y = centro - h/2;
     let dominoSvg = `<rect x="${x}" y="${y}" width="${w}" height="${h}" fill="${fillColor}" stroke="${strokeColor}" stroke-width="2"/>`;
@@ -933,9 +929,8 @@ function dibujarFigura(figura, size = 80) {
     const inf = figura.inferior || 0;
     const puntoRadio = w/8;
     function dibujarPuntos(mitad, num) {
-      let sub = '';
       if (num === 0) return '';
-      const cx = mitad === 'sup' ? centro : centro;
+      const cx = centro;
       const cy = mitad === 'sup' ? y + h/4 : y + 3*h/4;
       const distribuciones = {
         1: [[0,0]], 2: [[-puntoRadio*1.5,0],[puntoRadio*1.5,0]],
@@ -945,10 +940,7 @@ function dibujarFigura(figura, size = 80) {
         6: [[-puntoRadio*1.5,-puntoRadio],[-puntoRadio*1.5,puntoRadio],[0,-puntoRadio],[0,puntoRadio],[puntoRadio*1.5,-puntoRadio],[puntoRadio*1.5,puntoRadio]]
       };
       const puntos = distribuciones[num] || [];
-      puntos.forEach(p => {
-        sub += `<circle cx="${cx + p[0]}" cy="${cy + p[1]}" r="${puntoRadio*0.8}" fill="${strokeColor}"/>`;
-      });
-      return sub;
+      return puntos.map(p => `<circle cx="${cx + p[0]}" cy="${cy + p[1]}" r="${puntoRadio*0.8}" fill="${strokeColor}"/>`).join('');
     }
     dominoSvg += dibujarPuntos('sup', sup);
     dominoSvg += dibujarPuntos('inf', inf);
@@ -956,12 +948,11 @@ function dibujarFigura(figura, size = 80) {
   } else {
     path = `<circle cx="${centro}" cy="${centro}" r="${radio}" fill="${fillColor}" stroke="${strokeColor}" stroke-width="2"/>`;
   }
-  // Rotación
+  
   let rot = figura.rotacion || 0;
   if (rot !== 0) {
     path = `<g transform="rotate(${rot}, ${centro}, ${centro})">${path}</g>`;
   }
-  // Si hay cantidad > 1, repetir la figura en horizontal
   const cantidad = figura.cantidad || 1;
   if (cantidad > 1) {
     let grupo = `<g>`;
@@ -982,23 +973,32 @@ function renderizarVisual(item) {
   const tipo = visual.tipo;
   if (tipo === 'serie') {
     const elementos = visual.elementos || [];
+    if (!Array.isArray(elementos)) return null;
     const html = `<div style="display:flex; gap:12px; justify-content:center; align-items:center; flex-wrap:wrap; margin-bottom:20px;">
       ${elementos.map(el => `<div style="width:80px; height:80px;">${dibujarFigura(el, 80)}</div>`).join('')}
       <div style="font-size:24px; font-weight:bold;">?</div>
     </div>`;
     return html;
   } else if (tipo === 'matriz') {
-    const filas = visual.filas || [];
+    let filas = visual.filas;
+    if (!Array.isArray(filas)) {
+      console.warn('visual.filas no es un array, se ignora', filas);
+      return null;
+    }
     const html = `<div style="display:grid; gap:12px; justify-content:center; margin-bottom:20px;">
-      ${filas.map(fila => `<div style="display:flex; gap:12px; justify-content:center;">
-        ${fila.map(celda => celda ? `<div style="width:80px; height:80px;">${dibujarFigura(celda, 80)}</div>` : `<div style="width:80px; height:80px; border:1px dashed #ccc; display:flex; align-items:center; justify-content:center;">?</div>`).join('')}
-      </div>`).join('')}
+      ${filas.map(fila => {
+        if (!Array.isArray(fila)) return '';
+        return `<div style="display:flex; gap:12px; justify-content:center;">
+          ${fila.map(celda => celda ? `<div style="width:80px; height:80px;">${dibujarFigura(celda, 80)}</div>` : `<div style="width:80px; height:80px; border:1px dashed #ccc; display:flex; align-items:center; justify-content:center;">?</div>`).join('')}
+        </div>`;
+      }).join('')}
     </div>`;
     return html;
   } else if (tipo === 'transformacion') {
     const trans = visual.transformaciones || [];
     const entrada = visual.pregunta?.entrada;
-    const html = `<div style="display:flex; gap:20px; justify-content:center; align-items:center; margin-bottom:20px;">
+    if (!Array.isArray(trans)) return null;
+    const html = `<div style="display:flex; gap:20px; justify-content:center; align-items:center; margin-bottom:20px; flex-wrap:wrap;">
       ${trans.map(t => `<div style="text-align:center;"><div style="width:80px; height:80px;">${dibujarFigura(t.entrada, 80)}</div><div>→</div><div style="width:80px; height:80px;">${dibujarFigura(t.salida, 80)}</div></div>`).join('')}
       ${entrada ? `<div style="text-align:center;"><div style="width:80px; height:80px;">${dibujarFigura(entrada, 80)}</div><div>→</div><div style="width:80px; height:80px;">?</div></div>` : ''}
     </div>`;
@@ -1011,6 +1011,7 @@ function renderizarOpcionesVisuales(item) {
   const visual = item.visual;
   if (!visual || !visual.opciones) return null;
   const opciones = visual.opciones;
+  if (typeof opciones !== 'object') return null;
   const html = Object.entries(opciones).map(([letra, fig]) => `
     <div class="mc-opcion" data-val="${letra}" onclick="seleccionarMC('${letra}', '${item.id}')">
       <div class="mc-letra">${letra}</div>
@@ -1020,30 +1021,12 @@ function renderizarOpcionesVisuales(item) {
   return html;
 }
 
-// ═══════════════════════════════════════════════════════════
-// FUNCIONES DE RENDERIZADO DE ITEM (modificadas para usar visual)
-// ═══════════════════════════════════════════════════════════
-function determinarTipo(item) {
-  if (item.tipo === 'likert_5' || item.tipo === 'likert_frecuencia_5' || item.tipo === 'likert_5_especial' || item.formato === 'likert_5') return 'likert';
-  if (item._esControl && (item.tipo_control === 'deseabilidad_social')) return 'likert';
-  if (item.tipo === 'opcion_multiple' || item.tipo === 'opcion_multiple_imagen') return 'mc';
-  if (item._modulo === 'RIASEC' || item._modulo === 'CHASIDE') return 'likert';
-  return 'mc';
-}
-
-function renderizarLikert(item) {
-  const opciones = item.opciones_respuesta || { '1':'No me interesa nada','2':'Me interesa poco','3':'Me es indiferente','4':'Me interesa bastante','5':'Me interesa mucho' };
-  const labels = Object.values(opciones);
-  const html = `<div class="likert-wrap"><div class="likert-labels">${labels.map(l => `<div class="likert-label">${l}</div>`).join('')}</div><div class="likert-btns">${[1,2,3,4,5].map(v => `<button class="likert-btn" data-val="${v}" onclick="seleccionarLikert(${v}, '${item.id}')">${v}</button>`).join('')}</div></div>`;
-  document.getElementById('itemOpciones').innerHTML = html;
-}
-
 function renderizarMC(item) {
   // Verificar si el ítem tiene campo visual y es de razonamiento abstracto
   if (item._modulo === 'DAT_abstracto' && item.visual && item.visual.opciones) {
     const visualHtml = renderizarVisual(item);
     const opcionesHtml = renderizarOpcionesVisuales(item);
-    if (visualHtml) {
+    if (visualHtml && opcionesHtml) {
       document.getElementById('itemTexto').style.display = 'none';
       document.getElementById('itemOpciones').innerHTML = `<div>${visualHtml}</div><div class="mc-opciones">${opcionesHtml}</div>`;
       return;
@@ -1054,6 +1037,21 @@ function renderizarMC(item) {
   const opciones = item.opciones || {A:'',B:'',C:'',D:''};
   const html = `<div class="mc-opciones">${Object.entries(opciones).map(([letra, texto]) => `<div class="mc-opcion" data-val="${letra}" onclick="seleccionarMC('${letra}', '${item.id}')"><div class="mc-letra">${letra}</div><div class="mc-texto">${texto}</div></div>`).join('')}</div>`;
   document.getElementById('itemOpciones').innerHTML = html;
+}
+
+function renderizarLikert(item) {
+  const opciones = item.opciones_respuesta || { '1':'No me interesa nada','2':'Me interesa poco','3':'Me es indiferente','4':'Me interesa bastante','5':'Me interesa mucho' };
+  const labels = Object.values(opciones);
+  const html = `<div class="likert-wrap"><div class="likert-labels">${labels.map(l => `<div class="likert-label">${l}</div>`).join('')}</div><div class="likert-btns">${[1,2,3,4,5].map(v => `<button class="likert-btn" data-val="${v}" onclick="seleccionarLikert(${v}, '${item.id}')">${v}</button>`).join('')}</div></div>`;
+  document.getElementById('itemOpciones').innerHTML = html;
+}
+
+function determinarTipo(item) {
+  if (item.tipo === 'likert_5' || item.tipo === 'likert_frecuencia_5' || item.tipo === 'likert_5_especial' || item.formato === 'likert_5') return 'likert';
+  if (item._esControl && (item.tipo_control === 'deseabilidad_social')) return 'likert';
+  if (item.tipo === 'opcion_multiple' || item.tipo === 'opcion_multiple_imagen') return 'mc';
+  if (item._modulo === 'RIASEC' || item._modulo === 'CHASIDE') return 'likert';
+  return 'mc';
 }
 
 function mostrarItem(idx) {
@@ -1109,12 +1107,6 @@ function actualizarProgressSegs(idx) {
   }
   segs.innerHTML = html;
 }
-
-// ═══════════════════════════════════════════════════════════
-// RESTO DE FUNCIONES (selección, navegación, pausa, resultados, etc.)
-// Se mantienen igual que en el original, pero se incluyen por completitud
-// (Para ahorrar espacio, se resumen las que no han cambiado)
-// ═══════════════════════════════════════════════════════════
 
 function seleccionarLikert(valor, itemId) { registrarRespuesta(itemId, valor, 'likert'); document.querySelectorAll('.likert-btn').forEach(btn => { btn.classList.toggle('selected', parseInt(btn.dataset.val) === valor); }); document.getElementById('btnSiguiente').disabled = false; document.getElementById('navHint').textContent = ''; setTimeout(() => { if (ESTADO.respuestas[itemId] !== undefined) irSiguiente(); }, 500); }
 function seleccionarMC(letra, itemId) { registrarRespuesta(itemId, letra, 'mc'); document.querySelectorAll('.mc-opcion').forEach(op => { op.classList.toggle('selected', op.dataset.val === letra); }); document.getElementById('btnSiguiente').disabled = false; document.getElementById('navHint').textContent = ''; }
