@@ -2,11 +2,11 @@
   "meta": {
     "modulo": "DAT",
     "subprueba": "numerico",
-    "descripcion": "Evaluacion de razonamiento numerico: series, proporciones, porcentajes, algebra y problemas aplicados. Items de construccion original para uso institucional del Instituto Physics.",
-    "autoria": "Construccion original Instituto Physics, 2026",
+    "descripcion": "Evaluacion de razonamiento numerico nivel avanzado: series complejas, proporciones compuestas, porcentajes sucesivos, algebra lineal y cuadratica, problemas aplicados de mayor dificultad. Items originales para uso institucional del Instituto Physics.",
+    "autoria": "Construccion original Instituto Physics, 2026 (version dificultad aumentada)",
     "derechos": "Uso interno institucional. Items originales.",
-    "version_banco": "1.0",
-    "fecha_creacion": "2026-04-07",
+    "version_banco": "2.0",
+    "fecha_creacion": "2026-04-09",
     "total_items": 60,
     "items_por_aplicacion": 20,
     "distribucion_dificultad": {
@@ -22,14 +22,14 @@
       "id": "DAT_NR_001",
       "dificultad": 1,
       "tipo": "serie_numerica",
-      "texto": "Completa la serie: 2, 4, 6, 8, ___",
+      "texto": "Completa la serie: 2, 5, 10, 17, ___",
       "opciones": {
-        "A": "9",
-        "B": "10",
-        "C": "11",
-        "D": "12"
+        "A": "24",
+        "B": "25",
+        "C": "26",
+        "D": "28"
       },
-      "respuesta_correcta": "B",
+      "respuesta_correcta": "C",
       "tiempo_minimo_ms": 10000,
       "subprueba": "numerico",
       "puntaje": 1,
@@ -43,14 +43,14 @@
       "id": "DAT_NR_002",
       "dificultad": 1,
       "tipo": "serie_numerica",
-      "texto": "Completa la serie: 5, 10, 15, 20, ___",
+      "texto": "Completa la serie: 3, 7, 13, 21, ___",
       "opciones": {
-        "A": "22",
-        "B": "24",
-        "C": "25",
-        "D": "30"
+        "A": "29",
+        "B": "31",
+        "C": "33",
+        "D": "35"
       },
-      "respuesta_correcta": "C",
+      "respuesta_correcta": "B",
       "tiempo_minimo_ms": 10000,
       "subprueba": "numerico",
       "puntaje": 1,
@@ -64,14 +64,14 @@
       "id": "DAT_NR_003",
       "dificultad": 1,
       "tipo": "calculo",
-      "texto": "Si una tienda vende 3 cuadernos a $1.50 cada uno, ¿cuanto paga el cliente en total?",
+      "texto": "Tres amigos compran un regalo de $45. El primero pone el doble que el segundo, y el segundo pone el triple que el tercero. ¿Cuánto pone el tercero?",
       "opciones": {
-        "A": "$3.50",
-        "B": "$4.00",
-        "C": "$4.50",
-        "D": "$5.00"
+        "A": "$4.50",
+        "B": "$5.00",
+        "C": "$5.50",
+        "D": "$6.00"
       },
-      "respuesta_correcta": "C",
+      "respuesta_correcta": "A",
       "tiempo_minimo_ms": 10000,
       "subprueba": "numerico",
       "puntaje": 1,
@@ -85,12 +85,12 @@
       "id": "DAT_NR_004",
       "dificultad": 1,
       "tipo": "fraccion",
-      "texto": "¿Cuanto es la mitad de 84?",
+      "texto": "¿Cuánto es 3/5 de 2/3 de 150?",
       "opciones": {
-        "A": "40",
-        "B": "42",
-        "C": "44",
-        "D": "46"
+        "A": "50",
+        "B": "60",
+        "C": "70",
+        "D": "80"
       },
       "respuesta_correcta": "B",
       "tiempo_minimo_ms": 10000,
@@ -106,14 +106,14 @@
       "id": "DAT_NR_005",
       "dificultad": 1,
       "tipo": "serie_numerica",
-      "texto": "Completa la serie: 1, 3, 5, 7, ___",
+      "texto": "Completa la serie: 1, 3, 6, 10, 15, ___",
       "opciones": {
-        "A": "8",
-        "B": "9",
-        "C": "10",
-        "D": "11"
+        "A": "19",
+        "B": "20",
+        "C": "21",
+        "D": "22"
       },
-      "respuesta_correcta": "B",
+      "respuesta_correcta": "C",
       "tiempo_minimo_ms": 10000,
       "subprueba": "numerico",
       "puntaje": 1,
@@ -127,14 +127,14 @@
       "id": "DAT_NR_006",
       "dificultad": 1,
       "tipo": "porcentaje",
-      "texto": "¿Cuanto es el 10% de 200?",
+      "texto": "Un número aumenta un 20% y luego se reduce un 20%. Si el resultado es 96, ¿cuál era el número original?",
       "opciones": {
-        "A": "2",
-        "B": "10",
-        "C": "20",
-        "D": "200"
+        "A": "95",
+        "B": "100",
+        "C": "105",
+        "D": "110"
       },
-      "respuesta_correcta": "C",
+      "respuesta_correcta": "B",
       "tiempo_minimo_ms": 10000,
       "subprueba": "numerico",
       "puntaje": 1,
@@ -148,14 +148,14 @@
       "id": "DAT_NR_007",
       "dificultad": 1,
       "tipo": "calculo",
-      "texto": "Un estudiante tiene 120 puntos. Si pierde 35, ¿cuantos le quedan?",
+      "texto": "Un granjero tiene 240 huevos. Vende 3/8 y luego regala 1/5 de los restantes. ¿Cuántos huevos le quedan?",
       "opciones": {
-        "A": "75",
-        "B": "80",
-        "C": "85",
-        "D": "90"
+        "A": "90",
+        "B": "96",
+        "C": "100",
+        "D": "108"
       },
-      "respuesta_correcta": "C",
+      "respuesta_correcta": "B",
       "tiempo_minimo_ms": 10000,
       "subprueba": "numerico",
       "puntaje": 1,
@@ -169,14 +169,14 @@
       "id": "DAT_NR_008",
       "dificultad": 1,
       "tipo": "serie_numerica",
-      "texto": "Completa la serie: 100, 90, 80, 70, ___",
+      "texto": "Completa la serie: 4, 9, 16, 25, ___",
       "opciones": {
-        "A": "55",
-        "B": "60",
-        "C": "65",
-        "D": "50"
+        "A": "32",
+        "B": "34",
+        "C": "36",
+        "D": "49"
       },
-      "respuesta_correcta": "B",
+      "respuesta_correcta": "C",
       "tiempo_minimo_ms": 10000,
       "subprueba": "numerico",
       "puntaje": 1,
@@ -190,12 +190,12 @@
       "id": "DAT_NR_009",
       "dificultad": 1,
       "tipo": "proporcion",
-      "texto": "Si 4 manzanas cuestan $2, ¿cuanto cuestan 8 manzanas?",
+      "texto": "Si 3 pintores tardan 8 horas en pintar una pared, ¿cuántas horas tardarían 4 pintores en pintar la misma pared?",
       "opciones": {
-        "A": "$3",
-        "B": "$4",
-        "C": "$5",
-        "D": "$6"
+        "A": "5",
+        "B": "6",
+        "C": "7",
+        "D": "8"
       },
       "respuesta_correcta": "B",
       "tiempo_minimo_ms": 10000,
@@ -211,12 +211,12 @@
       "id": "DAT_NR_010",
       "dificultad": 1,
       "tipo": "porcentaje",
-      "texto": "¿Cuanto es el 50% de 60?",
+      "texto": "En una tienda, el 25% de los productos son importados. Si hay 120 productos nacionales, ¿cuántos productos hay en total?",
       "opciones": {
-        "A": "25",
-        "B": "30",
-        "C": "35",
-        "D": "40"
+        "A": "150",
+        "B": "160",
+        "C": "180",
+        "D": "200"
       },
       "respuesta_correcta": "B",
       "tiempo_minimo_ms": 10000,
@@ -232,12 +232,12 @@
       "id": "DAT_NR_011",
       "dificultad": 1,
       "tipo": "serie_numerica",
-      "texto": "Completa la serie: 3, 6, 12, 24, ___",
+      "texto": "Completa la serie: 2, 3, 5, 9, 17, ___",
       "opciones": {
-        "A": "36",
-        "B": "42",
-        "C": "48",
-        "D": "54"
+        "A": "25",
+        "B": "29",
+        "C": "33",
+        "D": "34"
       },
       "respuesta_correcta": "C",
       "tiempo_minimo_ms": 10000,
@@ -253,14 +253,14 @@
       "id": "DAT_NR_012",
       "dificultad": 1,
       "tipo": "calculo",
-      "texto": "Una tienda tiene 5 cajas con 12 botellas cada una. ¿Cuantas botellas hay en total?",
+      "texto": "Un número se multiplica por 3, luego se suma 5, luego se divide entre 2 y se obtiene 10. ¿Cuál es el número?",
       "opciones": {
-        "A": "50",
-        "B": "55",
-        "C": "60",
-        "D": "65"
+        "A": "4",
+        "B": "5",
+        "C": "6",
+        "D": "7"
       },
-      "respuesta_correcta": "C",
+      "respuesta_correcta": "B",
       "tiempo_minimo_ms": 10000,
       "subprueba": "numerico",
       "puntaje": 1,
@@ -274,14 +274,14 @@
       "id": "DAT_NR_013",
       "dificultad": 1,
       "tipo": "fraccion",
-      "texto": "¿Cuanto es 3/4 de 80?",
+      "texto": "Una botella tiene 3/4 de litro. Si se consumen 2/3 de lo que había, ¿cuánto queda?",
       "opciones": {
-        "A": "55",
-        "B": "60",
-        "C": "65",
-        "D": "70"
+        "A": "1/4 L",
+        "B": "1/3 L",
+        "C": "1/2 L",
+        "D": "1/6 L"
       },
-      "respuesta_correcta": "B",
+      "respuesta_correcta": "A",
       "tiempo_minimo_ms": 10000,
       "subprueba": "numerico",
       "puntaje": 1,
@@ -295,14 +295,14 @@
       "id": "DAT_NR_014",
       "dificultad": 1,
       "tipo": "serie_numerica",
-      "texto": "Completa la serie: 2, 5, 8, 11, ___",
+      "texto": "Completa la serie: 1, 8, 27, 64, ___",
       "opciones": {
-        "A": "13",
-        "B": "14",
-        "C": "15",
-        "D": "16"
+        "A": "100",
+        "B": "121",
+        "C": "125",
+        "D": "144"
       },
-      "respuesta_correcta": "B",
+      "respuesta_correcta": "C",
       "tiempo_minimo_ms": 10000,
       "subprueba": "numerico",
       "puntaje": 1,
@@ -316,14 +316,14 @@
       "id": "DAT_NR_015",
       "dificultad": 1,
       "tipo": "calculo",
-      "texto": "Si ganas $15 por hora y trabajas 6 horas, ¿cuanto ganas en total?",
+      "texto": "Un estudiante obtuvo 85, 90 y 75 en tres exámenes. Para tener un promedio de 85, ¿qué nota necesita en el cuarto examen?",
       "opciones": {
-        "A": "$80",
-        "B": "$85",
-        "C": "$90",
-        "D": "$95"
+        "A": "85",
+        "B": "86",
+        "C": "88",
+        "D": "90"
       },
-      "respuesta_correcta": "C",
+      "respuesta_correcta": "D",
       "tiempo_minimo_ms": 10000,
       "subprueba": "numerico",
       "puntaje": 1,
@@ -337,12 +337,12 @@
       "id": "DAT_NR_016",
       "dificultad": 1,
       "tipo": "porcentaje",
-      "texto": "Un producto cuesta $80 y tiene un descuento del 25%. ¿Cuanto se descuenta?",
+      "texto": "El precio de un producto es $120. Si se aplica un descuento del 15% y luego un recargo del 10% sobre el precio con descuento, ¿cuál es el precio final?",
       "opciones": {
-        "A": "$15",
-        "B": "$20",
-        "C": "$25",
-        "D": "$30"
+        "A": "$110.20",
+        "B": "$112.20",
+        "C": "$114.20",
+        "D": "$116.20"
       },
       "respuesta_correcta": "B",
       "tiempo_minimo_ms": 10000,
@@ -358,14 +358,14 @@
       "id": "DAT_NR_017",
       "dificultad": 1,
       "tipo": "proporcion",
-      "texto": "Si en 2 horas se producen 40 piezas, ¿cuantas se producen en 5 horas?",
+      "texto": "Un mapa tiene escala 1:25000. ¿Cuántos kilómetros representan 8 cm en el mapa?",
       "opciones": {
-        "A": "80",
-        "B": "90",
-        "C": "100",
-        "D": "110"
+        "A": "1.5 km",
+        "B": "2.0 km",
+        "C": "2.5 km",
+        "D": "3.0 km"
       },
-      "respuesta_correcta": "C",
+      "respuesta_correcta": "B",
       "tiempo_minimo_ms": 10000,
       "subprueba": "numerico",
       "puntaje": 1,
@@ -379,11 +379,11 @@
       "id": "DAT_NR_018",
       "dificultad": 1,
       "tipo": "serie_numerica",
-      "texto": "Completa la serie: 1, 4, 9, 16, ___",
+      "texto": "Completa la serie: 3, 5, 8, 13, 21, ___",
       "opciones": {
-        "A": "20",
-        "B": "23",
-        "C": "25",
+        "A": "28",
+        "B": "32",
+        "C": "34",
         "D": "36"
       },
       "respuesta_correcta": "C",
@@ -400,12 +400,12 @@
       "id": "DAT_NR_019",
       "dificultad": 2,
       "tipo": "proporcion",
-      "texto": "Un auto recorre 240 km en 3 horas. ¿Cuanto tardara en recorrer 400 km a la misma velocidad?",
+      "texto": "Un tren recorre 420 km en 3 horas y 30 minutos. ¿Cuánto tardará en recorrer 600 km a la misma velocidad?",
       "opciones": {
-        "A": "4 horas",
-        "B": "5 horas",
-        "C": "6 horas",
-        "D": "7 horas"
+        "A": "4 h 30 min",
+        "B": "5 h",
+        "C": "5 h 15 min",
+        "D": "5 h 30 min"
       },
       "respuesta_correcta": "B",
       "tiempo_minimo_ms": 15000,
@@ -421,12 +421,12 @@
       "id": "DAT_NR_020",
       "dificultad": 2,
       "tipo": "porcentaje",
-      "texto": "Una camisa cuesta $45 despues de un descuento del 10%. ¿Cual era el precio original?",
+      "texto": "Después de dos descuentos sucesivos del 10% y 15%, un artículo cuesta $91.80. ¿Cuál era su precio original?",
       "opciones": {
-        "A": "$48",
-        "B": "$50",
-        "C": "$52",
-        "D": "$55"
+        "A": "$115",
+        "B": "$120",
+        "C": "$125",
+        "D": "$130"
       },
       "respuesta_correcta": "B",
       "tiempo_minimo_ms": 15000,
@@ -442,14 +442,14 @@
       "id": "DAT_NR_021",
       "dificultad": 2,
       "tipo": "serie_numerica",
-      "texto": "Completa la serie: 2, 6, 12, 20, 30, ___",
+      "texto": "Completa la serie: 0, 2, 6, 12, 20, ___",
       "opciones": {
-        "A": "38",
-        "B": "40",
-        "C": "42",
-        "D": "44"
+        "A": "28",
+        "B": "30",
+        "C": "32",
+        "D": "36"
       },
-      "respuesta_correcta": "C",
+      "respuesta_correcta": "B",
       "tiempo_minimo_ms": 15000,
       "subprueba": "numerico",
       "puntaje": 1,
@@ -463,14 +463,14 @@
       "id": "DAT_NR_022",
       "dificultad": 2,
       "tipo": "algebra",
-      "texto": "Si 3x + 7 = 22, ¿cual es el valor de x?",
+      "texto": "Resuelve: 2(x - 3) + 4x = 3(x + 5) - 2",
       "opciones": {
-        "A": "4",
-        "B": "5",
-        "C": "6",
-        "D": "7"
+        "A": "5",
+        "B": "6",
+        "C": "7",
+        "D": "8"
       },
-      "respuesta_correcta": "B",
+      "respuesta_correcta": "C",
       "tiempo_minimo_ms": 15000,
       "subprueba": "numerico",
       "puntaje": 1,
@@ -484,12 +484,12 @@
       "id": "DAT_NR_023",
       "dificultad": 2,
       "tipo": "calculo",
-      "texto": "Una empresa tiene 240 empleados. El 35% son mujeres. ¿Cuantos empleados son hombres?",
+      "texto": "Un depósito contiene 500 litros de agua. Se extrae el 20% y luego se agrega el 30% de lo que quedaba. ¿Cuántos litros hay finalmente?",
       "opciones": {
-        "A": "144",
-        "B": "150",
-        "C": "156",
-        "D": "162"
+        "A": "480",
+        "B": "500",
+        "C": "520",
+        "D": "540"
       },
       "respuesta_correcta": "C",
       "tiempo_minimo_ms": 15000,
@@ -505,14 +505,14 @@
       "id": "DAT_NR_024",
       "dificultad": 2,
       "tipo": "fraccion",
-      "texto": "¿Cuanto es 2/3 de 5/6?",
+      "texto": "Un grifo llena un depósito en 6 horas, otro en 4 horas. ¿Cuánto tiempo tardarán los dos juntos en llenar el depósito?",
       "opciones": {
-        "A": "10/18",
-        "B": "7/9",
-        "C": "5/9",
-        "D": "10/9"
+        "A": "2 h 12 min",
+        "B": "2 h 24 min",
+        "C": "2 h 30 min",
+        "D": "2 h 36 min"
       },
-      "respuesta_correcta": "C",
+      "respuesta_correcta": "B",
       "tiempo_minimo_ms": 15000,
       "subprueba": "numerico",
       "puntaje": 1,
@@ -526,14 +526,14 @@
       "id": "DAT_NR_025",
       "dificultad": 2,
       "tipo": "serie_numerica",
-      "texto": "Completa la serie: 1, 1, 2, 3, 5, 8, ___",
+      "texto": "Completa la serie: 2, 5, 11, 23, 47, ___",
       "opciones": {
-        "A": "10",
-        "B": "11",
-        "C": "12",
-        "D": "13"
+        "A": "93",
+        "B": "94",
+        "C": "95",
+        "D": "96"
       },
-      "respuesta_correcta": "D",
+      "respuesta_correcta": "C",
       "tiempo_minimo_ms": 15000,
       "subprueba": "numerico",
       "puntaje": 1,
@@ -547,14 +547,14 @@
       "id": "DAT_NR_026",
       "dificultad": 2,
       "tipo": "calculo",
-      "texto": "Si el precio de un articulo sube de $120 a $150, ¿que porcentaje aumento?",
+      "texto": "Si la raíz cuadrada de un número más 5 es igual a 12, ¿cuál es el número?",
       "opciones": {
-        "A": "20%",
-        "B": "25%",
-        "C": "30%",
-        "D": "35%"
+        "A": "49",
+        "B": "64",
+        "C": "81",
+        "D": "100"
       },
-      "respuesta_correcta": "B",
+      "respuesta_correcta": "A",
       "tiempo_minimo_ms": 15000,
       "subprueba": "numerico",
       "puntaje": 1,
@@ -568,12 +568,12 @@
       "id": "DAT_NR_027",
       "dificultad": 2,
       "tipo": "proporcion",
-      "texto": "Si 6 trabajadores terminan una tarea en 8 dias, ¿cuantos dias tardaran 4 trabajadores en hacer la misma tarea?",
+      "texto": "Para alimentar 15 animales durante 6 días se necesitan 90 kg de forraje. ¿Cuántos kg se necesitarán para alimentar 10 animales durante 12 días?",
       "opciones": {
-        "A": "10",
-        "B": "11",
-        "C": "12",
-        "D": "14"
+        "A": "100",
+        "B": "110",
+        "C": "120",
+        "D": "130"
       },
       "respuesta_correcta": "C",
       "tiempo_minimo_ms": 15000,
@@ -589,14 +589,14 @@
       "id": "DAT_NR_028",
       "dificultad": 2,
       "tipo": "algebra",
-      "texto": "Si 2x - 4 = x + 6, ¿cual es el valor de x?",
+      "texto": "La suma de dos números es 50 y su diferencia es 14. ¿Cuál es el número mayor?",
       "opciones": {
-        "A": "8",
-        "B": "10",
-        "C": "12",
-        "D": "14"
+        "A": "28",
+        "B": "30",
+        "C": "32",
+        "D": "34"
       },
-      "respuesta_correcta": "B",
+      "respuesta_correcta": "C",
       "tiempo_minimo_ms": 15000,
       "subprueba": "numerico",
       "puntaje": 1,
@@ -610,14 +610,14 @@
       "id": "DAT_NR_029",
       "dificultad": 2,
       "tipo": "porcentaje",
-      "texto": "Un producto vale $200. Primero sube 20% y luego baja 20%. ¿Cual es el precio final?",
+      "texto": "Un artículo se vende ganando el 20% del costo. Si se vende a $144, ¿cuál es el costo?",
       "opciones": {
-        "A": "$192",
-        "B": "$196",
-        "C": "$200",
-        "D": "$204"
+        "A": "$115",
+        "B": "$120",
+        "C": "$125",
+        "D": "$130"
       },
-      "respuesta_correcta": "A",
+      "respuesta_correcta": "B",
       "tiempo_minimo_ms": 15000,
       "subprueba": "numerico",
       "puntaje": 1,
@@ -631,14 +631,14 @@
       "id": "DAT_NR_030",
       "dificultad": 2,
       "tipo": "serie_numerica",
-      "texto": "Completa la serie: 3, 9, 27, 81, ___",
+      "texto": "Completa la serie: 1, 3, 7, 15, 31, ___",
       "opciones": {
-        "A": "162",
-        "B": "200",
-        "C": "243",
-        "D": "270"
+        "A": "61",
+        "B": "63",
+        "C": "65",
+        "D": "67"
       },
-      "respuesta_correcta": "C",
+      "respuesta_correcta": "B",
       "tiempo_minimo_ms": 15000,
       "subprueba": "numerico",
       "puntaje": 1,
@@ -652,14 +652,14 @@
       "id": "DAT_NR_031",
       "dificultad": 2,
       "tipo": "calculo",
-      "texto": "Ana ahorra $45 cada mes. ¿En cuantos meses tendra $540?",
+      "texto": "Un reloj se adelanta 3 minutos cada hora. Si a las 8:00 a.m. marca la hora exacta, ¿qué hora marcará a las 8:00 p.m. del mismo día?",
       "opciones": {
-        "A": "10",
-        "B": "11",
-        "C": "12",
-        "D": "13"
+        "A": "8:18 p.m.",
+        "B": "8:24 p.m.",
+        "C": "8:30 p.m.",
+        "D": "8:36 p.m."
       },
-      "respuesta_correcta": "C",
+      "respuesta_correcta": "D",
       "tiempo_minimo_ms": 15000,
       "subprueba": "numerico",
       "puntaje": 1,
@@ -673,14 +673,14 @@
       "id": "DAT_NR_032",
       "dificultad": 2,
       "tipo": "fraccion",
-      "texto": "Si tienes 3/8 de una pizza y comes 1/4, ¿que fraccion te queda?",
+      "texto": "De un depósito que contiene 5/8 de agua, se extrae 1/4 de lo que hay. ¿Qué fracción del depósito queda llena?",
       "opciones": {
-        "A": "2/8",
-        "B": "1/8",
-        "C": "3/16",
-        "D": "5/16"
+        "A": "5/16",
+        "B": "9/16",
+        "C": "15/32",
+        "D": "17/32"
       },
-      "respuesta_correcta": "B",
+      "respuesta_correcta": "C",
       "tiempo_minimo_ms": 15000,
       "subprueba": "numerico",
       "puntaje": 1,
@@ -694,14 +694,14 @@
       "id": "DAT_NR_033",
       "dificultad": 2,
       "tipo": "algebra",
-      "texto": "La suma de dos numeros consecutivos es 47. ¿Cuales son esos numeros?",
+      "texto": "La edad de Juan es el triple de la de Pedro. Hace 5 años, la suma de sus edades era 30. ¿Cuántos años tiene Juan actualmente?",
       "opciones": {
-        "A": "22 y 23",
-        "B": "23 y 24",
-        "C": "24 y 25",
-        "D": "21 y 22"
+        "A": "25",
+        "B": "28",
+        "C": "30",
+        "D": "33"
       },
-      "respuesta_correcta": "B",
+      "respuesta_correcta": "C",
       "tiempo_minimo_ms": 15000,
       "subprueba": "numerico",
       "puntaje": 1,
@@ -715,14 +715,14 @@
       "id": "DAT_NR_034",
       "dificultad": 2,
       "tipo": "proporcion",
-      "texto": "En una receta para 4 personas se usan 300g de harina. ¿Cuanta harina se necesita para 10 personas?",
+      "texto": "Un rectángulo tiene un perímetro de 40 cm. La base es 3 cm más larga que la altura. ¿Cuál es el área?",
       "opciones": {
-        "A": "650g",
-        "B": "700g",
-        "C": "750g",
-        "D": "800g"
+        "A": "91 cm²",
+        "B": "93 cm²",
+        "C": "95 cm²",
+        "D": "97 cm²"
       },
-      "respuesta_correcta": "C",
+      "respuesta_correcta": "A",
       "tiempo_minimo_ms": 15000,
       "subprueba": "numerico",
       "puntaje": 1,
@@ -736,12 +736,12 @@
       "id": "DAT_NR_035",
       "dificultad": 2,
       "tipo": "serie_numerica",
-      "texto": "Completa la serie: 50, 47, 43, 38, 32, ___",
+      "texto": "Completa la serie: 1, 2, 3, 5, 7, 11, 13, ___",
       "opciones": {
-        "A": "22",
-        "B": "24",
-        "C": "25",
-        "D": "26"
+        "A": "15",
+        "B": "16",
+        "C": "17",
+        "D": "19"
       },
       "respuesta_correcta": "C",
       "tiempo_minimo_ms": 15000,
@@ -757,14 +757,14 @@
       "id": "DAT_NR_036",
       "dificultad": 2,
       "tipo": "calculo",
-      "texto": "Un deposito de 800 litros esta lleno al 75%. ¿Cuantos litros faltan para llenarlo?",
+      "texto": "Un número de dos cifras suma 12. Si se invierten las cifras, el nuevo número es 18 unidades menor que el original. ¿Cuál es el número original?",
       "opciones": {
-        "A": "150",
-        "B": "175",
-        "C": "200",
-        "D": "225"
+        "A": "75",
+        "B": "84",
+        "C": "93",
+        "D": "57"
       },
-      "respuesta_correcta": "C",
+      "respuesta_correcta": "A",
       "tiempo_minimo_ms": 15000,
       "subprueba": "numerico",
       "puntaje": 1,
@@ -778,12 +778,12 @@
       "id": "DAT_NR_037",
       "dificultad": 2,
       "tipo": "porcentaje",
-      "texto": "Si el 30% de los estudiantes de una clase son 18, ¿cuantos estudiantes hay en total en la clase?",
+      "texto": "El precio de un televisor aumenta un 15% y luego un 10%. Si el precio final es $253, ¿cuál era el precio original?",
       "opciones": {
-        "A": "54",
-        "B": "58",
-        "C": "60",
-        "D": "64"
+        "A": "$190",
+        "B": "$195",
+        "C": "$200",
+        "D": "$205"
       },
       "respuesta_correcta": "C",
       "tiempo_minimo_ms": 15000,
@@ -799,14 +799,14 @@
       "id": "DAT_NR_038",
       "dificultad": 2,
       "tipo": "algebra",
-      "texto": "Si el doble de un numero menos 8 es igual a 24, ¿cual es ese numero?",
+      "texto": "Si 3(x - 2) + 5 = 2(x + 4) - 3, ¿cuál es el valor de x?",
       "opciones": {
-        "A": "14",
-        "B": "16",
-        "C": "18",
-        "D": "20"
+        "A": "3",
+        "B": "4",
+        "C": "5",
+        "D": "6"
       },
-      "respuesta_correcta": "B",
+      "respuesta_correcta": "D",
       "tiempo_minimo_ms": 15000,
       "subprueba": "numerico",
       "puntaje": 1,
@@ -820,12 +820,12 @@
       "id": "DAT_NR_039",
       "dificultad": 2,
       "tipo": "serie_numerica",
-      "texto": "Completa la serie: 2, 3, 5, 8, 13, 21, ___",
+      "texto": "Completa la serie: 2, 4, 7, 11, 16, ___",
       "opciones": {
-        "A": "29",
-        "B": "32",
-        "C": "34",
-        "D": "36"
+        "A": "20",
+        "B": "21",
+        "C": "22",
+        "D": "23"
       },
       "respuesta_correcta": "C",
       "tiempo_minimo_ms": 15000,
@@ -841,12 +841,12 @@
       "id": "DAT_NR_040",
       "dificultad": 2,
       "tipo": "proporcion",
-      "texto": "Si el tipo de cambio es 1 dolar = 0.93 euros, ¿cuantos euros son 150 dolares?",
+      "texto": "En una fábrica, 8 máquinas producen 1200 piezas en 5 horas. ¿Cuántas piezas producirán 6 máquinas en 4 horas?",
       "opciones": {
-        "A": "133.50",
-        "B": "137.50",
-        "C": "139.50",
-        "D": "141.50"
+        "A": "600",
+        "B": "640",
+        "C": "720",
+        "D": "800"
       },
       "respuesta_correcta": "C",
       "tiempo_minimo_ms": 15000,
@@ -862,12 +862,12 @@
       "id": "DAT_NR_041",
       "dificultad": 2,
       "tipo": "calculo",
-      "texto": "En un torneo, el primer lugar gana $500, el segundo $300 y el tercero $150. ¿Cuanto se reparte en total?",
+      "texto": "Un agricultor tiene un terreno rectangular de 120 m de largo y 80 m de ancho. Si quiere cercarlo con 4 hileras de alambre, ¿cuántos metros de alambre necesita?",
       "opciones": {
-        "A": "$850",
-        "B": "$900",
-        "C": "$950",
-        "D": "$1000"
+        "A": "800 m",
+        "B": "1200 m",
+        "C": "1600 m",
+        "D": "2000 m"
       },
       "respuesta_correcta": "C",
       "tiempo_minimo_ms": 15000,
@@ -883,14 +883,14 @@
       "id": "DAT_NR_042",
       "dificultad": 2,
       "tipo": "porcentaje",
-      "texto": "Una empresa genero $80,000 en ventas. Si los costos representan el 65%, ¿cual fue la ganancia?",
+      "texto": "Un inversionista coloca $8000 al 6% anual de interés simple durante 3 años. ¿Cuánto interés obtiene?",
       "opciones": {
-        "A": "$26,000",
-        "B": "$28,000",
-        "C": "$30,000",
-        "D": "$32,000"
+        "A": "$1200",
+        "B": "$1320",
+        "C": "$1440",
+        "D": "$1560"
       },
-      "respuesta_correcta": "B",
+      "respuesta_correcta": "C",
       "tiempo_minimo_ms": 15000,
       "subprueba": "numerico",
       "puntaje": 1,
@@ -904,14 +904,14 @@
       "id": "DAT_NR_043",
       "dificultad": 2,
       "tipo": "algebra",
-      "texto": "Si 5 lapices y 2 borradores cuestan $3.70 y cada borrador cuesta $0.60, ¿cuanto cuesta cada lapiz?",
+      "texto": "Si la mitad de un número más su tercera parte es 15, ¿cuál es el número?",
       "opciones": {
-        "A": "$0.45",
-        "B": "$0.50",
-        "C": "$0.55",
-        "D": "$0.60"
+        "A": "15",
+        "B": "16",
+        "C": "17",
+        "D": "18"
       },
-      "respuesta_correcta": "B",
+      "respuesta_correcta": "D",
       "tiempo_minimo_ms": 15000,
       "subprueba": "numerico",
       "puntaje": 1,
@@ -925,14 +925,14 @@
       "id": "DAT_NR_044",
       "dificultad": 2,
       "tipo": "serie_numerica",
-      "texto": "Completa la serie: 4, 8, 6, 12, 10, 20, ___",
+      "texto": "Completa la serie: 5, 7, 11, 17, 25, ___",
       "opciones": {
-        "A": "16",
-        "B": "18",
-        "C": "20",
-        "D": "22"
+        "A": "33",
+        "B": "34",
+        "C": "35",
+        "D": "36"
       },
-      "respuesta_correcta": "B",
+      "respuesta_correcta": "C",
       "tiempo_minimo_ms": 15000,
       "subprueba": "numerico",
       "puntaje": 1,
@@ -946,12 +946,12 @@
       "id": "DAT_NR_045",
       "dificultad": 2,
       "tipo": "calculo",
-      "texto": "Un tren viaja a 90 km/h. ¿Que distancia recorre en 2 horas y 30 minutos?",
+      "texto": "Dos números están en la razón 3:5 y su producto es 240. ¿Cuál es el número mayor?",
       "opciones": {
-        "A": "200 km",
-        "B": "215 km",
-        "C": "225 km",
-        "D": "230 km"
+        "A": "12",
+        "B": "16",
+        "C": "20",
+        "D": "24"
       },
       "respuesta_correcta": "C",
       "tiempo_minimo_ms": 15000,
@@ -967,14 +967,14 @@
       "id": "DAT_NR_046",
       "dificultad": 2,
       "tipo": "proporcion",
-      "texto": "Si la escala de un mapa es 1:50,000, ¿a cuantos km equivalen 4 cm en el mapa?",
+      "texto": "Un automóvil consume 8 litros de gasolina cada 100 km. ¿Cuántos litros consumirá en un viaje de 450 km?",
       "opciones": {
-        "A": "1 km",
-        "B": "2 km",
-        "C": "4 km",
-        "D": "5 km"
+        "A": "32",
+        "B": "34",
+        "C": "36",
+        "D": "38"
       },
-      "respuesta_correcta": "B",
+      "respuesta_correcta": "C",
       "tiempo_minimo_ms": 15000,
       "subprueba": "numerico",
       "puntaje": 1,
@@ -988,12 +988,12 @@
       "id": "DAT_NR_047",
       "dificultad": 2,
       "tipo": "fraccion",
-      "texto": "¿Cuanto es (1/2 + 1/3) x 12?",
+      "texto": "Un depósito tiene 2/5 de su capacidad. Si se agregan 60 litros, se llena hasta los 3/4. ¿Cuál es la capacidad total?",
       "opciones": {
-        "A": "8",
-        "B": "9",
-        "C": "10",
-        "D": "11"
+        "A": "150 L",
+        "B": "160 L",
+        "C": "170 L",
+        "D": "180 L"
       },
       "respuesta_correcta": "C",
       "tiempo_minimo_ms": 15000,
@@ -1009,12 +1009,12 @@
       "id": "DAT_NR_048",
       "dificultad": 2,
       "tipo": "calculo",
-      "texto": "Un deposito se llena en 6 horas con una bomba. Si se usan 2 bombas iguales, ¿en cuanto tiempo se llena?",
+      "texto": "En una reunión, el número de hombres es el doble que el de mujeres. Si hay 36 personas en total, ¿cuántas mujeres hay?",
       "opciones": {
-        "A": "2 horas",
-        "B": "3 horas",
-        "C": "4 horas",
-        "D": "5 horas"
+        "A": "10",
+        "B": "12",
+        "C": "14",
+        "D": "16"
       },
       "respuesta_correcta": "B",
       "tiempo_minimo_ms": 15000,
@@ -1030,14 +1030,14 @@
       "id": "DAT_NR_049",
       "dificultad": 3,
       "tipo": "algebra",
-      "texto": "Si x^2 - 5x + 6 = 0, los valores de x son:",
+      "texto": "Resuelve la ecuación: 2x^2 - 5x - 3 = 0. ¿Cuál es la suma de las raíces?",
       "opciones": {
-        "A": "x=1 y x=6",
-        "B": "x=2 y x=3",
-        "C": "x=-2 y x=-3",
-        "D": "x=0 y x=5"
+        "A": "1.5",
+        "B": "2.0",
+        "C": "2.5",
+        "D": "3.0"
       },
-      "respuesta_correcta": "B",
+      "respuesta_correcta": "C",
       "tiempo_minimo_ms": 25000,
       "subprueba": "numerico",
       "puntaje": 1,
@@ -1051,14 +1051,14 @@
       "id": "DAT_NR_050",
       "dificultad": 3,
       "tipo": "porcentaje",
-      "texto": "Una inversion de $5,000 crece al 8% anual compuesto. ¿Cuanto vale al cabo de 2 anos?",
+      "texto": "Un capital de $10,000 se invierte al 5% anual compuesto durante 3 años. ¿Cuál es el monto final?",
       "opciones": {
-        "A": "$5,700",
-        "B": "$5,800",
-        "C": "$5,832",
-        "D": "$5,900"
+        "A": "$11,576.25",
+        "B": "$11,600.00",
+        "C": "$11,625.00",
+        "D": "$11,650.00"
       },
-      "respuesta_correcta": "C",
+      "respuesta_correcta": "A",
       "tiempo_minimo_ms": 25000,
       "subprueba": "numerico",
       "puntaje": 1,
@@ -1072,14 +1072,14 @@
       "id": "DAT_NR_051",
       "dificultad": 3,
       "tipo": "serie_numerica",
-      "texto": "Completa la serie: 1, 2, 6, 24, 120, ___",
+      "texto": "Completa la serie: 1, 4, 27, 256, ___",
       "opciones": {
-        "A": "480",
-        "B": "600",
-        "C": "720",
-        "D": "840"
+        "A": "3125",
+        "B": "3025",
+        "C": "2925",
+        "D": "2825"
       },
-      "respuesta_correcta": "C",
+      "respuesta_correcta": "A",
       "tiempo_minimo_ms": 25000,
       "subprueba": "numerico",
       "puntaje": 1,
@@ -1093,14 +1093,14 @@
       "id": "DAT_NR_052",
       "dificultad": 3,
       "tipo": "proporcion",
-      "texto": "A y B pueden terminar un trabajo en 6 dias. A solo lo terminaria en 10 dias. ¿En cuantos dias lo terminaria B solo?",
+      "texto": "Tres personas invierten $2000, $3000 y $5000. Al cabo de un año obtienen una ganancia de $4000 que reparten proporcionalmente. ¿Cuánto recibe la persona que invirtió $3000?",
       "opciones": {
-        "A": "12",
-        "B": "13",
-        "C": "14",
-        "D": "15"
+        "A": "$1000",
+        "B": "$1200",
+        "C": "$1500",
+        "D": "$1800"
       },
-      "respuesta_correcta": "D",
+      "respuesta_correcta": "B",
       "tiempo_minimo_ms": 25000,
       "subprueba": "numerico",
       "puntaje": 1,
@@ -1114,12 +1114,12 @@
       "id": "DAT_NR_053",
       "dificultad": 3,
       "tipo": "algebra",
-      "texto": "El triple del cuadrado de un numero menos 2 es igual a 46. ¿Cual es el numero positivo?",
+      "texto": "Si f(x) = 3x^2 - 2x + 1, ¿cuál es el valor de f(2) + f(-1)?",
       "opciones": {
-        "A": "3",
-        "B": "4",
-        "C": "5",
-        "D": "6"
+        "A": "12",
+        "B": "14",
+        "C": "16",
+        "D": "18"
       },
       "respuesta_correcta": "B",
       "tiempo_minimo_ms": 25000,
@@ -1135,14 +1135,14 @@
       "id": "DAT_NR_054",
       "dificultad": 3,
       "tipo": "calculo",
-      "texto": "Dos trenes salen de ciudades distintas separadas por 480 km. Uno viaja a 80 km/h y el otro a 100 km/h. ¿En cuantas horas se cruzan?",
+      "texto": "Dos ciudades A y B distan 400 km. Un auto sale de A hacia B a 80 km/h y simultáneamente otro sale de B hacia A a 60 km/h. ¿A qué distancia de A se encuentran?",
       "opciones": {
-        "A": "2.2 horas",
-        "B": "2.4 horas",
-        "C": "2.6 horas",
-        "D": "2.8 horas"
+        "A": "200 km",
+        "B": "220 km",
+        "C": "228.57 km",
+        "D": "240 km"
       },
-      "respuesta_correcta": "B",
+      "respuesta_correcta": "C",
       "tiempo_minimo_ms": 25000,
       "subprueba": "numerico",
       "puntaje": 1,
@@ -1156,14 +1156,14 @@
       "id": "DAT_NR_055",
       "dificultad": 3,
       "tipo": "serie_numerica",
-      "texto": "Completa la serie: 7, 14, 9, 18, 13, 26, ___",
+      "texto": "Completa la serie: 0, 3, 8, 15, 24, 35, ___",
       "opciones": {
-        "A": "18",
-        "B": "19",
-        "C": "20",
-        "D": "21"
+        "A": "46",
+        "B": "47",
+        "C": "48",
+        "D": "49"
       },
-      "respuesta_correcta": "D",
+      "respuesta_correcta": "C",
       "tiempo_minimo_ms": 25000,
       "subprueba": "numerico",
       "puntaje": 1,
@@ -1177,14 +1177,14 @@
       "id": "DAT_NR_056",
       "dificultad": 3,
       "tipo": "porcentaje",
-      "texto": "Si el precio de un producto sube sucesivamente un 10% y luego un 10%, ¿que porcentaje subio en total respecto al precio original?",
+      "texto": "Un producto cuesta $80. Si se aumenta en un 30% y luego se descuenta un 20% del nuevo precio, ¿cuál es la variación porcentual final respecto al original?",
       "opciones": {
-        "A": "20%",
-        "B": "21%",
-        "C": "22%",
-        "D": "23%"
+        "A": "Aumenta 4%",
+        "B": "Aumenta 6%",
+        "C": "Disminuye 4%",
+        "D": "Disminuye 6%"
       },
-      "respuesta_correcta": "B",
+      "respuesta_correcta": "A",
       "tiempo_minimo_ms": 25000,
       "subprueba": "numerico",
       "puntaje": 1,
@@ -1198,12 +1198,12 @@
       "id": "DAT_NR_057",
       "dificultad": 3,
       "tipo": "algebra",
-      "texto": "Si la suma de tres numeros consecutivos es 93, ¿cual es el mayor de ellos?",
+      "texto": "Si x + y = 10 y x^2 + y^2 = 58, ¿cuál es el valor de xy?",
       "opciones": {
-        "A": "30",
-        "B": "31",
-        "C": "32",
-        "D": "33"
+        "A": "18",
+        "B": "20",
+        "C": "21",
+        "D": "24"
       },
       "respuesta_correcta": "C",
       "tiempo_minimo_ms": 25000,
@@ -1219,14 +1219,14 @@
       "id": "DAT_NR_058",
       "dificultad": 3,
       "tipo": "proporcion",
-      "texto": "En una mezcla, el aceite y el agua estan en proporcion 3:5. Si hay 120 litros de mezcla, ¿cuantos litros de aceite hay?",
+      "texto": "Para pavimentar una carretera de 12 km, 15 obreros tardan 20 días. ¿Cuántos obreros se necesitan para pavimentar 18 km en 18 días?",
       "opciones": {
-        "A": "40",
-        "B": "42",
-        "C": "45",
-        "D": "48"
+        "A": "20",
+        "B": "22",
+        "C": "24",
+        "D": "25"
       },
-      "respuesta_correcta": "C",
+      "respuesta_correcta": "D",
       "tiempo_minimo_ms": 25000,
       "subprueba": "numerico",
       "puntaje": 1,
@@ -1240,14 +1240,14 @@
       "id": "DAT_NR_059",
       "dificultad": 3,
       "tipo": "calculo",
-      "texto": "Una tienda aplica un recargo del 15% y luego un impuesto del 12% sobre el precio recargado. Si el articulo costaba $80, ¿cual es el precio final?",
+      "texto": "Un grifo llena un depósito en 4 horas, otro en 6 horas y un desagüe lo vacía en 12 horas. Si se abren los dos grifos y el desagüe a la vez, ¿cuánto tiempo tardará en llenarse?",
       "opciones": {
-        "A": "$101.92",
-        "B": "$103.04",
-        "C": "$104.16",
-        "D": "$105.28"
+        "A": "2 h",
+        "B": "2.5 h",
+        "C": "3 h",
+        "D": "3.5 h"
       },
-      "respuesta_correcta": "B",
+      "respuesta_correcta": "C",
       "tiempo_minimo_ms": 25000,
       "subprueba": "numerico",
       "puntaje": 1,
@@ -1261,14 +1261,14 @@
       "id": "DAT_NR_060",
       "dificultad": 3,
       "tipo": "algebra",
-      "texto": "Si f(x) = 2x^2 - 3x + 1, ¿cuanto vale f(4)?",
+      "texto": "La función cuadrática f(x) = x^2 + bx + c tiene raíces 2 y 5. ¿Cuál es el valor de b + c?",
       "opciones": {
-        "A": "19",
-        "B": "21",
-        "C": "23",
-        "D": "25"
+        "A": "3",
+        "B": "4",
+        "C": "5",
+        "D": "6"
       },
-      "respuesta_correcta": "B",
+      "respuesta_correcta": "A",
       "tiempo_minimo_ms": 25000,
       "subprueba": "numerico",
       "puntaje": 1,
