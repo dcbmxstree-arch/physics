@@ -2,14 +2,14 @@
   "meta": {
     "modulo": "DAT",
     "subprueba": "abstracto",
-    "descripcion": "Evaluacion de razonamiento abstracto: series de figuras, matrices y transformaciones. Items definidos en formato texto estructurado para posterior renderizado SVG. Construccion original Instituto Physics.",
-    "autoria": "Construccion original Instituto Physics, 2026",
-    "derechos": "Uso interno institucional. Items originales.",
-    "version_banco": "1.0",
-    "fecha_creacion": "2026-04-07",
+    "descripcion": "Evaluacion de razonamiento abstracto con representacion visual estructurada. Series, matrices y transformaciones de figuras. Incluye dominos en nivel alto. Items claros, profesionales y con dificultad progresiva.",
+    "autoria": "Construccion original Instituto Physics, 2026 (version 2.0 con visual)",
+    "derechos": "Uso interno institucional",
+    "version_banco": "2.0",
+    "fecha_creacion": "2026-04-09",
     "total_items": 45,
     "items_por_aplicacion": 15,
-    "formato_presentacion": "SVG generado dinamicamente en la pagina web a partir del campo patron",
+    "formato_presentacion": "SVG generado a partir del campo 'visual'",
     "distribucion_dificultad": {
       "1_baja": 0.31,
       "2_media": 0.49,
@@ -23,16 +23,11 @@
       "id": "DAT_AR_001",
       "dificultad": 1,
       "tipo": "serie_simbolos",
-      "texto": "Observa la serie de simbolos: ○ △ □ ○ △ ___ ¿Cual sigue?",
-      "opciones": {
-        "A": "○",
-        "B": "△",
-        "C": "□",
-        "D": "◇"
-      },
+      "texto": "Observa la serie de figuras: circulo, cuadrado, triangulo, circulo, cuadrado, ___",
+      "opciones": { "A": "circulo", "B": "cuadrado", "C": "triangulo", "D": "rombo" },
       "respuesta_correcta": "C",
       "tiempo_minimo_ms": 12000,
-      "patron": "repeticion ciclica de 3 elementos",
+      "patron": "ciclo de tres formas",
       "subprueba": "abstracto",
       "puntaje": 1,
       "validado": false,
@@ -40,20 +35,30 @@
       "p_dificultad": null,
       "r_discriminacion": null,
       "fuente": "construccion_original_Physics_2026",
-      "nota_implementacion": "En la pagina web este item se renderiza con SVG generado dinamicamente segun el campo 'patron'"
+      "visual": {
+        "tipo": "serie",
+        "elementos": [
+          { "forma": "circulo", "tamano": "mediano", "relleno": "blanco" },
+          { "forma": "cuadrado", "tamano": "mediano", "relleno": "blanco" },
+          { "forma": "triangulo", "tamano": "mediano", "relleno": "blanco" },
+          { "forma": "circulo", "tamano": "mediano", "relleno": "blanco" },
+          { "forma": "cuadrado", "tamano": "mediano", "relleno": "blanco" }
+        ],
+        "opciones": {
+          "A": { "forma": "circulo" },
+          "B": { "forma": "cuadrado" },
+          "C": { "forma": "triangulo" },
+          "D": { "forma": "rombo" }
+        }
+      }
     },
     {
       "id": "DAT_AR_002",
       "dificultad": 1,
       "tipo": "serie_simbolos",
-      "texto": "Serie: ★ ★★ ★★★ ★★★★ ___ ¿Cual sigue?",
-      "opciones": {
-        "A": "★★★",
-        "B": "★★★★★",
-        "C": "★★★★★★",
-        "D": "★★"
-      },
-      "respuesta_correcta": "B",
+      "texto": "Observa la serie: una estrella, dos estrellas, tres estrellas, cuatro estrellas, ___",
+      "opciones": { "A": "tres estrellas", "B": "cuatro estrellas", "C": "cinco estrellas", "D": "seis estrellas" },
+      "respuesta_correcta": "C",
       "tiempo_minimo_ms": 12000,
       "patron": "incremento de 1 elemento por paso",
       "subprueba": "abstracto",
@@ -63,22 +68,31 @@
       "p_dificultad": null,
       "r_discriminacion": null,
       "fuente": "construccion_original_Physics_2026",
-      "nota_implementacion": "En la pagina web este item se renderiza con SVG generado dinamicamente segun el campo 'patron'"
+      "visual": {
+        "tipo": "serie",
+        "elementos": [
+          { "forma": "estrella", "cantidad": 1, "tamano": "pequeno" },
+          { "forma": "estrella", "cantidad": 2, "tamano": "pequeno" },
+          { "forma": "estrella", "cantidad": 3, "tamano": "pequeno" },
+          { "forma": "estrella", "cantidad": 4, "tamano": "pequeno" }
+        ],
+        "opciones": {
+          "A": { "forma": "estrella", "cantidad": 3 },
+          "B": { "forma": "estrella", "cantidad": 4 },
+          "C": { "forma": "estrella", "cantidad": 5 },
+          "D": { "forma": "estrella", "cantidad": 6 }
+        }
+      }
     },
     {
       "id": "DAT_AR_003",
       "dificultad": 1,
       "tipo": "transformacion",
-      "texto": "Si un cuadrado grande se convierte en un cuadrado pequeño, y un circulo grande se convierte en ___",
-      "opciones": {
-        "A": "un circulo grande",
-        "B": "un triangulo pequeno",
-        "C": "un circulo pequeno",
-        "D": "un cuadrado pequeno"
-      },
+      "texto": "Si un cuadrado grande se convierte en un cuadrado pequeño, y un círculo grande se convierte en ___",
+      "opciones": { "A": "círculo grande", "B": "triángulo pequeño", "C": "círculo pequeño", "D": "cuadrado pequeño" },
       "respuesta_correcta": "C",
       "tiempo_minimo_ms": 12000,
-      "patron": "reduccion de tamano manteniendo forma",
+      "patron": "reducción de tamaño manteniendo forma",
       "subprueba": "abstracto",
       "puntaje": 1,
       "validado": false,
@@ -86,22 +100,31 @@
       "p_dificultad": null,
       "r_discriminacion": null,
       "fuente": "construccion_original_Physics_2026",
-      "nota_implementacion": "En la pagina web este item se renderiza con SVG generado dinamicamente segun el campo 'patron'"
+      "visual": {
+        "tipo": "transformacion",
+        "transformaciones": [
+          { "entrada": { "forma": "cuadrado", "tamano": "grande" }, "salida": { "forma": "cuadrado", "tamano": "pequeno" } }
+        ],
+        "pregunta": {
+          "entrada": { "forma": "circulo", "tamano": "grande" },
+          "opciones": {
+            "A": { "forma": "circulo", "tamano": "grande" },
+            "B": { "forma": "triangulo", "tamano": "pequeno" },
+            "C": { "forma": "circulo", "tamano": "pequeno" },
+            "D": { "forma": "cuadrado", "tamano": "pequeno" }
+          }
+        }
+      }
     },
     {
       "id": "DAT_AR_004",
       "dificultad": 1,
       "tipo": "serie_simbolos",
-      "texto": "Serie: ▲ ▼ ▲ ▼ ▲ ___ ¿Cual sigue?",
-      "opciones": {
-        "A": "▲",
-        "B": "▼",
-        "C": "◄",
-        "D": "►"
-      },
+      "texto": "Serie de triángulos: ▲ ▼ ▲ ▼ ▲ ___",
+      "opciones": { "A": "▲", "B": "▼", "C": "◄", "D": "►" },
       "respuesta_correcta": "B",
       "tiempo_minimo_ms": 12000,
-      "patron": "alternancia de dos elementos",
+      "patron": "alternancia de orientación",
       "subprueba": "abstracto",
       "puntaje": 1,
       "validado": false,
@@ -109,22 +132,32 @@
       "p_dificultad": null,
       "r_discriminacion": null,
       "fuente": "construccion_original_Physics_2026",
-      "nota_implementacion": "En la pagina web este item se renderiza con SVG generado dinamicamente segun el campo 'patron'"
+      "visual": {
+        "tipo": "serie",
+        "elementos": [
+          { "forma": "triangulo", "orientacion": "arriba", "relleno": "negro" },
+          { "forma": "triangulo", "orientacion": "abajo", "relleno": "negro" },
+          { "forma": "triangulo", "orientacion": "arriba", "relleno": "negro" },
+          { "forma": "triangulo", "orientacion": "abajo", "relleno": "negro" },
+          { "forma": "triangulo", "orientacion": "arriba", "relleno": "negro" }
+        ],
+        "opciones": {
+          "A": { "forma": "triangulo", "orientacion": "arriba" },
+          "B": { "forma": "triangulo", "orientacion": "abajo" },
+          "C": { "forma": "triangulo", "orientacion": "izquierda" },
+          "D": { "forma": "triangulo", "orientacion": "derecha" }
+        }
+      }
     },
     {
       "id": "DAT_AR_005",
       "dificultad": 1,
       "tipo": "matriz",
-      "texto": "En una cuadricula 2x2: fila 1 tiene [circulo, cuadrado], fila 2 tiene [circulo rayado, ___]",
-      "opciones": {
-        "A": "circulo",
-        "B": "cuadrado rayado",
-        "C": "triangulo",
-        "D": "cuadrado"
-      },
+      "texto": "En la matriz 2x2: primera fila [círculo, cuadrado]; segunda fila [círculo rayado, ___]",
+      "opciones": { "A": "círculo", "B": "cuadrado rayado", "C": "triángulo", "D": "cuadrado" },
       "respuesta_correcta": "B",
       "tiempo_minimo_ms": 12000,
-      "patron": "consistencia de transformacion por fila",
+      "patron": "consistencia de transformación por fila",
       "subprueba": "abstracto",
       "puntaje": 1,
       "validado": false,
@@ -132,22 +165,30 @@
       "p_dificultad": null,
       "r_discriminacion": null,
       "fuente": "construccion_original_Physics_2026",
-      "nota_implementacion": "En la pagina web este item se renderiza con SVG generado dinamicamente segun el campo 'patron'"
+      "visual": {
+        "tipo": "matriz",
+        "filas": [
+          [ { "forma": "circulo", "relleno": "blanco" }, { "forma": "cuadrado", "relleno": "blanco" } ],
+          [ { "forma": "circulo", "relleno": "rayado" }, null ]
+        ],
+        "posicion_faltante": [1,1],
+        "opciones": {
+          "A": { "forma": "circulo", "relleno": "blanco" },
+          "B": { "forma": "cuadrado", "relleno": "rayado" },
+          "C": { "forma": "triangulo", "relleno": "blanco" },
+          "D": { "forma": "cuadrado", "relleno": "blanco" }
+        }
+      }
     },
     {
       "id": "DAT_AR_006",
       "dificultad": 1,
       "tipo": "serie_simbolos",
-      "texto": "Serie: 1 punto, 2 puntos, 4 puntos, 8 puntos, ___ puntos",
-      "opciones": {
-        "A": "12",
-        "B": "14",
-        "C": "16",
-        "D": "18"
-      },
+      "texto": "Serie de puntos: 1 punto, 2 puntos, 4 puntos, 8 puntos, ___ puntos",
+      "opciones": { "A": "12", "B": "14", "C": "16", "D": "18" },
       "respuesta_correcta": "C",
       "tiempo_minimo_ms": 12000,
-      "patron": "duplicacion",
+      "patron": "duplicación",
       "subprueba": "abstracto",
       "puntaje": 1,
       "validado": false,
@@ -155,22 +196,31 @@
       "p_dificultad": null,
       "r_discriminacion": null,
       "fuente": "construccion_original_Physics_2026",
-      "nota_implementacion": "En la pagina web este item se renderiza con SVG generado dinamicamente segun el campo 'patron'"
+      "visual": {
+        "tipo": "serie",
+        "elementos": [
+          { "forma": "circulo", "cantidad": 1, "tamano": "pequeno" },
+          { "forma": "circulo", "cantidad": 2, "tamano": "pequeno" },
+          { "forma": "circulo", "cantidad": 4, "tamano": "pequeno" },
+          { "forma": "circulo", "cantidad": 8, "tamano": "pequeno" }
+        ],
+        "opciones": {
+          "A": { "cantidad": 12 },
+          "B": { "cantidad": 14 },
+          "C": { "cantidad": 16 },
+          "D": { "cantidad": 18 }
+        }
+      }
     },
     {
       "id": "DAT_AR_007",
       "dificultad": 1,
       "tipo": "transformacion",
       "texto": "Si ◄ rotado 90 grados se convierte en ▲, entonces ▲ rotado 90 grados se convierte en:",
-      "opciones": {
-        "A": "◄",
-        "B": "▼",
-        "C": "►",
-        "D": "▲"
-      },
+      "opciones": { "A": "◄", "B": "▼", "C": "►", "D": "▲" },
       "respuesta_correcta": "C",
       "tiempo_minimo_ms": 12000,
-      "patron": "rotacion sistematica",
+      "patron": "rotación horaria de 90°",
       "subprueba": "abstracto",
       "puntaje": 1,
       "validado": false,
@@ -178,22 +228,31 @@
       "p_dificultad": null,
       "r_discriminacion": null,
       "fuente": "construccion_original_Physics_2026",
-      "nota_implementacion": "En la pagina web este item se renderiza con SVG generado dinamicamente segun el campo 'patron'"
+      "visual": {
+        "tipo": "transformacion",
+        "transformaciones": [
+          { "entrada": { "forma": "flecha", "orientacion": "izquierda" }, "salida": { "forma": "triangulo", "orientacion": "arriba" } }
+        ],
+        "pregunta": {
+          "entrada": { "forma": "triangulo", "orientacion": "arriba" },
+          "opciones": {
+            "A": { "forma": "flecha", "orientacion": "izquierda" },
+            "B": { "forma": "triangulo", "orientacion": "abajo" },
+            "C": { "forma": "flecha", "orientacion": "derecha" },
+            "D": { "forma": "triangulo", "orientacion": "arriba" }
+          }
+        }
+      }
     },
     {
       "id": "DAT_AR_008",
       "dificultad": 1,
       "tipo": "serie_simbolos",
-      "texto": "Serie de tamanos: GRANDE medio pequeno GRANDE medio ___ ¿Cual sigue?",
-      "opciones": {
-        "A": "GRANDE",
-        "B": "medio",
-        "C": "pequeno",
-        "D": "miniatura"
-      },
+      "texto": "Serie de tamaños: grande, mediano, pequeño, grande, mediano, ___",
+      "opciones": { "A": "grande", "B": "mediano", "C": "pequeño", "D": "miniatura" },
       "respuesta_correcta": "C",
       "tiempo_minimo_ms": 12000,
-      "patron": "ciclo de 3 tamanos",
+      "patron": "ciclo de tres tamaños",
       "subprueba": "abstracto",
       "puntaje": 1,
       "validado": false,
@@ -201,19 +260,29 @@
       "p_dificultad": null,
       "r_discriminacion": null,
       "fuente": "construccion_original_Physics_2026",
-      "nota_implementacion": "En la pagina web este item se renderiza con SVG generado dinamicamente segun el campo 'patron'"
+      "visual": {
+        "tipo": "serie",
+        "elementos": [
+          { "forma": "cuadrado", "tamano": "grande", "relleno": "gris" },
+          { "forma": "cuadrado", "tamano": "mediano", "relleno": "gris" },
+          { "forma": "cuadrado", "tamano": "pequeno", "relleno": "gris" },
+          { "forma": "cuadrado", "tamano": "grande", "relleno": "gris" },
+          { "forma": "cuadrado", "tamano": "mediano", "relleno": "gris" }
+        ],
+        "opciones": {
+          "A": { "tamano": "grande" },
+          "B": { "tamano": "mediano" },
+          "C": { "tamano": "pequeno" },
+          "D": { "tamano": "pequeno", "nota": "miniatura" }
+        }
+      }
     },
     {
       "id": "DAT_AR_009",
       "dificultad": 1,
       "tipo": "matriz",
-      "texto": "Fila 1: [negro, blanco, negro] / Fila 2: [blanco, negro, ___]",
-      "opciones": {
-        "A": "negro",
-        "B": "blanco",
-        "C": "gris",
-        "D": "rayado"
-      },
+      "texto": "Matriz de colores: fila 1 [negro, blanco, negro]; fila 2 [blanco, negro, ___]",
+      "opciones": { "A": "negro", "B": "blanco", "C": "gris", "D": "rayado" },
       "respuesta_correcta": "B",
       "tiempo_minimo_ms": 12000,
       "patron": "alternancia de color",
@@ -224,22 +293,30 @@
       "p_dificultad": null,
       "r_discriminacion": null,
       "fuente": "construccion_original_Physics_2026",
-      "nota_implementacion": "En la pagina web este item se renderiza con SVG generado dinamicamente segun el campo 'patron'"
+      "visual": {
+        "tipo": "matriz",
+        "filas": [
+          [ { "relleno": "negro" }, { "relleno": "blanco" }, { "relleno": "negro" } ],
+          [ { "relleno": "blanco" }, { "relleno": "negro" }, null ]
+        ],
+        "posicion_faltante": [1,2],
+        "opciones": {
+          "A": { "relleno": "negro" },
+          "B": { "relleno": "blanco" },
+          "C": { "relleno": "gris" },
+          "D": { "relleno": "rayado" }
+        }
+      }
     },
     {
       "id": "DAT_AR_010",
       "dificultad": 1,
       "tipo": "transformacion",
-      "texto": "Si un circulo con punto interior se convierte en un cuadrado con punto interior, un triangulo con punto interior se convierte en:",
-      "opciones": {
-        "A": "circulo vacio",
-        "B": "triangulo vacio",
-        "C": "rombo con punto interior",
-        "D": "pentagono con punto interior"
-      },
+      "texto": "Un círculo con punto interior se convierte en cuadrado con punto interior. Un triángulo con punto interior se convierte en:",
+      "opciones": { "A": "círculo vacío", "B": "triángulo vacío", "C": "rombo con punto interior", "D": "pentágono con punto interior" },
       "respuesta_correcta": "D",
       "tiempo_minimo_ms": 12000,
-      "patron": "cambio de figura exterior manteniendo elemento interior",
+      "patron": "cambio de figura exterior manteniendo el punto interior",
       "subprueba": "abstracto",
       "puntaje": 1,
       "validado": false,
@@ -247,22 +324,31 @@
       "p_dificultad": null,
       "r_discriminacion": null,
       "fuente": "construccion_original_Physics_2026",
-      "nota_implementacion": "En la pagina web este item se renderiza con SVG generado dinamicamente segun el campo 'patron'"
+      "visual": {
+        "tipo": "transformacion",
+        "transformaciones": [
+          { "entrada": { "forma": "circulo", "hijos": [{ "forma": "circulo", "tamano": "pequeno", "relleno": "negro" }] }, "salida": { "forma": "cuadrado", "hijos": [{ "forma": "circulo", "tamano": "pequeno", "relleno": "negro" }] } }
+        ],
+        "pregunta": {
+          "entrada": { "forma": "triangulo", "hijos": [{ "forma": "circulo", "tamano": "pequeno", "relleno": "negro" }] },
+          "opciones": {
+            "A": { "forma": "circulo", "hijos": [] },
+            "B": { "forma": "triangulo", "hijos": [] },
+            "C": { "forma": "rombo", "hijos": [{ "forma": "circulo", "tamano": "pequeno", "relleno": "negro" }] },
+            "D": { "forma": "pentagono", "hijos": [{ "forma": "circulo", "tamano": "pequeno", "relleno": "negro" }] }
+          }
+        }
+      }
     },
     {
       "id": "DAT_AR_011",
       "dificultad": 1,
       "tipo": "serie_simbolos",
-      "texto": "Serie: □ □□ □ □□□ □ □□□□ ___ ¿Cual sigue?",
-      "opciones": {
-        "A": "□",
-        "B": "□□□□□",
-        "C": "□□",
-        "D": "□□□"
-      },
+      "texto": "Serie: □, □□, □, □□□, □, □□□□, ___",
+      "opciones": { "A": "□", "B": "□□□□□", "C": "□□", "D": "□□□" },
       "respuesta_correcta": "A",
       "tiempo_minimo_ms": 12000,
-      "patron": "alternancia uno - incremento",
+      "patron": "alternancia de un cuadrado y una secuencia creciente",
       "subprueba": "abstracto",
       "puntaje": 1,
       "validado": false,
@@ -270,19 +356,30 @@
       "p_dificultad": null,
       "r_discriminacion": null,
       "fuente": "construccion_original_Physics_2026",
-      "nota_implementacion": "En la pagina web este item se renderiza con SVG generado dinamicamente segun el campo 'patron'"
+      "visual": {
+        "tipo": "serie",
+        "elementos": [
+          { "forma": "cuadrado", "cantidad": 1 },
+          { "forma": "cuadrado", "cantidad": 2 },
+          { "forma": "cuadrado", "cantidad": 1 },
+          { "forma": "cuadrado", "cantidad": 3 },
+          { "forma": "cuadrado", "cantidad": 1 },
+          { "forma": "cuadrado", "cantidad": 4 }
+        ],
+        "opciones": {
+          "A": { "cantidad": 1 },
+          "B": { "cantidad": 5 },
+          "C": { "cantidad": 2 },
+          "D": { "cantidad": 3 }
+        }
+      }
     },
     {
       "id": "DAT_AR_012",
       "dificultad": 1,
       "tipo": "matriz",
-      "texto": "Columna 1: [△, △△, △△△] / Columna 2: [○, ○○, ___]",
-      "opciones": {
-        "A": "○",
-        "B": "○○",
-        "C": "○○○",
-        "D": "○○○○"
-      },
+      "texto": "Columna 1: [△, △△, △△△]; Columna 2: [○, ○○, ___]",
+      "opciones": { "A": "○", "B": "○○", "C": "○○○", "D": "○○○○" },
       "respuesta_correcta": "C",
       "tiempo_minimo_ms": 12000,
       "patron": "incremento paralelo por columna",
@@ -293,22 +390,31 @@
       "p_dificultad": null,
       "r_discriminacion": null,
       "fuente": "construccion_original_Physics_2026",
-      "nota_implementacion": "En la pagina web este item se renderiza con SVG generado dinamicamente segun el campo 'patron'"
+      "visual": {
+        "tipo": "matriz",
+        "filas": [
+          [ { "forma": "triangulo", "cantidad": 1 }, { "forma": "circulo", "cantidad": 1 } ],
+          [ { "forma": "triangulo", "cantidad": 2 }, { "forma": "circulo", "cantidad": 2 } ],
+          [ { "forma": "triangulo", "cantidad": 3 }, null ]
+        ],
+        "posicion_faltante": [2,1],
+        "opciones": {
+          "A": { "cantidad": 1 },
+          "B": { "cantidad": 2 },
+          "C": { "cantidad": 3 },
+          "D": { "cantidad": 4 }
+        }
+      }
     },
     {
       "id": "DAT_AR_013",
       "dificultad": 1,
       "tipo": "transformacion",
-      "texto": "Figura solida → figura con borde punteado → figura vacia. Si la figura es un triangulo, la secuencia es: triangulo solido, triangulo punteado, ___",
-      "opciones": {
-        "A": "triangulo solido",
-        "B": "triangulo punteado",
-        "C": "triangulo vacio",
-        "D": "cuadrado vacio"
-      },
+      "texto": "Figura sólida → figura con borde punteado → figura vacía. Si la figura es un triángulo, la secuencia es: triángulo sólido, triángulo punteado, ___",
+      "opciones": { "A": "triángulo sólido", "B": "triángulo punteado", "C": "triángulo vacío", "D": "cuadrado vacío" },
       "respuesta_correcta": "C",
       "tiempo_minimo_ms": 12000,
-      "patron": "degradacion progresiva del relleno",
+      "patron": "degradación del relleno",
       "subprueba": "abstracto",
       "puntaje": 1,
       "validado": false,
@@ -316,22 +422,32 @@
       "p_dificultad": null,
       "r_discriminacion": null,
       "fuente": "construccion_original_Physics_2026",
-      "nota_implementacion": "En la pagina web este item se renderiza con SVG generado dinamicamente segun el campo 'patron'"
+      "visual": {
+        "tipo": "transformacion",
+        "transformaciones": [
+          { "entrada": { "relleno": "negro" }, "salida": { "borde": "punteado", "relleno": "vacio" } },
+          { "entrada": { "borde": "punteado", "relleno": "vacio" }, "salida": { "borde": "negro", "relleno": "vacio" } }
+        ],
+        "pregunta": {
+          "entrada": { "forma": "triangulo", "relleno": "negro" },
+          "opciones": {
+            "A": { "relleno": "negro" },
+            "B": { "borde": "punteado", "relleno": "vacio" },
+            "C": { "borde": "negro", "relleno": "vacio" },
+            "D": { "forma": "cuadrado", "borde": "negro", "relleno": "vacio" }
+          }
+        }
+      }
     },
     {
       "id": "DAT_AR_014",
       "dificultad": 1,
       "tipo": "serie_simbolos",
-      "texto": "Serie: + x + x + ___ ¿Cual sigue?",
-      "opciones": {
-        "A": "+",
-        "B": "x",
-        "C": "*",
-        "D": "o"
-      },
+      "texto": "Serie: +, x, +, x, +, ___",
+      "opciones": { "A": "+", "B": "x", "C": "*", "D": "o" },
       "respuesta_correcta": "B",
       "tiempo_minimo_ms": 12000,
-      "patron": "alternancia de dos simbolos",
+      "patron": "alternancia de dos símbolos",
       "subprueba": "abstracto",
       "puntaje": 1,
       "validado": false,
@@ -339,22 +455,32 @@
       "p_dificultad": null,
       "r_discriminacion": null,
       "fuente": "construccion_original_Physics_2026",
-      "nota_implementacion": "En la pagina web este item se renderiza con SVG generado dinamicamente segun el campo 'patron'"
+      "visual": {
+        "tipo": "serie",
+        "elementos": [
+          { "forma": "cruz", "simbolo": "+" },
+          { "forma": "cruz", "simbolo": "x" },
+          { "forma": "cruz", "simbolo": "+" },
+          { "forma": "cruz", "simbolo": "x" },
+          { "forma": "cruz", "simbolo": "+" }
+        ],
+        "opciones": {
+          "A": { "simbolo": "+" },
+          "B": { "simbolo": "x" },
+          "C": { "simbolo": "*" },
+          "D": { "simbolo": "o" }
+        }
+      }
     },
     {
       "id": "DAT_AR_015",
       "dificultad": 2,
       "tipo": "matriz",
-      "texto": "Matriz 3x3 con figuras que incrementan lados: fila 1 [△,□,⬠], fila 2 [△△,□□,⬠⬠], fila 3 [△△△,□□□,___]",
-      "opciones": {
-        "A": "⬠⬠",
-        "B": "⬠⬠⬠",
-        "C": "⬠⬠⬠⬠",
-        "D": "△△△"
-      },
+      "texto": "Matriz 3x3 donde las figuras incrementan número de lados por fila y por columna. Fila 1: [△, □, ⬠]; fila 2: [△△, □□, ⬠⬠]; fila 3: [△△△, □□□, ___]",
+      "opciones": { "A": "⬠⬠", "B": "⬠⬠⬠", "C": "⬠⬠⬠⬠", "D": "△△△" },
       "respuesta_correcta": "B",
       "tiempo_minimo_ms": 20000,
-      "patron": "incremento doble: por filas y por columnas",
+      "patron": "incremento doble: número de lados y repetición",
       "subprueba": "abstracto",
       "puntaje": 1,
       "validado": false,
@@ -362,22 +488,31 @@
       "p_dificultad": null,
       "r_discriminacion": null,
       "fuente": "construccion_original_Physics_2026",
-      "nota_implementacion": "En la pagina web este item se renderiza con SVG generado dinamicamente segun el campo 'patron'"
+      "visual": {
+        "tipo": "matriz",
+        "filas": [
+          [ { "forma": "triangulo", "cantidad": 1 }, { "forma": "cuadrado", "cantidad": 1 }, { "forma": "pentagono", "cantidad": 1 } ],
+          [ { "forma": "triangulo", "cantidad": 2 }, { "forma": "cuadrado", "cantidad": 2 }, { "forma": "pentagono", "cantidad": 2 } ],
+          [ { "forma": "triangulo", "cantidad": 3 }, { "forma": "cuadrado", "cantidad": 3 }, null ]
+        ],
+        "posicion_faltante": [2,2],
+        "opciones": {
+          "A": { "forma": "pentagono", "cantidad": 2 },
+          "B": { "forma": "pentagono", "cantidad": 3 },
+          "C": { "forma": "pentagono", "cantidad": 4 },
+          "D": { "forma": "triangulo", "cantidad": 3 }
+        }
+      }
     },
     {
       "id": "DAT_AR_016",
       "dificultad": 2,
       "tipo": "transformacion",
-      "texto": "Figura A: circulo grande con cuadrado pequeno adentro. Figura B: cuadrado grande con circulo pequeno adentro. Figura C: triangulo grande con ___",
-      "opciones": {
-        "A": "circulo grande adentro",
-        "B": "cuadrado pequeno adentro",
-        "C": "triangulo pequeno adentro",
-        "D": "rombo pequeno adentro"
-      },
+      "texto": "Figura A: círculo grande con cuadrado pequeño dentro. Figura B: cuadrado grande con círculo pequeño dentro. Figura C: triángulo grande con ___",
+      "opciones": { "A": "círculo grande dentro", "B": "cuadrado pequeño dentro", "C": "triángulo pequeño dentro", "D": "rombo pequeño dentro" },
       "respuesta_correcta": "C",
       "tiempo_minimo_ms": 20000,
-      "patron": "figura interior es la misma que la exterior pero pequena",
+      "patron": "figura interior es la misma que la exterior pero pequeña",
       "subprueba": "abstracto",
       "puntaje": 1,
       "validado": false,
@@ -385,22 +520,31 @@
       "p_dificultad": null,
       "r_discriminacion": null,
       "fuente": "construccion_original_Physics_2026",
-      "nota_implementacion": "En la pagina web este item se renderiza con SVG generado dinamicamente segun el campo 'patron'"
+      "visual": {
+        "tipo": "transformacion",
+        "transformaciones": [
+          { "entrada": { "forma": "circulo", "hijos": [{ "forma": "cuadrado", "tamano": "pequeno" }] }, "salida": { "forma": "cuadrado", "hijos": [{ "forma": "circulo", "tamano": "pequeno" }] } }
+        ],
+        "pregunta": {
+          "entrada": { "forma": "triangulo", "hijos": [] },
+          "opciones": {
+            "A": { "hijos": [{ "forma": "circulo", "tamano": "grande" }] },
+            "B": { "hijos": [{ "forma": "cuadrado", "tamano": "pequeno" }] },
+            "C": { "hijos": [{ "forma": "triangulo", "tamano": "pequeno" }] },
+            "D": { "hijos": [{ "forma": "rombo", "tamano": "pequeno" }] }
+          }
+        }
+      }
     },
     {
       "id": "DAT_AR_017",
       "dificultad": 2,
       "tipo": "serie_simbolos",
-      "texto": "Serie de rotaciones: flecha apuntando N, flecha apuntando E, flecha apuntando S, flecha apuntando O, flecha apuntando ___",
-      "opciones": {
-        "A": "N",
-        "B": "NE",
-        "C": "SE",
-        "D": "NO"
-      },
+      "texto": "Serie de flechas: N, E, S, O, N, ___",
+      "opciones": { "A": "N", "B": "NE", "C": "SE", "D": "NO" },
       "respuesta_correcta": "A",
       "tiempo_minimo_ms": 20000,
-      "patron": "rotacion 90 grados en sentido horario, ciclo de 4",
+      "patron": "rotación 90° horaria, ciclo de 4",
       "subprueba": "abstracto",
       "puntaje": 1,
       "validado": false,
@@ -408,22 +552,32 @@
       "p_dificultad": null,
       "r_discriminacion": null,
       "fuente": "construccion_original_Physics_2026",
-      "nota_implementacion": "En la pagina web este item se renderiza con SVG generado dinamicamente segun el campo 'patron'"
+      "visual": {
+        "tipo": "serie",
+        "elementos": [
+          { "forma": "flecha", "orientacion": "arriba" },
+          { "forma": "flecha", "orientacion": "derecha" },
+          { "forma": "flecha", "orientacion": "abajo" },
+          { "forma": "flecha", "orientacion": "izquierda" },
+          { "forma": "flecha", "orientacion": "arriba" }
+        ],
+        "opciones": {
+          "A": { "orientacion": "arriba" },
+          "B": { "orientacion": "diagonal_derecha_arriba" },
+          "C": { "orientacion": "diagonal_derecha_abajo" },
+          "D": { "orientacion": "diagonal_izquierda_arriba" }
+        }
+      }
     },
     {
       "id": "DAT_AR_018",
       "dificultad": 2,
       "tipo": "matriz",
-      "texto": "Cada figura en la matriz combina forma+tamano+sombreado. Fila 1: [gran circulo blanco, mediano circulo gris, pequeno circulo negro]. Fila 2: [gran cuadrado blanco, mediano cuadrado gris, ___]",
-      "opciones": {
-        "A": "pequeno cuadrado blanco",
-        "B": "pequeno cuadrado gris",
-        "C": "pequeno cuadrado negro",
-        "D": "mediano circulo negro"
-      },
+      "texto": "Cada figura combina forma, tamaño y sombreado. Fila 1: [círculo grande blanco, círculo mediano gris, círculo pequeño negro]. Fila 2: [cuadrado grande blanco, cuadrado mediano gris, ___]",
+      "opciones": { "A": "cuadrado pequeño blanco", "B": "cuadrado pequeño gris", "C": "cuadrado pequeño negro", "D": "círculo mediano negro" },
       "respuesta_correcta": "C",
       "tiempo_minimo_ms": 20000,
-      "patron": "tres dimensiones de variacion simultaneas",
+      "patron": "tres dimensiones: forma, tamaño, color, todas varían sistemáticamente",
       "subprueba": "abstracto",
       "puntaje": 1,
       "validado": false,
@@ -431,19 +585,35 @@
       "p_dificultad": null,
       "r_discriminacion": null,
       "fuente": "construccion_original_Physics_2026",
-      "nota_implementacion": "En la pagina web este item se renderiza con SVG generado dinamicamente segun el campo 'patron'"
+      "visual": {
+        "tipo": "matriz",
+        "filas": [
+          [
+            { "forma": "circulo", "tamano": "grande", "relleno": "blanco" },
+            { "forma": "circulo", "tamano": "mediano", "relleno": "gris" },
+            { "forma": "circulo", "tamano": "pequeno", "relleno": "negro" }
+          ],
+          [
+            { "forma": "cuadrado", "tamano": "grande", "relleno": "blanco" },
+            { "forma": "cuadrado", "tamano": "mediano", "relleno": "gris" },
+            null
+          ]
+        ],
+        "posicion_faltante": [1,2],
+        "opciones": {
+          "A": { "forma": "cuadrado", "tamano": "pequeno", "relleno": "blanco" },
+          "B": { "forma": "cuadrado", "tamano": "pequeno", "relleno": "gris" },
+          "C": { "forma": "cuadrado", "tamano": "pequeno", "relleno": "negro" },
+          "D": { "forma": "circulo", "tamano": "mediano", "relleno": "negro" }
+        }
+      }
     },
     {
       "id": "DAT_AR_019",
       "dificultad": 2,
       "tipo": "transformacion",
       "texto": "En cada par, la figura de la derecha es el reflejo horizontal de la figura de la izquierda. Si la figura izquierda es una 'R', la figura derecha es:",
-      "opciones": {
-        "A": "R normal",
-        "B": "R invertida verticalmente",
-        "C": "R reflejada horizontalmente como imagen espejo",
-        "D": "R rotada 180 grados"
-      },
+      "opciones": { "A": "R normal", "B": "R invertida verticalmente", "C": "R reflejada horizontalmente", "D": "R rotada 180°" },
       "respuesta_correcta": "C",
       "tiempo_minimo_ms": 20000,
       "patron": "reflejo horizontal",
@@ -454,22 +624,31 @@
       "p_dificultad": null,
       "r_discriminacion": null,
       "fuente": "construccion_original_Physics_2026",
-      "nota_implementacion": "En la pagina web este item se renderiza con SVG generado dinamicamente segun el campo 'patron'"
+      "visual": {
+        "tipo": "transformacion",
+        "transformaciones": [
+          { "entrada": { "forma": "letra", "simbolo": "R" }, "salida": { "forma": "letra", "simbolo": "R", "reflejo": "horizontal" } }
+        ],
+        "pregunta": {
+          "entrada": { "forma": "letra", "simbolo": "R" },
+          "opciones": {
+            "A": { "simbolo": "R", "reflejo": "ninguno" },
+            "B": { "simbolo": "R", "reflejo": "vertical" },
+            "C": { "simbolo": "R", "reflejo": "horizontal" },
+            "D": { "simbolo": "R", "rotacion": 180 }
+          }
+        }
+      }
     },
     {
       "id": "DAT_AR_020",
       "dificultad": 2,
       "tipo": "serie_simbolos",
-      "texto": "Serie con dos atributos: (grande-negro), (mediano-gris), (pequeno-blanco), (grande-negro), (mediano-gris), ___",
-      "opciones": {
-        "A": "(grande-negro)",
-        "B": "(mediano-gris)",
-        "C": "(pequeno-blanco)",
-        "D": "(grande-blanco)"
-      },
+      "texto": "Serie con dos atributos: (grande-negro), (mediano-gris), (pequeño-blanco), (grande-negro), (mediano-gris), ___",
+      "opciones": { "A": "(grande-negro)", "B": "(mediano-gris)", "C": "(pequeño-blanco)", "D": "(grande-blanco)" },
       "respuesta_correcta": "C",
       "tiempo_minimo_ms": 20000,
-      "patron": "ciclo de 3 con dos atributos simultaneos",
+      "patron": "ciclo de 3 con dos atributos simultáneos",
       "subprueba": "abstracto",
       "puntaje": 1,
       "validado": false,
@@ -477,22 +656,32 @@
       "p_dificultad": null,
       "r_discriminacion": null,
       "fuente": "construccion_original_Physics_2026",
-      "nota_implementacion": "En la pagina web este item se renderiza con SVG generado dinamicamente segun el campo 'patron'"
+      "visual": {
+        "tipo": "serie",
+        "elementos": [
+          { "tamano": "grande", "relleno": "negro" },
+          { "tamano": "mediano", "relleno": "gris" },
+          { "tamano": "pequeno", "relleno": "blanco" },
+          { "tamano": "grande", "relleno": "negro" },
+          { "tamano": "mediano", "relleno": "gris" }
+        ],
+        "opciones": {
+          "A": { "tamano": "grande", "relleno": "negro" },
+          "B": { "tamano": "mediano", "relleno": "gris" },
+          "C": { "tamano": "pequeno", "relleno": "blanco" },
+          "D": { "tamano": "grande", "relleno": "blanco" }
+        }
+      }
     },
     {
       "id": "DAT_AR_021",
       "dificultad": 2,
       "tipo": "matriz",
-      "texto": "Regla: cada fila, la figura rota 45 grados a la derecha. Fila 1: [flecha arriba, flecha diagonal derecha-arriba, flecha derecha]. La figura que falta en la posicion 3 de la fila 2, si empieza con flecha abajo-derecha, es:",
-      "opciones": {
-        "A": "flecha abajo",
-        "B": "flecha abajo-izquierda",
-        "C": "flecha izquierda",
-        "D": "flecha arriba-izquierda"
-      },
+      "texto": "Regla: cada fila, la figura rota 45° a la derecha. Fila 1: [flecha arriba, flecha diagonal arriba-derecha, flecha derecha]. Fila 2 empieza con flecha abajo-derecha, luego diagonal abajo-izquierda, luego ___",
+      "opciones": { "A": "flecha abajo", "B": "flecha abajo-izquierda", "C": "flecha izquierda", "D": "flecha arriba-izquierda" },
       "respuesta_correcta": "A",
       "tiempo_minimo_ms": 20000,
-      "patron": "rotacion sistematica de 45 grados",
+      "patron": "rotación de 45° horaria",
       "subprueba": "abstracto",
       "puntaje": 1,
       "validado": false,
@@ -500,22 +689,38 @@
       "p_dificultad": null,
       "r_discriminacion": null,
       "fuente": "construccion_original_Physics_2026",
-      "nota_implementacion": "En la pagina web este item se renderiza con SVG generado dinamicamente segun el campo 'patron'"
+      "visual": {
+        "tipo": "matriz",
+        "filas": [
+          [
+            { "forma": "flecha", "orientacion": "arriba" },
+            { "forma": "flecha", "orientacion": "diagonal_arriba_derecha" },
+            { "forma": "flecha", "orientacion": "derecha" }
+          ],
+          [
+            { "forma": "flecha", "orientacion": "abajo_derecha" },
+            { "forma": "flecha", "orientacion": "diagonal_abajo_izquierda" },
+            null
+          ]
+        ],
+        "posicion_faltante": [1,2],
+        "opciones": {
+          "A": { "orientacion": "abajo" },
+          "B": { "orientacion": "abajo_izquierda" },
+          "C": { "orientacion": "izquierda" },
+          "D": { "orientacion": "arriba_izquierda" }
+        }
+      }
     },
     {
       "id": "DAT_AR_022",
       "dificultad": 2,
       "tipo": "transformacion",
-      "texto": "Regla: se agrega un elemento por paso y se cambia el color de todos. Paso 1: un circulo blanco. Paso 2: dos circulos negros. Paso 3: ___",
-      "opciones": {
-        "A": "dos circulos blancos",
-        "B": "tres circulos blancos",
-        "C": "tres circulos negros",
-        "D": "cuatro circulos negros"
-      },
+      "texto": "Regla: se agrega un elemento por paso y se cambia el color de todos. Paso 1: un círculo blanco. Paso 2: dos círculos negros. Paso 3: ___",
+      "opciones": { "A": "dos círculos blancos", "B": "tres círculos blancos", "C": "tres círculos negros", "D": "cuatro círculos negros" },
       "respuesta_correcta": "B",
       "tiempo_minimo_ms": 20000,
-      "patron": "incremento + alternancia de color",
+      "patron": "incremento de cantidad + alternancia de color",
       "subprueba": "abstracto",
       "puntaje": 1,
       "validado": false,
@@ -523,19 +728,28 @@
       "p_dificultad": null,
       "r_discriminacion": null,
       "fuente": "construccion_original_Physics_2026",
-      "nota_implementacion": "En la pagina web este item se renderiza con SVG generado dinamicamente segun el campo 'patron'"
+      "visual": {
+        "tipo": "transformacion",
+        "transformaciones": [
+          { "entrada": { "forma": "circulo", "cantidad": 1, "relleno": "blanco" }, "salida": { "forma": "circulo", "cantidad": 2, "relleno": "negro" } }
+        ],
+        "pregunta": {
+          "entrada": { "forma": "circulo", "cantidad": 2, "relleno": "negro" },
+          "opciones": {
+            "A": { "cantidad": 2, "relleno": "blanco" },
+            "B": { "cantidad": 3, "relleno": "blanco" },
+            "C": { "cantidad": 3, "relleno": "negro" },
+            "D": { "cantidad": 4, "relleno": "negro" }
+          }
+        }
+      }
     },
     {
       "id": "DAT_AR_023",
       "dificultad": 2,
       "tipo": "matriz",
-      "texto": "En la matriz, la diagonal principal tiene siempre la misma figura. Si la posicion [1,1]=○, [2,2]=○, entonces [3,3]=___",
-      "opciones": {
-        "A": "△",
-        "B": "□",
-        "C": "○",
-        "D": "◇"
-      },
+      "texto": "En la matriz, la diagonal principal tiene siempre la misma figura. Si [1,1]=○, [2,2]=○, entonces [3,3]=___",
+      "opciones": { "A": "△", "B": "□", "C": "○", "D": "◇" },
       "respuesta_correcta": "C",
       "tiempo_minimo_ms": 20000,
       "patron": "constancia en la diagonal",
@@ -546,22 +760,31 @@
       "p_dificultad": null,
       "r_discriminacion": null,
       "fuente": "construccion_original_Physics_2026",
-      "nota_implementacion": "En la pagina web este item se renderiza con SVG generado dinamicamente segun el campo 'patron'"
+      "visual": {
+        "tipo": "matriz",
+        "filas": [
+          [ { "forma": "circulo" }, null, null ],
+          [ null, { "forma": "circulo" }, null ],
+          [ null, null, null ]
+        ],
+        "posicion_faltante": [2,2],
+        "opciones": {
+          "A": { "forma": "triangulo" },
+          "B": { "forma": "cuadrado" },
+          "C": { "forma": "circulo" },
+          "D": { "forma": "rombo" }
+        }
+      }
     },
     {
       "id": "DAT_AR_024",
       "dificultad": 2,
       "tipo": "serie_simbolos",
-      "texto": "Serie: un punto, tres puntos, seis puntos, diez puntos, ___ puntos (numeros triangulares)",
-      "opciones": {
-        "A": "13",
-        "B": "14",
-        "C": "15",
-        "D": "16"
-      },
+      "texto": "Serie de puntos formando triángulos: 1 punto, 3 puntos (triángulo de lado 2), 6 puntos (triángulo de lado 3), 10 puntos, ___ puntos (triángulo de lado 5)",
+      "opciones": { "A": "13", "B": "14", "C": "15", "D": "16" },
       "respuesta_correcta": "C",
       "tiempo_minimo_ms": 20000,
-      "patron": "numeros triangulares: +2, +3, +4, +5",
+      "patron": "números triangulares: n(n+1)/2",
       "subprueba": "abstracto",
       "puntaje": 1,
       "validado": false,
@@ -569,22 +792,31 @@
       "p_dificultad": null,
       "r_discriminacion": null,
       "fuente": "construccion_original_Physics_2026",
-      "nota_implementacion": "En la pagina web este item se renderiza con SVG generado dinamicamente segun el campo 'patron'"
+      "visual": {
+        "tipo": "serie",
+        "elementos": [
+          { "disposicion": "triangular", "lado": 1, "cantidad": 1 },
+          { "disposicion": "triangular", "lado": 2, "cantidad": 3 },
+          { "disposicion": "triangular", "lado": 3, "cantidad": 6 },
+          { "disposicion": "triangular", "lado": 4, "cantidad": 10 }
+        ],
+        "opciones": {
+          "A": { "cantidad": 13 },
+          "B": { "cantidad": 14 },
+          "C": { "cantidad": 15 },
+          "D": { "cantidad": 16 }
+        }
+      }
     },
     {
       "id": "DAT_AR_025",
       "dificultad": 2,
       "tipo": "transformacion",
-      "texto": "La figura A tiene 3 lados. La figura B tiene 4 lados. La figura C tiene 5 lados. ¿La figura D tiene?",
-      "opciones": {
-        "A": "5 lados",
-        "B": "6 lados",
-        "C": "7 lados",
-        "D": "8 lados"
-      },
+      "texto": "Figura A tiene 3 lados, figura B tiene 4 lados, figura C tiene 5 lados. ¿Figura D tiene?",
+      "opciones": { "A": "5 lados", "B": "6 lados", "C": "7 lados", "D": "8 lados" },
       "respuesta_correcta": "B",
       "tiempo_minimo_ms": 20000,
-      "patron": "incremento de lados en 1",
+      "patron": "incremento de 1 lado por paso",
       "subprueba": "abstracto",
       "puntaje": 1,
       "validado": false,
@@ -592,19 +824,29 @@
       "p_dificultad": null,
       "r_discriminacion": null,
       "fuente": "construccion_original_Physics_2026",
-      "nota_implementacion": "En la pagina web este item se renderiza con SVG generado dinamicamente segun el campo 'patron'"
+      "visual": {
+        "tipo": "transformacion",
+        "transformaciones": [
+          { "entrada": { "forma": "triangulo" }, "salida": { "forma": "cuadrado" } },
+          { "entrada": { "forma": "cuadrado" }, "salida": { "forma": "pentagono" } }
+        ],
+        "pregunta": {
+          "entrada": { "forma": "pentagono" },
+          "opciones": {
+            "A": { "forma": "pentagono" },
+            "B": { "forma": "hexagono" },
+            "C": { "forma": "heptagono" },
+            "D": { "forma": "octagono" }
+          }
+        }
+      }
     },
     {
       "id": "DAT_AR_026",
       "dificultad": 2,
       "tipo": "matriz",
-      "texto": "Regla de la fila: la figura se hace mas pequena de izquierda a derecha. Regla de la columna: la figura se oscurece de arriba hacia abajo. La esquina inferior derecha de la matriz es:",
-      "opciones": {
-        "A": "figura grande y oscura",
-        "B": "figura pequena y oscura",
-        "C": "figura grande y clara",
-        "D": "figura pequena y clara"
-      },
+      "texto": "Regla de la fila: la figura se hace más pequeña de izquierda a derecha. Regla de la columna: la figura se oscurece de arriba hacia abajo. La esquina inferior derecha de la matriz es:",
+      "opciones": { "A": "figura grande y oscura", "B": "figura pequeña y oscura", "C": "figura grande y clara", "D": "figura pequeña y clara" },
       "respuesta_correcta": "B",
       "tiempo_minimo_ms": 20000,
       "patron": "dos reglas independientes por eje",
@@ -615,22 +857,31 @@
       "p_dificultad": null,
       "r_discriminacion": null,
       "fuente": "construccion_original_Physics_2026",
-      "nota_implementacion": "En la pagina web este item se renderiza con SVG generado dinamicamente segun el campo 'patron'"
+      "visual": {
+        "tipo": "matriz",
+        "filas": [
+          [ { "tamano": "grande", "relleno": "blanco" }, { "tamano": "mediano", "relleno": "blanco" }, { "tamano": "pequeno", "relleno": "blanco" } ],
+          [ { "tamano": "grande", "relleno": "gris" }, { "tamano": "mediano", "relleno": "gris" }, { "tamano": "pequeno", "relleno": "gris" } ],
+          [ { "tamano": "grande", "relleno": "negro" }, { "tamano": "mediano", "relleno": "negro" }, null ]
+        ],
+        "posicion_faltante": [2,2],
+        "opciones": {
+          "A": { "tamano": "grande", "relleno": "negro" },
+          "B": { "tamano": "pequeno", "relleno": "negro" },
+          "C": { "tamano": "grande", "relleno": "blanco" },
+          "D": { "tamano": "pequeno", "relleno": "blanco" }
+        }
+      }
     },
     {
       "id": "DAT_AR_027",
       "dificultad": 2,
       "tipo": "serie_simbolos",
-      "texto": "Serie con figuras que se subdividen: □ → □|□ → □□|□□ → ___",
-      "opciones": {
-        "A": "□□□|□□□",
-        "B": "□□□□",
-        "C": "□|□|□",
-        "D": "□□|□□|□□"
-      },
+      "texto": "Serie de cuadrículas: □ → □|□ → □□|□□ → ___",
+      "opciones": { "A": "□□□|□□□", "B": "□□□□", "C": "□|□|□", "D": "□□|□□|□□" },
       "respuesta_correcta": "A",
       "tiempo_minimo_ms": 20000,
-      "patron": "duplicacion de columnas y filas",
+      "patron": "duplicación de columnas y filas",
       "subprueba": "abstracto",
       "puntaje": 1,
       "validado": false,
@@ -638,22 +889,30 @@
       "p_dificultad": null,
       "r_discriminacion": null,
       "fuente": "construccion_original_Physics_2026",
-      "nota_implementacion": "En la pagina web este item se renderiza con SVG generado dinamicamente segun el campo 'patron'"
+      "visual": {
+        "tipo": "serie",
+        "elementos": [
+          { "grid": [ [1] ] },
+          { "grid": [ [1,1] ] },
+          { "grid": [ [1,1], [1,1] ] }
+        ],
+        "opciones": {
+          "A": { "grid": [ [1,1,1], [1,1,1] ] },
+          "B": { "grid": [ [1,1,1,1] ] },
+          "C": { "grid": [ [1],[1],[1] ] },
+          "D": { "grid": [ [1,1],[1,1],[1,1] ] }
+        }
+      }
     },
     {
       "id": "DAT_AR_028",
       "dificultad": 2,
       "tipo": "transformacion",
-      "texto": "Regla: figura blanca + figura negra = figura rayada. Circulo blanco + circulo negro = circulo rayado. Cuadrado blanco + cuadrado negro = ___",
-      "opciones": {
-        "A": "cuadrado blanco",
-        "B": "cuadrado negro",
-        "C": "cuadrado rayado",
-        "D": "circulo rayado"
-      },
+      "texto": "Regla: figura blanca + figura negra = figura rayada. Círculo blanco + círculo negro = círculo rayado. Cuadrado blanco + cuadrado negro = ___",
+      "opciones": { "A": "cuadrado blanco", "B": "cuadrado negro", "C": "cuadrado rayado", "D": "círculo rayado" },
       "respuesta_correcta": "C",
       "tiempo_minimo_ms": 20000,
-      "patron": "combinacion de atributos",
+      "patron": "combinación de atributos (suma de rellenos)",
       "subprueba": "abstracto",
       "puntaje": 1,
       "validado": false,
@@ -661,22 +920,32 @@
       "p_dificultad": null,
       "r_discriminacion": null,
       "fuente": "construccion_original_Physics_2026",
-      "nota_implementacion": "En la pagina web este item se renderiza con SVG generado dinamicamente segun el campo 'patron'"
+      "visual": {
+        "tipo": "transformacion",
+        "transformaciones": [
+          { "entrada": { "relleno": "blanco" }, "salida": { "relleno": "rayado" } },
+          { "entrada": { "relleno": "negro" }, "salida": { "relleno": "rayado" } }
+        ],
+        "pregunta": {
+          "entrada": { "forma": "cuadrado", "relleno": "blanco" },
+          "opciones": {
+            "A": { "relleno": "blanco" },
+            "B": { "relleno": "negro" },
+            "C": { "relleno": "rayado" },
+            "D": { "forma": "circulo", "relleno": "rayado" }
+          }
+        }
+      }
     },
     {
       "id": "DAT_AR_029",
       "dificultad": 2,
       "tipo": "matriz",
-      "texto": "Regla: el numero de puntos en cada figura = su posicion en la fila + su posicion en la columna. Fila 3, columna 2 tiene ___ puntos",
-      "opciones": {
-        "A": "3",
-        "B": "4",
-        "C": "5",
-        "D": "6"
-      },
+      "texto": "Regla: el número de puntos en cada figura = posición fila + posición columna. Fila 3, columna 2 tiene ___ puntos",
+      "opciones": { "A": "3", "B": "4", "C": "5", "D": "6" },
       "respuesta_correcta": "C",
       "tiempo_minimo_ms": 20000,
-      "patron": "suma de indices",
+      "patron": "suma de índices",
       "subprueba": "abstracto",
       "puntaje": 1,
       "validado": false,
@@ -684,22 +953,31 @@
       "p_dificultad": null,
       "r_discriminacion": null,
       "fuente": "construccion_original_Physics_2026",
-      "nota_implementacion": "En la pagina web este item se renderiza con SVG generado dinamicamente segun el campo 'patron'"
+      "visual": {
+        "tipo": "matriz",
+        "filas": [
+          [ { "cantidad": 2 }, { "cantidad": 3 }, { "cantidad": 4 } ],
+          [ { "cantidad": 3 }, { "cantidad": 4 }, { "cantidad": 5 } ],
+          [ { "cantidad": 4 }, { "cantidad": 5 }, null ]
+        ],
+        "posicion_faltante": [2,2],
+        "opciones": {
+          "A": { "cantidad": 3 },
+          "B": { "cantidad": 4 },
+          "C": { "cantidad": 5 },
+          "D": { "cantidad": 6 }
+        }
+      }
     },
     {
       "id": "DAT_AR_030",
       "dificultad": 2,
       "tipo": "serie_simbolos",
-      "texto": "Serie de figuras que rotan y cambian: △ blanco, △ negro rotado 60°, △ blanco rotado 120°, △ negro rotado 180°, ___",
-      "opciones": {
-        "A": "△ blanco rotado 240°",
-        "B": "△ negro rotado 240°",
-        "C": "△ blanco rotado 200°",
-        "D": "○ negro"
-      },
+      "texto": "Serie de triángulos que rotan y cambian de color: △ blanco, △ negro rotado 60°, △ blanco rotado 120°, △ negro rotado 180°, ___",
+      "opciones": { "A": "△ blanco rotado 240°", "B": "△ negro rotado 240°", "C": "△ blanco rotado 200°", "D": "○ negro" },
       "respuesta_correcta": "B",
       "tiempo_minimo_ms": 20000,
-      "patron": "rotacion de 60 grados + alternancia de color",
+      "patron": "rotación de 60° + alternancia de color",
       "subprueba": "abstracto",
       "puntaje": 1,
       "validado": false,
@@ -707,19 +985,28 @@
       "p_dificultad": null,
       "r_discriminacion": null,
       "fuente": "construccion_original_Physics_2026",
-      "nota_implementacion": "En la pagina web este item se renderiza con SVG generado dinamicamente segun el campo 'patron'"
+      "visual": {
+        "tipo": "serie",
+        "elementos": [
+          { "forma": "triangulo", "relleno": "blanco", "rotacion": 0 },
+          { "forma": "triangulo", "relleno": "negro", "rotacion": 60 },
+          { "forma": "triangulo", "relleno": "blanco", "rotacion": 120 },
+          { "forma": "triangulo", "relleno": "negro", "rotacion": 180 }
+        ],
+        "opciones": {
+          "A": { "relleno": "blanco", "rotacion": 240 },
+          "B": { "relleno": "negro", "rotacion": 240 },
+          "C": { "relleno": "blanco", "rotacion": 200 },
+          "D": { "forma": "circulo", "relleno": "negro" }
+        }
+      }
     },
     {
       "id": "DAT_AR_031",
       "dificultad": 2,
       "tipo": "transformacion",
-      "texto": "Si ▲ + ▲ = △△ (union horizontal), y ▲ sobre ▲ = △/△ (union vertical), entonces ○ + ○ sobre ○ = ___",
-      "opciones": {
-        "A": "○○",
-        "B": "○/○",
-        "C": "○○/○○",
-        "D": "○○ sobre ○"
-      },
+      "texto": "Si ▲ + ▲ = △△ (unión horizontal), y ▲ sobre ▲ = △/△ (unión vertical), entonces ○ + ○ sobre ○ = ___",
+      "opciones": { "A": "○○", "B": "○/○", "C": "○○/○○", "D": "○○ sobre ○" },
       "respuesta_correcta": "D",
       "tiempo_minimo_ms": 20000,
       "patron": "operaciones espaciales consistentes",
@@ -730,22 +1017,32 @@
       "p_dificultad": null,
       "r_discriminacion": null,
       "fuente": "construccion_original_Physics_2026",
-      "nota_implementacion": "En la pagina web este item se renderiza con SVG generado dinamicamente segun el campo 'patron'"
+      "visual": {
+        "tipo": "transformacion",
+        "transformaciones": [
+          { "entrada": { "operacion": "union_horizontal", "izquierda": { "forma": "triangulo" }, "derecha": { "forma": "triangulo" } }, "salida": { "disposicion": "horizontal", "elementos": [{ "forma": "triangulo" }, { "forma": "triangulo" }] } },
+          { "entrada": { "operacion": "union_vertical", "arriba": { "forma": "triangulo" }, "abajo": { "forma": "triangulo" } }, "salida": { "disposicion": "vertical", "elementos": [{ "forma": "triangulo" }, { "forma": "triangulo" }] } }
+        ],
+        "pregunta": {
+          "entrada": { "operacion": "union_vertical", "arriba": { "operacion": "union_horizontal", "izquierda": { "forma": "circulo" }, "derecha": { "forma": "circulo" } }, "abajo": { "forma": "circulo" } },
+          "opciones": {
+            "A": { "disposicion": "horizontal", "elementos": [{ "forma": "circulo" }, { "forma": "circulo" }] },
+            "B": { "disposicion": "vertical", "elementos": [{ "forma": "circulo" }, { "forma": "circulo" }] },
+            "C": { "disposicion": "cuadricula", "filas": [ [{ "forma": "circulo" }, { "forma": "circulo" }], [{ "forma": "circulo" }, { "forma": "circulo" }] ] },
+            "D": { "disposicion": "vertical", "elementos": [ { "disposicion": "horizontal", "elementos": [{ "forma": "circulo" }, { "forma": "circulo" }] }, { "forma": "circulo" } ] }
+          }
+        }
+      }
     },
     {
       "id": "DAT_AR_032",
       "dificultad": 2,
       "tipo": "matriz",
-      "texto": "Fila 1: [1 figura, 2 figuras, 3 figuras] / Fila 2: [2 figuras, 4 figuras, 6 figuras] / Fila 3: [3 figuras, 6 figuras, ___]",
-      "opciones": {
-        "A": "7 figuras",
-        "B": "8 figuras",
-        "C": "9 figuras",
-        "D": "10 figuras"
-      },
+      "texto": "Fila 1: [1 figura, 2 figuras, 3 figuras]; fila 2: [2 figuras, 4 figuras, 6 figuras]; fila 3: [3 figuras, 6 figuras, ___]",
+      "opciones": { "A": "7 figuras", "B": "8 figuras", "C": "9 figuras", "D": "10 figuras" },
       "respuesta_correcta": "C",
       "tiempo_minimo_ms": 20000,
-      "patron": "producto de indices de fila y columna",
+      "patron": "producto de índices de fila y columna",
       "subprueba": "abstracto",
       "puntaje": 1,
       "validado": false,
@@ -753,22 +1050,31 @@
       "p_dificultad": null,
       "r_discriminacion": null,
       "fuente": "construccion_original_Physics_2026",
-      "nota_implementacion": "En la pagina web este item se renderiza con SVG generado dinamicamente segun el campo 'patron'"
+      "visual": {
+        "tipo": "matriz",
+        "filas": [
+          [ { "cantidad": 1 }, { "cantidad": 2 }, { "cantidad": 3 } ],
+          [ { "cantidad": 2 }, { "cantidad": 4 }, { "cantidad": 6 } ],
+          [ { "cantidad": 3 }, { "cantidad": 6 }, null ]
+        ],
+        "posicion_faltante": [2,2],
+        "opciones": {
+          "A": { "cantidad": 7 },
+          "B": { "cantidad": 8 },
+          "C": { "cantidad": 9 },
+          "D": { "cantidad": 10 }
+        }
+      }
     },
     {
       "id": "DAT_AR_033",
       "dificultad": 2,
       "tipo": "serie_simbolos",
-      "texto": "Serie con lados del poligono: 3, 4, 6, 8, 12, ___",
-      "opciones": {
-        "A": "14",
-        "B": "16",
-        "C": "18",
-        "D": "20"
-      },
+      "texto": "Serie de números de lados: 3, 4, 6, 8, 12, ___",
+      "opciones": { "A": "14", "B": "16", "C": "18", "D": "20" },
       "respuesta_correcta": "B",
       "tiempo_minimo_ms": 20000,
-      "patron": "duplicacion de la diferencia: +1,+2,+2,+4,+4",
+      "patron": "duplicación de la diferencia: +1,+2,+2,+4,+4",
       "subprueba": "abstracto",
       "puntaje": 1,
       "validado": false,
@@ -776,22 +1082,32 @@
       "p_dificultad": null,
       "r_discriminacion": null,
       "fuente": "construccion_original_Physics_2026",
-      "nota_implementacion": "En la pagina web este item se renderiza con SVG generado dinamicamente segun el campo 'patron'"
+      "visual": {
+        "tipo": "serie",
+        "elementos": [
+          { "forma": "triangulo" },
+          { "forma": "cuadrado" },
+          { "forma": "hexagono" },
+          { "forma": "octagono" },
+          { "forma": "dodecagono" }
+        ],
+        "opciones": {
+          "A": { "forma": "tetradecagono" },
+          "B": { "forma": "hexadecagono" },
+          "C": { "forma": "octadecagono" },
+          "D": { "forma": "icosagono" }
+        }
+      }
     },
     {
       "id": "DAT_AR_034",
       "dificultad": 2,
       "tipo": "transformacion",
-      "texto": "La figura interior siempre tiene la mitad de lados que la figura exterior. Si el exterior es un hexagono (6 lados), el interior tiene ___ lados",
-      "opciones": {
-        "A": "2",
-        "B": "3",
-        "C": "4",
-        "D": "5"
-      },
+      "texto": "La figura interior siempre tiene la mitad de lados que la figura exterior. Si el exterior es un hexágono (6 lados), el interior tiene ___ lados",
+      "opciones": { "A": "2", "B": "3", "C": "4", "D": "5" },
       "respuesta_correcta": "B",
       "tiempo_minimo_ms": 20000,
-      "patron": "relacion matematica entre figura exterior e interior",
+      "patron": "relación matemática entre figura exterior e interior",
       "subprueba": "abstracto",
       "puntaje": 1,
       "validado": false,
@@ -799,19 +1115,28 @@
       "p_dificultad": null,
       "r_discriminacion": null,
       "fuente": "construccion_original_Physics_2026",
-      "nota_implementacion": "En la pagina web este item se renderiza con SVG generado dinamicamente segun el campo 'patron'"
+      "visual": {
+        "tipo": "transformacion",
+        "transformaciones": [
+          { "entrada": { "forma": "cuadrado", "hijos": [{ "forma": "triangulo" }] }, "salida": { "forma": "hexagono", "hijos": [{ "forma": "triangulo" }] } }
+        ],
+        "pregunta": {
+          "entrada": { "forma": "hexagono", "hijos": [] },
+          "opciones": {
+            "A": { "hijos": [{ "forma": "digono" }] },
+            "B": { "hijos": [{ "forma": "triangulo" }] },
+            "C": { "hijos": [{ "forma": "cuadrado" }] },
+            "D": { "hijos": [{ "forma": "pentagono" }] }
+          }
+        }
+      }
     },
     {
       "id": "DAT_AR_035",
       "dificultad": 2,
       "tipo": "matriz",
-      "texto": "Regla: cada celda contiene la suma de lados de la celda izquierda y la celda superior. Si [1,1]=3 (triangulo), [1,2]=4 (cuadrado), [2,1]=5 (pentagono), entonces [2,2] tiene ___ lados",
-      "opciones": {
-        "A": "6",
-        "B": "7",
-        "C": "8",
-        "D": "9"
-      },
+      "texto": "Regla: cada celda contiene la suma de lados de la celda izquierda y la celda superior. Si [1,1]=3 (triángulo), [1,2]=4 (cuadrado), [2,1]=5 (pentágono), entonces [2,2] tiene ___ lados",
+      "opciones": { "A": "6", "B": "7", "C": "8", "D": "9" },
       "respuesta_correcta": "D",
       "tiempo_minimo_ms": 20000,
       "patron": "suma de lados vecinos",
@@ -822,22 +1147,30 @@
       "p_dificultad": null,
       "r_discriminacion": null,
       "fuente": "construccion_original_Physics_2026",
-      "nota_implementacion": "En la pagina web este item se renderiza con SVG generado dinamicamente segun el campo 'patron'"
+      "visual": {
+        "tipo": "matriz",
+        "filas": [
+          [ { "forma": "triangulo" }, { "forma": "cuadrado" }, null ],
+          [ { "forma": "pentagono" }, null, null ]
+        ],
+        "posicion_faltante": [1,1],
+        "opciones": {
+          "A": { "forma": "hexagono" },
+          "B": { "forma": "heptagono" },
+          "C": { "forma": "octagono" },
+          "D": { "forma": "eneagono" }
+        }
+      }
     },
     {
       "id": "DAT_AR_036",
       "dificultad": 2,
       "tipo": "serie_simbolos",
-      "texto": "Serie: figura A con 1 elemento, figura B con 4 elementos, figura C con 9 elementos, figura D con ___ elementos",
-      "opciones": {
-        "A": "12",
-        "B": "14",
-        "C": "16",
-        "D": "18"
-      },
+      "texto": "Serie de cuadrados mágicos: figura con 1 elemento, figura con 4 elementos, figura con 9 elementos, figura con ___ elementos",
+      "opciones": { "A": "12", "B": "14", "C": "16", "D": "18" },
       "respuesta_correcta": "C",
       "tiempo_minimo_ms": 20000,
-      "patron": "cuadrados perfectos: 1, 4, 9, 16",
+      "patron": "cuadrados perfectos: 1,4,9,16",
       "subprueba": "abstracto",
       "puntaje": 1,
       "validado": false,
@@ -845,22 +1178,30 @@
       "p_dificultad": null,
       "r_discriminacion": null,
       "fuente": "construccion_original_Physics_2026",
-      "nota_implementacion": "En la pagina web este item se renderiza con SVG generado dinamicamente segun el campo 'patron'"
+      "visual": {
+        "tipo": "serie",
+        "elementos": [
+          { "grid": [ [1] ] },
+          { "grid": [ [1,1], [1,1] ] },
+          { "grid": [ [1,1,1], [1,1,1], [1,1,1] ] }
+        ],
+        "opciones": {
+          "A": { "grid": "3x4" },
+          "B": { "grid": "3x5" },
+          "C": { "grid": [ [1,1,1,1], [1,1,1,1], [1,1,1,1], [1,1,1,1] ] },
+          "D": { "grid": "4x5" }
+        }
+      }
     },
     {
       "id": "DAT_AR_037",
       "dificultad": 3,
       "tipo": "matriz",
-      "texto": "Matriz 3x3: cada fila aplica una operacion diferente (suma, resta, union) entre atributos de color y forma. Identificar la figura faltante en [3,3] requiere aplicar la regla de la fila 3 (resta de elementos): si [3,1] tiene circulo+cuadrado+triangulo y [3,2] tiene circulo+cuadrado, entonces [3,3] tiene ___",
-      "opciones": {
-        "A": "circulo",
-        "B": "cuadrado",
-        "C": "triangulo",
-        "D": "ninguna figura"
-      },
+      "texto": "Matriz 3x3: cada fila aplica una operación diferente (unión, resta, intersección) entre atributos de color y forma. Identificar la figura faltante en [3,3] sabiendo que fila 3 realiza resta de conjuntos: [3,1] tiene círculo+cuadrado+triángulo, [3,2] tiene círculo+cuadrado, entonces [3,3] tiene ___",
+      "opciones": { "A": "círculo", "B": "cuadrado", "C": "triángulo", "D": "ninguna figura" },
       "respuesta_correcta": "C",
       "tiempo_minimo_ms": 30000,
-      "patron": "sustraccion de conjuntos de figuras",
+      "patron": "sustracción de conjuntos de figuras",
       "subprueba": "abstracto",
       "puntaje": 1,
       "validado": false,
@@ -868,22 +1209,31 @@
       "p_dificultad": null,
       "r_discriminacion": null,
       "fuente": "construccion_original_Physics_2026",
-      "nota_implementacion": "En la pagina web este item se renderiza con SVG generado dinamicamente segun el campo 'patron'"
+      "visual": {
+        "tipo": "matriz",
+        "filas": [
+          [ { "conjunto": ["circulo","cuadrado"] }, { "conjunto": ["cuadrado","triangulo"] }, { "union": ["circulo","cuadrado","triangulo"] } ],
+          [ { "conjunto": ["circulo","triangulo"] }, { "conjunto": ["circulo"] }, { "interseccion": ["circulo"] } ],
+          [ { "conjunto": ["circulo","cuadrado","triangulo"] }, { "conjunto": ["circulo","cuadrado"] }, null ]
+        ],
+        "posicion_faltante": [2,2],
+        "opciones": {
+          "A": { "conjunto": ["circulo"] },
+          "B": { "conjunto": ["cuadrado"] },
+          "C": { "conjunto": ["triangulo"] },
+          "D": { "conjunto": [] }
+        }
+      }
     },
     {
       "id": "DAT_AR_038",
       "dificultad": 3,
       "tipo": "transformacion",
-      "texto": "Una figura pasa por 4 transformaciones: rotacion 90° horario, reflejo vertical, rotacion 90° antihorario, reflejo horizontal. Despues de las 4 transformaciones, la figura resultante es igual a: ",
-      "opciones": {
-        "A": "la figura original",
-        "B": "la figura rotada 180°",
-        "C": "el reflejo de la figura original",
-        "D": "una figura completamente diferente"
-      },
+      "texto": "Una figura pasa por 4 transformaciones: rotación 90° horaria, reflejo vertical, rotación 90° antihoraria, reflejo horizontal. Después de las 4 transformaciones, la figura resultante es igual a:",
+      "opciones": { "A": "la figura original", "B": "la figura rotada 180°", "C": "el reflejo de la figura original", "D": "una figura completamente diferente" },
       "respuesta_correcta": "A",
       "tiempo_minimo_ms": 30000,
-      "patron": "composicion de transformaciones que se cancelan",
+      "patron": "composición de transformaciones que se cancelan",
       "subprueba": "abstracto",
       "puntaje": 1,
       "validado": false,
@@ -891,22 +1241,34 @@
       "p_dificultad": null,
       "r_discriminacion": null,
       "fuente": "construccion_original_Physics_2026",
-      "nota_implementacion": "En la pagina web este item se renderiza con SVG generado dinamicamente segun el campo 'patron'"
+      "visual": {
+        "tipo": "transformacion",
+        "transformaciones": [
+          { "nombre": "rotar_90_horario" },
+          { "nombre": "reflejar_vertical" },
+          { "nombre": "rotar_90_antihorario" },
+          { "nombre": "reflejar_horizontal" }
+        ],
+        "pregunta": {
+          "entrada": { "figura": "cualquiera" },
+          "opciones": {
+            "A": { "efecto": "identidad" },
+            "B": { "efecto": "rotacion_180" },
+            "C": { "efecto": "reflejo" },
+            "D": { "efecto": "otro" }
+          }
+        }
+      }
     },
     {
       "id": "DAT_AR_039",
       "dificultad": 3,
       "tipo": "serie_simbolos",
-      "texto": "Serie compleja: 2 triangulos blancos, 3 circulos negros, 4 cuadrados blancos, 5 triangulos negros, ___ circulos blancos",
-      "opciones": {
-        "A": "5",
-        "B": "6",
-        "C": "7",
-        "D": "8"
-      },
+      "texto": "Serie compleja: 2 triángulos blancos, 3 círculos negros, 4 cuadrados blancos, 5 triángulos negros, ___ círculos blancos",
+      "opciones": { "A": "5", "B": "6", "C": "7", "D": "8" },
       "respuesta_correcta": "B",
       "tiempo_minimo_ms": 30000,
-      "patron": "tres atributos que cambian independientemente: cantidad+1, figura cicla, color alterna",
+      "patron": "tres atributos que cambian independientemente: cantidad+1, forma cicla (triángulo, círculo, cuadrado), color alterna",
       "subprueba": "abstracto",
       "puntaje": 1,
       "validado": false,
@@ -914,22 +1276,31 @@
       "p_dificultad": null,
       "r_discriminacion": null,
       "fuente": "construccion_original_Physics_2026",
-      "nota_implementacion": "En la pagina web este item se renderiza con SVG generado dinamicamente segun el campo 'patron'"
+      "visual": {
+        "tipo": "serie",
+        "elementos": [
+          { "forma": "triangulo", "relleno": "blanco", "cantidad": 2 },
+          { "forma": "circulo", "relleno": "negro", "cantidad": 3 },
+          { "forma": "cuadrado", "relleno": "blanco", "cantidad": 4 },
+          { "forma": "triangulo", "relleno": "negro", "cantidad": 5 }
+        ],
+        "opciones": {
+          "A": { "cantidad": 5 },
+          "B": { "cantidad": 6 },
+          "C": { "cantidad": 7 },
+          "D": { "cantidad": 8 }
+        }
+      }
     },
     {
       "id": "DAT_AR_040",
       "dificultad": 3,
       "tipo": "matriz",
       "texto": "En una matriz 4x4, cada figura en [fila, col] tiene (fila x col) lados. La figura en [4,3] tiene ___ lados",
-      "opciones": {
-        "A": "10",
-        "B": "11",
-        "C": "12",
-        "D": "13"
-      },
+      "opciones": { "A": "10", "B": "11", "C": "12", "D": "13" },
       "respuesta_correcta": "C",
       "tiempo_minimo_ms": 30000,
-      "patron": "producto de coordenadas determina numero de lados",
+      "patron": "producto de coordenadas",
       "subprueba": "abstracto",
       "puntaje": 1,
       "validado": false,
@@ -937,18 +1308,30 @@
       "p_dificultad": null,
       "r_discriminacion": null,
       "fuente": "construccion_original_Physics_2026",
-      "nota_implementacion": "En la pagina web este item se renderiza con SVG generado dinamicamente segun el campo 'patron'"
+      "visual": {
+        "tipo": "matriz",
+        "filas": 4,
+        "columnas": 4,
+        "regla": "lados = fila * columna",
+        "posicion_faltante": [3,2],
+        "opciones": {
+          "A": { "lados": 10 },
+          "B": { "lados": 11 },
+          "C": { "lados": 12 },
+          "D": { "lados": 13 }
+        }
+      }
     },
     {
       "id": "DAT_AR_041",
       "dificultad": 3,
       "tipo": "transformacion",
-      "texto": "Regla: cada paso, la figura exterior se convierte en interior y aparece una nueva figura exterior con un lado mas. Paso 1: triangulo solo. Paso 2: cuadrado exterior con triangulo interior. Paso 3: pentagono exterior con cuadrado interior y triangulo en el centro. Paso 4: ___",
+      "texto": "Regla: cada paso, la figura exterior se convierte en interior y aparece una nueva figura exterior con un lado más. Paso 1: triángulo solo. Paso 2: cuadrado exterior con triángulo interior. Paso 3: pentágono exterior con cuadrado interior y triángulo en el centro. Paso 4: ___",
       "opciones": {
-        "A": "hexagono, pentagono, cuadrado, triangulo",
-        "B": "hexagono exterior, pentagono interior, cuadrado en centro",
-        "C": "heptagono exterior, hexagono interior, pentagono en centro",
-        "D": "hexagono exterior, cuadrado interior, triangulo en centro"
+        "A": "hexágono, pentágono, cuadrado, triángulo",
+        "B": "hexágono exterior, pentágono interior, cuadrado en centro",
+        "C": "heptágono exterior, hexágono interior, pentágono en centro",
+        "D": "hexágono exterior, cuadrado interior, triángulo en centro"
       },
       "respuesta_correcta": "A",
       "tiempo_minimo_ms": 30000,
@@ -960,22 +1343,33 @@
       "p_dificultad": null,
       "r_discriminacion": null,
       "fuente": "construccion_original_Physics_2026",
-      "nota_implementacion": "En la pagina web este item se renderiza con SVG generado dinamicamente segun el campo 'patron'"
+      "visual": {
+        "tipo": "transformacion",
+        "transformaciones": [
+          { "paso": 1, "figura": { "forma": "triangulo" } },
+          { "paso": 2, "figura": { "forma": "cuadrado", "hijos": [{ "forma": "triangulo" }] } },
+          { "paso": 3, "figura": { "forma": "pentagono", "hijos": [{ "forma": "cuadrado", "hijos": [{ "forma": "triangulo" }] }] } }
+        ],
+        "pregunta": {
+          "paso": 4,
+          "opciones": {
+            "A": { "forma": "hexagono", "hijos": [{ "forma": "pentagono", "hijos": [{ "forma": "cuadrado", "hijos": [{ "forma": "triangulo" }] }] }] },
+            "B": { "forma": "hexagono", "hijos": [{ "forma": "pentagono", "hijos": [{ "forma": "cuadrado" }] }] },
+            "C": { "forma": "heptagono", "hijos": [{ "forma": "hexagono", "hijos": [{ "forma": "pentagono" }] }] },
+            "D": { "forma": "hexagono", "hijos": [{ "forma": "cuadrado", "hijos": [{ "forma": "triangulo" }] }] }
+          }
+        }
+      }
     },
     {
       "id": "DAT_AR_042",
       "dificultad": 3,
       "tipo": "serie_simbolos",
-      "texto": "Serie de patrones con operacion XOR (si ambos tienen el atributo se cancela, si solo uno lo tiene se mantiene): [negro+rayado=blanco], [blanco+rayado=rayado], [negro+blanco=___]",
-      "opciones": {
-        "A": "negro",
-        "B": "blanco",
-        "C": "rayado",
-        "D": "gris"
-      },
+      "texto": "Serie de patrones con operación XOR: [negro+rayado=blanco], [blanco+rayado=rayado], [negro+blanco=___]",
+      "opciones": { "A": "negro", "B": "blanco", "C": "rayado", "D": "gris" },
       "respuesta_correcta": "C",
       "tiempo_minimo_ms": 30000,
-      "patron": "logica XOR aplicada a atributos visuales",
+      "patron": "lógica XOR aplicada a atributos visuales",
       "subprueba": "abstracto",
       "puntaje": 1,
       "validado": false,
@@ -983,22 +1377,30 @@
       "p_dificultad": null,
       "r_discriminacion": null,
       "fuente": "construccion_original_Physics_2026",
-      "nota_implementacion": "En la pagina web este item se renderiza con SVG generado dinamicamente segun el campo 'patron'"
+      "visual": {
+        "tipo": "serie",
+        "elementos": [
+          { "operacion": "XOR", "a": "negro", "b": "rayado", "resultado": "blanco" },
+          { "operacion": "XOR", "a": "blanco", "b": "rayado", "resultado": "rayado" },
+          { "operacion": "XOR", "a": "negro", "b": "blanco", "resultado": null }
+        ],
+        "opciones": {
+          "A": "negro",
+          "B": "blanco",
+          "C": "rayado",
+          "D": "gris"
+        }
+      }
     },
     {
       "id": "DAT_AR_043",
       "dificultad": 3,
       "tipo": "matriz",
-      "texto": "Regla oculta: la figura de cada celda es el resultado de superponer las figuras de la misma fila y columna anteriores, conservando solo los elementos comunes. Celda [3,3] requiere identificar que comparten [3,1],[3,2],[1,3],[2,3]",
-      "opciones": {
-        "A": "solo el borde exterior",
-        "B": "el elemento central",
-        "C": "nada en comun, celda vacia",
-        "D": "el patron de relleno"
-      },
+      "texto": "Regla oculta: la figura de cada celda es el resultado de superponer las figuras de la misma fila y columna anteriores, conservando solo los elementos comunes. Celda [3,3] requiere identificar qué comparten [3,1], [3,2], [1,3], [2,3]",
+      "opciones": { "A": "solo el borde exterior", "B": "el elemento central", "C": "nada en común, celda vacía", "D": "el patrón de relleno" },
       "respuesta_correcta": "B",
       "tiempo_minimo_ms": 30000,
-      "patron": "interseccion de conjuntos de atributos",
+      "patron": "intersección de conjuntos de atributos",
       "subprueba": "abstracto",
       "puntaje": 1,
       "validado": false,
@@ -1006,22 +1408,31 @@
       "p_dificultad": null,
       "r_discriminacion": null,
       "fuente": "construccion_original_Physics_2026",
-      "nota_implementacion": "En la pagina web este item se renderiza con SVG generado dinamicamente segun el campo 'patron'"
+      "visual": {
+        "tipo": "matriz",
+        "filas": [
+          [ { "conjunto": ["borde","centro"] }, { "conjunto": ["borde"] }, { "conjunto": ["borde","centro"] } ],
+          [ { "conjunto": ["centro"] }, { "conjunto": ["borde","centro"] }, { "conjunto": ["borde","centro"] } ],
+          [ { "conjunto": ["borde","centro"] }, { "conjunto": ["borde"] }, null ]
+        ],
+        "posicion_faltante": [2,2],
+        "opciones": {
+          "A": { "conjunto": ["borde"] },
+          "B": { "conjunto": ["centro"] },
+          "C": { "conjunto": [] },
+          "D": { "conjunto": ["relleno"] }
+        }
+      }
     },
     {
       "id": "DAT_AR_044",
       "dificultad": 3,
       "tipo": "transformacion",
-      "texto": "Una figura con 4 elementos internos pierde 1 elemento por cada rotacion de 90°. Despues de 270° de rotacion total, quedan ___ elementos internos",
-      "opciones": {
-        "A": "0",
-        "B": "1",
-        "C": "2",
-        "D": "3"
-      },
+      "texto": "Una figura con 4 elementos internos pierde 1 elemento por cada rotación de 90°. Después de 270° de rotación total, quedan ___ elementos internos",
+      "opciones": { "A": "0", "B": "1", "C": "2", "D": "3" },
       "respuesta_correcta": "B",
       "tiempo_minimo_ms": 30000,
-      "patron": "combinacion de rotacion y perdida de elementos",
+      "patron": "combinación de rotación y pérdida de elementos",
       "subprueba": "abstracto",
       "puntaje": 1,
       "validado": false,
@@ -1029,22 +1440,34 @@
       "p_dificultad": null,
       "r_discriminacion": null,
       "fuente": "construccion_original_Physics_2026",
-      "nota_implementacion": "En la pagina web este item se renderiza con SVG generado dinamicamente segun el campo 'patron'"
+      "visual": {
+        "tipo": "transformacion",
+        "transformaciones": [
+          { "rotacion": 90, "perdida": 1 },
+          { "rotacion": 90, "perdida": 1 },
+          { "rotacion": 90, "perdida": 1 }
+        ],
+        "pregunta": {
+          "inicial": { "elementos_internos": 4 },
+          "rotacion_total": 270,
+          "opciones": {
+            "A": 0,
+            "B": 1,
+            "C": 2,
+            "D": 3
+          }
+        }
+      }
     },
     {
       "id": "DAT_AR_045",
       "dificultad": 3,
       "tipo": "matriz",
-      "texto": "En la matriz, la regla es: columna 3 = columna 1 superpuesta con columna 2 (elementos unicos de cada uno se mantienen, elementos comunes desaparecen). Si col1=[△,○] y col2=[○,□], entonces col3=[___]",
-      "opciones": {
-        "A": "△,○,□",
-        "B": "△,□",
-        "C": "○",
-        "D": "△,○,□,□"
-      },
+      "texto": "En la matriz, la regla es: columna 3 = columna 1 superpuesta con columna 2 (elementos únicos de cada uno se mantienen, elementos comunes desaparecen). Si col1 = [△,○] y col2 = [○,□], entonces col3 = [___]",
+      "opciones": { "A": "△,○,□", "B": "△,□", "C": "○", "D": "△,○,□,□" },
       "respuesta_correcta": "B",
       "tiempo_minimo_ms": 30000,
-      "patron": "diferencia simetrica de conjuntos",
+      "patron": "diferencia simétrica de conjuntos",
       "subprueba": "abstracto",
       "puntaje": 1,
       "validado": false,
@@ -1052,7 +1475,19 @@
       "p_dificultad": null,
       "r_discriminacion": null,
       "fuente": "construccion_original_Physics_2026",
-      "nota_implementacion": "En la pagina web este item se renderiza con SVG generado dinamicamente segun el campo 'patron'"
+      "visual": {
+        "tipo": "matriz",
+        "filas": [
+          [ { "conjunto": ["triangulo","circulo"] }, { "conjunto": ["circulo","cuadrado"] }, null ]
+        ],
+        "posicion_faltante": [0,2],
+        "opciones": {
+          "A": { "conjunto": ["triangulo","circulo","cuadrado"] },
+          "B": { "conjunto": ["triangulo","cuadrado"] },
+          "C": { "conjunto": ["circulo"] },
+          "D": { "conjunto": ["triangulo","circulo","cuadrado","cuadrado"] }
+        }
+      }
     }
   ]
 }
